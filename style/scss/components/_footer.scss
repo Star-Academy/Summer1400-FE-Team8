@@ -1,0 +1,33 @@
+@use '../abstracts' as *;
+
+footer{
+    background-color:$main-white;
+    display:flex;
+    justify-content:center;
+    .#{&}-content{
+        width:62rem;
+        padding: .89rem 0;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+    }
+    .#{&}-text{
+        display: flex;
+        gap: 1.4rem;
+        
+
+        a{
+            color: $primary-color;
+            font-size: 1.1rem;
+            transition:opacity 0.1s ease-in-out;
+
+            &:hover{
+                opacity:.75;
+            }
+        }
+    }
+    .#{&}-social{
+        display: flex;
+        gap: 1.1rem;
+    }
+}

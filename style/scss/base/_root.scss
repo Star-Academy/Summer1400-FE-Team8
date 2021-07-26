@@ -1,0 +1,45 @@
+
+//   body , head{
+//     overflow-x:hidden;
+//   }
+  body{
+    font-family: 'IRANSansWeb', Arial, Helvetica, sans-serif;
+    direction: rtl;
+    position: relative
+  }
+  
+//   @media only screen and (max-width: 1000px) {
+//     body , head{
+//       overflow-x:scroll !important;
+//     }
+//   }
+  
+  li{
+    list-style: none;
+  }
+  a{
+    text-decoration: none;
+  }
+  a:visited{
+    color: initial;
+  }
+  
+  img{
+    max-width: 100%;
+  }
+  button{
+    border: none;
+    cursor: pointer;
+    outline:none;
+    
+  }
+  button:active{
+  outline: none;
+  }
+  
+  input:focus,select{
+    outline:none;
+  }
+  input{
+    border: none;
+  }

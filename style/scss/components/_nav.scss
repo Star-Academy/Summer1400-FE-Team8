@@ -1,0 +1,42 @@
+@use '../abstracts' as *;
+
+nav{
+    background-color: $main-white;
+    display:flex;
+    justify-content:center;
+    position: relative;
+    box-shadow: 1px 9px 22px 2px rgba(0,0,0,0.45);
+
+    .#{&}-content{
+        width:62rem;
+        padding: .6rem 0;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+    }
+    .#{&}-logo{
+        display:flex;
+        
+
+        h2{
+            font-size: 1.7rem;
+            a{
+                color: $primary-color;
+            }
+        }
+    }
+    .#{&}-menu{
+        display:flex;
+        gap: 1.4rem;
+
+        a{
+            color: $primary-color;
+            font-size: 1.1rem;
+            transition:opacity 0.1s ease-in-out;
+
+            &:hover{
+                opacity:.75;
+            }
+        }
+    }
+}

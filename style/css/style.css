@@ -1,0 +1,317 @@
+@font-face {
+  font-family: "IRANSansWeb";
+  src: url("../../../assets/fonts/IRANSansWeb-Bold.eot");
+  src: url("../../../assets/fonts/IRANSansWeb-Bold.eot?#iefix") format("embedded-opentype"), url("../../../assets/fonts/IRANSansWeb-Bold.woff2") format("woff2"), url("../../../assets/fonts/IRANSansWeb-Bold.woff") format("woff"), url("../../../assets/fonts/IRANSansWeb-Bold.ttf") format("truetype"), url("../../../assets/fonts/IRANSansWeb-Bold.svg#IRANSansWeb-Bold") format("svg");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+body {
+  font-family: "IRANSansWeb", Arial, Helvetica, sans-serif;
+  direction: rtl;
+  position: relative;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: initial;
+}
+
+img {
+  max-width: 100%;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+button:active {
+  outline: none;
+}
+
+input:focus, select {
+  outline: none;
+}
+
+input {
+  border: none;
+}
+
+.btn {
+  border-radius: 1rem;
+  padding: 1rem 1.2rem;
+}
+
+.btn--blue {
+  background-color: #33538b;
+  color: #fff;
+  transition: background-color 0.3s ease-in-out;
+}
+.btn--blue:hover {
+  background-color: #486fb4;
+}
+
+nav {
+  background-color: #ededed;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  box-shadow: 1px 9px 22px 2px rgba(0, 0, 0, 0.45);
+}
+nav .nav-content {
+  width: 62rem;
+  padding: 0.6rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav .nav-logo {
+  display: flex;
+}
+nav .nav-logo h2 {
+  font-size: 1.7rem;
+}
+nav .nav-logo h2 a {
+  color: #504f4f;
+}
+nav .nav-menu {
+  display: flex;
+  gap: 1.4rem;
+}
+nav .nav-menu a {
+  color: #504f4f;
+  font-size: 1.1rem;
+  transition: opacity 0.1s ease-in-out;
+}
+nav .nav-menu a:hover {
+  opacity: 0.75;
+}
+
+footer {
+  background-color: #ededed;
+  display: flex;
+  justify-content: center;
+}
+footer .footer-content {
+  width: 62rem;
+  padding: 0.89rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer .footer-text {
+  display: flex;
+  gap: 1.4rem;
+}
+footer .footer-text a {
+  color: #504f4f;
+  font-size: 1.1rem;
+  transition: opacity 0.1s ease-in-out;
+}
+footer .footer-text a:hover {
+  opacity: 0.75;
+}
+footer .footer-social {
+  display: flex;
+  gap: 1.1rem;
+}
+
+/* ------ landing section ------ */
+.landing {
+  background-image: url("../../../assets/images/Home/landing-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 93vh;
+  display: flex;
+  justify-content: center;
+}
+.landing-content {
+  width: 62rem;
+  margin-top: 12vh;
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+}
+.landing-content-search {
+  text-align: center;
+}
+.landing-content-search form {
+  display: flex;
+  justify-content: center;
+}
+.landing-content-search .search-container {
+  position: relative;
+  width: 70%;
+}
+.landing-content-search .search-icon {
+  position: absolute;
+  height: 100%;
+  padding-top: 0.25rem;
+  right: 0.9rem;
+  border-left: 0.3rem solid #504f4f;
+  cursor: pointer;
+}
+.landing-content-search .search-icon img {
+  width: 4.1rem;
+  height: 3.9rem;
+}
+.landing-content-search input {
+  width: 100%;
+  border-radius: 3.5rem;
+  padding: 1rem 6.4rem 1rem 2rem;
+  color: #504f4f;
+  font-size: 1.6rem;
+}
+.landing-content-search input::placeholder {
+  color: #7e7e7e;
+}
+.landing-content h1 {
+  color: #fff;
+  text-align: center;
+  font-size: 5.2rem;
+  text-shadow: -2px 1px 5px black;
+}
+
+/* ------ about section ------ */
+.about {
+  background-color: #504f4f;
+  height: 93vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.about-content {
+  width: 62rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+  color: #fff;
+  margin-right: 5rem;
+}
+.about-text {
+  flex-basis: 70%;
+}
+.about-text h2 {
+  font-size: 3.5rem;
+}
+.about-text h2 span {
+  padding-bottom: 0.6rem;
+  border-bottom: 0.3rem solid white;
+}
+.about-text p {
+  margin-top: 2.3rem;
+  font-size: 1.4rem;
+  line-height: 2;
+  font-weight: 100;
+  text-align: justify;
+}
+.about-pic {
+  display: flex;
+  align-items: center;
+}
+.about-pic img {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+  width: 42rem;
+}
+.about-register {
+  text-align: center;
+  margin-top: 2.9rem;
+}
+.about-register button {
+  font-size: 1.7rem;
+  padding: 1rem 7rem;
+}
+
+.social {
+  width: 2rem;
+  height: 2rem;
+  filter: invert(29%) sepia(13%) saturate(2%) hue-rotate(54deg) brightness(97%) contrast(91%);
+}
+.social:hover {
+  opacity: 0.8;
+}
+
+/*# sourceMappingURL=style.css.map */

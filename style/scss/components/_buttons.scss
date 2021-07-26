@@ -1,0 +1,15 @@
+@use '../abstracts' as *;
+
+.btn{
+    border-radius: 1rem;
+    padding:1rem 1.2rem;
+}
+.btn--blue{
+    background-color:$secondary-color;
+    color: #fff;
+    transition: background-color .3s ease-in-out;
+
+    &:hover{
+        background-color:$lighter-blue;
+    }
+}
