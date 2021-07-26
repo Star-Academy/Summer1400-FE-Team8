@@ -9,23 +9,72 @@
     <meta name="keywords" content="Ahangify,music" />
     <meta name="description" content="free music platform" />
     <meta name="author" content="Hamed,Amir"/>
+    <link rel="stylesheet" href="style/css/style.css">
     <title>Ahangify</title>
   </head>
   <body>
-    <div class="back">
-      <header>
-        <h1>Ahangify , Look at your watch sometimes!</h1>
-        <nav>
-          <ul>
-            <li><a href="about.html">about</a></li>
-            <li><a href="login.html">login</a></li>
-            <li><a href="register.html">register</a></li>
-            <li><a href="music_lists.html">music_list</a></li>
-            <li><a href="#">home</a></li>
-          </ul>
-        </nav>
-      </header>
-    </div>
-    <footer>All rights reserved</footer>
+    <nav>
+       <div class="nav-content">
+        <div class="nav-logo">
+          <h2><a href="#">آهنگیفای</a></h2>
+        </div>
+        <div class="nav-menu">
+          <div class="nav-menu-item"><a href="#">خانه</a></div>
+          <div class="nav-menu-item"><a href="#">ثبت نام</a></div>
+          <div class="nav-menu-item"><a href="#">ورود</a></div>
+          <div class="nav-menu-item"><a href="#about">درباره ما</a></div>
+        </div>
+       </div>
+    </nav>
+    <section class="landing">
+      <div class="landing-content">
+        <h1>آهنگی که دنبالشی پیدا کن</h1>
+        <div class="landing-content-search">
+          <form>
+            <div class="search-container">
+              <div class="search-icon"><img src="assets/images/saerchBox/search_icon.png" alt=""></div>
+              <input type="search" name="search" placeholder="نام آهنگ ، خواننده و ...">
+            </div>            
+          </form>
+        </div>
+      </div>
+    </section>
+    <section class="about" id="about">
+        <div class="about-content">
+          <div class="about-text">
+            <h2 class="about-text-title">
+              <span>اینجا کجاست؟</span>
+            </h2>
+            <p class="about-text-content">
+              آهنگیفای یه پلتفرم موزیک رایگانه که میتونی
+              با عضویت در سایت ، از آرشیو بینظیر ما شامل هزاران موزیک
+              به صورت کاملا رایگان بهره مند بشی . با دسترسی به همه امکانات 
+              آهنگیفای چندتا کلیک بیشتر فاصله نداری !
+            </p>
+            <div class="about-register">
+              <a href="/register"><button class="btn btn--blue">ثبت نام</button></a>
+            </div>
+          </div>
+          <div class="about-pic">
+            <img src="assets/images/Home/about-vec.svg" alt="about" loading="lazy">
+          </div>
+        </div>
+    </section>
+    <footer>
+      <div class="footer-content">
+        <div class="footer-text">
+          <div class="footer-text-item"><a href="#">صفحه اصلی</a></div>
+          <div class="footer-text-item"><a href="#">ثبت نام</a></div>
+          <div class="footer-text-item"><a href="#">ورود</a></div>
+          <div class="footer-text-item"><a href="#">درباره ما</a></div>
+       </div>
+        <div class="footer-social">
+          <div class="footer-social-item"><a href="#"><img src="assets/images/socials/facebook.svg" alt="" class="social" loading="lazy"></a></div>
+          <div class="footer-social-item"><a href="#"><img src="assets/images/socials/instagram.svg" alt="" class="social" loading="lazy"></a></div>
+          <div class="footer-social-item"><a href="#"><img src="assets/images/socials/twitter.svg" alt="" class="social" loading="lazy"></a></div>
+          <div class="footer-social-item"><a href="#"><img src="assets/images/socials/youtube.svg" alt="" class="social" loading="lazy"></a></div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
