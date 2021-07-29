@@ -45,6 +45,14 @@
     border: none;
   }
 
+  main{
+    background-color: $bg-black;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    min-height:82.7vh;
+    color: #fff;
+  }
+
   ::-webkit-scrollbar {
     width: 15px;
   }
