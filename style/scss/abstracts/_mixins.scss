@@ -1,0 +1,30 @@
+@use './colors' as *;
+
+// login & signup box
+@mixin ls-box {
+    display:flex;
+    justify-content:center;
+    margin-top: 1.5rem;
+    &-content{
+        background-color:white;
+        border-radius: 1rem;
+        box-shadow: 0px 2px 19px -3px $lighter-blue;
+        display:flex;
+        align-items: center;
+        margin-bottom: 4rem;
+        padding:0 2rem 0 0;
+        gap: 4rem;
+    }
+  }
+
+
+  @mixin nav-footer-link {
+        color: $primary-color;
+        font-size: 1.1rem;
+        transition:opacity 0.1s ease-in-out;
+        display:inline-block;
+        transition:opacity 0.1s ease-in-out;
+        &:hover{
+            opacity: .8; 
+        }
+  }

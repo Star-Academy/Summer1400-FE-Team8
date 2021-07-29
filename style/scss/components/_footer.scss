@@ -17,17 +17,30 @@ footer{
         
 
         a{
-            color: $primary-color;
-            font-size: 1.1rem;
-            transition:opacity 0.1s ease-in-out;
-
-            &:hover{
-                opacity:.75;
-            }
+           @include nav-footer-link;
         }
     }
     .#{&}-social{
         display: flex;
         gap: 1.1rem;
+
+        &-item{
+            padding-top: .4rem;
+        }
+    }
+}
+
+footer.footer-dark{
+    background-color: $primary-color !important;
+    
+    .footer-text{
+        a{
+            color: $main-white !important;
+        }
+    }
+    .footer-social{
+        img{
+            filter:$filter-main-white !important;
+        }
     }
 }

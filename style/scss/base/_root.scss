@@ -1,3 +1,4 @@
+@use '../abstracts' as *;
 
 //   body , head{
 //     overflow-x:hidden;
@@ -5,7 +6,7 @@
   body{
     font-family: 'IRANSansWeb', Arial, Helvetica, sans-serif;
     direction: rtl;
-    position: relative
+    position: relative;
   }
   
 //   @media only screen and (max-width: 1000px) {
@@ -31,7 +32,7 @@
     border: none;
     cursor: pointer;
     outline:none;
-    
+    background-color:transparent;
   }
   button:active{
   outline: none;
@@ -42,4 +43,22 @@
   }
   input{
     border: none;
+  }
+
+  ::-webkit-scrollbar {
+    width: 15px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: $main-white;
+    border-radius: 8px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgb(56, 56, 56);
+    border-radius: 8px;  
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
   }

@@ -30,13 +30,18 @@ nav{
         gap: 1.4rem;
 
         a{
-            color: $primary-color;
-            font-size: 1.1rem;
-            transition:opacity 0.1s ease-in-out;
-
-            &:hover{
-                opacity:.75;
-            }
+           @include nav-footer-link;
         }
     }
+}
+
+nav.nav-dark{
+    background-color: $primary-color !important;
+    
+    .nav-content{
+        a{
+            color: $main-white !important;
+        }
+    }
+    
 }

@@ -11,12 +11,14 @@ h1,
 h2,
 h3,
 h4,
+h5,
+h6,
 p,
 figure,
 blockquote,
 dl,
 dd {
-  margin: 0;
+  margin: 0 ;
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
@@ -46,7 +48,7 @@ a:not([class]) {
 img,
 picture {
   max-width: 100%;
-  display: block;
+  // display: block;
 }
 
 /* Inherit fonts for inputs and buttons */
