@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+      name="viewport"
+    />
+    <meta name="keywords" content="Ahangify,music" />
+    <meta name="description" content="free music platform" />
+    <meta name="author" content="Hamed,Amir"/>
+    <link rel="stylesheet" href="style/css/style.css">
+    <title>Ahangify</title>
+  </head>
+  <body>
+    <nav class="nav-dark">
+      <div class="nav-content">
+       <div class="nav-logo">
+         <h2><a href="#">آهنگیفای</a></h2>
+       </div>
+       <div class="nav-menu">
+         <div class="nav-menu-item"><a href="/home.html">خانه</a></div>
+         <div class="nav-menu-item"><a href="/music_search.html">جستجوی موزیک</a></div>
+         <div class="nav-menu-item"><a href="/home.html#about">درباره ما</a></div>
+       </div>
+      </div>
+   </nav>
+    
+   <main class="player-container">
+      <div class="player-content">
+        <div class="player-right">
+            <div class="song-cover">
+              <div class="song-cover-info">
+                <p class="song-cover-info-singer"><span><img src="assets/images/player/person.svg" alt="singer"></span>حسین رحمتی</p>
+                <p class="song-cover-info-name"><span><img src="assets/images/player/music.svg" alt="singer"></span>دوجا</p>
+              </div>
+              <div class="song-cover-pic">
+                <img src="assets/images/player/cover2.jpg" alt="cover">
+              </div>
+            </div>
+            <div class="song-interact">
+              <div class="song-interact-like">
+                <button><img src="assets/images/player/heart_outline.svg" alt="heart"></span></button>
+                <span>1000&nbsp;</span>
+                بار پسندیده شده
+              </div>
+              <div class="song-interact-favorite">
+                 <span><img src="assets/images/player/star_outline.svg" alt="star"></span>
+                <button>افزودن به لیست علاقه مندی</button>
+              </div>
+            </div>
+            <div class="song-play">
+              <div class="song-play-top">
+                <span class="time-passed">0:21</span>
+                <span class="play-range"><input type="range" class="custom-range-slider" min="0" max="100" value="0"></span>
+                <span class="time-remained">4:22</span>
+              </div>
+              <div class="song-play-bottom">
+                <div class="song-play-bottom-right">
+                  <span><img src="assets/images/player/music/volume_up.svg" alt="volume_up"></span>
+                  <span class="volume-range-wrapper"><input type="range" class="custom-range-slider volume-range" min="0" max="100" value="0"></span>
+                  <span><img src="assets/images/player/music/volume_down.svg" alt="volume_down"></span>
+                </div>
+                <div class="song-play-bottom-center">
+                  <button title="آهنگ بعدی"><img src="assets/images/player/music/fast_forward.svg" alt="fast_forward"></button>
+                  <button title="توقف یا اجرا"><img src="assets/images/player/music/play_arrow.svg" alt="play_arrow"></button>
+                  <button title="آهنگ قبلی"><img src="assets/images/player/music/fast_rewind.svg" alt="fast_rewind"></button>
+                </div>
+                <div class="song-play-bottom-left">
+                  <button title="پخش مجدد"><img src="assets/images/player/music/replay.svg" alt="replay"></button>
+                  <button title="افزودن به پلی لیست"><img src="assets/images/player/music/playlist_add.svg" alt="playlist_add"></button>
+                </div>
+              </div>
+            </div>
+            <div class="song-more-details">
+              <details>
+                <summary> اطلاعات بیشتر </summary>
+                <div class="details">
+                  <div class="details-buttons">
+                    <button class="btn details-buttons-info ls-top-btn-active">جزییات</button>
+                    <button class="btn details-buttons-lyrics ls-top-btn-idle">متن</button>
+                  </div>
+                  <div class="details-box">
+                   <div>
+                      <!-- <p><span>خواننده : </span><span>حسین رحمتی</span></p>
+                    <p><span>نام اثر : </span><span>دوجا</span></p>
+                    <p><span>تاریخ انتشار : </span><span>00/02/27</span></p>
+                    <p><span>تعداد پلی : </span><span>1500 </span><span>بار</span></p> -->
+                    <p class="lyrics-container">
+                      بیا بچین جلوم مهرتو
+                      وقت نگیر فقط داری همین فرصتو
+                      کفتار ها دیدن همه قدرتو
+                      تو که جوجی میزنم میپیچم نسختو
+                      من از کف کوچه های خاکی
+                      سبز شدم پس ندارم از هیچ کسی باکی
+                      زندگیم هم درست مثل قصه های راکی
+                      موتور کلافه تر از خود کاوازاکی
+                      بذار ، برسه به گوش اون بالا
+                      ما میکنیم تغذیه از شکم شغالا
+                      آفتابو رنگ زدیم عمریه با ذغالا
+                      ظلمات محض اصلا * کابالا
+                      تو حالا داری بزنی رد پام رو قدم؟
+                      سوخت بدی بمونی باز تو پای هدف
+                      مشکل من و این تابلو های خطر
+                      بس که ندیدمشون از ما ناراحتن
+                      نمیبافم موی رویامو
+                      ببخش اگه خمه اخم هامو
+                      اگه که تا رفاقت راه بود
+                      ولی تهش حقیقتو دیدی تن حرف هامو
+                      همیشه
+                      نمیبافم موی رویامو دیگه
+                      نه نه خالی کنین با یه گل جامو
+                      اگه رفتم دنیا نداشت حال خوش با من
+                      ولی تهش عزیز هایی داد که نور چشمامن
+                      دم شب باز
+                      کلمه ها تو قفس سینه دارن فاز پرواز
+                      ببین عباس
+                      شیر ها * شدن حالا کفتار ها دسته
+                      ایده های قدیمی تو مغز های بسته
+                      میچکه خون از چشای منتظر اتفاقو
+                      مشکل ها مدام میگن که رویا مال قصه هاستو
+                      ببین حقیقت و بکن چشمو بازو
+                      دست هایی که حسابی سرده
+                      مردن تو خاطرات یا زندگی تو لحظه
+                      حالا چک یا با چَک من میکنم نقدت
+                      بگو چیه فاز؟ تبهکار رو بنگه
+                      علی کاسبه هنوز منتظر زنگه
+                      به خیالش شدنیه هدفاش
+                      چون بلنده قدماش
+                      طرز فکرش معلومه از وجنات
+                      حتی خود خدا شاکیه از خلقش
+                      درضمن زیر خشتک آزادی هم
+                      مشغول چاقیدن *
+                      از اون روز که سبز شدم تا حالا
+                      سنگین مثل دست های تقدیر
+                      بگو تهش چیه این مسیر سبزت؟
+                      ساحل فکرت یا کویر محضه؟
+                      رد میشم ازت ولی خب میمونه رَدم
+                      پشت خط چیه * خودم ته خطم
+                      نمیبافم موی رویا رو دیگه سردم
+                      ما رو دیدی صبر نکن فقط بزن دست
+                      نمیبافم موی رویامو
+                      ببخش اگه خمه اخمامو
+                      اگه که تا رفاقت راه بود
+                      ولی تهش حقیقتو دیدی تن حرف هامو
+                      همیشه
+                      نمیبافم موی رویامو دیگه
+                      نه نه خالی کنین با یه گل جامو
+                      اگه رفتم دنیا نداشت حال خوش بامن
+                      ولی تهش عزیز هایی داد که نور چشمامن
+                      میان راه سفر از سرای مسئولین صدای سرفه می آمد
+                      من از مصاحبت آفتاب می‌آیم
+                      کجاست ساحل؟
+                      بذار بهت بگم من کجا بودم
+                      با یه دستبند چشم بسته نا کجا تو حبس
+                      خیره میشدم مثل * تو سقف
+                      وقت دادگاه پشت همه قاتل ها تو صف
+                      همین من بودم که چهار تا چهار تا سالا
+                      میرفتم اون پله های دادسرا رو بالا
+                      قاضی میگفت بنویس جرمت با خودت همین حالا
+                      و الا که فردا قبل نماز میکشیمت بالا
+                      گفتم حاجی حله بگم شرمنده ام؟
+                      گفت نه کمه بگو شدی سرکرده غرب
+                      سرم پایین میزدم یه لبخند نرم
+                      عقب پلا خراب جلوم سنگ قبر
+                      صورتم که جای چک و سیلی
+                      کبودی کتک های بعد دستگیری
+                      کدومشو میخوای بگم ، بگو
+                      لک میزد دله واسه یه لحظه نور
+                      کف قفسا تنگه نفسا همه لحظات
+                      میگذره برام برابر سال
+                      دست بر قضا من تو این فضا
+                      گیر و گور بودم چند سالی درست مثل کور بی عصا
+                      همون روز هایی که همه بودین فرنگ
+                      دنبال جا بودین تو سفره ی حقوق بشر
+                      من ، دیدم فاصله‌ی من و مرگ خوابه
+                      یهو رد دادم رفتم تو دل اربابت
+                      * به ریش نیست به ریشس
+                      بزن به چاک
+                    </p>
+                   </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+        </div>
+        <div class="player-left">
+            <h2>مرتبط با سلیقت</h2>
+            <div>
+              <div class="playlist-box">
+                <div class="playlist-box-item">
+                  <div class="playlist-box-item-pic">
+                    <img src="assets/images/player/cover2.jpg" alt="cover">
+                  </div>
+                  <div class="playlist-box-item-text">
+                    <h6>حسین رحمتی</h6>
+                    <h5>دوجا</h5>
+                  </div>
+                  <div class="playlist-box-item-add">
+                        <button>
+                        </button>
+                  </div>
+                </div>
+                <div class="playlist-box-item">
+                  <div class="playlist-box-item-pic">
+                    <img src="assets/images/player/cover2.jpg" alt="cover">
+                  </div>
+                  <div class="playlist-box-item-text">
+                    <h6>حسین رحمتی</h6>
+                    <h5>دوجا</h5>
+                  </div>
+                  <div class="playlist-box-item-add">
+                        <button>
+                        </button>
+                  </div>
+                </div>
+                <div class="playlist-box-item">
+                  <div class="playlist-box-item-pic">
+                    <img src="assets/images/player/cover2.jpg" alt="cover">
+                  </div>
+                  <div class="playlist-box-item-text">
+                    <h6>حسین رحمتی</h6>
+                    <h5>دوجا</h5>
+                  </div>
+                  <div class="playlist-box-item-add">
+                        <button>
+                        </button>
+                  </div>
+                </div>
+                <div class="playlist-box-item">
+                  <div class="playlist-box-item-pic">
+                    <img src="assets/images/player/cover2.jpg" alt="cover">
+                  </div>
+                  <div class="playlist-box-item-text">
+                    <h6>حسین رحمتی</h6>
+                    <h5>دوجا</h5>
+                  </div>
+                  <div class="playlist-box-item-add">
+                        <button>
+                        </button>
+                  </div>
+                </div>
+                <div class="playlist-box-item">
+                  <div class="playlist-box-item-pic">
+                    <img src="assets/images/player/cover2.jpg" alt="cover">
+                  </div>
+                  <div class="playlist-box-item-text">
+                    <h6>حسین رحمتی</h6>
+                    <h5>دوجا</h5>
+                  </div>
+                  <div class="playlist-box-item-add">
+                        <button>
+                        </button>
+                  </div>
+                </div>
+                <div class="playlist-box-item">
+                  <div class="playlist-box-item-pic">
+                    <img src="assets/images/player/cover2.jpg" alt="cover">
+                  </div>
+                  <div class="playlist-box-item-text">
+                    <h6>حسین رحمتی</h6>
+                    <h5>دوجا</h5>
+                  </div>
+                  <div class="playlist-box-item-add">
+                        <button>
+                        </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+   </main>
+   
+    <footer class="footer-dark">
+      <div class="footer-content">
+        <div class="footer-text">
+          <div class="footer-text-item"><a href="/home.html">خانه</a></div>
+          <div class="footer-text-item"><a href="/music_search.html">جستجوی موزیک</a></div>
+          <div class="footer-text-item"><a href="/home.html#about">درباره ما</a></div>
+       </div>
+        <div class="footer-social">
+          <div class="footer-social-item"><a href="#"><img src="assets/images/socials/facebook.svg" alt="" class="social" loading="lazy"></a></div>
+          <div class="footer-social-item"><a href="#"><img src="assets/images/socials/instagram.svg" alt="" class="social" loading="lazy"></a></div>
+          <div class="footer-social-item"><a href="#"><img src="assets/images/socials/twitter.svg" alt="" class="social" loading="lazy"></a></div>
+          <div class="footer-social-item"><a href="#"><img src="assets/images/socials/youtube.svg" alt="" class="social" loading="lazy"></a></div>
+        </div>
+      </div>
+     
+    </footer>
+  </body>
+</html>
