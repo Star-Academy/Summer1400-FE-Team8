@@ -1,43 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
   <head>
     <meta charset="UTF-8" />
     <meta
-      name="viewport"
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+      name="viewport"
     />
     <meta name="keywords" content="Ahangify,music" />
     <meta name="description" content="free music platform" />
-    <meta name="author" content="Hamed,Amir" />
-    <title>log_in</title>
+    <meta name="author" content="Hamed,Amir"/>
+    <link rel="stylesheet" href="style/css/style.css">
+    <title>Ahangify</title>
   </head>
-  <body>
-    <h1>Ahangify</h1>
 
-    <nav>
-      <ul>
-        <li><a href="home.html">home</a></li>
-        <li><a href="#">login</a></li>
-        <li><a href="register.html">register</a></li>
-        <li><a href="about.html">about</a></li>
-      </ul>
-    </nav>
 
-    <form>
-      <h2>Log in</h2>
-      <hr />
-      <label for="email">Email</label>
-      <input type="email" name="email" id="email" required />
-      <label for="password">Password</label>
-      <input type="password" name="password" id="password" required />
-      <hr />
-      <button type="submit" class="login-button">log in</button>
-      <div class="container-register">
-        <p>
-          Don't you have an account yet ? <a href="register.html">Register</a>.
-        </p>
+<body>
+  <nav>
+    <div class="nav-content">
+     <div class="nav-logo">
+       <h2><a href="#">آهنگیفای</a></h2>
+     </div>
+     <div class="nav-menu">
+       <div class="nav-menu-item"><a href="/home.html">خانه</a></div>
+       <div class="nav-menu-item"><a href="/signup.html">ثبت نام</a></div>
+       <div class="nav-menu-item"><a href="/login.html">ورود</a></div>
+       <div class="nav-menu-item"><a href="/home.html#about">درباره ما</a></div>
+     </div>
+    </div>
+ </nav>
+
+  <main class="ls-container">
+    <section class="ls-top-container">
+        <div class="ls-top-headphone">
+            <img src="assets/images/login/headset.svg" alt="">
+            <div class="ls-top-btns">
+                <a href="#"><button class="btn ls-top-btn-active ls-top-btn-login">ورود</button></a>
+                <a href="#"><button class="btn ls-top-btn-idle ls-top-btn-register">ثبت نام</button></a>
+            </div>
+        </div>
+        
+    </section>
+    <section class="login-box">
+        <div class="login-box-content">
+             <div class="login-box-text">   
+                 <h2>ورود به حساب کاربری</h2>
+                 <div class="login-box-alert"></div>
+                <form class="login-box-form">
+                    <div>
+                        <input class="custom-input" type="email" placeholder="ایمیل">
+                    </div>
+                    <div>
+                        <input class="custom-input" type="password" placeholder="رمز عبور">
+                    </div>
+                    <div class="remember-container">
+                        <input type="checkbox" name="remember-me">
+                        <label for="remember-me">مرا به خاطر بسپار</label>
+                    </div>
+                    <div class="login-submit-container">
+                        <input type="submit" value="ورود" class="btn btn--blue">
+                    </div>
+                    <p class="foreget-password"><a href="#">رمز عبورم را فراموش کرده ام</a></p>
+                </form>
+            </div> 
+            <div class="login-box-pic">
+                <img src="assets/images/login/5870.svg" alt="">
+             </div>     
+        </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-text">
+        <div class="footer-text-item"><a href="/home.html">خانه</a></div>
+        <div class="footer-text-item"><a href="/signup.html">ثبت نام</a></div>
+        <div class="footer-text-item"><a href="/login.html">ورود</a></div>
+        <div class="footer-text-item"><a href="/home.html#about">درباره ما</a></div>
+     </div>
+      <div class="footer-social">
+        <div class="footer-social-item"><a href="#"><img src="assets/images/socials/facebook.svg" alt="" class="social" loading="lazy"></a></div>
+        <div class="footer-social-item"><a href="#"><img src="assets/images/socials/instagram.svg" alt="" class="social" loading="lazy"></a></div>
+        <div class="footer-social-item"><a href="#"><img src="assets/images/socials/twitter.svg" alt="" class="social" loading="lazy"></a></div>
+        <div class="footer-social-item"><a href="#"><img src="assets/images/socials/youtube.svg" alt="" class="social" loading="lazy"></a></div>
       </div>
-    </form>
-    <footer>All rights reserved</footer>
-  </body>
+    </div>
+  </footer>
+</body>
+
+
 </html>
