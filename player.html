@@ -9,7 +9,7 @@
     <meta name="keywords" content="Ahangify,music" />
     <meta name="description" content="free music platform" />
     <meta name="author" content="Hamed,Amir"/>
-    <link rel="stylesheet" href="style/css/style.css">
+    <link rel="stylesheet" href="styles/style.css">
     <title>Ahangify</title>
   </head>
   <body>
@@ -40,7 +40,7 @@
             </div>
             <div class="song-interact">
               <div class="song-interact-like">
-                <button><img src="assets/images/player/heart_outline.svg" alt="heart"></span></button>
+                <button><img src="assets/images/player/heart_outline.svg" alt="heart"></button>
                 <span>1000&nbsp;</span>
                 بار پسندیده شده
               </div>
@@ -51,7 +51,7 @@
             </div>
             <div class="song-play">
               <div class="song-play-top">
-                <span class="time-passed">0:21</span>
+                <span class="time-passed">0:00</span>
                 <span class="play-range"><input type="range" class="custom-range-slider" min="0" max="100" value="0"></span>
                 <span class="time-remained">4:22</span>
               </div>
@@ -62,9 +62,9 @@
                   <span><img src="assets/images/player/music/volume_down.svg" alt="volume_down"></span>
                 </div>
                 <div class="song-play-bottom-center">
-                  <button title="آهنگ بعدی"><img src="assets/images/player/music/fast_forward.svg" alt="fast_forward"></button>
-                  <button title="توقف یا اجرا"><img src="assets/images/player/music/play_arrow.svg" alt="play_arrow"></button>
-                  <button title="آهنگ قبلی"><img src="assets/images/player/music/fast_rewind.svg" alt="fast_rewind"></button>
+                  <button id="Next" title="آهنگ بعدی"><img src="assets/images/player/music/fast_forward.svg" alt="fast_forward"></button>
+                  <button id="PlayPause" title="توقف یا اجرا"><img src="assets/images/player/music/play_arrow.svg" alt="play_arrow"></button>
+                  <button id="Prev" title="آهنگ قبلی"><img src="assets/images/player/music/fast_rewind.svg" alt="fast_rewind"></button>
                 </div>
                 <div class="song-play-bottom-left">
                   <button title="پخش مجدد"><img src="assets/images/player/music/replay.svg" alt="replay"></button>
@@ -77,16 +77,29 @@
                 <summary> اطلاعات بیشتر </summary>
                 <div class="details">
                   <div class="details-buttons">
-                    <button class="btn details-buttons-info ls-top-btn-active">جزییات</button>
-                    <button class="btn details-buttons-lyrics ls-top-btn-idle">متن</button>
+                    <button class="btn details-buttons-info ls-top-btn-idle">جزییات</button>
+                    <button class="btn details-buttons-lyrics ls-top-btn-active">متن</button>
                   </div>
                   <div class="details-box">
                    <div>
-                      <!-- <p><span>خواننده : </span><span>حسین رحمتی</span></p>
-                    <p><span>نام اثر : </span><span>دوجا</span></p>
-                    <p><span>تاریخ انتشار : </span><span>00/02/27</span></p>
-                    <p><span>تعداد پلی : </span><span>1500 </span><span>بار</span></p> -->
+                     <div class="detailed">
+<!--
+.detailed
+{
+  visibility: hidden;
+  position: relative;
+}-->
+                       <div class="infs">
+                         <p><span>خواننده : </span><span>نام خواننده</span></p>
+                         <p><span>نام اثر : </span><span>نام آهنگ</span></p>
+                         <p><span>تاریخ انتشار : </span><span>00/05/07</span></p>
+                         <p><span>تعداد پلی : </span><span>1500 </span><span>بار</span></p>
+                       </div>
+
                     <p class="lyrics-container">
+<!-- position: absolute;
+  visibility: visible;
+  top: 0;-->
                       بیا بچین جلوم مهرتو
                       وقت نگیر فقط داری همین فرصتو
                       کفتار ها دیدن همه قدرتو
@@ -178,6 +191,7 @@
                       * به ریش نیست به ریشس
                       بزن به چاک
                     </p>
+                     </div>
                    </div>
                   </div>
                 </div>
@@ -188,84 +202,7 @@
             <h2>مرتبط با سلیقت</h2>
             <div>
               <div class="playlist-box">
-                <div class="playlist-box-item">
-                  <div class="playlist-box-item-pic">
-                    <img src="assets/images/player/cover2.jpg" alt="cover">
-                  </div>
-                  <div class="playlist-box-item-text">
-                    <h6>حسین رحمتی</h6>
-                    <h5>دوجا</h5>
-                  </div>
-                  <div class="playlist-box-item-add">
-                        <button>
-                        </button>
-                  </div>
-                </div>
-                <div class="playlist-box-item">
-                  <div class="playlist-box-item-pic">
-                    <img src="assets/images/player/cover2.jpg" alt="cover">
-                  </div>
-                  <div class="playlist-box-item-text">
-                    <h6>حسین رحمتی</h6>
-                    <h5>دوجا</h5>
-                  </div>
-                  <div class="playlist-box-item-add">
-                        <button>
-                        </button>
-                  </div>
-                </div>
-                <div class="playlist-box-item">
-                  <div class="playlist-box-item-pic">
-                    <img src="assets/images/player/cover2.jpg" alt="cover">
-                  </div>
-                  <div class="playlist-box-item-text">
-                    <h6>حسین رحمتی</h6>
-                    <h5>دوجا</h5>
-                  </div>
-                  <div class="playlist-box-item-add">
-                        <button>
-                        </button>
-                  </div>
-                </div>
-                <div class="playlist-box-item">
-                  <div class="playlist-box-item-pic">
-                    <img src="assets/images/player/cover2.jpg" alt="cover">
-                  </div>
-                  <div class="playlist-box-item-text">
-                    <h6>حسین رحمتی</h6>
-                    <h5>دوجا</h5>
-                  </div>
-                  <div class="playlist-box-item-add">
-                        <button>
-                        </button>
-                  </div>
-                </div>
-                <div class="playlist-box-item">
-                  <div class="playlist-box-item-pic">
-                    <img src="assets/images/player/cover2.jpg" alt="cover">
-                  </div>
-                  <div class="playlist-box-item-text">
-                    <h6>حسین رحمتی</h6>
-                    <h5>دوجا</h5>
-                  </div>
-                  <div class="playlist-box-item-add">
-                        <button>
-                        </button>
-                  </div>
-                </div>
-                <div class="playlist-box-item">
-                  <div class="playlist-box-item-pic">
-                    <img src="assets/images/player/cover2.jpg" alt="cover">
-                  </div>
-                  <div class="playlist-box-item-text">
-                    <h6>حسین رحمتی</h6>
-                    <h5>دوجا</h5>
-                  </div>
-                  <div class="playlist-box-item-add">
-                        <button>
-                        </button>
-                  </div>
-                </div>
+
               </div>
             </div>
         </div>
@@ -289,4 +226,5 @@
      
     </footer>
   </body>
+  <script src="player.js"></script>
 </html>
