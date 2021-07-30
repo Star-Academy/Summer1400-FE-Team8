@@ -50,35 +50,8 @@ main.favorites-container{
             h6{
                 font-size: .9rem !important; 
             }
-            &-play{
-                margin-right: auto !important;
-                margin-left: 1rem !important;
-                button{
-                    width: 0;
-                    height: 0;
-                    border-top: .9rem solid transparent;
-                    border-left: 1.8rem solid $main-white;
-                    border-bottom: .9rem solid transparent;
-                    cursor: default;
-                    &:hover{
-                        transform: scale(1.1);
-                    }
-                }
-            }
-            &-delete{
-                margin-left: 1rem;
-                display: flex;
-                align-items: center;
-                img{
-                    filter:$filter-main-white;
-                    width:1.7rem;
-                    cursor: default;
-
-                    &:hover{
-                        transform: scale(1.1);  
-                    }
-                }
-            }
+            
+           
         }
     }
 }

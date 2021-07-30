@@ -198,6 +198,48 @@ nav.nav-dark .nav-content a {
   color: #ededed !important;
 }
 
+.landing-content-search,
+.search-box {
+  text-align: center;
+}
+.landing-content-search form,
+.search-box form {
+  display: flex;
+  justify-content: center;
+}
+.landing-content-search .search-container,
+.search-box .search-container {
+  position: relative;
+  width: 70%;
+}
+.landing-content-search .search-icon,
+.search-box .search-icon {
+  position: absolute;
+  height: 100%;
+  padding-top: 0.25rem;
+  right: 0.9rem;
+  border-left: 0.3rem solid #45484a;
+  cursor: pointer;
+}
+.landing-content-search .search-icon img,
+.search-box .search-icon img {
+  width: 4.1rem;
+  height: 3.9rem;
+  filter: invert(31%) sepia(7%) saturate(24%) hue-rotate(323deg) brightness(95%) contrast(93%);
+}
+.landing-content-search input,
+.search-box input {
+  width: 100%;
+  border-radius: 3.5rem;
+  padding: 1rem 6.4rem 1rem 2rem;
+  color: #45484a;
+  font-size: 1.6rem;
+}
+.landing-content-search input::placeholder,
+.search-box input::placeholder {
+  color: #6f7476;
+}
+
 footer {
   background-color: #ededed;
   display: flex;
@@ -293,7 +335,8 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
 }
 
 .favorites-box-item,
-.playlist-box-item {
+.playlist-box-item,
+.search-results-box-item {
   display: flex;
   cursor: pointer;
   background-color: #45484a;
@@ -304,15 +347,18 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
   transition: background-color 0.1s ease-in-out;
 }
 .favorites-box-item:hover,
-.playlist-box-item:hover {
+.playlist-box-item:hover,
+.search-results-box-item:hover {
   background-color: #6f7476;
 }
 .favorites-box-item:last-child,
-.playlist-box-item:last-child {
+.playlist-box-item:last-child,
+.search-results-box-item:last-child {
   border-bottom: none !important;
 }
 .favorites-box-item-pic img,
-.playlist-box-item-pic img {
+.playlist-box-item-pic img,
+.search-results-box-item-pic img {
   width: 3.5rem;
   height: 3.5rem;
   aspect-ratio: 1/1;
@@ -321,28 +367,33 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
   align-items: center;
 }
 .favorites-box-item-text,
-.playlist-box-item-text {
+.playlist-box-item-text,
+.search-results-box-item-text {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
 }
 .favorites-box-item-text h6,
-.playlist-box-item-text h6 {
+.playlist-box-item-text h6,
+.search-results-box-item-text h6 {
   font-size: 0.7rem;
 }
 .favorites-box-item-text h5,
-.playlist-box-item-text h5 {
+.playlist-box-item-text h5,
+.search-results-box-item-text h5 {
   font-size: 1.1rem;
 }
 .favorites-box-item-add,
-.playlist-box-item-add {
+.playlist-box-item-add,
+.search-results-box-item-add {
   margin-right: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .favorites-box-item-add button,
-.playlist-box-item-add button {
+.playlist-box-item-add button,
+.search-results-box-item-add button {
   display: inline-block;
   width: 2.6rem;
   height: 2.6rem;
@@ -353,6 +404,46 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
   /*thickness = 2px, length = 50% (25px)*/
   background-repeat: no-repeat;
   border-radius: 0.2rem;
+}
+.favorites-box-item-play,
+.playlist-box-item-play,
+.search-results-box-item-play {
+  margin-right: auto !important;
+  margin-left: 1rem !important;
+}
+.favorites-box-item-play button,
+.playlist-box-item-play button,
+.search-results-box-item-play button {
+  width: 0;
+  height: 0;
+  border-top: 0.9rem solid transparent;
+  border-left: 1.8rem solid #ededed;
+  border-bottom: 0.9rem solid transparent;
+  cursor: default;
+}
+.favorites-box-item-play button:hover,
+.playlist-box-item-play button:hover,
+.search-results-box-item-play button:hover {
+  transform: scale(1.1);
+}
+.favorites-box-item-delete,
+.playlist-box-item-delete,
+.search-results-box-item-delete {
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+}
+.favorites-box-item-delete img,
+.playlist-box-item-delete img,
+.search-results-box-item-delete img {
+  filter: invert(98%) sepia(21%) saturate(239%) hue-rotate(230deg) brightness(114%) contrast(86%);
+  width: 1.7rem;
+  cursor: default;
+}
+.favorites-box-item-delete img:hover,
+.playlist-box-item-delete img:hover,
+.search-results-box-item-delete img:hover {
+  transform: scale(1.1);
 }
 
 /* ------ landing section ------ */
@@ -866,34 +957,6 @@ main.favorites-container div.favorites-box-item h5 {
 main.favorites-container div.favorites-box-item h6 {
   font-size: 0.9rem !important;
 }
-main.favorites-container div.favorites-box-item-play {
-  margin-right: auto !important;
-  margin-left: 1rem !important;
-}
-main.favorites-container div.favorites-box-item-play button {
-  width: 0;
-  height: 0;
-  border-top: 0.9rem solid transparent;
-  border-left: 1.8rem solid #ededed;
-  border-bottom: 0.9rem solid transparent;
-  cursor: default;
-}
-main.favorites-container div.favorites-box-item-play button:hover {
-  transform: scale(1.1);
-}
-main.favorites-container div.favorites-box-item-delete {
-  margin-left: 1rem;
-  display: flex;
-  align-items: center;
-}
-main.favorites-container div.favorites-box-item-delete img {
-  filter: invert(98%) sepia(21%) saturate(239%) hue-rotate(230deg) brightness(114%) contrast(86%);
-  width: 1.7rem;
-  cursor: default;
-}
-main.favorites-container div.favorites-box-item-delete img:hover {
-  transform: scale(1.1);
-}
 
 main.playlists-container {
   display: flex;
@@ -959,26 +1022,86 @@ main.playlists-container .playlists-item-text h4 {
 main.playlists-container .playlists-item-text h4 a {
   color: #fff;
 }
-main.playlists-container .playlists-item-play {
-  padding-left: 1rem;
+
+main.search-container h1 {
+  text-align: center;
+  margin-bottom: 2rem;
 }
-main.playlists-container .playlists-item-play button {
-  width: 0;
-  height: 0;
-  border-top: 0.9rem solid transparent;
-  border-left: 1.8rem solid #ededed;
-  border-bottom: 0.9rem solid transparent;
-  cursor: default;
+main.search-container .search .search-container {
+  width: 50%;
 }
-main.playlists-container .playlists-item-play button:hover {
-  transform: scale(1.1);
+main.search-container .search .search-actions-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 4.5rem;
 }
-main.playlists-container .playlists-item-delete img {
-  filter: invert(98%) sepia(21%) saturate(239%) hue-rotate(230deg) brightness(114%) contrast(86%);
-  cursor: default;
+main.search-container .search .search-actions-container .search-actions {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 70%;
+  gap: 5rem;
+  color: white;
 }
-main.playlists-container .playlists-item-delete img:hover {
-  transform: scale(1.1);
+main.search-container .search-filter {
+  flex-basis: 30%;
+  padding: 2rem 1rem;
+  background-color: #45484a;
+}
+main.search-container .search-filter-mode {
+  margin-bottom: 2rem;
+}
+main.search-container .search-filter-mode input[type=radio] {
+  vertical-align: -3px;
+}
+main.search-container .search-filter-genre input[type=checkbox] {
+  transform: scale(1.5);
+  filter: hue-rotate(-12deg);
+  vertical-align: -3px;
+  margin-left: 0.5rem;
+}
+main.search-container .search-filter label {
+  color: white !important;
+}
+main.search-container .search-filter input {
+  margin-right: 0.8rem;
+  margin-top: 1rem;
+}
+main.search-container .search-filter h3 {
+  margin-bottom: 0.3rem;
+}
+main.search-container .search-filter h3 span {
+  margin-left: 0.5rem;
+}
+main.search-container .search-filter h3 span img {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(203deg) brightness(101%) contrast(102%);
+  width: 1.5rem;
+  vertical-align: -7px;
+}
+main.search-container .search-results-box {
+  flex-basis: 70%;
+  height: 42rem;
+  overflow: auto;
+  direction: ltr !important;
+}
+main.search-container .search-results-box-item {
+  border-bottom: none;
+  margin-bottom: 1rem;
+  direction: rtl !important;
+}
+main.search-container .search-results-box-item-text {
+  margin-right: 0.4rem;
+  gap: 1rem;
+}
+main.search-container .search-results-box-item img {
+  width: 5.4rem;
+  height: 5.4rem;
+}
+main.search-container .search-results-box-item h4 {
+  font-size: 1.6rem;
+}
+main.search-container .search-results-box-item h5 {
+  font-size: 1rem;
 }
 
 .social {

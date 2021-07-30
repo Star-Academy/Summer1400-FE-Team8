@@ -75,29 +75,7 @@ main.playlists-container{
                 }
             }
 
-            &-play{
-                padding-left: 1rem;
-                button{
-                    width: 0;
-                    height: 0;
-                    border-top: .9rem solid transparent;
-                    border-left: 1.8rem solid $main-white;
-                    border-bottom: .9rem solid transparent;
-                    cursor: default;
-                    &:hover{
-                        transform: scale(1.1);
-                    }
-                }
-            }
-            &-delete{
-               img{
-                    filter :$filter-main-white;
-                    cursor: default;
-                    &:hover{
-                        transform: scale(1.1);  
-                    }
-               }
-            }
+           
         }
     }
 }
