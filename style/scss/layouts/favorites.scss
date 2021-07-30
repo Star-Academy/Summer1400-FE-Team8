@@ -58,7 +58,7 @@ main.favorites-container{
                     border-top: .9rem solid transparent;
                     border-left: 1.8rem solid $main-white;
                     border-bottom: .9rem solid transparent;
-
+                    cursor: default;
                     &:hover{
                         transform: scale(1.1);
                     }
@@ -71,6 +71,7 @@ main.favorites-container{
                 img{
                     filter:$filter-main-white;
                     width:1.7rem;
+                    cursor: default;
 
                     &:hover{
                         transform: scale(1.1);  
