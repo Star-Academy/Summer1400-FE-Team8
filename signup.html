@@ -1,88 +1,106 @@
 <!DOCTYPE html>
 <html lang="fa">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-      name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+            name="viewport"
     />
     <meta name="keywords" content="Ahangify,music" />
     <meta name="description" content="free music platform" />
     <meta name="author" content="Hamed,Amir"/>
-    <link rel="stylesheet" href="style/css/style.css">
+    <link rel="stylesheet" href="styles/style.css">
     <title>Ahangify</title>
-  </head>
+</head>
 
+<style>
 
+    .ls-top-btns > h2:hover
+    {
+        background-color: #33538b;
+        color: #fff;
+    }
+    form  > div > #name_error , #mail_error , #pass_error , #repeat_error
+    {
+        color: red;
+        font-size: 85%;
+    }
+
+</style>
 <body>
-  <nav>
+<nav>
     <div class="nav-content">
-     <div class="nav-logo">
-       <h2><a href="#">آهنگیفای</a></h2>
-     </div>
-     <div class="nav-menu">
-       <div class="nav-menu-item"><a href="/home.html">خانه</a></div>
-       <div class="nav-menu-item"><a href="/signup.html">ثبت نام</a></div>
-       <div class="nav-menu-item"><a href="/login.html">ورود</a></div>
-       <div class="nav-menu-item"><a href="/home.html#about">درباره ما</a></div>
-     </div>
+        <div class="nav-logo">
+            <h2><a href="#">آهنگیفای</a></h2>
+        </div>
+        <div class="nav-menu">
+            <div class="nav-menu-item"><a href="/home.html">خانه</a></div>
+            <div class="nav-menu-item"><a href="/signup.html">ثبت نام</a></div>
+            <div class="nav-menu-item"><a href="/login.html">ورود</a></div>
+            <div class="nav-menu-item"><a href="/home.html#about">درباره ما</a></div>
+        </div>
     </div>
- </nav>
+</nav>
 
-  <main class="ls-container">
+<main class="ls-container">
     <section class="ls-top-container">
         <div class="ls-top-headphone">
             <img src="assets/images/login/headset.svg" alt="">
             <div class="ls-top-btns">
-                <a href="#"><button class="btn ls-top-btn-idle ls-top-btn-login">ورود</button></a>
-                <a href="#"><button class="btn ls-top-btn-active ls-top-btn-register">ثبت نام</button></a>
+                <h2> فرم ثبت نام </h2>
             </div>
         </div>
-        
+
     </section>
     <section class="signup-box">
         <div class="signup-box-content">
-           <form>
-             <div>
-              <label for="name">نام</label>
-              <input type="text" class="custom-input" name="name">
-             </div>
-             <div>
-              <label for="email">ایمیل</label>
-              <input type="email" class="custom-input" name="email">
-             </div>
-             <div>
-              <label for="password">رمز عبور</label>
-              <input type="password" class="custom-input" name="password">
-             </div>
-             <div>
-              <label for="password-repeat">تکرار رمز عبور</label>
-              <input type="password" class="custom-input" name="password-repeat">
-             </div>
-             <div class="signup-submit-container">
-                <button class="btn btn--blue">ثبت نام</button>
-             </div>
-           </form>
+            <form name="register_form" method="post" action="" onsubmit="return register_validation()">
+                <div>
+                    <label for="name">نام</label>
+                    <input type="text" class="custom-input" name="name">
+                    <div id="name_error"></div>
+                </div>
+                <div>
+                    <label for="email">ایمیل</label>
+                    <input type="text" class="custom-input" name="email">
+                    <div id="mail_error"></div>
+                </div>
+                <div>
+                    <label for="password">رمز عبور</label>
+                    <input type="password" class="custom-input" name="password">
+                    <div id="pass_error"></div>
+
+                </div>
+                <div>
+                    <label for="password-repeat">تکرار رمز عبور</label>
+                    <input type="password" class="custom-input" name="password_repeat">
+                    <div id="repeat_error"></div>
+                </div>
+                <div class="signup-submit-container">
+                    <button type="submit" class="btn btn--blue">ثبت نام</button>
+                </div>
+            </form>
         </div>
     </section>
-  </main>
-  <footer>
+</main>
+<footer>
     <div class="footer-content">
-      <div class="footer-text">
-        <div class="footer-text-item"><a href="/home.html">خانه</a></div>
-        <div class="footer-text-item"><a href="/signup.html">ثبت نام</a></div>
-        <div class="footer-text-item"><a href="/login.html">ورود</a></div>
-        <div class="footer-text-item"><a href="/home.html#about">درباره ما</a></div>
-     </div>
-      <div class="footer-social">
-        <div class="footer-social-item"><a href="#"><img src="assets/images/socials/facebook.svg" alt="" class="social" loading="lazy"></a></div>
-        <div class="footer-social-item"><a href="#"><img src="assets/images/socials/instagram.svg" alt="" class="social" loading="lazy"></a></div>
-        <div class="footer-social-item"><a href="#"><img src="assets/images/socials/twitter.svg" alt="" class="social" loading="lazy"></a></div>
-        <div class="footer-social-item"><a href="#"><img src="assets/images/socials/youtube.svg" alt="" class="social" loading="lazy"></a></div>
-      </div>
+        <div class="footer-text">
+            <div class="footer-text-item"><a href="/home.html">خانه</a></div>
+            <div class="footer-text-item"><a href="/signup.html">ثبت نام</a></div>
+            <div class="footer-text-item"><a href="/login.html">ورود</a></div>
+            <div class="footer-text-item"><a href="/home.html#about">درباره ما</a></div>
+        </div>
+        <div class="footer-social">
+            <div class="footer-social-item"><a href="#"><img src="assets/images/socials/facebook.svg" alt="" class="social" loading="lazy"></a></div>
+            <div class="footer-social-item"><a href="#"><img src="assets/images/socials/instagram.svg" alt="" class="social" loading="lazy"></a></div>
+            <div class="footer-social-item"><a href="#"><img src="assets/images/socials/twitter.svg" alt="" class="social" loading="lazy"></a></div>
+            <div class="footer-social-item"><a href="#"><img src="assets/images/socials/youtube.svg" alt="" class="social" loading="lazy"></a></div>
+        </div>
     </div>
-  </footer>
+</footer>
 </body>
 
+<script src="register-validation.js"></script>
 
 </html>
