@@ -1,7 +1,7 @@
 @font-face {
   font-family: "IRANSansWeb";
-  src: url("../../../assets/fonts/IRANSansWeb-Bold.eot");
-  src: url("../../../assets/fonts/IRANSansWeb-Bold.eot?#iefix") format("embedded-opentype"), url("../../../assets/fonts/IRANSansWeb-Bold.woff2") format("woff2"), url("../../../assets/fonts/IRANSansWeb-Bold.woff") format("woff"), url("../../../assets/fonts/IRANSansWeb-Bold.ttf") format("truetype"), url("../../../assets/fonts/IRANSansWeb-Bold.svg#IRANSansWeb-Bold") format("svg");
+  src: url("/assets/fonts/IRANSansWeb-Bold.eot");
+  src: url("assets/fonts/IRANSansWeb-Bold.eot?#iefix") format("embedded-opentype"), url("assets/fonts/IRANSansWeb-Bold.woff2") format("woff2"), url("assets/fonts/IRANSansWeb-Bold.woff") format("woff"), url("assets/fonts/IRANSansWeb-Bold.ttf") format("truetype"), url("assets/fonts/IRANSansWeb-Bold.svg#IRANSansWeb-Bold") format("svg");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -144,7 +144,6 @@ label {
   color: #504f4f;
   font-size: 1.2rem;
 }
-
 nav {
   background-color: #ededed;
   display: flex;
@@ -286,7 +285,7 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
 
 /* ------ landing section ------ */
 .landing {
-  background-image: url("../../../assets/images/Home/landing-bg.jpg");
+  background-image: url("assets/images/Home/landing-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 93vh;
@@ -504,6 +503,13 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
 .player-container .player-content .player-right .song-interact-favorite img {
   vertical-align: -4px;
 }
+
+.detailed
+{
+  visibility: hidden;
+  position: relative;
+}
+
 .player-container .player-content .player-right .song-play {
   display: flex;
   flex-direction: column;
@@ -614,9 +620,13 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
 }
 .player-container .player-content .player-right .song-more-details .details-box p.lyrics-container {
   line-height: 2.3rem;
+  position: absolute;
+  visibility: visible;
+  top: 0;
 }
 .player-container .player-content .player-left > div {
   height: 445px;
+  width: 310px;
   overflow: auto;
   direction: ltr !important;
 }
