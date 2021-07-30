@@ -1,0 +1,50 @@
+@use '../abstracts' as *;
+
+.side-menu-container{
+    position:fixed;
+    background-color:$primary-color;
+    height:100%;
+    padding:5rem 2rem 1rem .5rem;
+    z-index:500;
+    // right: -210px;
+    .side-menu{
+
+        &-toggle{
+            text-align: left;
+            button{
+                img{
+                    filter:$filter-main-white;
+                    width:1.8rem;
+                }
+            }
+        }
+
+        &-text{
+            display: flex;
+            margin-top: 3rem;
+            flex-direction: column;
+            gap: 3.5rem;
+            padding-left: 3.3rem;
+            img{
+                width:1.4rem;
+                height:1.4rem;
+                filter:$filter-main-white;
+                vertical-align:-8.1px;
+                margin-left: 1rem;
+            }
+            a{
+                color: $main-white;
+                font-size: 1.2rem;
+                position: relative;
+                display: inline-block;
+                transition: right .3s ease-in-out;
+                right: 0;
+
+                &:hover{
+                   right: .5rem;
+                }
+            }
+            
+        }
+    }
+}

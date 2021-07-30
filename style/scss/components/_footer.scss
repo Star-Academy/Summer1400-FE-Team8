@@ -4,6 +4,9 @@ footer{
     background-color:$main-white;
     display:flex;
     justify-content:center;
+    box-shadow: 1px 1px 22px 2px hsla(0, 0%, 0%, 0.45);
+    position: relative;
+    z-index:501;
     .#{&}-content{
         width:62rem;
         padding: .89rem 0;
