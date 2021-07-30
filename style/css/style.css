@@ -149,7 +149,7 @@ main {
 }
 
 label {
-  color: #454849;
+  color: #45484a;
   font-size: 1.2rem;
 }
 
@@ -174,14 +174,14 @@ nav .nav-logo h2 {
   font-size: 1.7rem;
 }
 nav .nav-logo h2 a {
-  color: #454849;
+  color: #45484a;
 }
 nav .nav-menu {
   display: flex;
   gap: 1.4rem;
 }
 nav .nav-menu a {
-  color: #454849;
+  color: #45484a;
   font-size: 1.1rem;
   transition: opacity 0.1s ease-in-out;
   display: inline-block;
@@ -192,7 +192,7 @@ nav .nav-menu a:hover {
 }
 
 nav.nav-dark {
-  background-color: #454849 !important;
+  background-color: #45484a !important;
 }
 nav.nav-dark .nav-content a {
   color: #ededed !important;
@@ -215,7 +215,7 @@ footer .footer-text {
   gap: 1.4rem;
 }
 footer .footer-text a {
-  color: #454849;
+  color: #45484a;
   font-size: 1.1rem;
   transition: opacity 0.1s ease-in-out;
   display: inline-block;
@@ -233,7 +233,7 @@ footer .footer-social-item {
 }
 
 footer.footer-dark {
-  background-color: #454849 !important;
+  background-color: #45484a !important;
 }
 footer.footer-dark .footer-text a {
   color: #ededed !important;
@@ -247,7 +247,7 @@ input.custom-input {
   padding: 1rem 1.2rem;
   margin: 0.5rem 0;
   font-size: 1.2rem;
-  color: #454849;
+  color: #45484a;
   border-radius: 0.6rem;
   border: 0.15rem solid transparent;
 }
@@ -255,8 +255,8 @@ input.custom-input::placeholder {
   color: #6f7476;
 }
 input.custom-input:focus {
-  border: 0.15rem solid rgba(69, 72, 73, 0.3);
-  box-shadow: 0px 0px 11px -5px #454849;
+  border: 0.15rem solid rgba(69, 72, 74, 0.3);
+  box-shadow: 0px 0px 11px -5px #45484a;
 }
 
 input[type=range].custom-range-slider {
@@ -296,7 +296,7 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
 .playlist-box-item {
   display: flex;
   cursor: pointer;
-  background-color: #454849;
+  background-color: #45484a;
   gap: 0.7rem;
   align-items: center;
   padding: 1rem 1rem;
@@ -347,7 +347,7 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
   width: 2.6rem;
   height: 2.6rem;
   aspect-ratio: 1/1;
-  background: linear-gradient(#454849, #454849), linear-gradient(#454849, #454849), #fff;
+  background: linear-gradient(#45484a, #45484a), linear-gradient(#45484a, #45484a), #fff;
   background-position: center;
   background-size: 60% 0.13rem, 0.13rem 60%;
   /*thickness = 2px, length = 50% (25px)*/
@@ -387,7 +387,7 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
   height: 100%;
   padding-top: 0.25rem;
   right: 0.9rem;
-  border-left: 0.3rem solid #454849;
+  border-left: 0.3rem solid #45484a;
   cursor: pointer;
 }
 .landing-content-search .search-icon img {
@@ -398,7 +398,7 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
   width: 100%;
   border-radius: 3.5rem;
   padding: 1rem 6.4rem 1rem 2rem;
-  color: #454849;
+  color: #45484a;
   font-size: 1.6rem;
 }
 .landing-content-search input::placeholder {
@@ -413,7 +413,7 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
 
 /* ------ about section ------ */
 .about {
-  background-color: #454849;
+  background-color: #45484a;
   height: 93vh;
   display: flex;
   justify-content: center;
@@ -462,7 +462,7 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
 }
 
 .ls-container {
-  background-color: #454849;
+  background-color: #45484a;
   padding-top: 1rem;
 }
 
@@ -474,7 +474,7 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
 .login-box-content {
   background-color: white;
   border-radius: 1rem;
-  box-shadow: 0px 2px 19px -3px #486fb4;
+  box-shadow: 0px 2px 19px -3px #476fb3;
   display: flex;
   align-items: center;
   margin-bottom: 4rem;
@@ -483,7 +483,7 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
 }
 .login-box-text h2 {
   margin-bottom: 0.9rem;
-  color: #454849;
+  color: #45484a;
 }
 .login-box-pic img {
   height: 30rem;
@@ -491,7 +491,7 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
 .login-box .remember-container {
   text-align: center;
   margin: 1rem 0;
-  color: #454849;
+  color: #45484a;
 }
 .login-box .remember-container input {
   vertical-align: -0.2rem;
@@ -505,11 +505,11 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
   margin-top: 0.9rem;
 }
 .login-box .foreget-password a {
-  color: #33538b;
+  color: #33538a;
   transition: color 0.2s ease-in-out;
 }
 .login-box .foreget-password a:hover {
-  color: #486fb4;
+  color: #476fb3;
 }
 
 .player-container .player-content {
@@ -574,7 +574,7 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
   gap: 1rem;
   width: 100%;
   border-radius: 0.3rem;
-  background-color: #454849;
+  background-color: #45484a;
   color: white;
 }
 .player-container .player-content .player-right .song-play img {
@@ -665,7 +665,7 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
   text-align: center;
   padding: 2rem 1.8rem;
   border-radius: 0.3rem;
-  background-color: #454849;
+  background-color: #45484a;
   height: 30rem;
   overflow: auto;
   direction: ltr !important;
@@ -691,13 +691,13 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
   display: flex;
   flex-direction: column;
   margin-top: 0.6rem;
-  background-color: #454849;
+  background-color: #45484a;
   direction: rtl !important;
 }
 .player-container .player-content .player-left .playlist-box-item {
   display: flex;
   cursor: pointer;
-  background-color: #454849;
+  background-color: #45484a;
   gap: 0.7rem;
   align-items: center;
   padding: 1rem 1rem;
@@ -740,7 +740,7 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
   width: 2.6rem;
   height: 2.6rem;
   aspect-ratio: 1/1;
-  background: linear-gradient(#454849, #454849), linear-gradient(#454849, #454849), #fff;
+  background: linear-gradient(#45484a, #45484a), linear-gradient(#45484a, #45484a), #fff;
   background-position: center;
   background-size: 60% 0.13rem, 0.13rem 60%;
   /*thickness = 2px, length = 50% (25px)*/
@@ -756,7 +756,7 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
 .signup-box-content {
   background-color: white;
   border-radius: 1rem;
-  box-shadow: 0px 2px 19px -3px #486fb4;
+  box-shadow: 0px 2px 19px -3px #476fb3;
   display: flex;
   align-items: center;
   margin-bottom: 4rem;
@@ -880,6 +880,18 @@ main.favorites-container div.favorites-box-item-play button {
 main.favorites-container div.favorites-box-item-play button:hover {
   transform: scale(1.1);
 }
+main.favorites-container div.favorites-box-item-delete {
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+}
+main.favorites-container div.favorites-box-item-delete img {
+  filter: invert(98%) sepia(21%) saturate(239%) hue-rotate(230deg) brightness(114%) contrast(86%);
+  width: 1.7rem;
+}
+main.favorites-container div.favorites-box-item-delete img:hover {
+  transform: scale(1.1);
+}
 
 .social {
   width: 2rem;
@@ -897,25 +909,25 @@ main.favorites-container div.favorites-box-item-play button:hover {
 }
 
 .btn--blue {
-  background-color: #33538b;
+  background-color: #33538a;
   color: #fff;
   transition: background-color 0.3s ease-in-out;
   cursor: pointer;
 }
 .btn--blue:hover {
-  background-color: #486fb4;
+  background-color: #476fb3;
 }
 
 .ls-top-btn-idle {
-  background-color: #486fb4;
+  background-color: #476fb3;
   transition: background-color 0.3s ease-in-out;
 }
 .ls-top-btn-idle:hover {
-  background-color: #33538b;
+  background-color: #33538a;
 }
 
 .ls-top-btn-active {
-  background-color: #33538b;
+  background-color: #33538a;
 }
 
 /*# sourceMappingURL=style.css.map */
