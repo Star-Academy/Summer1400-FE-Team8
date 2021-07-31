@@ -3,9 +3,11 @@
 .side-menu-container{
     position:fixed;
     background-color:$primary-color;
-    height:100%;
+    height:100vh;
     padding:5rem 2rem 1rem .5rem;
     z-index:500;
+    display:none;
+    
     // right: -210px;
     .side-menu{
 
@@ -43,6 +45,10 @@
                 &:hover{
                    right: .5rem;
                 }
+            }
+
+            span{
+                color: $main-white;
             }
             
         }

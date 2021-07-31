@@ -38,10 +38,72 @@ nav{
 nav.nav-dark{
     background-color: $primary-color !important;
     
-    .nav-content{
+    .nav-content,.nav-mobile-main{
         a{
             color: $main-white !important;
+        }
+
+        .nav-mobile-main-toggle{
+            img{
+                filter:$filter-main-white !important;
+            }
         }
     }
     
 }
+
+// ------------ mobile nav
+@media only screen and (min-width: 62rem) {
+
+    nav.nav-mobile{
+        display:none !important;
+    }
+    .nav-mobile-side{
+        display:none !important;
+    }
+}
+
+.nav-mobile{
+    display:block !important;
+
+    &-main{
+        display:flex;
+        align-items:center;
+        gap: 1rem;
+        padding:.6rem 1rem;
+        
+        &-toggle{
+
+            img{
+                display:block;
+                filter:$filter-primary;
+                width:2.3rem;
+            }
+        }
+
+        &-logo{
+            padding-top: .25rem;
+            a{
+                color: $primary-color;
+            }
+        }
+
+        &-search{
+            padding-top: .25rem;
+            margin-right: auto;
+            a{
+                color: $primary-color;
+            }
+        }
+    }
+    &-side{
+    //   background-color: $primary-color;
+     
+    }
+    
+}
+
+.nav-mobile-side{
+    border-left: .1px solid rgba($main-white,.3);
+}
+
