@@ -1,6 +1,6 @@
 ﻿# Summer1400-FE-Team8 Phase02
  
- [Homepage](Summer1400-FE-Team8/home.html)
+ [Homepage](https://star-academy.github.io/Summer1400-FE-Team8/home.html)
  /home.html
  /login.html
  /signup.html
