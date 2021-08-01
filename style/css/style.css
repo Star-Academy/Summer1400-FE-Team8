@@ -539,7 +539,7 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
 
 /* ------ landing section ------ */
 .landing {
-  background-image: url("../../Summer1400-FE-Team8/assets/images/Home/landing-bg.jpg");
+  background-image: url("../../assets/images/Home/landing-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 93vh;
