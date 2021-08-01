@@ -1,72 +1,69 @@
-@use '../abstracts' as *;
+@use '../abstracts'as *;
 
-//   body , head{
-//     overflow-x:hidden;
-//   }
-  body{
-    font-family: 'IRANSansWeb', Arial, Helvetica, sans-serif;
-    direction: rtl;
-    position: relative;
-  }
-  
-//   @media only screen and (max-width: 1000px) {
-//     body , head{
-//       overflow-x:scroll !important;
-//     }
-//   }
-  
-  li{
-    list-style: none;
-  }
-  a{
-    text-decoration: none;
-  }
-  a:visited{
-    color: initial;
-  }
-  
-  img{
-    max-width: 100%;
-  }
-  button{
-    border: none;
-    cursor: pointer;
-    outline:none;
-    background-color:transparent;
-  }
-  button:active{
+body {
+  font-family: "IRANSansWeb", Arial, Helvetica, sans-serif;
+  direction: rtl;
+  position: relative;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: initial;
+}
+
+img {
+  max-width: 100%;
+}
+
+button {
+  border: none;
+  cursor: pointer;
   outline: none;
-  }
-  
-  input:focus,select{
-    outline:none;
-  }
-  input{
-    border: none;
-  }
+  background-color: transparent;
+}
 
-  main{
-    background-color: $bg-black;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    min-height:calc(100vh - 8.5rem);
-    color: #fff;
-  }
+button:active {
+  outline: none;
+}
 
-  ::-webkit-scrollbar {
-    width: 15px;
-  }
-  
-  ::-webkit-scrollbar-track {
-    background: $main-white;
-    border-radius: 8px;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: rgb(56, 56, 56);
-    border-radius: 8px;  
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
+input:focus,
+select {
+  outline: none;
+}
+
+input {
+  border: none;
+}
+
+main {
+  background-color: $bg-black;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  min-height: calc(100vh - 8.5rem);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: $main-white;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(56, 56, 56);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

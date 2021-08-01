@@ -1,48 +1,47 @@
 @use '../abstracts' as *;
 
-.ls-container{
-    // background-color:rgb(78, 82, 119);
-    background-color:$primary-color;
-    padding-top: 1rem
+.ls-container {
+  background-color: $primary-color;
+  padding-top: 1rem;
 }
 
-.login-box{
-    @include ls-box;
-    &-text{
-        h2{
-            margin-bottom: .9rem;
-            color:$primary-color;
-        }
+.login-box {
+  @include ls-box;
+  &-text {
+    h2 {
+      margin-bottom: 0.9rem;
+      color: $primary-color;
     }
-    
-    &-pic{
-        img{
-            height:30rem;
-        }    
+  }
+
+  &-pic {
+    img {
+      height: 30rem;
     }
-    .remember-container{
-        text-align:center;
-        margin: 1rem 0;
-        color:$primary-color;
-        input{
-            vertical-align:-.2rem;
-        }
+  }
+  .remember-container {
+    text-align: center;
+    margin: 1rem 0;
+    color: $primary-color;
+    input {
+      vertical-align: -0.2rem;
     }
-    .login-submit-container{
-        input{
-            width:100%;
-            font-size: 1.3rem;
-        }
+  }
+  .login-submit-container {
+    input {
+      width: 100%;
+      font-size: 1.3rem;
     }
-    .foreget-password{
-        text-align:center;
-        margin-top: .9rem;
-        a{
-            color: $secondary-color;
-            transition:color .2s ease-in-out;   
-            &:hover{
-                color: $lighter-blue;
-            }
-        }
+  }
+  .foreget-password {
+    text-align: center;
+    margin-top: 0.9rem;
+    a {
+      color: $secondary-color;
+      transition: color 0.2s ease-in-out;
+      &:hover {
+        color: $lighter-blue;
+      }
     }
+  }
 }

@@ -1,49 +1,48 @@
 @use '../abstracts' as *;
 
-footer{
-    background-color:$main-white;
-    display:flex;
-    justify-content:center;
-    box-shadow: 1px 1px 22px 2px hsla(0, 0%, 0%, 0.45);
-    position: relative;
-    z-index:501;
-    .#{&}-content{
-        width:62rem;
-        padding: .89rem 0;
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-    }
-    .#{&}-text{
-        display: flex;
-        gap: 1.4rem;
-        
+footer {
+  background-color: $main-white;
+  display: flex;
+  justify-content: center;
+  box-shadow: 1px 1px 22px 2px hsla(0, 0%, 0%, 0.45);
+  position: relative;
+  z-index: 501;
+  .#{&}-content {
+    width: 62rem;
+    padding: 0.89rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .#{&}-text {
+    display: flex;
+    gap: 1.4rem;
 
-        a{
-           @include nav-footer-link;
-        }
+    a {
+      @include nav-footer-link;
     }
-    .#{&}-social{
-        display: flex;
-        gap: 1.1rem;
+  }
+  .#{&}-social {
+    display: flex;
+    gap: 1.1rem;
 
-        &-item{
-            padding-top: .4rem;
-        }
+    &-item {
+      padding-top: 0.4rem;
     }
+  }
 }
 
-footer.footer-dark{
-    background-color: $primary-color !important;
-    
-    .footer-text{
-        a{
-            color: $main-white !important;
-        }
+footer.footer-dark {
+  background-color: $primary-color !important;
+
+  .footer-text {
+    a {
+      color: $main-white !important;
     }
-    .footer-social{
-        img{
-            filter:$filter-main-white !important;
-        }
+  }
+  .footer-social {
+    img {
+      filter: $filter-main-white !important;
     }
+  }
 }

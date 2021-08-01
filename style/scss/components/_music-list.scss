@@ -1,99 +1,94 @@
 @use '../abstracts' as *;
 
 .favorites-box,
-.playlist-box ,
-.search-results-box{
-    &-item{
-        display: flex;
-        cursor: pointer;
-        background-color:$primary-color;
-        gap: .7rem;
-        align-items: center;    
-        padding:1rem 1rem;
-        border-bottom: .06rem solid hsla(0, 0%, 100%, 0.1);
-        transition: background-color 0.1s ease-in-out;
-        &:hover{
-            background-color:$light-grey;
-        }   
-        &:last-child{
-            border-bottom:none !important;
-        }
-        &-pic{
-            img{
-                width:3.5rem;
-                height:3.5rem;
-                aspect-ratio: 1/1;
-                filter:none;
-                display: flex;
-                align-items: center;
-            }
-        }
-        &-text{
-            display: flex;
-            flex-direction: column;
-            gap: .4rem;
-            
-    
-            h6{
-                font-size: .7rem;
-            }
-            h5{
-                font-size: 1.1rem;
-            }
-    
-        }
-        &-add{
-            margin-right: 3rem;
-            display: flex;
-            // place-items: center;
-            justify-content: center;
-            align-items: center;
-            // background-color:white;
-    
-            button{ 
-                display:inline-block;
-                width:2.6rem;
-                height:2.6rem;
-                aspect-ratio: 1/1;
-                background:
-                  linear-gradient($primary-color,$primary-color),
-                  linear-gradient($primary-color,$primary-color),
-                  #fff;
-                background-position:center;
-                background-size: 60% .13rem,.13rem 60%; /*thickness = 2px, length = 50% (25px)*/
-                background-repeat:no-repeat;
-                border-radius: .2rem;
-            }
-        }
-        &-play{
-            margin-right: auto !important;
-            margin-left: 1rem !important;
-            button{
-                width: 0;
-                height: 0;
-                border-top: .9rem solid transparent;
-                border-left: 1.8rem solid $main-white;
-                border-bottom: .9rem solid transparent;
-                cursor: default;
-                &:hover{
-                    transform: scale(1.1);
-                }
-            }
-        }
-        &-delete{
-            margin-left: 1rem;
-            display: flex;
-            align-items: center;
-            img{
-                filter:$filter-main-white;
-                width:1.7rem;
-                cursor: default;
-
-                &:hover{
-                    transform: scale(1.1);  
-                }
-            }
-        }
+.playlist-box,
+.search-results-box {
+  &-item {
+    display: flex;
+    cursor: pointer;
+    background-color: $primary-color;
+    gap: 0.7rem;
+    align-items: center;
+    padding: 1rem 1rem;
+    border-bottom: 0.06rem solid hsla(0, 0%, 100%, 0.1);
+    transition: background-color 0.1s ease-in-out;
+    &:hover {
+      background-color: $light-grey;
     }
+    &:last-child {
+      border-bottom: none !important;
+    }
+    &-pic {
+      img {
+        width: 3.5rem;
+        height: 3.5rem;
+        aspect-ratio: 1/1;
+        filter: none;
+        display: flex;
+        align-items: center;
+      }
+    }
+    &-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
 
+      h6 {
+        font-size: 0.7rem;
+      }
+      h5 {
+        font-size: 1.1rem;
+      }
+    }
+    &-add {
+      margin-right: 3rem;
+      display: flex;
+      // place-items: center;
+      justify-content: center;
+      align-items: center;
+      // background-color:white;
+
+      button {
+        display: inline-block;
+        width: 2.6rem;
+        height: 2.6rem;
+        aspect-ratio: 1/1;
+        background: linear-gradient($primary-color, $primary-color),
+          linear-gradient($primary-color, $primary-color), #fff;
+        background-position: center;
+        background-size: 60% 0.13rem, 0.13rem 60%; /*thickness = 2px, length = 50% (25px)*/
+        background-repeat: no-repeat;
+        border-radius: 0.2rem;
+      }
+    }
+    &-play {
+      margin-right: auto !important;
+      margin-left: 1rem !important;
+      button {
+        width: 0;
+        height: 0;
+        border-top: 0.9rem solid transparent;
+        border-left: 1.8rem solid $main-white;
+        border-bottom: 0.9rem solid transparent;
+        cursor: default;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+    &-delete {
+      margin-left: 1rem;
+      display: flex;
+      align-items: center;
+      img {
+        filter: $filter-main-white;
+        width: 1.7rem;
+        cursor: default;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
 }
