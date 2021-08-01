@@ -1422,7 +1422,7 @@ main.edit-profile-container .edit-profile-content form input[type=submit] {
   }
 
   .landing {
-    background-image: url("../../assets/images/Home/landing-bg-tablet.jpg") !important;
+    background-image: url("../../../assets/images/Home/landing-bg-tablet.jpg") !important;
   }
 }
 @media only screen and (max-width: 36rem) {
@@ -1630,7 +1630,7 @@ main.edit-profile-container .edit-profile-content form input[type=submit] {
   }
 
   .landing {
-    background-image: url("../../assets/images/Home/landing-bg-mobile.jpg") !important;
+    background-image: url("../../../assets/images/Home/landing-bg-mobile.jpg") !important;
   }
 }
 @media only screen and (max-width: 17.49rem) {
