@@ -1,0 +1,205 @@
+@media only screen and (max-width: 65rem) {
+  // -------- playlists
+  main.playlists-container {
+    .playlists {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+@media only screen and (max-width: 62rem) {
+  // -------- nav
+  nav:not(.nav-mobile) {
+    display: none;
+  }
+
+  // -------- footer
+  footer {
+    .#{&}-content {
+      padding-right: 1.3rem;
+      padding-left: 1.3rem;
+    }
+  }
+
+  // -------- homepage
+
+  .landing {
+    &-content h1 {
+      font-size: 3.4rem;
+    }
+  }
+
+  .about {
+    &-text {
+      h2 {
+        font-size: 2.2rem;
+      }
+    }
+  }
+
+  // -------- player
+
+  .player-content {
+    gap: 2rem !important;
+
+    .player-right {
+      flex-basis: 50% !important;
+    }
+  }
+
+  // -------- music search
+
+  .search {
+    .search-container {
+      width: 70% !important;
+    }
+    .search-actions-container {
+      .search-actions {
+        width: 95% !important;
+      }
+    }
+  }
+
+  // -------- favorites
+  main.favorites-container {
+    div.favorites {
+      flex-basis: 80% !important;
+    }
+  }
+
+  // -------- login
+  main.ls-container {
+    .login-box {
+      width: 92% !important;
+      margin-right: auto !important;
+      margin-left: auto !important;
+    }
+  }
+}
+
+@media only screen and (max-width: 48rem) {
+  // -------- search box
+
+  .landing-content-search,
+  .search-box {
+    .search-container {
+      width: 80%;
+    }
+
+    input {
+      font-size: 1.3rem;
+    }
+  }
+
+  // -------- homepage
+
+  .landing {
+    &-content h1 {
+      font-size: 3.1rem;
+    }
+  }
+  .about {
+    &-text {
+      flex-basis: 51%;
+      h2 {
+        font-size: 2.2rem;
+      }
+      p {
+        font-size: 1.2rem;
+      }
+    }
+    &-register {
+      margin-top: 1.5rem;
+
+      button {
+        font-size: 1.2rem;
+        padding: 1rem 6rem;
+      }
+    }
+    &-pic {
+      flex-basis: 40%;
+    }
+  }
+
+  // -------- player
+
+  .player-content {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 5rem !important;
+    .player-right {
+      width: 80% !important;
+    }
+    .player-left {
+      width: 80% !important;
+
+      h2 {
+        margin-bottom: 0.6rem !important;
+      }
+    }
+
+    .playlist-box {
+      &-item {
+        &-add {
+          margin-right: auto !important;
+        }
+      }
+    }
+  }
+
+  // -------- music search
+
+  .search {
+    .search-actions-container {
+      .search-actions {
+        flex-direction: column !important;
+        align-items: center !important;
+      }
+    }
+
+    &-filter {
+      width: 50% !important;
+    }
+
+    &-results-box {
+      flex-basis: initial !important;
+      width: 85% !important;
+    }
+  }
+
+  // -------- playlists
+
+  main.playlists-container {
+    .playlists {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  // -------- sign up
+  main.ls-container {
+    .signup-box-content {
+      form {
+        grid-template-columns: 1fr !important;
+
+        .signup-submit-container {
+          grid-column: 1/2 !important;
+        }
+      }
+    }
+  }
+
+  // -------- login
+  main.ls-container {
+    .login-box {
+      &-content {
+        padding: 2rem !important;
+      }
+      &-pic {
+        display: none !important;
+      }
+    }
+  }
+
+  .landing {
+    background-image: url("../../assets/images/Home/landing-bg-tablet.jpg") !important;
+  }
+}

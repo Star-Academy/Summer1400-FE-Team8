@@ -1,0 +1,22 @@
+{
+  "name": "sporify",
+  "version": "1.0.0",
+  "description": "free music platform",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Star-Academy/Summer1400-FE-Team8.git"
+  },
+  "author": "Hamed,Amir",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Star-Academy/Summer1400-FE-Team8/issues"
+  },
+  "homepage": "https://github.com/Star-Academy/Summer1400-FE-Team8#readme",
+  "devDependencies": {
+    "sass": "^1.36.0"
+  }
+}
