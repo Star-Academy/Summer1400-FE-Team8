@@ -1,40 +1,151 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="fa-IR">
+<html dir="rtl" lang="fa">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta
             content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
             name="viewport"
     />
-    <meta name="keywords" content="Ahangify,music" />
-    <meta name="description" content="free music platform" />
-    <meta name="author" content="Hamed,Amir"/>
-    <link rel="stylesheet" href="style/css/style.css">
+    <meta content="Ahangify,music" name="keywords"/>
+    <meta content="free music platform" name="description"/>
+    <meta content="Hamed,Amir" name="author"/>
+    <link rel="stylesheet" href="style/css/style.css" />
     <title>Ahangify</title>
 </head>
+<style>
+
+
+    .closebtn {
+        position: absolute;
+        left: 30px;
+        top: 60px;
+        font-size: 36px;
+        color: #000000;
+    }
+
+    .closebtn:hover {
+        color: #f1f1f1;
+    }
+
+</style>
 <body>
+<!----------- MOBILE SIDE MENU ----------->
+<div class="side-menu-container nav-mobile-side">
+    <div class="side-menu">
+        <a class="closebtn" href="javascript:void(0)" onclick="closeNav()">&times;</a>
+        <div class="side-menu-text">
+            <div>
+            <span>
+            <img
+                    alt="playlist"
+                    src="assets/images/side-menu/person.svg"/></span
+            ><a href="login.html">ورود</a
+            ><span>&nbsp;&nbsp;|&nbsp;&nbsp;</span><a href="register.html">ثبت نام</a>
+            </div>
+            <div>
+                <a href="playlists.html"
+                ><span
+                ><img
+                        alt="playlist"
+                        src="assets/images/side-menu/playlist.svg"/></span
+                >پلی لیست ها</a
+                >
+            </div>
+            <div>
+                <a href="favorite.html"
+                ><span
+                ><img
+                        alt="favorites"
+                        src="assets/images/side-menu/star_fill.svg"/></span
+                >مورد علاقه ها</a
+                >
+            </div>
+            <div>
+                <a href="music_search.html"
+                ><span
+                ><img
+                        alt="search"
+                        src="assets/images/side-menu/search_icon.svg"/></span
+                >جستجوی پیشرفته</a
+                >
+            </div>
+            <div>
+                <a href="music_search.html"
+                ><span
+                ><img
+                        alt="edit_profile"
+                        src="assets/images/side-menu/edit.svg"/></span
+                >ویرایش پروفایل</a
+                >
+            </div>
+            <div>
+                <a href="#"
+                ><span
+                ><img
+                        alt="logout"
+                        src="assets/images/side-menu/logout.svg"/></span
+                >خروج از حساب</a
+                >
+            </div>
+        </div>
+    </div>
+</div>
+
+<!----------- MOBILE NAVBAR ----------->
+<nav class="nav-mobile">
+    <div class="nav-mobile-main">
+        <div class="nav-mobile-main-toggle">
+            <button id="open_menu"><img alt="toggle" src="assets/images/nav-mobile/open-menu.svg"/></button>
+
+        </div>
+        <h2 class="nav-mobile-main-logo">
+            <a href="home.html">آهنگیفای</a>
+        </h2>
+        <div class="nav-mobile-main-search">
+            <a href="music_search.html">جستجوی موزیک</a>
+        </div>
+    </div>
+</nav>
+
+<!----------- DESKTOP NAVBAR ----------->
 <nav>
     <div class="nav-content">
         <div class="nav-logo">
             <h2><a href="#">آهنگیفای</a></h2>
         </div>
         <div class="nav-menu">
-            <div class="nav-menu-item"><a href="/home.html">خانه</a></div>
-            <div class="nav-menu-item"><a href="/register.html">ثبت نام</a></div>
-            <div class="nav-menu-item"><a href="/login.html">ورود</a></div>
-            <div class="nav-menu-item"><a href="/home.html#about">درباره ما</a></div>
-            <div class="nav-menu-item" id="just_test"> صفحه ی موسیقی</div>
+            <div class="nav-menu-item">
+                <a href="home.html">خانه</a>
+            </div>
+            <div class="nav-menu-item">
+                <a href="register.html">ثبت نام</a>
+            </div>
+            <div class="nav-menu-item">
+                <a href="login.html">ورود</a>
+            </div>
+            <div class="nav-menu-item">
+                <a href="home.html#about">درباره ما</a>
+            </div>
         </div>
     </div>
 </nav>
+
+<!----------- MAIN CONTENT ----------->
+
 <section class="landing">
     <div class="landing-content">
         <h1>آهنگی که دنبالشی پیدا کن</h1>
         <div class="landing-content-search">
             <form>
                 <div class="search-container">
-                    <div class="search-icon"><img src="assets/images/saerchBox/search_icon.png" alt=""></div>
-                    <input type="search" name="search" placeholder="نام آهنگ ، خواننده و ...">
+                    <div class="search-icon">
+                        <img alt="" src="assets/images/saerchBox/search_icon.svg"/>
+                    </div>
+                    <input
+                            name="search"
+                            placeholder="نام آهنگ ، خواننده و ..."
+                            type="search"
+                    />
                 </div>
             </form>
         </div>
@@ -47,43 +158,91 @@
                 <span>اینجا کجاست؟</span>
             </h2>
             <p class="about-text-content">
-                آهنگیفای یه پلتفرم موزیک رایگانه که میتونی
-                با عضویت در سایت ، از آرشیو بینظیر ما شامل هزاران موزیک
-                به صورت کاملا رایگان بهره مند بشی . با دسترسی به همه امکانات
-                آهنگیفای چندتا کلیک بیشتر فاصله نداری !
+                آهنگیفای یه پلتفرم موزیک رایگانه که میتونی با عضویت در سایت ، از
+                آرشیو بینظیر ما شامل هزاران موزیک به صورت کاملا رایگان بهره مند بشی
+                . با دسترسی به همه امکانات آهنگیفای چندتا کلیک بیشتر فاصله نداری !
             </p>
             <div class="about-register">
-                <a href="register.html"><button class="btn btn--blue">ثبت نام</button></a>
+                <a href="register.html"
+                >
+                    <button class="btn btn--blue">ثبت نام</button>
+                </a
+                >
             </div>
         </div>
         <div class="about-pic">
-            <img src="assets/images/Home/about-vec.svg" alt="about" loading="lazy">
+            <img
+                    alt="about"
+                    loading="lazy"
+                    src="assets/images/Home/about-vec.svg"
+            />
         </div>
     </div>
 </section>
+
+<!----------- FOOTER ----------->
 <footer>
     <div class="footer-content">
         <div class="footer-text">
-            <div class="footer-text-item"><a href="home.html">خانه</a></div>
-            <div class="footer-text-item"><a href="register.html">ثبت نام</a></div>
-            <div class="footer-text-item"><a href="login.html">ورود</a></div>
-            <div class="footer-text-item"><a href="about.html#about">درباره ما</a></div>
+            <div class="footer-text-item"><a href="/home.html">خانه</a></div>
+            <div class="footer-text-item"><a href="/register.html">ثبت نام</a></div>
+            <div class="footer-text-item"><a href="/login.html">ورود</a></div>
+            <div class="footer-text-item">
+                <a href="/home.html#about">درباره ما</a>
+            </div>
         </div>
         <div class="footer-social">
-            <div class="footer-social-item"><a href="#"><img src="assets/images/socials/facebook.svg" alt="" class="social" loading="lazy"></a></div>
-            <div class="footer-social-item"><a href="#"><img src="assets/images/socials/instagram.svg" alt="" class="social" loading="lazy"></a></div>
-            <div class="footer-social-item"><a href="#"><img src="assets/images/socials/twitter.svg" alt="" class="social" loading="lazy"></a></div>
-            <div class="footer-social-item"><a href="#"><img src="assets/images/socials/youtube.svg" alt="" class="social" loading="lazy"></a></div>
+            <div class="footer-social-item">
+                <a href="#"
+                ><img
+                        alt=""
+                        class="social"
+                        loading="lazy"
+                        src="assets/images/socials/facebook.svg"
+                /></a>
+            </div>
+            <div class="footer-social-item">
+                <a href="#"
+                ><img
+                        alt=""
+                        class="social"
+                        loading="lazy"
+                        src="assets/images/socials/instagram.svg"
+                /></a>
+            </div>
+            <div class="footer-social-item">
+                <a href="#"
+                ><img
+                        alt=""
+                        class="social"
+                        loading="lazy"
+                        src="assets/images/socials/twitter.svg"
+                /></a>
+            </div>
+            <div class="footer-social-item">
+                <a href="#"
+                ><img
+                        alt=""
+                        class="social"
+                        loading="lazy"
+                        src="assets/images/socials/youtube.svg"
+                /></a>
+            </div>
         </div>
     </div>
 </footer>
+</body>
 <script>
 
-    document.getElementById("just_test").addEventListener("click" , ()=>
-    {
-        document.location.href = 'player.html?song_id=' + encodeURIComponent("2");
+    document.getElementById("open_menu").addEventListener("click", () => {
+        let menue = document.querySelector(".side-menu-container");
+        if (menue.style.visibility === "hidden") {
+            menue.style.visibility = "visible";
+        } else {
+            menue.style.visibility = "hidden"
+        }
+
     });
 
 </script>
-</body>
 </html>
