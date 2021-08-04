@@ -27,7 +27,6 @@
         flex-direction: column;
         align-items: center;
         gap: 1rem;
-
         justify-content: center;
         font-size: 1.2rem;
 
@@ -47,9 +46,10 @@
       background-color: #33538b;
       color: #fff;
   }
-  form  > div > #name_error , #mail_error , #pass_error , #repeat_error,#username_error
+  #name_error , #mail_error , #pass_error , #repeat_error,#username_error
   {
       color: red;
       font-size: 85%;
   }
+
 }

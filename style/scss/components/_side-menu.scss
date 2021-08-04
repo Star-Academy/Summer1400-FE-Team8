@@ -8,7 +8,6 @@
   padding: 5rem 2rem 1rem 0.5rem;
   z-index: 500;
   overflow: auto;
-  // display: none; 
   transition: right 0.5s ease-in-out;
   right: -1000px;
 
@@ -41,7 +40,7 @@
         width: 1.4rem;
         height: 1.4rem;
         filter: $filter-main-white;
-        vertical-align: -8.1px;
+        // vertical-align: -8.1px;
         margin-left: 1rem;
       }
       img.side-menu-avatar{
@@ -52,13 +51,16 @@
         color: $main-white;
         font-size: 1.2rem;
         position: relative;
-        display: inline-block;
         transition: right 0.3s ease-in-out;
         right: 0;
 
         &:hover {
           right: 0.5rem;
         }
+      }
+      a:not(.side-menu-ls a),.side-menu-ls{
+        display: flex;
+        align-items: center;
       }
 
       span {
@@ -67,6 +69,7 @@
     }
   }
 }
+
 .side-menu-black-page{
   position: fixed;
   width: 100vw;

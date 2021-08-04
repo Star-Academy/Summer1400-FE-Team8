@@ -534,7 +534,6 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
   width: 1.4rem;
   height: 1.4rem;
   filter: invert(98%) sepia(21%) saturate(239%) hue-rotate(230deg) brightness(114%) contrast(86%);
-  vertical-align: -8.1px;
   margin-left: 1rem;
 }
 .side-menu-container .side-menu-text img.side-menu-avatar {
@@ -545,12 +544,15 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
   color: #ededed;
   font-size: 1.2rem;
   position: relative;
-  display: inline-block;
   transition: right 0.3s ease-in-out;
   right: 0;
 }
 .side-menu-container .side-menu-text a:hover {
   right: 0.5rem;
+}
+.side-menu-container .side-menu-text a:not(.side-menu-ls a), .side-menu-container .side-menu-text .side-menu-ls {
+  display: flex;
+  align-items: center;
 }
 .side-menu-container .side-menu-text span {
   color: #ededed;
@@ -742,7 +744,7 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
   background-color: #33538b;
   color: #fff;
 }
-.login-box form > div > #mail_error, .login-box #pass_error {
+.login-box #mail_error, .login-box #pass_error {
   color: red;
   font-size: 85%;
 }
@@ -1068,7 +1070,7 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
   background-color: #33538b;
   color: #fff;
 }
-.signup-box form > div > #name_error, .signup-box #mail_error, .signup-box #pass_error, .signup-box #repeat_error, .signup-box #username_error {
+.signup-box #name_error, .signup-box #mail_error, .signup-box #pass_error, .signup-box #repeat_error, .signup-box #username_error {
   color: red;
   font-size: 85%;
 }

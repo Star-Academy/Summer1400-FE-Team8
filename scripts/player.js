@@ -152,12 +152,12 @@
         });
     }
     //***********************************************************************************************************
-    let Next = document.querySelector("#Next");
+    let Next = document.querySelector("#next");
     Next.addEventListener("click", () => {
         NextTrack();
     });
 
-    let Prev = document.querySelector("#Prev");
+    let Prev = document.querySelector("#prev");
     Prev.addEventListener("click", () => {
         PrevTrack();
     });
@@ -178,7 +178,7 @@
             play_list = true;
         }
     });
-    let PlayPause = document.querySelector("#PlayPause");
+    let PlayPause = document.querySelector("#play-pause");
     let PlayRange = document.querySelector(".play-range > .custom-range-slider");
     let volume_range = document.querySelector(".volume-range-wrapper > .custom-range-slider");
     current_track.volume = 0.5;
