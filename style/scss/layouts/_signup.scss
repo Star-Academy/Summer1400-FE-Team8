@@ -35,7 +35,7 @@
           padding-left: 5rem;
         }
         p.signup-success{
-          color: green;
+          color: hsl(120, 100%, 25%);
           display: none;
         }
       }
@@ -43,12 +43,12 @@
   }
   .ls-top-btns > h2:hover
   {
-      background-color: #33538b;
-      color: #fff;
+      background-color: hsl(218, 46%, 37%);
+      color: hsl(0, 0%, 100%);
   }
   #name_error , #mail_error , #pass_error , #repeat_error,#username_error
   {
-      color: red;
+      color: hsl(0, 100%, 50%);
       font-size: 85%;
   }
 
