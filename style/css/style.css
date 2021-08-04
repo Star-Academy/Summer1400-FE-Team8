@@ -738,6 +738,14 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
 .login-box .foreget-password a:hover {
   color: #476fb3;
 }
+.login-box .ls-top-btns > h2:hover {
+  background-color: #33538b;
+  color: #fff;
+}
+.login-box form > div > #mail_error, .login-box #pass_error {
+  color: red;
+  font-size: 85%;
+}
 
 .player-container .player-content {
   display: flex;
@@ -1055,6 +1063,14 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
 .signup-box-content form .signup-submit-container p.signup-success {
   color: green;
   display: none;
+}
+.signup-box .ls-top-btns > h2:hover {
+  background-color: #33538b;
+  color: #fff;
+}
+.signup-box form > div > #name_error, .signup-box #mail_error, .signup-box #pass_error, .signup-box #repeat_error, .signup-box #username_error {
+  color: red;
+  font-size: 85%;
 }
 
 .ls-top-container {

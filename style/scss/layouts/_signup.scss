@@ -41,4 +41,15 @@
       }
     }
   }
+  .ls-top-btns > h2:hover
+  {
+      background-color: #33538b;
+      color: #fff;
+  }
+  form  > div > #name_error , #mail_error , #pass_error , #repeat_error,#username_error
+  {
+      color: red;
+      font-size: 85%;
+  }
+
 }
