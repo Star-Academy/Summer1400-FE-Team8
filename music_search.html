@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+            name="viewport"
+    />
+    <meta name="keywords" content="Ahangify,music" />
+    <meta name="description" content="free music platform" />
+    <meta name="author" content="Hamed,Amir" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>Ahangify</title>
+</head>
+<body>
+<!----------- MOBILE NAVBAR ----------->
+<nav class="nav-mobile nav-dark">
+    <div class="nav-mobile-main">
+        <div class="nav-mobile-main-toggle">
+            <img src="assets/images/nav-mobile/open-menu.svg" alt="toggle" />
+        </div>
+        <h2 class="nav-mobile-main-logo">
+            <a href="home.html">آهنگیفای</a>
+        </h2>
+        <div class="nav-mobile-main-search">
+            <a href="music_search.html">جستجوی موزیک</a>
+        </div>
+    </div>
+</nav>
+
+<!----------- DESKTOP NAVBAR ----------->
+<nav class="nav-dark">
+    <div class="nav-content">
+        <div class="nav-logo">
+            <h2><a href="#">آهنگیفای</a></h2>
+        </div>
+        <div class="nav-menu">
+            <div class="nav-menu-item">
+                <a href="home.html">خانه</a>
+            </div>
+            <div class="nav-menu-item">
+                <a href="music_search.html">جستجوی موزیک</a>
+            </div>
+            <div class="nav-menu-item">
+                <a href="home.html#about">درباره ما</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!----------- MAIN CONTENT ----------->
+<main class="search-container">
+    <h1>جستجوی پیشرفته موزیک</h1>
+    <div class="search">
+        <section class="search-box">
+            <form>
+                <div class="search-container">
+                    <div class="search-icon">
+                        <img src="assets/images/saerchBox/search_icon.svg" alt="" />
+                    </div>
+                    <input
+                            type="search"
+                            name="search"
+                            placeholder="نام آهنگ ، خواننده و ..."
+                    />
+                </div>
+            </form>
+        </section>
+
+        <section class="search-actions-container">
+            <div class="search-actions">
+                <div class="search-filter">
+                    <div class="search-filter-mode">
+                        <h3>
+                  <span
+                  ><img
+                          src="assets/images/search/mode.svg"
+                          alt="genre" /></span
+                  >حالت
+                        </h3>
+                        <form>
+                            <div>
+                                <input
+                                        type="radio"
+                                        name="mode"
+                                        id="popular"
+                                        value="popular"
+                                        checked="checked"
+                                />
+                                <label for="popular">محبوب ترین</label>
+                            </div>
+                            <div>
+                                <input
+                                        type="radio"
+                                        name="mode"
+                                        id="newest"
+                                        value="newest"
+                                />
+                                <label for="newest">جدید ترین</label>
+                            </div>
+                            <div>
+                                <input
+                                        type="radio"
+                                        name="mode"
+                                        id="most_played"
+                                        value="most_played"
+                                />
+                                <label for="most_played">بیشترین پلی</label>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="search-filter-genre">
+                        <h3>
+                  <span
+                  ><img
+                          src="assets/images/search/genre.svg"
+                          alt="genre" /></span
+                  >سبک
+                        </h3>
+                        <form>
+                            <div>
+                                <input
+                                        autocomplete="off"
+                                        type="checkbox"
+                                        name="all"
+                                        id="all"
+                                        value="all"
+                                        checked="checked"
+                                />
+                                <label for="all">همه</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="pop" id="pop" value="pop" autocomplete="off"/>
+                                <label for="pop">پاپ</label>
+                            </div>
+                            <div>
+                                <input
+                                        autocomplete="off"
+                                        type="checkbox"
+                                        name="hiphop"
+                                        id="hiphop"
+                                        value="hiphop"
+                                />
+                                <label for="hiphop">هیپ هاپ</label>
+                            </div>
+                            <div>
+                                <input
+                                        autocomplete="off"
+                                        type="checkbox"
+                                        name="others"
+                                        id="others"
+                                        value="others"
+                                />
+                                <label for="others">سایر</label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="search-results-box">
+                    <div class="search-results-box-item">
+                        <div class="search-results-box-item-pic">
+                            <img src="assets/images/player/cover2.jpg" alt="cover" />
+                        </div>
+                        <div class="search-results-box-item-text">
+                            <h5>حسین رحمتی</h5>
+                            <h4>دوجا</h4>
+                        </div>
+                        <div class="search-results-box-item-play">
+                            <button></button>
+                        </div>
+                    </div>
+                    <div class="search-results-box-item">
+                        <div class="search-results-box-item-pic">
+                            <img src="assets/images/player/cover2.jpg" alt="cover" />
+                        </div>
+                        <div class="search-results-box-item-text">
+                            <h5>حسین رحمتی</h5>
+                            <h4>دوجا</h4>
+                        </div>
+                        <div class="search-results-box-item-play">
+                            <button></button>
+                        </div>
+                    </div>
+                    <div class="search-results-box-item">
+                        <div class="search-results-box-item-pic">
+                            <img src="assets/images/player/cover2.jpg" alt="cover" />
+                        </div>
+                        <div class="search-results-box-item-text">
+                            <h5>حسین رحمتی</h5>
+                            <h4>دوجا</h4>
+                        </div>
+                        <div class="search-results-box-item-play">
+                            <button></button>
+                        </div>
+                    </div>
+                    <div class="search-results-box-item">
+                        <div class="search-results-box-item-pic">
+                            <img src="assets/images/player/cover2.jpg" alt="cover" />
+                        </div>
+                        <div class="search-results-box-item-text">
+                            <h5>حسین رحمتی</h5>
+                            <h4>دوجا</h4>
+                        </div>
+                        <div class="search-results-box-item-play">
+                            <button></button>
+                        </div>
+                    </div>
+                    <div class="search-results-box-item">
+                        <div class="search-results-box-item-pic">
+                            <img src="assets/images/player/cover2.jpg" alt="cover" />
+                        </div>
+                        <div class="search-results-box-item-text">
+                            <h5>حسین رحمتی</h5>
+                            <h4>دوجا</h4>
+                        </div>
+                        <div class="search-results-box-item-play">
+                            <button></button>
+                        </div>
+                    </div>
+                    <div class="search-results-box-item">
+                        <div class="search-results-box-item-pic">
+                            <img src="assets/images/player/cover2.jpg" alt="cover" />
+                        </div>
+                        <div class="search-results-box-item-text">
+                            <h5>حسین رحمتی</h5>
+                            <h4>دوجا</h4>
+                        </div>
+                        <div class="search-results-box-item-play">
+                            <button></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<!----------- FOOTER ----------->
+<footer class="footer-dark">
+    <div class="footer-content">
+        <div class="footer-text">
+            <div class="footer-text-item"><a href="/home.html">خانه</a></div>
+            <div class="footer-text-item">
+                <a href="/music_search.html">جستجوی موزیک</a>
+            </div>
+            <div class="footer-text-item">
+                <a href="/home.html#about">درباره ما</a>
+            </div>
+        </div>
+        <div class="footer-social">
+            <div class="footer-social-item">
+                <a href="#"
+                ><img
+                        src="assets/images/socials/facebook.svg"
+                        alt=""
+                        class="social"
+                        loading="lazy"
+                /></a>
+            </div>
+            <div class="footer-social-item">
+                <a href="#"
+                ><img
+                        src="assets/images/socials/instagram.svg"
+                        alt=""
+                        class="social"
+                        loading="lazy"
+                /></a>
+            </div>
+            <div class="footer-social-item">
+                <a href="#"
+                ><img
+                        src="assets/images/socials/twitter.svg"
+                        alt=""
+                        class="social"
+                        loading="lazy"
+                /></a>
+            </div>
+            <div class="footer-social-item">
+                <a href="#"
+                ><img
+                        src="assets/images/socials/youtube.svg"
+                        alt=""
+                        class="social"
+                        loading="lazy"
+                /></a>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+<script src="Advanced_search.js"> </script>
+</html>
