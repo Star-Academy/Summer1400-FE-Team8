@@ -1,163 +1,177 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
+<html dir="rtl" lang="fa">
+<head>
+    <meta charset="UTF-8"/>
     <meta
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-      name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+            name="viewport"
     />
-    <meta name="keywords" content="Ahangify,music" />
-    <meta name="description" content="free music platform" />
-    <meta name="author" content="Hamed,Amir" />
+    <meta content="Ahangify,music" name="keywords"/>
+    <meta content="free music platform" name="description"/>
+    <meta content="Hamed,Amir" name="author"/>
     <link rel="stylesheet" href="style/css/style.css" />
     <title>Ahangify</title>
-  </head>
-  <body>
-    <!----------- MOBILE NAVBAR ----------->
-    <nav class="nav-mobile nav-dark">
-      <div class="nav-mobile-main">
+</head>
+<style>
+    form > div > #f_name, #l_name, #password, #password_repeat, #email, #birthday {
+        color: #ff2222;
+        font-size: 100%;
+    }
+
+</style>
+<body style="direction: rtl;">
+<!----------- MOBILE NAVBAR ----------->
+<nav class="nav-mobile nav-dark">
+    <div class="nav-mobile-main">
         <div class="nav-mobile-main-toggle">
-          <img src="assets/images/nav-mobile/open-menu.svg" alt="toggle" />
+            <img alt="toggle" src="assets/images/nav-mobile/open-menu.svg"/>
         </div>
         <h2 class="nav-mobile-main-logo">
-          <a href="/Summer1400-FE-Team8/home.html">آهنگیفای</a>
+            <a href="home.html">آهنگیفای</a>
         </h2>
         <div class="nav-mobile-main-search">
-          <a href="/Summer1400-FE-Team8/music_search.html">جستجوی موزیک</a>
+            <a href="music_search.html">جستجوی موزیک</a>
         </div>
-      </div>
-    </nav>
+    </div>
+</nav>
 
-    <!----------- DESKTOP NAVBAR ----------->
-    <nav class="nav-dark">
-      <div class="nav-content">
+<!----------- DESKTOP NAVBAR ----------->
+<nav class="nav-dark">
+    <div class="nav-content">
         <div class="nav-logo">
-          <h2><a href="#">آهنگیفای</a></h2>
+            <h2><a href="#">آهنگیفای</a></h2>
         </div>
         <div class="nav-menu">
-          <div class="nav-menu-item">
-            <a href="/Summer1400-FE-Team8/home.html">خانه</a>
-          </div>
-          <div class="nav-menu-item">
-            <a href="/Summer1400-FE-Team8/music_search.html">جستجوی موزیک</a>
-          </div>
-          <div class="nav-menu-item">
-            <a href="/Summer1400-FE-Team8/home.html#about">درباره ما</a>
-          </div>
-        </div>
-      </div>
-    </nav>
-
-    <!----------- MAIN CONTENT ----------->
-    <main class="edit-profile-container">
-      <h1>ویرایش پروفایل</h1>
-
-      <div class="edit-profile-content">
-        <form>
-          <div class="change-avatar-container">
-            <div>
-              <img
-                class="avatar"
-                src="assets/images/edit-profile/avatar.jpg"
-                alt="avatar"
-              />
+            <div class="nav-menu-item">
+                <a href="home.html">خانه</a>
             </div>
-            <label class="change-avatar-btn btn btn--gray" for="avatar"
-              >تغییر عکس پروفایل</label
-            >
-            <input type="file" name="avatar" id="avatar" />
-          </div>
-          <div>
-            <label for="fname">نام</label>
-            <input class="custom-input" type="text" name="fname" />
-          </div>
-          <div>
-            <label for="lname">نام خانوادگی</label>
-            <input class="custom-input" type="text" name="lname" />
-          </div>
-          <div>
-            <label for="email">ایمیل</label>
-            <input class="custom-input" type="email" name="email" />
-          </div>
-          <div>
-            <label for="password">رمز عبور</label>
-            <input class="custom-input" type="password" name="password" />
-          </div>
-          <div>
-            <label for="repeat-password">تکرار رمز عبور</label>
-            <input
-              class="custom-input"
-              type="password"
-              name="repeat-password"
-            />
-          </div>
-          <div>
-            <label for="birthday">تاریخ تولد</label>
-            <input class="custom-input" type="text" name="birthday" />
-          </div>
-          <div>
-            <input
-              class="btn btn--blue"
-              type="submit"
-              name="submit"
-              value="ذخیره تغییرات"
-            />
-          </div>
-        </form>
-      </div>
-    </main>
+            <div class="nav-menu-item">
+                <a href="music_search.html">جستجوی موزیک</a>
+            </div>
+            <div class="nav-menu-item">
+                <a href="home.html#about">درباره ما</a>
+            </div>
+        </div>
+    </div>
+</nav>
 
-    <!----------- FOOTER ----------->
-    <footer class="footer-dark">
-      <div class="footer-content">
+<!----------- MAIN CONTENT ----------->
+<main class="edit-profile-container">
+    <h1>ویرایش پروفایل</h1>
+
+    <div class="edit-profile-content">
+        <form action="" method="post" name="editing_form" onsubmit="return editing_validation()">
+            <div class="change-avatar-container">
+                <div>
+                    <img
+                            alt="avatar"
+                            class="avatar"
+                            src="assets/images/edit-profile/avatar.jpg"
+                    />
+                </div>
+                <label class="change-avatar-btn btn btn--gray" for="avatar"
+                >تغییر عکس پروفایل</label
+                >
+                <input id="avatar" name="avatar" type="file"/>
+            </div>
+            <div>
+                <label for="fname">نام</label>
+                <input class="custom-input" name="fname" type="text"/>
+                <div id="f_name"></div>
+            </div>
+            <div>
+                <label for="lname">نام خانوادگی</label>
+                <input class="custom-input" name="lname" type="text"/>
+                <div id="l_name"></div>
+            </div>
+            <div>
+                <label for="email">ایمیل</label>
+                <input class="custom-input" name="email" type="text"/>
+                <div id="email"></div>
+            </div>
+            <div>
+                <label for="password">رمز عبور</label>
+                <input class="custom-input" name="password" required type="password"/>
+                <div id="password"></div>
+            </div>
+            <div>
+                <label for="repeat-password">تکرار رمز عبور</label>
+                <input
+                        class="custom-input"
+                        name="repeat_password"
+                        type="password"
+                />
+                <div id="password_repeat"></div>
+            </div>
+            <div>
+                <label for="birthday">تاریخ تولد</label>
+                <input class="custom-input" name="birthday" type="text"/>
+                <div id="birthday"></div>
+            </div>
+            <div>
+                <input
+                        class="btn btn--blue"
+                        name="submit"
+                        type="submit"
+                        value="ذخیره تغییرات"
+                />
+            </div>
+        </form>
+    </div>
+</main>
+
+<!----------- FOOTER ----------->
+<footer class="footer-dark">
+    <div class="footer-content">
         <div class="footer-text">
-          <div class="footer-text-item"><a href="/home.html">خانه</a></div>
-          <div class="footer-text-item">
-            <a href="/music_search.html">جستجوی موزیک</a>
-          </div>
-          <div class="footer-text-item">
-            <a href="/home.html#about">درباره ما</a>
-          </div>
+            <div class="footer-text-item"><a href="/home.html">خانه</a></div>
+            <div class="footer-text-item">
+                <a href="music_search.html">جستجوی موزیک</a>
+            </div>
+            <div class="footer-text-item">
+                <a href="/home.html#about">درباره ما</a>
+            </div>
         </div>
         <div class="footer-social">
-          <div class="footer-social-item">
-            <a href="#"
-              ><img
-                src="assets/images/socials/facebook.svg"
-                alt=""
-                class="social"
-                loading="lazy"
-            /></a>
-          </div>
-          <div class="footer-social-item">
-            <a href="#"
-              ><img
-                src="assets/images/socials/instagram.svg"
-                alt=""
-                class="social"
-                loading="lazy"
-            /></a>
-          </div>
-          <div class="footer-social-item">
-            <a href="#"
-              ><img
-                src="assets/images/socials/twitter.svg"
-                alt=""
-                class="social"
-                loading="lazy"
-            /></a>
-          </div>
-          <div class="footer-social-item">
-            <a href="#"
-              ><img
-                src="assets/images/socials/youtube.svg"
-                alt=""
-                class="social"
-                loading="lazy"
-            /></a>
-          </div>
+            <div class="footer-social-item">
+                <a href="#"
+                ><img
+                        alt=""
+                        class="social"
+                        loading="lazy"
+                        src="assets/images/socials/facebook.svg"
+                /></a>
+            </div>
+            <div class="footer-social-item">
+                <a href="#"
+                ><img
+                        alt=""
+                        class="social"
+                        loading="lazy"
+                        src="assets/images/socials/instagram.svg"
+                /></a>
+            </div>
+            <div class="footer-social-item">
+                <a href="#"
+                ><img
+                        alt=""
+                        class="social"
+                        loading="lazy"
+                        src="assets/images/socials/twitter.svg"
+                /></a>
+            </div>
+            <div class="footer-social-item">
+                <a href="#"
+                ><img
+                        alt=""
+                        class="social"
+                        loading="lazy"
+                        src="assets/images/socials/youtube.svg"
+                /></a>
+            </div>
         </div>
-      </div>
-    </footer>
-  </body>
+    </div>
+</footer>
+</body>
+<script src="scripts/editing_validation.js" defer="defer"></script>
 </html>
