@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+
 
     const text1 = "این یک متن پیش فرض است: " +
         "بیا بچین جلوم مهرتو" +
@@ -175,12 +175,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
     //***********************************************************************************************************
-    let Next = document.querySelector("#Next");
+    let Next = document.querySelector("#next");
     Next.addEventListener("click", () => {
         NextTrack();
     });
 
-    let Prev = document.querySelector("#Prev");
+    let Prev = document.querySelector("#prev");
     Prev.addEventListener("click", () => {
         PrevTrack();
     });
@@ -201,7 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
             play_list = true;
         }
     });
-    const PlayPause = document.querySelector("#PlayPause");
+    const PlayPause = document.querySelector("#play-pause");
     const PlayRange = document.querySelector(".play-range > .custom-range-slider");
     const volume_range = document.querySelector(".volume-range-wrapper > .custom-range-slider");
     volume_range.addEventListener("change", () => {
@@ -270,7 +270,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-});
+
 
 async function getdata(file) {
     try {
