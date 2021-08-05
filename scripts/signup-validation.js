@@ -36,12 +36,17 @@ function password_strenth() {
     if (ctr <= 2) {
       color = "red";
       strenght = "امنیت : ضعیف";
-    } else if (ctr === 3) {
+      return;
+    } 
+    if (ctr === 3) {
       color = "orange";
       strenght = "امنیت : متوسط";
-    } else if (ctr === 4) {
+      return;
+    }
+    if (ctr === 4) {
       color = "green";
       strenght = "امنیت : قوی";
+      return;
     }
   } else {
     color = "red";
@@ -56,11 +61,11 @@ function register_validation(event) {
   let regex = /^\S+@\S+\.\S+$/;
   let usernameRegex = /^(?=[a-zA-Z_\d]*[a-zA-Z])[a-zA-Z_\d]{5,}$/;
 
-  let name = document.register_form.first_name.value;
-  let email = document.register_form.email.value;
-  let username = document.register_form.username.value;
-  let password = document.register_form.password.value;
-  let password_repeat = document.register_form.password_repeat.value;
+  const name = document.register_form.first_name.value;
+  const email = document.register_form.email.value;
+  const username = document.register_form.username.value;
+  const password = document.register_form.password.value;
+  const password_repeat = document.register_form.password_repeat.value;
   let email_exists,
     username_exists,
     relevant_password,

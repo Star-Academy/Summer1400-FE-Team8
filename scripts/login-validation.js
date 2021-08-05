@@ -15,18 +15,19 @@ function login_validation(event) {
 
   if (email === "" || password === "") {
     print_error("pass_error", "ایمیل یا رمز عبور نمیتواند خالی باشد");
-  } else {
-    print_error("pass_error", "");
-    if (!(email in users)) {
-      print_error("mail_error", "چنین آدرس ایمیلی یا نام کاربری ثبت نشده است");
-      return false;
-    } else {
-      print_error("pass_error", "");
-      if (!users[email] === password) {
-        print_error("pass_error", "رمز عبور اشتباه است");
-        return false;
-      }
-    }
+    return false;
   }
+  print_error("pass_error", "");
+  if (!(email in users)) {
+    print_error("mail_error", "چنین آدرس ایمیلی یا نام کاربری ثبت نشده است");
+    return false;
+  }
+
+  print_error("pass_error", "");
+  if (!users[email] === password) {
+    print_error("pass_error", "رمز عبور اشتباه است");
+    return false;
+  }
+
   return true;
 }

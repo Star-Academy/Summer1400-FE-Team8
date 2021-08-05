@@ -243,7 +243,7 @@ nav.nav-dark .nav-mobile-main .nav-mobile-main-toggle img {
 }
 
 .nav-mobile-side {
-  border-left: 0.1px solid rgba(237, 237, 237, 0.3);
+  border-left: 0.1px solid rgba(237, 237, 237, 0.3) !important;
 }
 
 .landing-content-search,
@@ -506,6 +506,7 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
   z-index: 500;
   overflow: auto;
   transition: right 0.5s ease-in-out;
+  border-left: 0.1px solid rgba(237, 237, 237, 0.15);
   right: -1000px;
 }
 .side-menu-container-open {
@@ -1067,8 +1068,8 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
   display: none;
 }
 .signup-box .ls-top-btns > h2:hover {
-  background-color: #33538b;
-  color: #fff;
+  background-color: #33538a;
+  color: white;
 }
 .signup-box #name_error, .signup-box #mail_error, .signup-box #pass_error, .signup-box #repeat_error, .signup-box #username_error {
   color: red;
