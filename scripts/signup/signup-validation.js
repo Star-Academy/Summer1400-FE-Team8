@@ -160,30 +160,32 @@ async function register_validation(event) {
                 }
             }
         }
-        console.log(formData)
+        // console.log(formData)
         await fetch(`${api}/user/register`, {
             method: 'POST',
             headers: {
-            //   'Accept': 'application/json',
-            //   'Content-Type': 'application/json'
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
             },
             body: JSON.stringify(formData),
           })
           .then(data => {
+              if(!data.ok){
+                print_error("mail_error", "ایمیل یا نام کاربری از قبل در سیستم ثبت شده");
+                return;
+              }
               return data.json();
               })
               .then(res => {
-              console.log(res)
-              document.querySelector('.signup-success').style.display = 'block';
-                console.log(formData)
-                //   setUserLocal('aaaaaa',formData.username,formData.email);
-                // setTimeout(() => {
-                //     window.location.replace("http://127.0.0.1:5500/login.html");
-                // }, 500)
+                if(res===undefined) return;
+                document.querySelector('.signup-success').style.display = 'block';
+                setTimeout(() => {
+                    window.location.replace("http://127.0.0.1:5500/login.html");
+                }, 500)
               })
           .catch((error) => {
-            alert('خطایی رخ داد . لطفا مجددا سعی کنید .')
-          });
+            alert('خطایی رخ داد . لطفا دوباره سعی کنید .')
+        });
            
 
         

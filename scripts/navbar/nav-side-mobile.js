@@ -14,7 +14,6 @@ if(!isLogged()){
        item.style.display='none'
    })
 }else{
-    console.log(loggedOut)
     loggedOut.forEach(item=>{
         item.style.display='none'
     })

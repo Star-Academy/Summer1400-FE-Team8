@@ -25,7 +25,7 @@ async function login_validation(event)
     let password = document.login_form.password.value
 
     if(email===''|| password===''){
-        print_error("pass_error", "ایمیل یا رمز عبور نمیتواند خالی باشد");
+        print_error("pass_error", "نام کاربری یا رمز عبور نمیتواند خالی باشد");
     }else{
         print_error("pass_error", "");
         // if ((email in users))
@@ -46,7 +46,6 @@ async function login_validation(event)
         // }
         formData = {
             username : event.target[0].value,
-            email : event.target[0].value,
             password : event.target[1].value,
         }
         await fetch(`${api}/user/login`, {
@@ -59,7 +58,8 @@ async function login_validation(event)
           })
           .then(data => {
               if(!data.ok){
-                print_error("pass_error", "ایمیل یا رمز عبور اشتباه است");
+                console.log(formData)
+                print_error("pass_error", "نام کاربری یا رمز عبور اشتباه است");
                 return;
               }
               return data.json();
@@ -67,13 +67,13 @@ async function login_validation(event)
               })
               .then(res => {
                 if(res===undefined) return;
-                  console.log('sssss')
-                  setUserLocal(res.token,event.target[0].value);
+                  console.log(res)
+                  setUserLocal(res.token,res.id);
                   window.location.replace('playlists.html')
               })
           .catch((error) => {
               console.error(error)
-            print_error("pass_error", "ایمیل یا رمز عبور اشتباه است");
+            print_error("pass_error", "نام کاربری یا رمز عبور اشتباه است");
           });
     }
     return true;

@@ -1409,6 +1409,9 @@ main.edit-profile-container .edit-profile-content form {
 main.edit-profile-container .edit-profile-content form label {
   color: #ededed;
 }
+main.edit-profile-container .edit-profile-content form .edit-profile-warning {
+  color: red;
+}
 main.edit-profile-container .edit-profile-content form .change-avatar-container {
   display: flex;
   flex-direction: column;
@@ -1430,6 +1433,19 @@ main.edit-profile-container .edit-profile-content form > div:not(.change-avatar-
   display: flex;
   flex-direction: column;
   gap: 0.1rem;
+}
+main.edit-profile-container .edit-profile-content form .edit-profile-gender-container {
+  width: 100%;
+}
+main.edit-profile-container .edit-profile-content form input:not(input[type=submit]) {
+  padding: 0.6rem !important;
+}
+main.edit-profile-container .edit-profile-content form select {
+  color: #45484a;
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+  border-radius: 0.6rem;
+  padding: 0.6rem;
 }
 main.edit-profile-container .edit-profile-content form input[type=submit] {
   font-size: 1.4rem;
