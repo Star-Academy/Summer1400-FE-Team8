@@ -1,13 +1,13 @@
+document.addEventListener("DOMContentLoaded", () => {
 
-
-    let text1 = `این یک متن پیش فرض است: 
-        باید تورو پیدا کنم شاید هنوزم دیر نیست
-        باید تورو پیدا کنم شاید هنوزم دیر نیست
-        باید تورو پیدا کنم شاید هنوزم دیر نیست
-        باید تورو پیدا کنم شاید هنوزم دیر نیست`;
-        
+    const text1 = "این یک متن پیش فرض است: " +
+        "بیا بچین جلوم مهرتو" +
+        " وقت نگیر فقط داری همین فرصتو" +
+        " کفتار ها دیدن همه قدرتو" +
+        " تو که جوجی میزنم میپیچم نسختو" +
+        " من از کف کوچه های خاکی";
     // the songs should be fetched from server and after this we will have them as songs object (create fake information)
-    let songs = {
+    const songs = {
         "id": {
             "1": {
                 "singer_name": "حسین رحمتی",
@@ -65,10 +65,16 @@
             }
         }
     };
-
+    // *****************************************************************************************************************
     user_json = {"admin": ["1", "2"]};
-
-
+    // *****************************************************************************************************************
+    // const musics = '{"result":true, "count":42}';
+    // const data = JSON.parse(musics);
+    // console.log(data);
+    //   let ddt = getdata("data.json").then(ddt=> console.log(ddt));
+    // after fetching , we have to justify contents according to  their relevant values
+    // *****************************************************************************************************************
+    // get the song id passed by user to see details
     let url = document.location.href,
         params = url.split('?')[1].split('&'),
         data = {}, tmp;
@@ -77,7 +83,8 @@
         tmp = params[i].split('=');
         data[tmp[0]] = tmp[1];
     }
-   
+    // document.getElementsByClassName('lyrics-container')[0].innerHTML = data.song_id; ;
+    // *****************************************************************************************************************
     // select some elements to processing them later
     document.getElementsByClassName("song-cover-info-singer")[0].innerHTML =
         `<span><img src="assets/images/player/person.svg" alt="singer"></span>${songs["id"][data.song_id]["singer_name"]}`;
@@ -86,15 +93,32 @@
         `<span><img src="assets/images/player/music.svg" alt="singer"></span>${songs["id"][data.song_id]["song_name"]}`;
 
     document.querySelector(".song-cover-pic > img").src = `${songs["id"][data.song_id]["img"]}`;
-    // document.querySelector(".song-interact-like > span").innerHTML = `${songs["id"][data.song_id]["liked"]}&nbsp;`;
+    document.querySelector(".song-interact-like > span").innerHTML = `${songs["id"][data.song_id]["liked"]}&nbsp;`;
     document.querySelector(".lyrics-container").innerHTML = `${songs["id"][data.song_id]["text"]}`;
-    
-    const infoBtn = document.querySelector('main.player-container .details-buttons-info');
-    const lyricsBtn = document.querySelector('main.player-container .details-buttons-lyrics');
-    const lyricsContainer = document.querySelector('main.player-container .lyrics-container');
-    const infoContainer = document.querySelector('main.player-container .details-box-info');
-
-    
+    // *****************************************************************************************************************
+    // like or unlike current music
+    const heart_btn = document.querySelector(".song-interact > .song-interact-like > button")
+    const song_like = document.querySelector(".song-interact-like > span");
+    if (user_json["admin"].includes(data.song_id)) {
+        heart_btn.innerHTML = `<img src="assets/images/player/heart_fill.svg" alt="heart">`
+    }
+    heart_btn.addEventListener("click", () => {
+        if (user_json["admin"].includes(data.song_id)) {
+            heart_btn.innerHTML = `<img src="assets/images/player/heart_outline.svg" alt="heart">`
+            const index = user_json["admin"].indexOf(data.song_id);
+            user_json["admin"].splice(index, 1);
+            song_like.innerHTML = `${parseInt(songs["id"][data.song_id]["liked"] - 1
+            <= 0 ? 0 : songs["id"][data.song_id]["liked"] - 1).toString()
+            }&nbsp;`;
+            songs["id"][data.song_id]["liked"] -= 1;
+        } else {
+            heart_btn.innerHTML = `<img src="assets/images/player/heart_fill.svg" alt="heart">`
+            user_json["admin"].push(data.song_id);
+            document.querySelector(".song-interact-like > span").innerHTML = `${parseInt(songs["id"][data.song_id]["liked"] + 1
+            ).toString()}&nbsp;`;
+            songs["id"][data.song_id]["liked"] += 1;
+        }
+    });
     // ****************************************************************************************************************
     // add or remove from play_list
     let favorite_bar = document.querySelector(".song-interact-favorite");
@@ -118,23 +142,22 @@
     });
     // *****************************************************************************************************************
 
-    let info_btn = document.querySelector(".details-buttons-info");
-    let lyrics_btn = document.querySelector(".details-buttons-lyrics");
-    let info_container = document.querySelector(".details-box-info");
-    let lyrics_container = document.querySelector(".lyrics-container");
-    info_container.style.display = "block";
-    lyrics_container.style.display = "none";
+    const info_btn = document.querySelector(".details-buttons-info");
+    const lyrics_btn = document.querySelector(".details-buttons-lyrics");
+    const info_container = document.querySelector(".infs");
+    const lyrics_container = document.querySelector(".lyrics-container");
+
 
     info_btn.addEventListener("click", () => {
-        lyrics_container.style.display = "none";
-        info_container.style.display = "block";
+        lyrics_container.style.visibility = "hidden";
+        info_container.style.visibility = "visible";
         info_btn.style.backgroundColor = "#33538b";
         lyrics_btn.style.backgroundColor = "#486fb4";
 
     });
     lyrics_btn.addEventListener("click", () => {
-        info_container.style.display = "none";
-        lyrics_container.style.display = "block";
+        info_container.style.visibility = "hidden";
+        lyrics_container.style.visibility = "visible";
         lyrics_btn.style.backgroundColor = "#33538b";
         info_btn.style.backgroundColor = "#486fb4";
     });
@@ -152,12 +175,12 @@
         });
     }
     //***********************************************************************************************************
-    let Next = document.querySelector("#next");
+    let Next = document.querySelector("#Next");
     Next.addEventListener("click", () => {
         NextTrack();
     });
 
-    let Prev = document.querySelector("#prev");
+    let Prev = document.querySelector("#Prev");
     Prev.addEventListener("click", () => {
         PrevTrack();
     });
@@ -178,11 +201,9 @@
             play_list = true;
         }
     });
-    let PlayPause = document.querySelector("#play-pause");
-    let PlayRange = document.querySelector(".play-range > .custom-range-slider");
-    let volume_range = document.querySelector(".volume-range-wrapper > .custom-range-slider");
-    current_track.volume = 0.5;
-    volume_range.value = 50;
+    const PlayPause = document.querySelector("#PlayPause");
+    const PlayRange = document.querySelector(".play-range > .custom-range-slider");
+    const volume_range = document.querySelector(".volume-range-wrapper > .custom-range-slider");
     volume_range.addEventListener("change", () => {
         current_track.volume = volume_range.value / 100;
     });
@@ -194,12 +215,7 @@
     load_track(data.song_id);
 
     PlayPause.addEventListener("click", play_pause);
-    
-    document.addEventListener("keypress", (e)=>{
-        if(e.key===' '){
-            play_pause();
-        }
-    });
+
     function load_track() {
         current_track.src = `${songs["id"][data.song_id]["music_src"]}`
         current_track.load();
@@ -254,7 +270,16 @@
         }
     }
 
+});
 
+async function getdata(file) {
+    try {
+        let x = await fetch(file);
+        return await x.json();
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 function display_recommends(songs) {
     let recommends = "";
