@@ -1,10 +1,18 @@
-window.addEventListener('DOMContentLoaded', () => {
+const navSideDesktop = ()=>{
+    
 const toggle = document.querySelector(".side-menu-toggle button");
 const toggleImg = document.querySelector(".side-menu-toggle button img");
 const menu = document.querySelector(".nav-desktop-side");
 const openClass = "nav-desktop-side-open";
 const closeClass = "nav-desktop-side-closed";
 const rightWhenClosed = "-215px";
+
+if(!isLogged()){
+    menu.style.display='none'
+}else{
+    menu.style.display='block'
+}
+
 
 menu.style.right = rightWhenClosed;
 
@@ -21,4 +29,14 @@ toggle.addEventListener("click", () => {
   toggleMenu(menu, openClass, closeClass, rightWhenClosed);
 });
 
-});
+// ------ logout button
+const logoutBtn = document.querySelector('.nav-desktop-side-logout a');
+
+logoutBtn.addEventListener('click', ()=>{
+    removeUserLocal();
+    window.location.replace('/home.html')
+})
+
+}
+
+navSideDesktop();

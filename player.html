@@ -9,13 +9,13 @@
   <meta name="description" content="free music platform" />
   <meta name="author" content="Hamed,Amir" />
   <link rel="stylesheet" href="style/css/style.css">
-  <script src="scripts/player.js" defer="defer"></script>
+  <script src="scripts/common/common.js" defer="defer"></script>
+  <script src="scripts/player/player.js" defer="defer"></script>
   <script src="scripts/navbar/toggle-menu.js" defer="defer"></script>
   <script src="scripts/navbar/nav-side-desktop.js" defer="defer"></script>
   <script src="scripts/navbar/nav-side-mobile.js" defer="defer"></script>
-  <script src="scripts/signup-alert.js" defer="defer"></script>
-
-  <title>آهنگیفای</title>
+  <script src="scripts/common/signup-alert.js" defer="defer"></script>
+  <title>Ahangify</title>
 </head>
 
 <body>
@@ -33,82 +33,89 @@
     </div>
   </div>
 
- <!----------- DESKTOP SIDE MENU ----------->
- <div class="side-menu-container nav-desktop-side">
-  <div class="side-menu">
-    <div class="side-menu-toggle">
-      <button><img src="assets/images/side-menu/open.svg" alt="open"></button>
-    </div>
-    <div class="side-menu-text">
-      <div class="side-menu-avatar-container">
-        <img class="avatar side-menu-avatar" src="assets/images/edit-profile/avatar.jpg" alt="">
+   <!----------- DESKTOP SIDE MENU ----------->
+   <div class="side-menu-container nav-desktop-side">
+    <div class="side-menu">
+      <div class="side-menu-toggle">
+        <button><img src="assets/images/side-menu/open.svg" alt="open"></button>
       </div>
-      <div><a href="/playlists.html"><img src="assets/images/side-menu/playlist.svg" alt="playlist">پلی
-          لیست ها</a></div>
-      <div><a href="/favorites.html"><img src="assets/images/side-menu/star_fill.svg"
-              alt="favorites">مورد علاقه ها</a></div>
-      <div><a href="/music_search.html"><img src="assets/images/side-menu/search_icon.svg"
-              alt="search">جستجوی پیشرفته</a></div>
-      <div><a href="/music_search.html"><img src="assets/images/side-menu/edit.svg"
-              alt="edit_profile">ویرایش پروفایل</a></div>
-      <div><a href="#"><img src="assets/images/side-menu/logout.svg" alt="logout">خروج از حساب</a></div>
-    </div>
-  </div>
-</div>
-<!----------- MOBILE SIDE MENU ----------->
-<div class="side-menu-container nav-mobile-side nav-mobile-side-closed">
-  <div class="side-menu">
-    <div class="side-menu-text">
-      <div class="side-menu-avatar-container side-menu-user">
-        <img class="avatar side-menu-avatar" src="assets/images/edit-profile/avatar.jpg" alt="">
-      </div>
-      <div class="side-menu-all side-menu-ls">
-       <img
-            src="assets/images/side-menu/person.svg"
-            alt="playlist" /><a href="/Summer1400-FE-Team8/playlists.html">ورود</a
-        ><span>&nbsp;&nbsp;|&nbsp;&nbsp;</span><a href="#">ثبت نام</a>
-      </div>
-      <div class="side-menu-user">
-        <a href="/Summer1400-FE-Team8/playlists.html"
-          ><img
-              src="assets/images/side-menu/playlist.svg"
-              alt="playlist" />پلی لیست ها</a
-        >
-      </div>
-      <div class="side-menu-user">
-        <a href="/Summer1400-FE-Team8/favorites.html"
-          ><img
-              src="assets/images/side-menu/star_fill.svg"
-              alt="favorites" />مورد علاقه ها</a
-        >
-      </div>
-      <div class="side-menu-user">
-        <a href="/Summer1400-FE-Team8/music_search.html"
-          ><img
-              src="assets/images/side-menu/search_icon.svg"
-              alt="search" />جستجوی پیشرفته</a
-        >
-      </div>
-      <div class="side-menu-user">
-        <a href="/Summer1400-FE-Team8/music_search.html"
-          ><img
-              src="assets/images/side-menu/edit.svg"
-              alt="edit_profile" />ویرایش پروفایل</a
-        >
-      </div>
-      <div class="side-menu-user">
-        <a href="#"
-          ><span><img
-            src="assets/images/side-menu/logout.svg"
-            alt="logout" /></span>خروج از حساب</a
-        >
+      <div class="side-menu-text">
+        <div class="side-menu-avatar-container">
+          <img class="avatar side-menu-avatar" src="assets/images/edit-profile/avatar.jpg" alt="">
+        </div>
+        <div><a href="/playlists.html"><img src="assets/images/side-menu/playlist.svg" alt="playlist">پلی
+            لیست ها</a></div>
+        <div><a href="/favorites.html"><img src="assets/images/side-menu/star_fill.svg"
+                alt="favorites">مورد علاقه ها</a></div>
+        <div><a href="/music_search.html"><img src="assets/images/side-menu/search_icon.svg"
+                alt="search">جستجوی پیشرفته</a></div>
+        <div><a href="/edit_profile.html"><img src="assets/images/side-menu/edit.svg"
+                alt="edit_profile">ویرایش پروفایل</a></div>
+        <div class="nav-desktop-side-logout"><a href="#"><img src="assets/images/side-menu/logout.svg" alt="logout">خروج از حساب</a></div>
       </div>
     </div>
   </div>
-</div>
-<div class="side-menu-black-page">
-  
-</div>
+    <!----------- MOBILE SIDE MENU ----------->
+    <div class="side-menu-container nav-mobile-side nav-mobile-side-closed">
+      <div class="side-menu">
+        <div class="side-menu-text">
+          <div class="side-menu-avatar-container nav-mobile-side-user">
+            <img class="avatar side-menu-avatar" src="assets/images/edit-profile/avatar.jpg" alt="">
+          </div>
+          <div class="nav-mobile-side-all">
+            <a href="/home.html"><img
+                src="assets/images/side-menu/home.svg"
+                alt="home" id="side-mobile-home" />صفحه اصلی</a>
+            
+          </div>
+          <div class="nav-mobile-side-loggedout side-menu-ls">
+            <img
+                src="assets/images/side-menu/person.svg"
+                alt="playlist" /></span
+            ><a href="/login.html">ورود</a
+            >&nbsp;&nbsp;|&nbsp;&nbsp;</span><a href="/signup.html">ثبت نام</a>
+          </div>
+          <div class="nav-mobile-side-user">
+            <a href="/playlists.html"
+              ><img
+                  src="assets/images/side-menu/playlist.svg"
+                  alt="playlist" />پلی لیست ها</a
+            >
+          </div>
+          <div class="nav-mobile-side-user">
+            <a href="/favorites.html"
+              ><img
+                  src="assets/images/side-menu/star_fill.svg"
+                  alt="favorites" />مورد علاقه ها</a
+            >
+          </div>
+          <div class="nav-mobile-side-all">
+            <a href="/music_search.html"
+              ><img
+                  src="assets/images/side-menu/search_icon.svg"
+                  alt="search" />جستجوی پیشرفته</a
+            >
+          </div>
+          <div class="nav-mobile-side-user">
+            <a href="/edit_profile.html"
+              ><img
+                  src="assets/images/side-menu/edit.svg"
+                  alt="edit_profile" />ویرایش پروفایل</a
+            >
+          </div>
+          <div class="nav-mobile-side-user nav-mobile-side-logout">
+            <a href="#"
+              ><img
+                  src="assets/images/side-menu/logout.svg"
+                  alt="logout" />خروج از حساب</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="side-menu-black-page">
+      
+    </div>
 
   <!----------- MOBILE NAVBAR ----------->
   <nav class="nav-mobile nav-dark">
@@ -148,7 +155,11 @@
           </div>
         </div>
         <div class="song-interact">
-         
+          <div class="song-interact-like">
+            <button><img src="assets/images/player/heart_outline.svg" alt="heart"></span></button>
+            <span>1000&nbsp;</span>
+            بار پسندیده شده
+          </div>
           <div class="song-interact-favorite">
             <span><img src="assets/images/player/star_outline.svg" alt="star"></span>
             <button>افزودن به لیست علاقه مندی</button>
@@ -168,11 +179,11 @@
               <span><img src="assets/images/player/music/volume_down.svg" alt="volume_down"></span>
             </div>
             <div class="song-play-bottom-center">
-              <button id="next" title="آهنگ بعدی"><img src="assets/images/player/music/fast_forward.svg"
+              <button id="Next" title="آهنگ بعدی"><img src="assets/images/player/music/fast_forward.svg"
                   alt="fast_forward"></button>
-              <button id="play-pause" title="توقف یا اجرا"><img src="assets/images/player/music/play_arrow.svg"
+              <button id="PlayPause" title="توقف یا اجرا"><img src="assets/images/player/music/play_arrow.svg"
                   alt="play_arrow"></button>
-              <button id="prev" title="آهنگ قبلی"><img src="assets/images/player/music/fast_rewind.svg"
+              <button id="Prev" title="آهنگ قبلی"><img src="assets/images/player/music/fast_rewind.svg"
                   alt="fast_rewind"></button>
             </div>
             <div class="song-play-bottom-left">
@@ -192,13 +203,21 @@
               </div>
               <div class="details-box">
                 <div>
-                 <div class="details-box-info">
-                  <p><span>خواننده : </span><span>حسین رحمتی</span></p>
-                  <p><span>نام اثر : </span><span>دوجا</span></p>
-                  <p><span>تاریخ انتشار : </span><span>00/02/27</span></p>
-                  <p><span>تعداد پلی : </span><span>1500 </span><span>بار</span></p>
-                 </div>
+                  <!-- <p><span>خواننده : </span><span>حسین رحمتی</span></p>
+                    <p><span>نام اثر : </span><span>دوجا</span></p>
+                    <p><span>تاریخ انتشار : </span><span>00/02/27</span></p>
+                    <p><span>تعداد پلی : </span><span>1500 </span><span>بار</span></p> -->
                   <p class="lyrics-container">
+                    باید تو رو پیدا کنم شاید هنوزم دیر نیست تو ساده دل کندی ولی تقدیر بی تقصیر نیست
+                    با اینکه بیتابه منی بازم منو خط میزنی باید تو رو پیدا کنم تو با خودت هم دشمنی
+
+                    کی با یه جمله مثله من میتونه آرومت کنه اون لحظه های آخر از رفتن پشیمونت کنه
+                    دلگیرم از این شهر سرد این کوچه های بی عبور وقتی به من فکر میکنی حس میکنم از راه دور
+                    باید تو رو پیدا کنم شاید هنوزم دیر نیست تو ساده دل کندی ولی تقدیر بی تقصیر نیست
+                    با اینکه بیتابه منی بازم منو خط میزنی باید تو رو پیدا کنم تو با خودت هم دشمنی
+
+                    کی با یه جمله مثله من میتونه آرومت کنه اون لحظه های آخر از رفتن پشیمونت کنه
+                    دلگیرم از این شهر سرد این کوچه های بی عبور وقتی به من فکر میکنی حس میکنم از راه دور
 
                   </p>
                 </div>

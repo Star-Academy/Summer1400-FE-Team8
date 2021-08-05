@@ -10,81 +10,89 @@
     <meta name="description" content="free music platform" />
     <meta name="author" content="Hamed,Amir" />
     <link rel="stylesheet" href="style/css/style.css" />
-    <script src="scripts/music-search.js" defer="defer"></script>
+    <script src="scripts/common/common.js" defer="defer"></script>
     <script src="scripts/navbar/toggle-menu.js" defer="defer"></script>
     <script src="scripts/navbar/nav-side-desktop.js" defer="defer"></script>
     <script src="scripts/navbar/nav-side-mobile.js" defer="defer"></script>
-    <title>جستوی موزیک</title>
+    <script src="scripts/musicSearch/music-search.js" defer="defer"></script>
+    <title>جستجوی موزیک</title>
   </head>
   <body>
     <!----------- DESKTOP SIDE MENU ----------->
-    <div class="side-menu-container nav-desktop-side">
-      <div class="side-menu">
-        <div class="side-menu-toggle">
-          <button><img src="assets/images/side-menu/open.svg" alt="open"></button>
+  <div class="side-menu-container nav-desktop-side">
+    <div class="side-menu">
+      <div class="side-menu-toggle">
+        <button><img src="assets/images/side-menu/open.svg" alt="open"></button>
+      </div>
+      <div class="side-menu-text">
+        <div class="side-menu-avatar-container">
+          <img class="avatar side-menu-avatar" src="assets/images/edit-profile/avatar.jpg" alt="">
         </div>
-        <div class="side-menu-text">
-          <div class="side-menu-avatar-container">
-            <img class="avatar side-menu-avatar" src="assets/images/edit-profile/avatar.jpg" alt="">
-          </div>
-          <div><a href="/playlists.html"><img src="assets/images/side-menu/playlist.svg" alt="playlist">پلی
-              لیست ها</a></div>
-          <div><a href="/favorites.html"><img src="assets/images/side-menu/star_fill.svg"
-                  alt="favorites">مورد علاقه ها</a></div>
-          <div><a href="/music_search.html"><img src="assets/images/side-menu/search_icon.svg"
-                  alt="search">جستجوی پیشرفته</a></div>
-          <div><a href="/music_search.html"><img src="assets/images/side-menu/edit.svg"
-                  alt="edit_profile">ویرایش پروفایل</a></div>
-          <div><a href="#"><img src="assets/images/side-menu/logout.svg" alt="logout">خروج از حساب</a></div>
-        </div>
+        <div><a href="/playlists.html"><img src="assets/images/side-menu/playlist.svg" alt="playlist">پلی
+            لیست ها</a></div>
+        <div><a href="/favorites.html"><img src="assets/images/side-menu/star_fill.svg"
+                alt="favorites">مورد علاقه ها</a></div>
+        <div><a href="/music_search.html"><img src="assets/images/side-menu/search_icon.svg"
+                alt="search">جستجوی پیشرفته</a></div>
+        <div><a href="/edit_profile.html"><img src="assets/images/side-menu/edit.svg"
+                alt="edit_profile">ویرایش پروفایل</a></div>
+        <div class="nav-desktop-side-logout"><a href="#"><img src="assets/images/side-menu/logout.svg" alt="logout">خروج از حساب</a></div>
       </div>
     </div>
+  </div>
     <!----------- MOBILE SIDE MENU ----------->
     <div class="side-menu-container nav-mobile-side nav-mobile-side-closed">
       <div class="side-menu">
         <div class="side-menu-text">
-          <div class="side-menu-avatar-container side-menu-user">
+          <div class="side-menu-avatar-container nav-mobile-side-user">
             <img class="avatar side-menu-avatar" src="assets/images/edit-profile/avatar.jpg" alt="">
           </div>
-          <div class="side-menu-all side-menu-ls">
-           <img
-                src="assets/images/side-menu/person.svg"
-                alt="playlist" /><a href="/Summer1400-FE-Team8/playlists.html">ورود</a
-            ><span>&nbsp;&nbsp;|&nbsp;&nbsp;</span><a href="#">ثبت نام</a>
+          <div class="nav-mobile-side-all">
+            <a href="/home.html"><img
+                src="assets/images/side-menu/home.svg"
+                alt="home" id="side-mobile-home" />صفحه اصلی</a>
+            
           </div>
-          <div class="side-menu-user">
-            <a href="/Summer1400-FE-Team8/playlists.html"
+          <div class="nav-mobile-side-loggedout side-menu-ls">
+            <img
+                src="assets/images/side-menu/person.svg"
+                alt="playlist" /></span
+            ><a href="/login.html">ورود</a
+            >&nbsp;&nbsp;|&nbsp;&nbsp;</span><a href="/signup.html">ثبت نام</a>
+          </div>
+          <div class="nav-mobile-side-user">
+            <a href="/playlists.html"
               ><img
                   src="assets/images/side-menu/playlist.svg"
                   alt="playlist" />پلی لیست ها</a
             >
           </div>
-          <div class="side-menu-user">
-            <a href="/Summer1400-FE-Team8/favorites.html"
+          <div class="nav-mobile-side-user">
+            <a href="/favorites.html"
               ><img
                   src="assets/images/side-menu/star_fill.svg"
                   alt="favorites" />مورد علاقه ها</a
             >
           </div>
-          <div class="side-menu-user">
-            <a href="/Summer1400-FE-Team8/music_search.html"
+          <div class="nav-mobile-side-all">
+            <a href="/music_search.html"
               ><img
                   src="assets/images/side-menu/search_icon.svg"
                   alt="search" />جستجوی پیشرفته</a
             >
           </div>
-          <div class="side-menu-user">
-            <a href="/Summer1400-FE-Team8/music_search.html"
+          <div class="nav-mobile-side-user">
+            <a href="/edit_profile.html"
               ><img
                   src="assets/images/side-menu/edit.svg"
                   alt="edit_profile" />ویرایش پروفایل</a
             >
           </div>
-          <div class="side-menu-user">
+          <div class="nav-mobile-side-user nav-mobile-side-logout">
             <a href="#"
-              ><span><img
-                src="assets/images/side-menu/logout.svg"
-                alt="logout" /></span>خروج از حساب</a
+              ><img
+                  src="assets/images/side-menu/logout.svg"
+                  alt="logout" />خروج از حساب</a
             >
           </div>
         </div>
@@ -130,13 +138,15 @@
 
     <!----------- MAIN CONTENT ----------->
     <main class="search-container">
-      <h1>جستجوی پیشرفته موزیک</h1>
+      <h1>آرشـیـو مـوزیـک</h1>
       <div class="search">
         <section class="search-box">
-          <form>
+          <form class="form-search" onsubmit="handleSearch(event)">
             <div class="search-container">
               <div class="search-icon">
-                <img src="assets/images/saerchBox/search_icon.svg" alt="" />
+               <button type="submit">
+                <img src="assets/images/saerchBox/search_icon.svg" alt="search" />
+               </input>
               </div>
               <input
                 type="search"
@@ -154,27 +164,47 @@
                 <h3>
                   <span
                     ><img
-                      src="assets/images/search/mode.svg"
+                      src="assets/images/search/order.svg"
                       alt="genre" /></span
-                  >حالت
+                  >ترتیب
                 </h3>
-                <form>
+                <form class="form-order">
                   <div>
                     <input
                       type="radio"
-                      name="mode"
-                      id="popular"
-                      value="popular"
-                      checked="checked"
+                      name="order"
+                      id="desc"
+                      value="desc"
                     />
-                    <label for="popular">محبوب ترین</label>
+                    <label for="desc">نزولی</label>
                   </div>
+                  <div>
+                    <input
+                      type="radio"
+                      name="order"
+                      id="asc"
+                      value="asc"
+                    />
+                    <label for="asc">صعودی</label>
+                  </div>
+                </form>
+              </div>
+              <div class="search-filter-mode">
+                <h3>
+                  <span
+                    ><img
+                      src="assets/images/search/mode.svg"
+                      alt="genre" /></span
+                  >بر اساس
+                </h3>
+                <form class = "form-mode">
                   <div>
                     <input
                       type="radio"
                       name="mode"
                       id="newest"
                       value="newest"
+                      
                     />
                     <label for="newest">جدید ترین</label>
                   </div>
@@ -182,10 +212,19 @@
                     <input
                       type="radio"
                       name="mode"
-                      id="most_played"
-                      value="most_played"
+                      id="name"
+                      value="name"
                     />
-                    <label for="most_played">بیشترین پلی</label>
+                    <label for="name">نام اهنگ</label>
+                  </div>
+                  <div>
+                    <input
+                      type="radio"
+                      name="mode"
+                      id="artist"
+                      value="artist"
+                    />
+                    <label for="artist">نام خواننده</label>
                   </div>
                 </form>
               </div>
@@ -198,12 +237,12 @@
                       alt="genre" /></span
                   >سبک
                 </h3>
-                <form>
+                <form class="form-genre">
                   <div>
                     <input
                       type="checkbox"
                       name="all"
-                      id="filter-genre-all"
+                      id="all"
                       value="all"
                       checked="checked"
                     />
@@ -236,7 +275,7 @@
             </div>
 
             <div class="search-results-box">
-              <div class="search-results-box-item">
+              <!-- <div class="search-results-box-item">
                 <div class="search-results-box-item-pic">
                   <img src="assets/images/player/cover2.jpg" alt="cover" />
                 </div>
@@ -247,70 +286,23 @@
                 <div class="search-results-box-item-play">
                   <button></button>
                 </div>
-              </div>
-              <div class="search-results-box-item">
-                <div class="search-results-box-item-pic">
-                  <img src="assets/images/player/cover2.jpg" alt="cover" />
-                </div>
-                <div class="search-results-box-item-text">
-                  <h5>حسین رحمتی</h5>
-                  <h4>دوجا</h4>
-                </div>
-                <div class="search-results-box-item-play">
-                  <button></button>
-                </div>
-              </div>
-              <div class="search-results-box-item">
-                <div class="search-results-box-item-pic">
-                  <img src="assets/images/player/cover2.jpg" alt="cover" />
-                </div>
-                <div class="search-results-box-item-text">
-                  <h5>حسین رحمتی</h5>
-                  <h4>دوجا</h4>
-                </div>
-                <div class="search-results-box-item-play">
-                  <button></button>
-                </div>
-              </div>
-              <div class="search-results-box-item">
-                <div class="search-results-box-item-pic">
-                  <img src="assets/images/player/cover2.jpg" alt="cover" />
-                </div>
-                <div class="search-results-box-item-text">
-                  <h5>حسین رحمتی</h5>
-                  <h4>دوجا</h4>
-                </div>
-                <div class="search-results-box-item-play">
-                  <button></button>
-                </div>
-              </div>
-              <div class="search-results-box-item">
-                <div class="search-results-box-item-pic">
-                  <img src="assets/images/player/cover2.jpg" alt="cover" />
-                </div>
-                <div class="search-results-box-item-text">
-                  <h5>حسین رحمتی</h5>
-                  <h4>دوجا</h4>
-                </div>
-                <div class="search-results-box-item-play">
-                  <button></button>
-                </div>
-              </div>
-              <div class="search-results-box-item">
-                <div class="search-results-box-item-pic">
-                  <img src="assets/images/player/cover2.jpg" alt="cover" />
-                </div>
-                <div class="search-results-box-item-text">
-                  <h5>حسین رحمتی</h5>
-                  <h4>دوجا</h4>
-                </div>
-                <div class="search-results-box-item-play">
-                  <button></button>
-                </div>
-              </div>
+              </div> -->
+         
             </div>
           </div>
         </section>
+       <div class="search-pagination-container">
+        <button class="search-pagination-forward">
+          &laquo;&laquo;
+        </button>
+        <div class="search-pagination">
+          
+        </div>
+        <button class="search-pagination-backward">
+          &raquo;&raquo;
+         </button>
+        
+       </div>
       </div>
     </main>
 

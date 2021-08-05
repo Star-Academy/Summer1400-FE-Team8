@@ -124,6 +124,36 @@
       }
     }
   }
+
+  // -------- playlists
+  main.playlists-container {
+    .create-playlist{
+
+      &-btn{
+        font-size: 1rem !important;
+      }
+      .create-playlist-page{
+        &-box{
+          padding: 1rem .6rem !important;
+          label{
+            font-size: 1.1rem !important;
+          }
+          input[type="text"]{
+              padding: .7rem .5rem;
+              text-align: center;
+              font-size: 1rem;
+          }
+          
+
+          .create-playlist-input,.create-playlist-submit{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+        }
+      }
+  }
+  }
 }
 
 @media only screen and (max-width: 23.25rem) {
@@ -251,6 +281,18 @@
           width: $cover-width !important;
           height: $cover-height !important;
         }
+        &-actions{
+          padding: 0 1.2rem 0 0;
+
+          .playlists-item-play{
+            padding-left: .8rem;
+            button {
+              border-top: 0.5rem solid transparent !important;
+              border-left: 1rem solid $main-white !important; 
+              border-bottom: 0.5rem solid transparent !important;
+            }
+          }
+        }
         &-text {
           h4 {
             font-size: 1.1rem !important;
@@ -258,6 +300,8 @@
         }
       }
     }
+
+    
   }
 
   // -------- sign up
@@ -332,6 +376,7 @@
   .landing {
     background-image: url("../../assets/images/Home/landing-bg-mobile.jpg") !important;
   }
+
 }
 
 @media only screen and (max-width: 17.49rem) {

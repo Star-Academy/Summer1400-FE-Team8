@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const text1 = "این یک متن پیش فرض است: " +
+    let text1 = "این یک متن پیش فرض است: " +
         "بیا بچین جلوم مهرتو" +
         " وقت نگیر فقط داری همین فرصتو" +
         " کفتار ها دیدن همه قدرتو" +
         " تو که جوجی میزنم میپیچم نسختو" +
         " من از کف کوچه های خاکی";
     // the songs should be fetched from server and after this we will have them as songs object (create fake information)
-    const songs = {
+    let songs = {
         "id": {
             "1": {
                 "singer_name": "حسین رحمتی",
@@ -97,8 +97,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".lyrics-container").innerHTML = `${songs["id"][data.song_id]["text"]}`;
     // *****************************************************************************************************************
     // like or unlike current music
-    const heart_btn = document.querySelector(".song-interact > .song-interact-like > button")
-    const song_like = document.querySelector(".song-interact-like > span");
+    let heart_btn = document.querySelector(".song-interact > .song-interact-like > button")
+    let song_like = document.querySelector(".song-interact-like > span");
     if (user_json["admin"].includes(data.song_id)) {
         heart_btn.innerHTML = `<img src="assets/images/player/heart_fill.svg" alt="heart">`
     }
@@ -142,10 +142,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     // *****************************************************************************************************************
 
-    const info_btn = document.querySelector(".details-buttons-info");
-    const lyrics_btn = document.querySelector(".details-buttons-lyrics");
-    const info_container = document.querySelector(".infs");
-    const lyrics_container = document.querySelector(".lyrics-container");
+    let info_btn = document.querySelector(".details-buttons-info");
+    let lyrics_btn = document.querySelector(".details-buttons-lyrics");
+    let info_container = document.querySelector(".infs");
+    let lyrics_container = document.querySelector(".lyrics-container");
 
 
     info_btn.addEventListener("click", () => {
@@ -201,9 +201,9 @@ document.addEventListener("DOMContentLoaded", () => {
             play_list = true;
         }
     });
-    const PlayPause = document.querySelector("#PlayPause");
-    const PlayRange = document.querySelector(".play-range > .custom-range-slider");
-    const volume_range = document.querySelector(".volume-range-wrapper > .custom-range-slider");
+    let PlayPause = document.querySelector("#PlayPause");
+    let PlayRange = document.querySelector(".play-range > .custom-range-slider");
+    let volume_range = document.querySelector(".volume-range-wrapper > .custom-range-slider");
     volume_range.addEventListener("change", () => {
         current_track.volume = volume_range.value / 100;
     });

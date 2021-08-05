@@ -5,7 +5,7 @@ main.search-container {
     text-align: center;
     margin-bottom: 2rem;
   }
-
+ 
   .search {
     .search-container {
       width: 50%;
@@ -69,10 +69,12 @@ main.search-container {
     }
     &-results-box {
       flex-basis: 70%;
-      height: 42rem;
+      max-height: 42rem;
       overflow: auto;
       direction: ltr !important;
-
+      a{
+        color: #fff;
+      }
       &-item {
         border-bottom: none;
         margin-bottom: 1rem;
@@ -94,5 +96,30 @@ main.search-container {
         }
       }
     }
+   .search-pagination-container{
+     display: flex;
+     justify-content: center;
+     margin-top: 4rem;
+     gap: 1rem;
+     button{
+      color: #fff;
+      font-size: 1.7rem;
+
+      &:hover{
+        opacity: .8;
+      }
+     }
+    .search-pagination{
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      flex-direction: row-reverse;
+      gap: 1rem;
+
+      a{
+        color: #fff;
+      }
+    }
+   }
   }
 }

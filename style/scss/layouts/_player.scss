@@ -37,7 +37,7 @@
       }
       .song-interact {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         width: 100%;
         margin-top: 0.3rem;
         margin-bottom: 0.1rem;
@@ -181,7 +181,7 @@
             padding: 2rem 1.8rem;
             border-radius: 0.3rem;
             background-color: $primary-color;
-            height: 20rem;
+            height: 30rem;
             overflow: auto;
             direction: ltr !important;
 
