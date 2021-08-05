@@ -17,9 +17,11 @@ document.register_form.email.addEventListener("keyup", () => {
 document.register_form.password_repeat.addEventListener("keyup", () => {
     document.getElementById("repeat_error").innerHTML = "";
 });
-document.register_form.name.addEventListener("keyup", () => {
-    document.getElementById("name_error").innerHTML = "";
-});
+// if(document.register_form.name){
+//     document.register_form.name.addEventListener("keyup", () => {
+//         document.getElementById("name_error").innerHTML = "";
+//     });
+// }
 
 
 

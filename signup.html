@@ -10,10 +10,11 @@
     <meta name="description" content="free music platform" />
     <meta name="author" content="Hamed,Amir" />
     <link rel="stylesheet" href="style/css/style.css" />
-    <script src="scripts/navbar/toggle-menu.js" defer="defer"></script>
     <script src="scripts/common/common.js" defer="defer"></script>
     <!-- <script src="scripts/playlists/playlists.js" defer="defer"></script> -->
     <script src="scripts/signup/signup-validation.js" defer="defer"></script>
+    <script src="scripts/navbar/toggle-menu.js" defer="defer"></script>
+    <script src="scripts/navbar/nav-side-mobile.js" defer="defer"></script>
     
     <title>ثبت نام</title>
     <style>
@@ -112,7 +113,7 @@
     <nav>
       <div class="nav-content">
         <div class="nav-logo">
-          <h2><a href="#">آهنگیفای</a></h2>
+          <h2><a href="/Summer1400-FE-Team8/home.html">آهنگیفای</a></h2>
         </div>
         <div class="nav-menu">
           <div class="nav-menu-item">
@@ -174,14 +175,14 @@
               <div id="username_error"></div>
           </div>
           <div>
-              <label for="password">رمز عبور</label>
-              <input type="password" class="custom-input" name="password" required>
+              <label for="password" >رمز عبور</label>
+              <input type="password" autocomplete="on"  class="custom-input" name="password" required>
               <div id="pass_error"></div>
 
           </div>
           <div>
               <label for="password-repeat">تکرار رمز عبور</label>
-              <input type="password" class="custom-input" name="password_repeat" required>
+              <input type="password" autocomplete="on"  class="custom-input" name="password_repeat" required>
               <div id="repeat_error"></div>
           </div>
           <div class="signup-submit-container">
