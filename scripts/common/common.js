@@ -18,21 +18,31 @@ const getEmail = () => {
   }
 
   // return the expiry from the local storage
-  const getExpiry = () => {
-    return localStorage.getItem('expiry') || null;
+  const checkExpiry = () => {
+    return new Date(localStorage.getItem('expiry')) > new Date();
   }
-   
+  const setExpiry = (date) => {
+    const expiry = new Date(date.getTime()+(10*(86400000)));
+    localStorage.setItem('expiry',expiry);
+  }
+
+  
   // remove the token and user from the local storage
   const removeUserLocal = () => {
    localStorage.removeItem('token');
    localStorage.removeItem('user');
-   localStorage.removeItem('expiry');
   }
    
   // set the token and user from the local storage
   const setUserLocal = (token,user) => {
    localStorage.setItem('token', token);
    localStorage.setItem('user', JSON.stringify(user));
+  }
+
+  // check token expiry
+
+  if(!checkExpiry()){
+    removeUserLocal();
   }
 
   const isLogged = ()=>{

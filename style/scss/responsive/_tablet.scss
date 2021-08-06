@@ -217,4 +217,18 @@
   .landing {
     background-image: url("../../assets/images/Home/landing-bg-tablet.jpg") !important;
   }
+
+  // -------- edit profile
+  main.edit-profile-container {
+    form{
+      grid-template-columns: 1fr !important;
+      column-gap:0rem !important;
+      &>div{
+        grid-column: 1/2;
+      }
+      input[type="submit"]{
+        width: 100% !important;
+      }
+    }
+  }
 }

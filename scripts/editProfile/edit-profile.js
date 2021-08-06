@@ -4,7 +4,6 @@ const form = document.querySelector('.edit-profile-content form');
 const avatar = document.querySelector('.change-avatar-container img');
 let userInfo = {};
 let editedUserInfo = {};
-let formData = new FormData();
 
 triggerPasswordStrength(form.password,'edit-profile-warning-password');
 // form.email.addEventListener("keyup", () => {
@@ -21,7 +20,12 @@ const handleSubmitInfo = async (e)=>{
     const isError = validateForm(form,'edit-profile-warning-email','edit-profile-warning-username',
     'edit-profile-warning-password','edit-profile-warning-password-repeat');
     if(isError) return;
-    // console.log(e.target[6].value.replace(/\//g,'-'));
+    const b = form.birth_date.value.replace(/\//g,'-').split('-').reverse();
+    let temp
+    temp= b[1];
+    b[1] = b[2];
+    b[2] = temp;
+    const birthDate = b.join('-');
     editedUserInfo = {
         ...editedUserInfo,
         firstName : form.first_name.value,
@@ -29,31 +33,20 @@ const handleSubmitInfo = async (e)=>{
         username : form.username.value,
         email : form.email.value,
         password : form.password.value,
-        gender : true,
-        // birthDate : form.birth_date.value.replace(/\//g,'-'),
-        birthDate : '2021-08-04',
+        gender : parseInt(form.gender.value),
+        birthDate: birthDate ==='--'?null:birthDate,
         token
     }
-    for(const property in editedUserInfo){
-        formData.append(property, editedUserInfo[property])
-      }
-
-      for (var value of formData.values()) {
-        // console.log(value);
-     }
-
-     const data = new URLSearchParams();
-    for (const pair of formData) {
-        data.append(pair[0], pair[1]);
-    }
-
 
 
     await fetch(`${api}/user/alter`, {
         method: 'POST',
         headers: {
+          'Access-Control-Allow-Origin': '*',
           'Accept': '*/*',
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          
+
         },
         body: JSON.stringify(editedUserInfo ),
       })
@@ -61,8 +54,9 @@ const handleSubmitInfo = async (e)=>{
           return data;
           })
           .then(res => {
-          console.log(res)
-          // console.log(data)
+          // console.log(res);
+          // console.log(data);
+          window.location.reload();
           })
       .catch((error) => {
         console.error('Error:', error);
@@ -108,32 +102,30 @@ const getProfile = async ()=>{
     .catch((error) => {
         alert('خطایی رخ داد . لطفا دوباره سعی کنید .')
     });
-
+    // form.gender.value = userInfo.gender.toString();
+    // form.birth_date.placeholder =  userInfo.birth_date.substr(0,6)
     for(const property in userInfo){
         if(property==='avatar'){
-          avatar.src = userInfo[property];
-          return;
-            // form.avatar.src = userInfo[property];
+          if(userInfo[property]) avatar.src = userInfo[property];
+        }else if(property==='gender'){
+          if(userInfo[property]) form.gender.value = userInfo.gender.toString();
+        }else if(property==='birth_date'){
+         if(userInfo[property]){
+          form.birth_date.placeholder = userInfo.birth_date.substr(0,10).split('-').reverse().join('/');
+         }
+        }else{
+          form[property].value = userInfo[property]
         }
-      form[property].value = userInfo[property]
+        
+      
     }
-
+    // form.gender.value = userInfo.gender.toString();
+      
     
     const elem = document.querySelector('input[name="birth_date"]');
     const datepicker = new Datepicker(elem); 
 }
 
-function base64_decode(s) {      
-    return decodeURIComponent(escape(atob(s)));
-}
 
-// function encodeImageFileAsURL(element) {
-//   var file = element.files[0];
-//   var reader = new FileReader();
-//   reader.onloadend = function() {
-//     console.log('RESULT', reader.result)
-//   }
-//   reader.readAsDataURL(file);
-// }
 
 getProfile();   

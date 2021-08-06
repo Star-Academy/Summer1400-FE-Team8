@@ -56,7 +56,6 @@ const triggerPasswordStrength = (passwordElm,passErrorId)=>{
 }
 
 const print_error = (id, error_text) =>{
-    console.log(id)
     document.getElementById(id).innerText = error_text
 }
 

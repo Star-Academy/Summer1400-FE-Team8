@@ -1,8 +1,30 @@
 users = {}
 const token = getToken();
+
 if(token){
     window.location.replace('/playlists.html')
   }
+
+// set username and password if there is cookie
+const cookieData = document.cookie.split(';');
+console.log(cookieData)
+if(cookieData[0]){
+  let cookieUsername,cookiePassword='';
+
+  for(let i in cookieData){
+    if(cookieData[i].split('=')[0].trim() ==='username'){
+      cookieUsername = cookieData[i].split('=')[1];
+      console.log(cookieData[i].split('=')[1])
+    }else if(cookieData[i].split('=')[0].trim() ==='password'){
+      cookiePassword = cookieData[i].split('=')[1]
+    }
+  }
+  const loginForm = document.querySelector('.login-box form');
+  loginForm.email.value = cookieUsername;
+  loginForm.password.value = cookiePassword;
+
+}
+
   
 document.login_form.email.addEventListener("keyup" , ()=>{
 
@@ -17,6 +39,7 @@ function print_error(id, error_text)
 async function login_validation(event)
 {
     event.preventDefault();
+    const form = event.target
     let formData = {
         user:'',
         password:'',
@@ -28,25 +51,10 @@ async function login_validation(event)
         print_error("pass_error", "نام کاربری یا رمز عبور نمیتواند خالی باشد");
     }else{
         print_error("pass_error", "");
-        // if ((email in users))
-        // {
-        //     print_error("mail_error", "چنین آدرس ایمیلی یا نام کاربری ثبت نشده است");
-        //     return false;
-        // } else
-        // {
-        //     print_error("pass_error", "");
-        //     if (users[email] === password)
-        //     {
-        //         print_error("pass_error", "رمز عبور اشتباه است");
-        //         return false;
-        //     }else{
-        //         setUserLocal('aaaaaaaaaaa',event.target[0].value);
-        //         console.log(isLogged())
-        //     }
-        // }
+
         formData = {
-            username : event.target[0].value,
-            password : event.target[1].value,
+            username : form[0].value,
+            password : form[1].value,
         }
         await fetch(`${api}/user/login`, {
             method: 'POST',
@@ -58,7 +66,6 @@ async function login_validation(event)
           })
           .then(data => {
               if(!data.ok){
-                console.log(formData)
                 print_error("pass_error", "نام کاربری یا رمز عبور اشتباه است");
                 return;
               }
@@ -67,8 +74,14 @@ async function login_validation(event)
               })
               .then(res => {
                 if(res===undefined) return;
-                  console.log(res)
+                 if(form.remember_me.checked){
+                   const expiry = new Date(new Date().getTime()+(10*(86400000)))
+                  document.cookie = `username=${formData.username};expires=${expiry}`;
+                  document.cookie = `password=${formData.password};expires=${expiry}`;
+                  
+                 }
                   setUserLocal(res.token,res.id);
+                  setExpiry(new Date())
                   window.location.replace('playlists.html')
               })
           .catch((error) => {

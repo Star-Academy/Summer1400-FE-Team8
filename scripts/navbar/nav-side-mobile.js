@@ -1,4 +1,5 @@
-const navSideMobile = ()=>{
+const navSideMobile = async ()=>{
+const userId = getUser();
 const toggle = document.querySelector(".nav-mobile-main-toggle");
 const menu = document.querySelector(".nav-mobile-side");
 const black_page = document.querySelector(".side-menu-black-page");
@@ -8,6 +9,7 @@ const rightWhenClosed = "-400px";
 const all = document.querySelectorAll('.nav-mobile-side .nav-mobile-side-all')
 const user = document.querySelectorAll('.nav-mobile-side .nav-mobile-side-user')
 const loggedOut = document.querySelectorAll('.nav-mobile-side .nav-mobile-side-loggedout')
+const avatar = document.querySelector('.nav-mobile-side .side-menu-avatar-container img');
 
 if(!isLogged()){
    user.forEach(item=>{
@@ -16,6 +18,21 @@ if(!isLogged()){
 }else{
     loggedOut.forEach(item=>{
         item.style.display='none'
+    })
+    
+    await fetch(`${api}/user/one/${userId}`)
+    .then(data=>{
+      if(!data.ok){
+        return;
+      }
+      return data.json();
+    })
+    .then(res=>{
+      if(!res.user.avatar) return;
+      avatar.src = res.user.avatar
+    })
+    .catch(err=>{
+      console.log(err)
     })
 }
 
@@ -50,22 +67,22 @@ if(logoutBtn){
     })
 }
 // change domain for local
-document.querySelectorAll(`a`).forEach(item=>{
-    const href = item.getAttribute("href");
-    const newHref = href.replace('/Summer1400-FE-Team8', '');
-  
-    if(href.includes('Summer1400-FE-Team8')){
-      item.setAttribute('href', newHref)
-    }
-  })
-
-//   // change domain for github pages
 // document.querySelectorAll(`a`).forEach(item=>{
 //     const href = item.getAttribute("href");
-//     if(!href.includes('Summer1400-FE-Team8')){
-//       item.setAttribute('href', `/Summer1400-FE-Team8${href}`)
+//     const newHref = href.replace('/Summer1400-FE-Team8', '');
+  
+//     if(href.includes('Summer1400-FE-Team8')){
+//       item.setAttribute('href', newHref)
 //     }
 //   })
+
+  // change domain for github pages
+document.querySelectorAll(`a`).forEach(item=>{
+    const href = item.getAttribute("href");
+    if(!href.includes('Summer1400-FE-Team8')){
+      item.setAttribute('href', `/Summer1400-FE-Team8${href}`)
+    }
+  })
   
 }
 

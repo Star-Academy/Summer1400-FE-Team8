@@ -3,11 +3,6 @@ const token = getToken();
 if(token ==='undefined' || !token){
   window.location.replace('/login.html')
 }
-const getParams = (name)=>{
-    const state = window.location.search;
-    const urlParams = new URLSearchParams(state);
-    return urlParams.get(name);
-  }
 
   const removeFromPlaylist = async (playlistId,songId) => {
     await fetch(`${api}/playlist/remove-song`, {

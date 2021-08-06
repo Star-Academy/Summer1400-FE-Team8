@@ -11,13 +11,13 @@
     <meta name="author" content="Hamed,Amir" />
     <link rel="stylesheet" href="style/css/style.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/css/datepicker.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/js/datepicker.min.js" defer="defer"></script>
     <script src="scripts/common/common.js" defer="defer"></script>
     <script src="scripts/common/formValidation.js" defer="defer"></script>
     <script src="scripts/navbar/toggle-menu.js" defer="defer"></script>
     <script src="scripts/navbar/nav-side-desktop.js" defer="defer"></script>
     <script src="scripts/navbar/nav-top-desktop.js" defer="defer"></script>
     <script src="scripts/navbar/nav-side-mobile.js" defer="defer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/js/datepicker.min.js" defer="defer"></script>
     <script src="scripts/editProfile/edit-profile.js" defer="defer"></script>
     
     <title>ویرایش پروفایل</title>
@@ -31,7 +31,7 @@
       </div>
       <div class="side-menu-text">
         <div class="side-menu-avatar-container">
-          <img class="avatar side-menu-avatar" src="assets/images/edit-profile/avatar.jpg" alt="">
+          <img class="avatar side-menu-avatar" src="assets/images/side-menu/no_avatar.jpg" alt="no_avatar">
         </div>
         <div><a href="/playlists.html"><img src="assets/images/side-menu/playlist.svg" alt="playlist">پلی
             لیست ها</a></div>
@@ -50,7 +50,7 @@
       <div class="side-menu">
         <div class="side-menu-text">
           <div class="side-menu-avatar-container nav-mobile-side-user">
-            <img class="avatar side-menu-avatar" src="assets/images/edit-profile/avatar.jpg" alt="">
+            <img class="avatar side-menu-avatar" src="assets/images/side-menu/no_avatar.jpg" alt="no_avatar">
           </div>
           <div class="nav-mobile-side-all">
             <a href="/home.html"><img
@@ -151,11 +151,12 @@
             <div>
               <img
                 class="avatar"
-                src="assets/images/edit-profile/avatar.jpg"
+                src="assets/images/side-menu/no_avatar.jpg"
                 alt="avatar"
                 
               />
             </div>
+            <p class="avatar-warning">بیشترین حجم قابل قبول : 60 کیلوبایت</p>
             <label class="change-avatar-btn btn btn--gray" for="avatar"
               >تغییر عکس پروفایل</label
             >
@@ -181,7 +182,7 @@
           </div>
           <div>
             <label for="password">رمز عبور جدید</label>
-            <input class="custom-input" type="password" name="password" />
+            <input class="custom-input" type="password" name="password" autocomplete="on"/>
             <p id="edit-profile-warning-password" class="edit-profile-warning"></p>
           </div>
           <div>
@@ -190,21 +191,23 @@
               class="custom-input"
               type="password"
               name="repeat_password"
+              autocomplete="on"
             />
             <p id="edit-profile-warning-password-repeat" class="edit-profile-warning"></p>
           </div>
           <div class="edit-profile-gender-container">
             <label for="gender">جنیسیت</label>
             <select name="gender" id="gender">
-              <option value="true">مرد</option>
-              <option value="false">زن</option>
+              <option value="0">نامشخص</option>
+              <option value="1">مرد</option>
+              <option value="2">زن</option>
             </select>
           </div>
           <div>
             <label for="birth_date">تاریخ تولد</label>
-            <input type="text" name="birth_date" />
+            <input autocomplete="off" type="text" name="birth_date" class="custom-input"/>
           </div>
-          <div>
+          <div class="edit-profile-submit-container">
             <input
               class="btn btn--blue"
               type="submit"
