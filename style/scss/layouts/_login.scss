@@ -44,4 +44,14 @@
       }
     }
   }
+  .ls-top-btns > h2:hover
+  {
+      background-color: #33538b;
+      color: #fff;
+  }
+  #mail_error , #pass_error
+  {
+      color: red;
+      font-size: 85%;
+  }
 }

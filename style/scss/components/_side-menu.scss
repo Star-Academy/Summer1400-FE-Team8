@@ -4,9 +4,16 @@
   position: fixed;
   background-color: $primary-color;
   height: 100vh;
+  max-width:100vw;
   padding: 5rem 2rem 1rem 0.5rem;
   z-index: 500;
-  display: none;
+  overflow: auto;
+  transition: right 0.5s ease-in-out;
+  right: -1000px;
+
+  &-open{
+    right: 0px;
+  }
   .side-menu {
     &-toggle {
       text-align: left;
@@ -20,22 +27,30 @@
 
     &-text {
       display: flex;
-      margin-top: 3rem;
+      margin-top: 1rem;
       flex-direction: column;
-      gap: 3.5rem;
+      gap: 3em;
       padding-left: 3.3rem;
-      img {
+      .side-menu-avatar-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      img:not(.side-menu-avatar){
         width: 1.4rem;
         height: 1.4rem;
         filter: $filter-main-white;
-        vertical-align: -8.1px;
+        // vertical-align: -8.1px;
         margin-left: 1rem;
+      }
+      img.side-menu-avatar{
+        width:9rem;
+        height:9rem;
       }
       a {
         color: $main-white;
         font-size: 1.2rem;
         position: relative;
-        display: inline-block;
         transition: right 0.3s ease-in-out;
         right: 0;
 
@@ -43,10 +58,42 @@
           right: 0.5rem;
         }
       }
+      a:not(.side-menu-ls a),.side-menu-ls{
+        display: flex;
+        align-items: center;
+      }
 
       span {
         color: $main-white;
       }
     }
   }
+}
+
+.side-menu-black-page{
+  position: fixed;
+  width: 100vw;
+  height: 100%;
+  background-color:rgba(0,0,0,.5);
+  display:none;
+  z-index:1;
+}
+
+/* ----------- MOBILE SIDE MENU ----------- */
+.nav-mobile-side{
+  padding-top: 4rem !important;
+
+  .side-menu-text{
+    margin-top: 2rem !important;
+  }
+  img.side-menu-avatar{
+    width:6rem !important;
+    height:6rem !important;
+  }
+}
+
+/* ----------- MOBILE SIDE MENU ----------- */
+
+.side-menu-toggle button img{
+  transition: transform .4s ease-in-out;
 }

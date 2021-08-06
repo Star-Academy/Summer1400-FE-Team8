@@ -10,7 +10,9 @@
     <meta name="description" content="free music platform" />
     <meta name="author" content="Hamed,Amir" />
     <link rel="stylesheet" href="style/css/style.css" />
+    <script src="scripts/form-validation.js" defer="defer"></script>
     <title>Ahangify</title>
+   
   </head>
 
   <body>
@@ -76,16 +78,19 @@
           <div class="login-box-text">
             <h2>ورود به حساب کاربری</h2>
             <div class="login-box-alert"></div>
-            <form class="login-box-form">
+            <form class="login-box-form" name="login_form" method="post" action="" onsubmit="login_validation(event)">
               <div>
-                <input class="custom-input" type="email" placeholder="ایمیل" />
+                <input class="custom-input" type="text" name="email" placeholder="ایمیل یا نام کاربری" />
+                <div id="mail_error"></div>
               </div>
               <div>
                 <input
                   class="custom-input"
                   type="password"
+                  name="password"
                   placeholder="رمز عبور"
                 />
+                <div id="pass_error"></div>
               </div>
               <div class="remember-container">
                 <input type="checkbox" name="remember-me" />
