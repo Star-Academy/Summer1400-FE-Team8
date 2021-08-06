@@ -53,7 +53,7 @@ const getEmail = () => {
   }
 
   // api
-  const api = 'http://130.185.120.192:5000';
+  const api = 'https://130.185.120.192:5000';
 
   // get & set URL params
   const setParams = (name,val,name2,val2)=>{

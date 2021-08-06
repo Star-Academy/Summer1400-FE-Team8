@@ -71,7 +71,7 @@ if(logoutBtn){
 //     const href = item.getAttribute("href");
 //     const newHref = href.replace('/Summer1400-FE-Team8', '');
   
-//     if(href.includes('Summer1400-FE-Team8')){
+//     if(href.includes('Summer1400-FE-Team8')){  
 //       item.setAttribute('href', newHref)
 //     }
 //   })
