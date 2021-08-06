@@ -8,21 +8,21 @@ const closeClass = "nav-desktop-side-closed";
 const rightWhenClosed = "-215px";
 const avatar = document.querySelector('.nav-desktop-side .side-menu-avatar-container img');
 
-if(!isLogged()){
-    menu.style.display='none'
-}else{
-    menu.style.display='block';
+// if(!isLogged()){
+//     menu.style.display='none'
+// }else{
+//     menu.style.display='block';
 
-    await fetch(`${api}/user/one/${userId}`)
-    .then(data=>data.json())
-    .then(res=>{
-      if(!res.user.avatar) return;
-      avatar.src = res.user.avatar
-    })
-    .catch(err=>{
-      console.log(err)
-    })
-}
+//     await fetch(`${api}/user/one/${userId}`)
+//     .then(data=>data.json())
+//     .then(res=>{
+//       if(!res.user.avatar) return;
+//       avatar.src = res.user.avatar
+//     })
+//     .catch(err=>{
+//       console.log(err)
+//     })
+// }
 
 
 menu.style.right = rightWhenClosed;

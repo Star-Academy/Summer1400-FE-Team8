@@ -41,4 +41,9 @@
       }
     }
   }
+  #name_error , #mail_error , #pass_error , #repeat_error,#username_error
+  {
+      color: red;
+      font-size: 85%;
+  }
 }

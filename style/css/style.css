@@ -1071,6 +1071,10 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
   color: green;
   display: none;
 }
+.signup-box #name_error, .signup-box #mail_error, .signup-box #pass_error, .signup-box #repeat_error, .signup-box #username_error {
+  color: red;
+  font-size: 85%;
+}
 
 .ls-top-container {
   display: flex;
