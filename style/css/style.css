@@ -1,7 +1,7 @@
 @font-face {
   font-family: "IRANSansWeb";
-  src: url("../../../assets/fonts/IRANSansWeb-Bold.eot");
-  src: url("../../../assets/fonts/IRANSansWeb-Bold.eot?#iefix") format("embedded-opentype"), url("../../../assets/fonts/IRANSansWeb-Bold.woff2") format("woff2"), url("../../../assets/fonts/IRANSansWeb-Bold.woff") format("woff"), url("../../../assets/fonts/IRANSansWeb-Bold.ttf") format("truetype"), url("../../../assets/fonts/IRANSansWeb-Bold.svg#IRANSansWeb-Bold") format("svg");
+  src: url("https://star-academy.github.io/Summer1400-FE-Team8/assets/fonts/IRANSansWeb-Bold.eot");
+  src: url("../../../assets/fonts/IRANSansWeb-Bold.eot?#iefix") format("embedded-opentype"), url("https://star-academy.github.io/Summer1400-FE-Team8/assets/fonts/IRANSansWeb-Bold.woff2") format("woff2"), url("https://star-academy.github.io/Summer1400-FE-Team8/assets/fonts/IRANSansWeb-Bold.woff") format("woff"), url("https://star-academy.github.io/Summer1400-FE-Team8/assets/fonts/IRANSansWeb-Bold.ttf") format("truetype"), url("../../../assets/fonts/IRANSansWeb-Bold.svg#IRANSansWeb-Bold") format("svg");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
