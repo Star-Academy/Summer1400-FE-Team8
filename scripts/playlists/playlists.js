@@ -29,12 +29,21 @@ const getPlaylists = async () => {
       .catch((error) => {
         // alert('خطایی رخ داد . لطفا دوباره سعی کنید .')
       });
-      container.innerHTML = allPlaylists.map(playlist=>{
+      const template = document.querySelector('main.playlists-container template[name="component-playlists-item"]');
+        allPlaylists.map(playlist=>{
+            const clone = template.content.cloneNode(true);
+            clone.querySelector(".playlists-item").setAttribute('data-id',`${playlist.id}`);
+            clone.querySelector(".playlists-item-pic a").href = `playlist.html?id=${playlist.id}`;
+            clone.querySelector(".playlists-item-pic a img").src = `${playlist.songs[playlist.songs.length-1] ? playlist.songs[playlist.songs.length-1].rest.cover : "../assets/images/playlists/no-cover.jpg"}`;
+            clone.querySelector(".playlists-item-text h4 a").href = `playlist.html?id=${playlist.id}`;
+            clone.querySelector(".playlists-item-text h4 a").innerText = `${playlist.name}`;
+            clone.querySelector(".playlists-item-delete img").addEventListener("click", () => deletePlaylist(playlist.id))
+            container.appendChild(clone);
             return (`
                 <div class="playlists-item" data-id="${playlist.id}">
                 <div class="playlists-item-pic">
                 <a href="playlist.html?id=${playlist.id}"
-                    ><img src="${playlist.songs[0] ? playlist.songs[0].rest.cover : "assets/images/playlists/no-cover.jpg"} " alt="cover"
+                    ><img src="${playlist.songs[playlist.songs.length-1] ? playlist.songs[playlist.songs.length-1].rest.cover : "../assets/images/playlists/no-cover.jpg"} " alt="cover"
                 /></a>
                 </div>
                 <div class="playlists-item-actions">
@@ -50,14 +59,14 @@ const getPlaylists = async () => {
                     </a>
                     </div>
                     <div class="playlists-item-delete">
-                    <img onclick="deletePlaylist(${playlist.id})" src="assets/images/favorites/delete.svg" alt="delete" />
+                    <img onclick="deletePlaylist(${playlist.id})" src="../assets/images/favorites/delete.svg" alt="delete" />
                     </div>
                 </div>
                 </div>
             </div>
             `)
       })
-      container.innerHTML = container.innerHTML.replace(/,/g, '');
+      // container.innerHTML = container.innerHTML.replace(/,/g, '');
 
 
       // assign none display to parent of clicked delete btn

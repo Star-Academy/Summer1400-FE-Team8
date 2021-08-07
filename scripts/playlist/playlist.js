@@ -51,33 +51,23 @@ if(token ==='undefined' || !token){
       });
 
       nameWrapper.innerText = playlistName;
-      const text = songsList.map(song=>{
-          return (`
-              <div class="favorites-box-item" data-id="${song.id}">
-              <div class="favorites-box-item-pic">
-                <img src="${song.cover}" alt="cover" />
-              </div>
-              <div class="favorites-box-item-text">
-                <h6>${song.artist}</h6>
-                <h5>${song.name}</h5>
-              </div>
-              <div class="favorites-box-item-play">
-                <a href="player.html?song_id=${song.id}">
-                  <button></button>
-                </a>
-              </div>
-              <div class="favorites-box-item-delete">
-                <img onclick="removeFromPlaylist(${id},${song.id})" src="assets/images/favorites/delete.svg" alt="delete" />
-              </div>
-            </div>
-          `)
+      
+      const template = document.querySelector('main.favorites-container template[name="component-favorites-box-item"]')
+      songsList.map(song=>{
+        const clone = template.content.cloneNode(true);
+        clone.querySelector(".favorites-box-item").setAttribute("data-id",`${song.id}`);
+        clone.querySelector(".favorites-box-item-pic img").src = `${song.cover}`;
+        clone.querySelector(".favorites-box-item-text h5").innerText = `${song.name}`;
+        clone.querySelector(".favorites-box-item-text h6").innerText = `${song.artist}`;
+        clone.querySelector(".favorites-box-item-play a").href = `player.html?song_id=${song.id}`;
+        clone.querySelector(".favorites-box-item-delete img").addEventListener("click", ()=>removeFromPlaylist(id,song.id))
+        container.appendChild(clone)
+        return (clone)
     })
-    container.innerHTML = text.join(' ')
     document.title = playlistName;
 
     // ---------- ASSIGN NONE DISPLAY TO PARENT OF CLICKED DELETE BTN
     document.querySelectorAll('main.favorites-container .favorites-box-item-delete img').forEach(item=>{
-      // console.log(item)
         item.addEventListener('click', e =>{
           const box = e.target.parentElement.parentElement;
           box.style.display = 'none';

@@ -10,6 +10,13 @@ container.addEventListener('click', (e)=>{
    }, 300)
 })
 
+const showAlertPage = ()=>{
+   container.style.display="flex";
+   setTimeout(() => {
+      box.style.opacity="100"
+   }, 1)
+}
+
 // container.style.display = 'flex';
 // setTimeout(() => {
 //     box.style.opacity ='100'

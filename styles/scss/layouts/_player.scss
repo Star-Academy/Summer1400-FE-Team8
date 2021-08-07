@@ -17,10 +17,13 @@
       .song-cover {
         display: flex;
         flex-direction: column;
-
+        
         &-info {
           display: flex;
-          justify-content: space-between;
+          justify-content: space-around;
+          width: 100%;
+          margin-top: .4rem;
+          
           p {
             display: flex;
             gap: 0.3rem;
@@ -181,8 +184,8 @@
             padding: 2rem 1.8rem;
             border-radius: 0.3rem;
             background-color: $primary-color;
-            height: 30rem;
-            overflow: auto;
+            height: 10rem;
+            overflow: hidden;
             direction: ltr !important;
 
             & > div {
@@ -194,6 +197,7 @@
             p.lyrics-container {
               line-height: 2.3rem;
             }
+           
           }
         }
       }
@@ -219,6 +223,7 @@
         &-item {
           display: flex;
           cursor: pointer;
+          justify-content: space-between;
           background-color: $primary-color;
           gap: 0.7rem;
           align-items: center;
@@ -244,6 +249,7 @@
           &-text {
             display: flex;
             flex-direction: column;
+            margin-left: auto;
             gap: 0.4rem;
 
             h6 {
@@ -305,6 +311,43 @@
       gap: 1rem;
       align-items: center;
       font-size: 1.1rem;
+    }
+  }
+  
+  
+}
+.add-to-playlist-page{
+  position : fixed;
+  background-color:rgba(0, 0, 0, .5);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  width:100vw;
+  height:100vh;
+  z-index: 9999999999;
+  top: 0;
+  left: 0;
+
+  &-box{
+    padding: 1.5rem 2rem;
+    background-color:$primary-color;
+    transform: scale(.1);
+    transition: transform .4s ease-in-out;
+    border-radius: 1rem;
+    
+    &>ul{
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 1.4rem;
+      padding:0 !important;
+      gap: 1rem;
+      height:12.5rem;
+      overflow:auto;
+      direction:ltr !important;
+      &>li{
+        direction:rtl !important;
+      }
     }
   }
   

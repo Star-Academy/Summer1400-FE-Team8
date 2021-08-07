@@ -774,7 +774,9 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
 }
 .player-container .player-content .player-right .song-cover-info {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 0.4rem;
 }
 .player-container .player-content .player-right .song-cover-info p {
   display: flex;
@@ -912,8 +914,8 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
   padding: 2rem 1.8rem;
   border-radius: 0.3rem;
   background-color: #45484a;
-  height: 30rem;
-  overflow: auto;
+  height: 10rem;
+  overflow: hidden;
   direction: ltr !important;
 }
 .player-container .player-content .player-right .song-more-details .details-box > div {
@@ -943,6 +945,7 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
 .player-container .player-content .player-left .playlist-box-item {
   display: flex;
   cursor: pointer;
+  justify-content: space-between;
   background-color: #45484a;
   gap: 0.7rem;
   align-items: center;
@@ -967,6 +970,7 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
 .player-container .player-content .player-left .playlist-box-item-text {
   display: flex;
   flex-direction: column;
+  margin-left: auto;
   gap: 0.4rem;
 }
 .player-container .player-content .player-left .playlist-box-item-text h6 {
@@ -1021,6 +1025,40 @@ input[type=range].custom-range-slider:active::-moz-range-thumb {
   gap: 1rem;
   align-items: center;
   font-size: 1.1rem;
+}
+
+.add-to-playlist-page {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999999999;
+  top: 0;
+  left: 0;
+}
+.add-to-playlist-page-box {
+  padding: 1.5rem 2rem;
+  background-color: #45484a;
+  transform: scale(0.1);
+  transition: transform 0.4s ease-in-out;
+  border-radius: 1rem;
+}
+.add-to-playlist-page-box > ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1.4rem;
+  padding: 0 !important;
+  gap: 1rem;
+  height: 12.5rem;
+  overflow: auto;
+  direction: ltr !important;
+}
+.add-to-playlist-page-box > ul > li {
+  direction: rtl !important;
 }
 
 .signup-box {
@@ -1157,11 +1195,6 @@ main.playlists-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-main.playlists-container > div {
-  height: 64rem;
-  overflow: auto;
-  direction: ltr !important;
 }
 main.playlists-container h1 {
   text-align: center;

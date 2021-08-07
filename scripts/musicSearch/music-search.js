@@ -1,28 +1,26 @@
 
-
 if(!window.location.search){
   window.location.replace('music_search.html?page=1&desc=true&sortBy=artist')
 }
-
 
 // -------------------- API
 
 let data = [];
 const box = document.querySelector('.search-results-box');
-
 const descBtn = document.querySelector('.search-filter-mode .form-order input[id="desc"]');
 const ascBtn = document.querySelector('.search-filter-mode .form-order input[id="asc"]');
 const newestBtn = document.querySelector('.search-filter-mode .form-mode input[id="newest"]');
 const nameBtn = document.querySelector('.search-filter-mode .form-mode input[id="name"]');
 const artistBtn = document.querySelector('.search-filter-mode .form-mode input[id="artist"]');
-const searchBox = document.querySelector('main.search-container .search-container input[type="search"]')
+const searchBox = document.querySelector('main.search-container .search-container input[type="search"]');
+const temp = document.querySelector('template[name="component-result-box"]');
 let page = window.location.search.split('&')[0].split('=')[1];
 let descStr = window.location.search.split('&')[1].split('=')[1];
 let sortBy = window.location.search.split('&')[2].split('=')[1];
 let searchedContent = window.location.search.split('&')[3] ? window.location.search.split('&')[3].split('=')[1]:null;
 
 if(searchedContent){
-  console.log(searchBox.value = decodeURI(searchedContent))
+  searchBox.value = decodeURI(searchedContent).replace(/\+/g, ' ')
 }
 
 let desc = (descStr === 'true');
@@ -38,7 +36,6 @@ let songsInPage = 10;
 const handlePagination = (num,className)=>{
   // -------------------- PAGINATION
   const pagesWrapper = document.querySelector('.search-pagination');
- //  let num = searchedContent ? songsNum : 10;
    if(className === 'link-all'){
      document.querySelectorAll('.link-search').forEach(i=>{
        i.style.display='none'
@@ -66,12 +63,6 @@ const handlePagination = (num,className)=>{
      let pageNum = link.innerText;
 
      setParams('page',pageNum)
-
-    //  if(searchedContent){
-    //    window.location.replace(`music_search.html?page=${pageNum}&desc=${desc}&sortBy=${sortBy}&searched=${searchedContent}`)
-    //  }else{
-    //    window.location.replace(`music_search.html?page=${pageNum}&desc=${desc}&sortBy=${sortBy}`)
-    //  }
     
    })
  })
@@ -132,13 +123,11 @@ const handlePagination = (num,className)=>{
  // descending or ascending
  ascBtn.addEventListener('click',(event)=>{
    if(event.target.checked){
-    //  window.location.replace(`music_search.html?page=1&desc=false&sortBy=${sortBy}`);
      setParams('desc',false)
    }
  })
  descBtn.addEventListener('click',(event)=>{
    if(event.target.checked){
-    //  window.location.replace(`music_search.html?page=1&desc=true&sortBy=${sortBy}`);
      setParams('desc',true)
    }
  })
@@ -146,19 +135,16 @@ const handlePagination = (num,className)=>{
  // mode
  newestBtn.addEventListener('click',(event)=>{
    if(event.target.checked){
-    //  window.location.replace(`music_search.html?page=1&desc=${desc}&sortBy=newest`);
      setParams('sortBy','newest')
    }
  })
  nameBtn.addEventListener('click',(event)=>{
    if(event.target.checked){
-    //  window.location.replace(`music_search.html?page=1&desc=${desc}&sortBy=name`);
      setParams('sortBy','name')
    }
  })
  artistBtn.addEventListener('click',(event)=>{
    if(event.target.checked){
-    //  window.location.replace(`music_search.html?page=1&desc=${desc}&sortBy=artist`);
      setParams('sortBy','artist')
    }
  })
@@ -184,8 +170,6 @@ const getSongs = async ()=>{
     console.error('Error:', error);
   });
 
-
-  // await fetch(`${api}/song/all`)
   await fetch(`${api}/song/page`, {
     method: 'POST',
     headers: {
@@ -202,10 +186,9 @@ const getSongs = async ()=>{
   .then(data => {
       return data.json();
       })
-      .then(song => {
-      data = song;
-      // console.log(data)
-      })
+    .then(song => {
+    data = song;
+    })
   .catch((error) => {
     console.error('Error:', error);
   });
@@ -213,23 +196,14 @@ const getSongs = async ()=>{
    const songs = data.songs;
 
   if(!searchedContent){
-    box.innerHTML = songs.map(song => {
-      return(`
-          <a href="player.html?song_id=${song.id}">
-              <div class="search-results-box-item" onClick="window.location.replace('player.html')">
-              <div class="search-results-box-item-pic">
-              <img src=${song.cover} alt="cover" />
-              </div>
-              <div class="search-results-box-item-text">
-              <h5>${song.artist}</h5>
-              <h4>${song.name}</h4>
-              </div>
-              <div class="search-results-box-item-play">
-              <button></button>
-              </div>
-              </div>
-          </a>
-      `)
+    songs.map(song => {
+      const clone = temp.content.cloneNode(true);
+      clone.querySelector("a.result-box-link-wrapper").href = `player.html?song_id=${song.id}`
+      clone.querySelector(".search-results-box-item-pic img").src = `${song.cover}`
+      clone.querySelector(".search-results-box-item-text h5").innerText = `${song.artist}`
+      clone.querySelector(".search-results-box-item-text h4").innerText = `${song.name}`
+      box.appendChild(clone)
+      return(clone)
    })
 
    box.innerHTML = box.innerHTML.replace(/,/g, '')
@@ -256,12 +230,12 @@ const searchBtn = document.querySelector('main.search-container ');
 const handleSearch = async (event) => {
   event.preventDefault();
   const val = event.target[1].value;
+  console.log(val)
   setParams('searched',val,'page',1);
 }
 
 if(searchedContent){
   const showSearchedContent = async ()=>{
-    
       let searched = decodeURI(searchedContent)
      await fetch(`${api}/song/find`, {
         method: 'POST',
@@ -280,12 +254,7 @@ if(searchedContent){
           return data.json();
           })
           .then(res => {
-            // console.log(res)
             searchData = res.songs;
-          
-          
-          // window.location.reload();
-          // window.history.replaceState(null, null, `${state}&searched=${val}`);
           })
       .catch((error) => {
         console.error('Error:', error);
@@ -303,29 +272,19 @@ if(searchedContent){
       }
       let start = divider(getParams('page')).start;
       let end = divider(getParams('page')).end;
-      // divider(getParams(page))
-      box.innerHTML = searchData.slice(start,end).map(song=>{
-        return(`
-              <a href="player.html?song_id=${song.id}">
-                  <div class="search-results-box-item" onClick="window.location.replace('player.html')">
-                  <div class="search-results-box-item-pic">
-                  <img src=${song.cover} alt="cover" />
-                  </div>
-                  <div class="search-results-box-item-text">
-                  <h5>${song.artist}</h5>
-                  <h4>${song.name}</h4>
-                  </div>
-                  <div class="search-results-box-item-play">
-                  <button></button>
-                  </div>
-                  </div>
-              </a>
-          `)
-      })
-      box.innerHTML = box.innerHTML.replace(/,/g, '');
       
+
+      divider(getParams(page))
+      searchData.slice(start,end).map(song=>{
+      const clone = temp.content.cloneNode(true);
+      clone.querySelector("a.result-box-link-wrapper").href = `player.html?song_id=${song.id}`
+      clone.querySelector(".search-results-box-item-pic img").src = `${song.cover}`
+      clone.querySelector(".search-results-box-item-text h5").innerText = `${song.artist}`
+      clone.querySelector(".search-results-box-item-text h4").innerText = `${song.name}`
+      box.appendChild(clone)
+      return(clone)
+      })
       handlePagination(searchData.length,'link-search');
-      // window.location.reload()
     
   }
   

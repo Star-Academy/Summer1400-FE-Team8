@@ -45,7 +45,6 @@ const logoutBtn = document.querySelector('.nav-desktop-side-logout a');
 
 logoutBtn.addEventListener('click', ()=>{
     removeUserLocal();
-    window.location.replace('/home.html')
 })
 
 }

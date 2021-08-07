@@ -5,7 +5,7 @@ const avatar = document.querySelector('.change-avatar-container img');
 let userInfo = {};
 let editedUserInfo = {};
 
-triggerPasswordStrength(form.password,'edit-profile-warning-password');
+triggerPasswordStrength(form.password,'pass_error');
 // form.email.addEventListener("keyup", () => {
 //   document.getElementById("mail_error").innerHTML = "";
 // });
@@ -17,8 +17,7 @@ triggerPasswordStrength(form.password,'edit-profile-warning-password');
 const handleSubmitInfo = async (e)=>{
     e.preventDefault();
     const form = e.target;
-    const isError = validateForm(form,'edit-profile-warning-email','edit-profile-warning-username',
-    'edit-profile-warning-password','edit-profile-warning-password-repeat');
+    const isError = validateForm(form);
     if(isError) return;
     const b = form.birth_date.value.replace(/\//g,'-').split('-').reverse();
     let temp
