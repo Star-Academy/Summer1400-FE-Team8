@@ -20,10 +20,11 @@ const getPlaylists = async () => {
         }),
       })
       .then(data => {
-          return data.json();
+          return data.json(); 
           })
           .then(res => {
             allPlaylists =res ;
+            // console.log(res[0].songs[0].rest.cover)
           })
       .catch((error) => {
         // alert('خطایی رخ داد . لطفا دوباره سعی کنید .')
@@ -33,7 +34,7 @@ const getPlaylists = async () => {
                 <div class="playlists-item" data-id="${playlist.id}">
                 <div class="playlists-item-pic">
                 <a href="playlist.html?id=${playlist.id}"
-                    ><img src="assets/images/playlists/no-cover.jpg" alt="cover"
+                    ><img src="${playlist.songs[0] ? playlist.songs[0].rest.cover : "assets/images/playlists/no-cover.jpg"} " alt="cover"
                 /></a>
                 </div>
                 <div class="playlists-item-actions">
@@ -172,10 +173,6 @@ const addToPlaylist = async (playlistId,songId) => {
 
 
 
-
-
-
-// createPlaylist('2 رپپپپپپپ');
 getPlaylists();
 
 

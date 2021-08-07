@@ -15,11 +15,15 @@ const ascBtn = document.querySelector('.search-filter-mode .form-order input[id=
 const newestBtn = document.querySelector('.search-filter-mode .form-mode input[id="newest"]');
 const nameBtn = document.querySelector('.search-filter-mode .form-mode input[id="name"]');
 const artistBtn = document.querySelector('.search-filter-mode .form-mode input[id="artist"]');
-
+const searchBox = document.querySelector('main.search-container .search-container input[type="search"]')
 let page = window.location.search.split('&')[0].split('=')[1];
 let descStr = window.location.search.split('&')[1].split('=')[1];
 let sortBy = window.location.search.split('&')[2].split('=')[1];
 let searchedContent = window.location.search.split('&')[3] ? window.location.search.split('&')[3].split('=')[1]:null;
+
+if(searchedContent){
+  console.log(searchBox.value = decodeURI(searchedContent))
+}
 
 let desc = (descStr === 'true');
 

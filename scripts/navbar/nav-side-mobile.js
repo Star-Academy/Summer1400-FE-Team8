@@ -67,27 +67,24 @@ if(logoutBtn){
     })
 }
 // change domain for local
-// document.querySelectorAll(`a`).forEach(item=>{
-//     const href = item.getAttribute("href");
-//     const newHref = href.replace('/Summer1400-FE-Team8', '');
-  
-//     if(href.includes('Summer1400-FE-Team8')){  
-//       item.setAttribute('href', newHref)
-//     }
-//   })
-
-  // change domain for github pages
 document.querySelectorAll(`a`).forEach(item=>{
     const href = item.getAttribute("href");
-    if(!href.includes('Summer1400-FE-Team8')){
-      item.setAttribute('href', `/Summer1400-FE-Team8${href}`)
+    const newHref = href.replace('/Summer1400-FE-Team8', '');
+  
+    if(href.includes('Summer1400-FE-Team8')){  
+      item.setAttribute('href', newHref)
     }
   })
+
+  // change domain for github pages
+// document.querySelectorAll(`a`).forEach(item=>{
+//     const href = item.getAttribute("href");
+//     if(!href.includes('Summer1400-FE-Team8')){
+//       item.setAttribute('href', `/Summer1400-FE-Team8${href}`)
+//     }
+//   })
   
 }
 
-
-  
-  
 
 navSideMobile();
