@@ -1,80 +1,89 @@
-document.addEventListener("DOMContentLoaded", () => {
+// document.addEventListener("DOMContentLoaded", () => {
+// the songs should be fetched from server and after this we will have them as songs object (create fake information)
+// let songs = {
+//     "id": {
+//         "1": {
+//             "singer_name": "حسین رحمتی",
+//             "song_name": "دوجا",
+//             "liked": "1000",
+//             "text": text1
+//             ,
+//             "img": "assets/images/player/cover2.jpg",
+//             "music_src": "https://dl.jzmusic.ir/musics/rap/ho3ein/ho3ein%202ja128.mp3"
+//         },
+//         "2": {
+//             "singer_name": "اوزیر مهدی ",
+//             "song_name": "گول بالام",
+//             "liked": "2000",
+//             "text": text1
+//             ,
+//             "img": "assets/images/player/uzeyir.jpg",
+//             "music_src": "http://dl.ardabilmusic.com/97/Mehdi/Other/Uzeyir%20Mehdizade/Uzeyir_Mehdizade_-_Ay_balam_2016_%28ft_Sevcan_Dalkiran%29_%28Www.ArdabilMusic.Com%29.mp3",
+//         },
+//         "3": {
+//             "singer_name": "ترلان نواخانی",
+//             "song_name": "ساغالماز",
+//             "liked": "5000",
+//             "text": text1
+//             ,
+//             "img": "assets/images/player/tarlan.jpg",
+//             "music_src": "https://dl.joyamusic.ir/Album%20Khareji/Terlan%20Novxani/128/Bimar(joyamusic)(128).mp3"
+//         },
+//         "4": {
+//             "singer_name": "علی پرمهر",
+//             "song_name": "سلام یتیر",
+//             "liked": "2500",
+//             "text": text1
+//             ,
+//             "img": "assets/images/player/salam.jpg",
+//             "music_src": "http://dl.ardabilmusic.com/94/11/Ali%20Pormehr%20-%20Salam%20Yetir%20(128).mp3"
+//         },
+//         "5": {
+//             "singer_name": "ترلان نواخانی",
+//             "song_name": "ساغالماز",
+//             "liked": "1000",
+//             "text": text1
+//             ,
+//             "img": "assets/images/player/cover2.jpg",
+//             "music_src": "http://dl.ardabilmusic.com/94/11/Ali%20Pormehr%20-%20Salam%20Yetir%20(128).mp3"
+//         },
+//         "6": {
+//             "singer_name": "علی پرمهر",
+//             "song_name": "سلام یتیر",
+//             "liked": "2500",
+//             "text": text1
+//             ,
+//             "img": "assets/images/player/salam.jpg",
+//             "music_src": "http://dl.ardabilmusic.com/94/11/Ali%20Pormehr%20-%20Salam%20Yetir%20(128).mp3"
+//         }
+//     }
+// };
+let songs = []
+let allPlaylists = [];
+let user_json = {"admin": ["1", "2"]};
 
-    let text1 = "این یک متن پیش فرض است: " +
-        "بیا بچین جلوم مهرتو" +
-        " وقت نگیر فقط داری همین فرصتو" +
-        " کفتار ها دیدن همه قدرتو" +
-        " تو که جوجی میزنم میپیچم نسختو" +
-        " من از کف کوچه های خاکی";
-    // the songs should be fetched from server and after this we will have them as songs object (create fake information)
-    let songs = {
-        "id": {
-            "1": {
-                "singer_name": "حسین رحمتی",
-                "song_name": "دوجا",
-                "liked": "1000",
-                "text": text1
-                ,
-                "img": "assets/images/player/cover2.jpg",
-                "music_src": "https://dl.jzmusic.ir/musics/rap/ho3ein/ho3ein%202ja128.mp3"
-            },
-            "2": {
-                "singer_name": "اوزیر مهدی ",
-                "song_name": "گول بالام",
-                "liked": "2000",
-                "text": text1
-                ,
-                "img": "assets/images/player/uzeyir.jpg",
-                "music_src": "http://dl.ardabilmusic.com/97/Mehdi/Other/Uzeyir%20Mehdizade/Uzeyir_Mehdizade_-_Ay_balam_2016_%28ft_Sevcan_Dalkiran%29_%28Www.ArdabilMusic.Com%29.mp3",
-            },
-            "3": {
-                "singer_name": "ترلان نواخانی",
-                "song_name": "ساغالماز",
-                "liked": "5000",
-                "text": text1
-                ,
-                "img": "assets/images/player/tarlan.jpg",
-                "music_src": "https://dl.joyamusic.ir/Album%20Khareji/Terlan%20Novxani/128/Bimar(joyamusic)(128).mp3"
-            },
-            "4": {
-                "singer_name": "علی پرمهر",
-                "song_name": "سلام یتیر",
-                "liked": "2500",
-                "text": text1
-                ,
-                "img": "assets/images/player/salam.jpg",
-                "music_src": "http://dl.ardabilmusic.com/94/11/Ali%20Pormehr%20-%20Salam%20Yetir%20(128).mp3"
-            },
-            "5": {
-                "singer_name": "ترلان نواخانی",
-                "song_name": "ساغالماز",
-                "liked": "1000",
-                "text": text1
-                ,
-                "img": "assets/images/player/cover2.jpg",
-                "music_src": "http://dl.ardabilmusic.com/94/11/Ali%20Pormehr%20-%20Salam%20Yetir%20(128).mp3"
-            },
-            "6": {
-                "singer_name": "علی پرمهر",
-                "song_name": "سلام یتیر",
-                "liked": "2500",
-                "text": text1
-                ,
-                "img": "assets/images/player/salam.jpg",
-                "music_src": "http://dl.ardabilmusic.com/94/11/Ali%20Pormehr%20-%20Salam%20Yetir%20(128).mp3"
-            }
-        }
-    };
-    // *****************************************************************************************************************
-    user_json = {"admin": ["1", "2"]};
-    // *****************************************************************************************************************
-    // const musics = '{"result":true, "count":42}';
-    // const data = JSON.parse(musics);
-    // console.log(data);
-    //   let ddt = getdata("data.json").then(ddt=> console.log(ddt));
-    // after fetching , we have to justify contents according to  their relevant values
-    // *****************************************************************************************************************
-    // get the song id passed by user to see details
+
+Process().then();
+
+async function getData(id) {
+    let response = await fetch('http://130.185.120.192:5000/song/all');
+    let current = await fetch(`http://130.185.120.192:5000/song/one/${id}`)
+    if (response.ok && current.ok)
+    {
+        await response.json().then((song)=>{
+            songs = song.songs;
+        });
+        let song = await current.json();
+        return await song.song;
+    } else if (response.status === 500) {
+        console.log("server error");
+    }
+}
+
+async function Process()
+{
+    const token = getToken();
+
     let url = document.location.href,
         params = url.split('?')[1].split('&'),
         data = {}, tmp;
@@ -83,142 +92,204 @@ document.addEventListener("DOMContentLoaded", () => {
         tmp = params[i].split('=');
         data[tmp[0]] = tmp[1];
     }
-    // document.getElementsByClassName('lyrics-container')[0].innerHTML = data.song_id; ;
-    // *****************************************************************************************************************
-    // select some elements to processing them later
-    document.getElementsByClassName("song-cover-info-singer")[0].innerHTML =
-        `<span><img src="assets/images/player/person.svg" alt="singer"></span>${songs["id"][data.song_id]["singer_name"]}`;
+    let current_song = await getData(data.song_id);
 
-    document.getElementsByClassName("song-cover-info-name")[0].innerHTML =
-        `<span><img src="assets/images/player/music.svg" alt="singer"></span>${songs["id"][data.song_id]["song_name"]}`;
+    // console.log(current_song);
 
-    document.querySelector(".song-cover-pic > img").src = `${songs["id"][data.song_id]["img"]}`;
-    document.querySelector(".song-interact-like > span").innerHTML = `${songs["id"][data.song_id]["liked"]}&nbsp;`;
-    document.querySelector(".lyrics-container").innerHTML = `${songs["id"][data.song_id]["text"]}`;
-    // *****************************************************************************************************************
-    // like or unlike current music
+    // res : مرتبط با سلیقت
+    const res = songs.filter(song =>
+        song.artist === current_song.artist
+    );
+    console.log(res);
+
+    await getPlaylists();
+
+    console.log(allPlaylists);
+
+    //*****************************************************************************************************************
+    Load_current_musics_Base();
+    //*****************************************************************************************************************
+    display_recommends(res);
+    //*****************************************************************************************************************
+
     let heart_btn = document.querySelector(".song-interact > .song-interact-like > button")
     let song_like = document.querySelector(".song-interact-like > span");
-    if (user_json["admin"].includes(data.song_id)) {
-        heart_btn.innerHTML = `<img src="assets/images/player/heart_fill.svg" alt="heart">`
-    }
-    heart_btn.addEventListener("click", () => {
-        if (user_json["admin"].includes(data.song_id)) {
-            heart_btn.innerHTML = `<img src="assets/images/player/heart_outline.svg" alt="heart">`
-            const index = user_json["admin"].indexOf(data.song_id);
-            user_json["admin"].splice(index, 1);
-            song_like.innerHTML = `${parseInt(songs["id"][data.song_id]["liked"] - 1
-            <= 0 ? 0 : songs["id"][data.song_id]["liked"] - 1).toString()
-            }&nbsp;`;
-            songs["id"][data.song_id]["liked"] -= 1;
-        } else {
-            heart_btn.innerHTML = `<img src="assets/images/player/heart_fill.svg" alt="heart">`
-            user_json["admin"].push(data.song_id);
-            document.querySelector(".song-interact-like > span").innerHTML = `${parseInt(songs["id"][data.song_id]["liked"] + 1
-            ).toString()}&nbsp;`;
-            songs["id"][data.song_id]["liked"] += 1;
-        }
-    });
-    // ****************************************************************************************************************
-    // add or remove from play_list
     let favorite_bar = document.querySelector(".song-interact-favorite");
     let btn_favorite = favorite_bar.querySelector("button");
-    if (user_json["admin"].includes(data.song_id)) {
-        btn_favorite.innerHTML = "حذف از لیست علاقه مندی"
-        favorite_bar.querySelector("img").src = "assets/images/player/star_fill.svg";
-    }
-    btn_favorite.addEventListener("click", () => {
-        console.log(user_json);
-        if (user_json["admin"].includes(data.song_id)) {
-            const index = user_json["admin"].indexOf(data.song_id);
-            user_json["admin"].splice(index, 1);
-            btn_favorite.innerHTML = "افزودن به لیست علاقه مندی"
-            favorite_bar.querySelector("img").src = "assets/images/player/star_outline.svg";
-        } else {
-            user_json["admin"].push(data.song_id);
-            btn_favorite.innerHTML = "حذف از لیست علاقه مندی"
-            favorite_bar.querySelector("img").src = "assets/images/player/star_fill.svg";
-        }
-    });
-    // *****************************************************************************************************************
-
     let info_btn = document.querySelector(".details-buttons-info");
     let lyrics_btn = document.querySelector(".details-buttons-lyrics");
-    let info_container = document.querySelector(".infs");
+    let info_container = document.querySelector(".info_container");
+    let infos = info_container.querySelectorAll("p > span")
     let lyrics_container = document.querySelector(".lyrics-container");
-
-
-    info_btn.addEventListener("click", () => {
-        lyrics_container.style.visibility = "hidden";
-        info_container.style.visibility = "visible";
-        info_btn.style.backgroundColor = "#33538b";
-        lyrics_btn.style.backgroundColor = "#486fb4";
-
-    });
-    lyrics_btn.addEventListener("click", () => {
-        info_container.style.visibility = "hidden";
-        lyrics_container.style.visibility = "visible";
-        lyrics_btn.style.backgroundColor = "#33538b";
-        info_btn.style.backgroundColor = "#486fb4";
-    });
-//***********************************************************************************************************
-
-    document.getElementsByClassName("playlist-box")[0].innerHTML = display_recommends(songs);
-
-//***********************************************************************************************************
-
     const items = document.querySelectorAll(".playlist-box-item");
-
-    for (let i = 0; i < items.length; i++) {
-        items[i].addEventListener("click", function () {
-            window.location.href = 'player.html?song_id=' + encodeURIComponent((i + 1).toString());
-        });
-    }
-    //***********************************************************************************************************
     let Next = document.querySelector("#Next");
-    Next.addEventListener("click", () => {
-        NextTrack();
-    });
-
     let Prev = document.querySelector("#Prev");
-    Prev.addEventListener("click", () => {
-        PrevTrack();
-    });
-    //***********************************************************************************************************
     let current_track = document.createElement("audio");
-
     let left_btns = document.querySelectorAll(".song-play-bottom-left > button");
-    left_btns[0].addEventListener("click", () => {
-        current_track.currentTime = 0;
-    });
-    let play_list = false;
-    left_btns[1].addEventListener("click", () => {
-        if (play_list) {
-            left_btns[1].title = "افزودن به پلی لیست";
-            play_list = false;
-        } else {
-            left_btns[1].title = "حذف از پلی لیست";
-            play_list = true;
-        }
-    });
     let PlayPause = document.querySelector("#PlayPause");
     let PlayRange = document.querySelector(".play-range > .custom-range-slider");
     let volume_range = document.querySelector(".volume-range-wrapper > .custom-range-slider");
-    volume_range.addEventListener("change", () => {
-        current_track.volume = volume_range.value / 100;
-    });
+    let alert_container = document.querySelector(".signup-alert-container");
+    let play_list = false;
     let isPlaying = false;
 
-    PlayRange.addEventListener("change", () => {
-        current_track.currentTime = (PlayRange.value / 100) * current_track.duration;
-    });
-    load_track(data.song_id);
+    const current_in_recommands  = (element) => element.id === current_song.id;
+    let recommand_index = res.findIndex(current_in_recommands);
 
-    PlayPause.addEventListener("click", play_pause);
+    let play_list_name = "1";
+
+    const current_play_list = (current) => current.name === play_list_name ;
+    let play_list_index = allPlaylists.findIndex(current_play_list);
+
+    let play_list_selected_id = allPlaylists[play_list_index].id;
+    console.log(play_list_selected_id);
+
+
+
+    if (token)
+    {
+        load_track(data.song_id);
+
+        InfoLyrics_Settings();
+
+        if (user_json["admin"].includes(data.song_id)) {
+            heart_btn.innerHTML = `<img src="assets/images/player/heart_fill.svg" alt="heart">`
+        }
+        heart_btn.addEventListener("click", () => {
+            if (user_json["admin"].includes(data.song_id)) {
+                heart_btn.innerHTML = `<img src="assets/images/player/heart_outline.svg" alt="heart">`
+                const index = user_json["admin"].indexOf(data.song_id);
+                user_json["admin"].splice(index, 1);
+                song_like.innerHTML = `${parseInt(songs["id"][data.song_id]["liked"] - 1
+                <= 0 ? 0 : songs["id"][data.song_id]["liked"] - 1).toString()
+                }&nbsp;`;
+                songs["id"][data.song_id]["liked"] -= 1;
+            } else {
+                heart_btn.innerHTML = `<img src="assets/images/player/heart_fill.svg" alt="heart">`
+                user_json["admin"].push(data.song_id);
+                document.querySelector(".song-interact-like > span").innerHTML = `${parseInt(songs["id"][data.song_id]["liked"] + 1
+                ).toString()}&nbsp;`;
+                songs["id"][data.song_id]["liked"] += 1;
+            }
+        });
+        // ****************************************************************************************************************
+        // add or remove from play_list
+
+        if (user_json["admin"].includes(data.song_id)) {
+            btn_favorite.innerHTML = "حذف از لیست علاقه مندی"
+            favorite_bar.querySelector("img").src = "assets/images/player/star_fill.svg";
+        }
+        btn_favorite.addEventListener("click", () => {
+            console.log(user_json);
+            if (user_json["admin"].includes(data.song_id)) {
+                const index = user_json["admin"].indexOf(data.song_id);
+                user_json["admin"].splice(index, 1);
+                btn_favorite.innerHTML = "افزودن به لیست علاقه مندی"
+                favorite_bar.querySelector("img").src = "assets/images/player/star_outline.svg";
+            } else {
+                user_json["admin"].push(data.song_id);
+                btn_favorite.innerHTML = "حذف از لیست علاقه مندی"
+                favorite_bar.querySelector("img").src = "assets/images/player/star_fill.svg";
+            }
+        });
+        // *****************************************************************************************************************
+
+
+        info_btn.addEventListener("click", () => {
+            lyrics_container.style.visibility = "hidden";
+            info_container.style.visibility = "visible";
+            info_btn.style.backgroundColor = "#33538b";
+            lyrics_btn.style.backgroundColor = "#486fb4";
+
+        });
+        lyrics_btn.addEventListener("click", () => {
+            info_container.style.visibility = "hidden";
+            lyrics_container.style.visibility = "visible";
+            lyrics_btn.style.backgroundColor = "#33538b";
+            info_btn.style.backgroundColor = "#486fb4";
+        });
+//***********************************************************************************************************
+
+
+//***********************************************************************************************************
+
+        for (let i = 0; i < items.length; i++) {
+            items[i].addEventListener("click", function () {
+                window.location.href = 'player.html?song_id=' + encodeURIComponent((res[i].id).toString());
+            });
+        }
+
+        //***********************************************************************************************************
+        Next.addEventListener("click", () => {
+            NextTrack();
+        });
+
+        Prev.addEventListener("click", () => {
+            PrevTrack();
+        });
+        //***********************************************************************************************************
+
+        left_btns[0].addEventListener("click", () => {
+            current_track.currentTime = 0;
+        });
+
+        left_btns[1].addEventListener("click", () => {
+            if (play_list) {
+                left_btns[1].title = "افزودن به پلی لیست";
+                play_list = false;
+
+            } else {
+                addToPlaylist(play_list_selected_id , current_song.id)
+                left_btns[1].title = "حذف از پلی لیست";
+                play_list = true;
+            }
+        });
+
+        volume_range.addEventListener("change", () => {
+            current_track.volume = volume_range.value / 100;
+        });
+
+        PlayRange.addEventListener("change", () => {
+            current_track.currentTime = (PlayRange.value / 100) * current_track.duration;
+        });
+
+        PlayPause.addEventListener("click", play_pause);
+    }
+    else
+    {
+        setInterval(view_alert, 3000);
+        function view_alert(){
+            if(token) return;
+            alert_container.style.display = "flex";
+        }
+    }
+
+    function Load_current_musics_Base()
+    {
+        document.getElementsByClassName("song-cover-info-singer")[0].innerHTML =
+            `<span><img src="assets/images/player/person.svg" alt="singer"></span>${current_song.artist}`;
+
+        document.getElementsByClassName("song-cover-info-name")[0].innerHTML =
+            `<span><img src="assets/images/player/music.svg" alt="singer"></span>${current_song.name}`;
+
+        document.querySelector(".song-cover-pic > img").src = `${current_song.cover}`;
+        document.querySelector(".song-interact-like > span").innerHTML = `1000&nbsp;`;
+        document.querySelector(".lyrics-container").innerHTML = `${current_song.lyrics}`;
+    }
+
+    function InfoLyrics_Settings()
+    {
+        lyrics_container.style.visibility = "hidden";
+
+        infos[1].innerHTML = current_song.artist;
+        infos[3].innerHTML = current_song.name;
+        infos[5].innerHTML = current_song.publish_date;
+    }
 
     function load_track() {
-        current_track.src = `${songs["id"][data.song_id]["music_src"]}`
+        current_track.src = `${current_song.file}`
         current_track.load();
+        current_track.volume = volume_range.value /100 ;
         setInterval(SeekUpdate, 1000);
         current_track.addEventListener("ended", NextTrack);
     }
@@ -236,17 +307,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function NextTrack() {
-        let next_song = ((parseInt(data.song_id) + 1) % Object.keys(songs.id).length);
-        if (next_song === 0)
-            next_song = Object.keys(songs.id).length;
-        window.location.href = 'player.html?song_id=' + encodeURIComponent(next_song.toString());
+        recommand_index = (recommand_index === res.length - 1) ? 0 : recommand_index + 1 ;
+        window.location.href = 'player.html?song_id=' + encodeURIComponent((res[recommand_index].id).toString());
     }
 
-    function PrevTrack() {
-        let prev_song = ((parseInt(data.song_id) - 1) % Object.keys(songs.id).length);
-        if (prev_song <= 0)
-            prev_song = Object.keys(songs.id).length;
-        window.location.href = 'player.html?song_id=' + encodeURIComponent(prev_song.toString());
+    function PrevTrack()
+    {
+        recommand_index = (recommand_index === 0) ? res.length -1 : recommand_index -1 ;
+        window.location.href = 'player.html?song_id=' + encodeURIComponent((res[recommand_index].id).toString());
     }
 
     function SeekUpdate() {
@@ -270,35 +338,74 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-});
+    async function getPlaylists()
+    {
+        await fetch(`${api}/playlist/all`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                token
+            }),
+        })
+            .then(data => {
+                return data.json();
+            })
+            .then(res => {
+                allPlaylists = res;
+            })
+            .catch((error) => {
+                // alert('خطایی رخ داد . لطفا دوباره سعی کنید .')
+            });
+    }
 
-async function getdata(file) {
-    try {
-        let x = await fetch(file);
-        return await x.json();
-    } catch (error) {
-        console.log(error);
+    const addToPlaylist = async (playlistId,songId) => {
+        await fetch(`${api}/playlist/add-song`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                token,
+                playlistId,
+                songId
+            }),
+        })
+            .then(data => {
+                return data;
+            })
+            .then(res => {
+                console.log(res)
+                // console.log(data)
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
     }
 }
 
-function display_recommends(songs) {
-    let recommends = "";
-
-    for (let i = 0; i < Object.keys(songs.id).length; i++) {
-        recommends += `<div class="playlist-box-item">
+// });
+function display_recommends(songs)
+{
+    document.getElementsByClassName("playlist-box")[0].innerHTML = songs.map(song => {
+        return (
+            `<div class="playlist-box-item">
                   <div class="playlist-box-item-pic">
-                    <img src=${songs["id"][i + 1]["img"]} alt="cover">
+                    <img src=${song.cover} alt="cover">
                   </div>
                   <div class="playlist-box-item-text">
-                    <h6>${songs["id"][i + 1]["singer_name"]}</h6>
-                    <h5>${songs["id"][i + 1]["song_name"]}</h5>
+                    <h6>${song.artist}</h6>
+                    <h5>${song.name}</h5>
                   </div>
                   <div class="playlist-box-item-add">
                         <button>
                         </button>
                   </div>
                 </div>`
-    }
-    return recommends;
+        );
+    });
 }
 
