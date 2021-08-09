@@ -52,7 +52,7 @@ async function Process()
     let info_btn = document.querySelector(".details-buttons-info");
     let lyrics_btn = document.querySelector(".details-buttons-lyrics");
     let info_container = document.querySelector(".info_container");
-    let infos = info_container.querySelectorAll("p > span")
+    let infos = info_container.querySelectorAll(".info_container p > span")
     let lyrics_container = document.querySelector(".lyrics-container");
     const items = document.querySelectorAll(".playlist-box-item");
     let Next = document.querySelector("#next");
@@ -79,11 +79,32 @@ async function Process()
         });
     }
 
+    InfoLyrics_Settings();
+    const detailsBox = document.querySelector(".song-more-details .details-box");
+    info_btn.addEventListener("click", () => {
+        detailsBox.style.height = "10rem";
+        detailsBox.style.overflow = "hidden"
+        lyrics_container.style.visibility = "hidden";
+        info_container.style.visibility = "visible";
+        info_btn.style.backgroundColor = "#33538b";
+        lyrics_btn.style.backgroundColor = "#486fb4";
+
+    });
+    lyrics_btn.addEventListener("click", () => {
+        detailsBox.style.height = "30rem"
+        detailsBox.style.overflow = "auto"
+        info_container.style.visibility = "hidden";
+        lyrics_container.style.visibility = "visible";
+        lyrics_btn.style.backgroundColor = "#33538b";
+        info_btn.style.backgroundColor = "#486fb4";
+    });
+
+
     if (token)
     {
         load_track(data.song_id);
 
-        InfoLyrics_Settings();
+        
 
       
         
@@ -91,25 +112,7 @@ async function Process()
 
         // *****************************************************************************************************************
 
-        const detailsBox = document.querySelector(".song-more-details .details-box");
-        info_btn.addEventListener("click", () => {
-            detailsBox.style.height = "10rem";
-            detailsBox.style.overflow = "hidden"
-            lyrics_container.style.visibility = "hidden";
-            info_container.style.visibility = "visible";
-            info_btn.style.backgroundColor = "#33538b";
-            lyrics_btn.style.backgroundColor = "#486fb4";
-
-        });
-        lyrics_btn.addEventListener("click", () => {
-            detailsBox.style.height = "30rem"
-            detailsBox.style.overflow = "auto"
-            info_container.style.visibility = "hidden";
-            lyrics_container.style.visibility = "visible";
-            lyrics_btn.style.backgroundColor = "#33538b";
-            info_btn.style.backgroundColor = "#486fb4";
-        });
-
+       
 
 
 
@@ -144,6 +147,7 @@ async function Process()
 
     function Load_current_musics_Base()
     {
+        
         document.getElementsByClassName("song-cover-info-singer")[0].innerHTML =
             `<span><img src="../assets/images/player/person.svg" alt="singer"></span>${current_song.artist}`;
 
@@ -153,12 +157,12 @@ async function Process()
         document.querySelector(".song-cover-pic > img").src = `${current_song.cover}`;
         // document.querySelector(".song-interact-like > span").innerHTML = `1000&nbsp;`;
         document.querySelector(".lyrics-container").innerHTML = `${current_song.lyrics}`;
+        
     }
 
     function InfoLyrics_Settings()
     {
         lyrics_container.style.visibility = "hidden";
-
         infos[1].innerHTML = current_song.artist;
         infos[3].innerHTML = current_song.name;
         infos[5].innerHTML = current_song.publish_date.substr(0,10);

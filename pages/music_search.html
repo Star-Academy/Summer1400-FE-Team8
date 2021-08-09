@@ -15,6 +15,7 @@
     <script src="../scripts/navbar/toggle-menu.js" defer="defer"></script>
     <script src="../scripts/navbar/nav-side-desktop.js" defer="defer"></script>
     <script src="../scripts/navbar/nav-side-mobile.js" defer="defer"></script>
+    <script src="../scripts/navbar/nav-top-desktop.js" defer="defer"></script>
     <script src="../scripts/musicSearch/music-search.js" defer="defer"></script>
     <title>جستجوی موزیک</title>
   </head>
@@ -117,25 +118,31 @@
       </div>
     </nav>
 
-    <!----------- DESKTOP NAVBAR ----------->
-    <nav class="nav-dark">
-      <div class="nav-content">
-        <div class="nav-logo">
-          <h2><a href="/Summer1400-FE-Team8/home.html">آهنگیفای</a></h2>
+   <!----------- DESKTOP NAVBAR ----------->
+   <nav class="nav-dark">
+    <div class="nav-content">
+      <div class="nav-logo">
+        <h2><a href="/Summer1400-FE-Team8/home.html">آهنگیفای</a></h2>
+      </div>
+      <div class="nav-menu">
+        <div class="nav-menu-item">
+          <a href="/Summer1400-FE-Team8/home.html">خانه</a>
         </div>
-        <div class="nav-menu">
-          <div class="nav-menu-item">
-            <a href="/Summer1400-FE-Team8/home.html">خانه</a>
-          </div>
-          <div class="nav-menu-item">
-            <a href="/Summer1400-FE-Team8/music_search.html">جستجوی موزیک</a>
-          </div>
-          <div class="nav-menu-item">
-            <a href="/Summer1400-FE-Team8/home.html#about">درباره ما</a>
-          </div>
+        <div class="nav-menu-item nav-menu-item">
+          <a href="/Summer1400-FE-Team8/music_search.html">جستجوی موزیک</a>
+        </div>
+        <div class="nav-menu-item nav-menu-item-loggedout">
+          <a href="/Summer1400-FE-Team8/signup.html">ثبت نام</a>
+        </div>
+        <div class="nav-menu-item nav-menu-item-loggedout">
+          <a href="/Summer1400-FE-Team8/login.html">ورود</a>
+        </div>
+        <div class="nav-menu-item">
+          <a href="/Summer1400-FE-Team8/home.html#about">درباره ما</a>
         </div>
       </div>
-    </nav>
+    </div>
+  </nav>
 
     <!----------- MAIN CONTENT ----------->
     <main class="search-container">

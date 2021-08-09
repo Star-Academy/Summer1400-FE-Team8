@@ -76,6 +76,8 @@ async function login_validation(event)
                 if(res===undefined) return;
                  if(form.remember_me.checked){
                    const expiry = new Date(new Date().getTime()+(10*(86400000)))
+                  document.cookie = `username=${formData.username};expires=Thu, 01 Jan 1970 00:00:00 GMT`;
+                  document.cookie = `password=${formData.password};expires=Thu, 01 Jan 1970 00:00:00 GMT`;
                   document.cookie = `username=${formData.username};expires=${expiry}`;
                   document.cookie = `password=${formData.password};expires=${expiry}`;
                   

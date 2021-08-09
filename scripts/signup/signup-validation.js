@@ -59,7 +59,7 @@ async function register_validation(event) {
                 if(res===undefined) return;
                 document.querySelector('.signup-success').style.display = 'block';
                 setTimeout(() => {
-                    window.location.replace("http://127.0.0.1:5500/login.html");
+                    window.location.replace("http://127.0.0.1:5500/pages/login.html");
                 }, 500)
               })
           .catch((error) => {
