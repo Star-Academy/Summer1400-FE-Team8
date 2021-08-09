@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Star-Academy/Summer1400-FE-Team8#readme",
   "devDependencies": {
-    "sass": "^1.36.0"
+    "sass": "^1.36.0",
+    "vanillajs-datepicker": "^1.1.4"
   }
 }

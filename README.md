@@ -1,10 +1,21 @@
-# Summer1400-FE-Team8 Phase04
+# Ahangify
 
-[Homepage](https://star-academy.github.io/Summer1400-FE-Team8/home.html)&nbsp;&nbsp;
- [Login](https://star-academy.github.io/Summer1400-FE-Team8/login.html)&nbsp;&nbsp;
- [SignUp](https://star-academy.github.io/Summer1400-FE-Team8/signup.html)&nbsp;&nbsp;
- [Favorites](https://star-academy.github.io/Summer1400-FE-Team8/favorites.html)&nbsp;&nbsp;
- [Player](https://star-academy.github.io/Summer1400-FE-Team8/player.html)&nbsp;&nbsp;
- [Playlists](https://star-academy.github.io/Summer1400-FE-Team8/playlists.html)&nbsp;&nbsp;
- [Edit Profile](https://star-academy.github.io/Summer1400-FE-Team8/edit_profile.html)&nbsp;&nbsp;
- [Music Search](https://star-academy.github.io/Summer1400-FE-Team8/music_search.html)&nbsp;&nbsp;&nbsp;
+Free music platform !
+
+## How it works
+
+1. Sign up
+2. Find your favorite music
+3. Enjoy !
+
+## Features
+
+1. Searching filters (singer name , song name , publish date , etc)
+2. Making playlists and add song to them
+3. Users can edit their personal perofile and add extra information (avatar , birthdate , etc)
+
+## Developers info
+
+- Amirreza - [Github page](https://github.com/bolnik)
+- Hamed - [Github page](https://github.com/ss53213)
+
