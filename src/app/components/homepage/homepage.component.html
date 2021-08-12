@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+      name="viewport"
+    />
+    <meta name="keywords" content="Ahangify,music" />
+    <meta name="description" content="free music platform" />
+    <meta name="author" content="Hamed,Amir" />
+    <!-- <link rel="icon" type="image/ico" href="../assets/images/favicon.ico">
+    <link rel="stylesheet" href="../styles/css/style.css" /> -->
+    <!-- <script src="../scripts/common/common.js" defer="defer"></script>
+    <script src="../scripts/navbar/toggle-menu.js" defer="defer"></script>
+    <script src="../scripts/navbar/nav-side-desktop.js" defer="defer"></script>
+    <script src="../scripts/navbar/nav-top-desktop.js" defer="defer"></script>
+    <script src="../scripts/navbar/nav-side-mobile.js" defer="defer"></script>
+    <script src="../scripts/homepage/home.js" defer="defer"></script> -->
+    
+    <title>آهنگیفای</title>
+  </head>
+  <body>
+  <!----------- DESKTOP SIDE MENU ----------->
+  <!-- <div class="side-menu-container nav-desktop-side">
+    <div class="side-menu">
+      <div class="side-menu-toggle">
+        <button><img src="../assets/images/side-menu/open.svg" alt="open"></button>
+      </div>
+      <div class="side-menu-text">
+        <div class="side-menu-avatar-container">
+          <img class="avatar side-menu-avatar" src="../assets/images/side-menu/no_avatar.jpg" alt="no_avatar">
+        </div>
+        <div><a href="/playlists.html"><img src="../assets/images/side-menu/playlist.svg" alt="playlist">پلی
+            لیست ها</a></div>
+        <div><a href="/favorites.html"><img src="../assets/images/side-menu/star_fill.svg"
+                alt="favorites">مورد علاقه ها</a></div>
+        <div><a href="/music_search.html"><img src="../assets/images/side-menu/search_icon.svg"
+                alt="search">جستجوی پیشرفته</a></div>
+        <div><a href="/edit_profile.html"><img src="../assets/images/side-menu/edit.svg"
+                alt="edit_profile">ویرایش پروفایل</a></div>
+        <div class="nav-desktop-side-logout"><a href="/home.html"><img src="../assets/images/side-menu/logout.svg" alt="logout">خروج از حساب</a></div>
+      </div>
+    </div>
+  </div> -->
+    <!----------- MOBILE SIDE MENU ----------->
+    <!-- <div class="side-menu-container nav-mobile-side nav-mobile-side-closed">
+      <div class="side-menu">
+        <div class="side-menu-text">
+          <div class="side-menu-avatar-container nav-mobile-side-user">
+            <img class="avatar side-menu-avatar" src="../assets/images/side-menu/no_avatar.jpg" alt="no_avatar">
+          </div>
+          <div class="nav-mobile-side-all">
+            <a href="/home.html"><img
+                src="../assets/images/side-menu/home.svg"
+                alt="home" id="side-mobile-home" />صفحه اصلی</a>
+            
+          </div>
+          <div class="nav-mobile-side-loggedout side-menu-ls">
+            <img
+                src="../assets/images/side-menu/person.svg"
+                alt="playlist" />
+            <a href="/login.html">ورود</a
+            >&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/signup.html">ثبت نام</a>
+          </div>
+          <div class="nav-mobile-side-user">
+            <a href="/playlists.html"
+              ><img
+                  src="../assets/images/side-menu/playlist.svg"
+                  alt="playlist" />پلی لیست ها</a
+            >
+          </div>
+          <div class="nav-mobile-side-user">
+            <a href="/favorites.html"
+              ><img
+                  src="../assets/images/side-menu/star_fill.svg"
+                  alt="favorites" />مورد علاقه ها</a
+            >
+          </div>
+          <div class="nav-mobile-side-all">
+            <a href="/music_search.html"
+              ><img
+                  src="../assets/images/side-menu/search_icon.svg"
+                  alt="search" />جستجوی پیشرفته</a
+            >
+          </div>
+          <div class="nav-mobile-side-user">
+            <a href="/edit_profile.html"
+              ><img
+                  src="../assets/images/side-menu/edit.svg"
+                  alt="edit_profile" />ویرایش پروفایل</a
+            >
+          </div>
+          <div class="nav-mobile-side-user nav-mobile-side-logout">
+            <a href="/home.html"
+              ><img
+                  src="../assets/images/side-menu/logout.svg"
+                  alt="logout" />خروج از حساب</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="side-menu-black-page">
+      
+    </div> -->
+
+
+
+    <!----------- MAIN CONTENT ----------->
+
+    <section class="landing">
+      <div class="landing-content">
+        <h1>آهنگی که دنبالشی پیدا کن</h1>
+        <div class="landing-content-search">
+          <form onsubmit="handleSearch(event)"> 
+            <div class="search-container">
+              <div class="search-icon">
+                <button type="submit">
+                  <img src="../../../assets/images/saerch-box/search_icon.svg" alt="search" />
+                </button>
+              </div>
+              <input
+                type="search"
+                name="search"
+                placeholder="نام آهنگ ، خواننده و ..."
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <section class="about" id="about">
+      <div class="about-content">
+        <div class="about-text">
+          <h2 class="about-text-title">
+            <span>اینجا کجاست؟</span>
+          </h2>
+          <p class="about-text-content">
+            آهنگیفای یه پلتفرم موزیک رایگانه که میتونی با عضویت در سایت ، از
+            آرشیو بینظیر ما شامل هزاران موزیک به صورت کاملا رایگان بهره مند بشی
+            . با دسترسی به همه امکانات آهنگیفای چندتا کلیک بیشتر فاصله نداری !
+          </p>
+          <div class="about-register">
+            <a href="/signup.html"
+              ><button class="btn btn--blue">ثبت نام</button></a
+            >
+          </div>
+        </div>
+        <div class="about-pic">
+          <img
+            src="../../../assets/images/home/about-vec.svg"
+            alt="about"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+   
+  </body>
+</html>
