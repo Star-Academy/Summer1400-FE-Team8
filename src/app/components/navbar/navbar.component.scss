@@ -1,0 +1,101 @@
+@use '../../styles/abstracts' as *;
+
+nav {
+  background-color: $main-white;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  box-shadow: 1px 1px 22px 2px hsla(0, 0%, 0%, 0.45);
+  z-index: 501;
+  // height:7vh;
+  .#{&}-content {
+    width: 62rem;
+    padding: 0.6rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .#{&}-logo {
+    display: flex;
+
+    h2 {
+      font-size: 1.7rem;
+      a {
+        color: $primary-color;
+      }
+    }
+  }
+  .#{&}-menu {
+    display: flex;
+    gap: 1.4rem;
+
+    a {
+      @include nav-footer-link;
+    }
+  }
+}
+
+nav.nav-dark {
+  background-color: $primary-color !important;
+
+  .nav-content,
+  .nav-mobile-main {
+    a {
+      color: $main-white !important;
+    }
+
+    .nav-mobile-main-toggle {
+      img {
+        filter: $filter-main-white !important;
+      }
+    }
+  }
+}
+
+// ------------ mobile nav
+@media only screen and (min-width: 62rem) {
+  nav.nav-mobile {
+    display: none !important;
+  }
+  .nav-mobile-side {
+    display: none !important;
+  }
+}
+
+.nav-mobile {
+  display: block !important;
+
+  &-main {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.6rem 1rem;
+
+    &-toggle {
+      img {
+        display: block;
+        filter: $filter-primary;
+        width: 2.3rem;
+      }
+    }
+
+    &-logo {
+      padding-top: 0.25rem;
+      a {
+        color: $primary-color;
+      }
+    }
+
+    &-search {
+      padding-top: 0.25rem;
+      margin-right: auto;
+      a {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+.nav-mobile-side {
+  border-left: 0.1px solid rgba($main-white, 0.3);
+}
