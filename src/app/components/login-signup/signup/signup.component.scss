@@ -1,0 +1,46 @@
+@use '../../../styles/abstracts' as *;
+
+.signup-box {
+    @include ls-box;
+  
+    &-content {
+      padding: 2rem 2rem;
+  
+      form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+  
+        column-gap: 1.7rem;
+        row-gap: 1.2rem;
+  
+        label {
+          padding-right: 0.2rem;
+        }
+  
+        div:not(.signup-submit-container) {
+          display: flex;
+          flex-direction: column;
+        }
+        .signup-submit-container {
+          grid-column: 1/3;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+          justify-content: center;
+          font-size: 1.2rem;
+  
+          button {
+            padding-right: 5rem;
+            padding-left: 5rem;
+          }
+          .signup-success{
+            color: green;
+            display: none;
+          }
+        }
+      }
+    }
+    
+  }
+  
