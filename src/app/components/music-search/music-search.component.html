@@ -1,1 +1,156 @@
-<p>music-search works!</p>
+<main class="search-container">
+    <h1>آرشـیـو مـوزیـک</h1>
+    <div class="search">
+      <app-search-box></app-search-box>
+      <section class="search-actions-container">
+        <div class="search-actions">
+          <div class="search-filter">
+            <div class="search-filter-mode">
+              <h3>
+                <span
+                  ><img
+                    src="../assets/images/search/order.svg"
+                    alt="genre" /></span
+                >ترتیب
+              </h3>
+              <form class="form-order">
+                <div>
+                  <input
+                    type="radio"
+                    name="order"
+                    id="desc"
+                    value="desc"
+                  />
+                  <label for="desc">نزولی</label>
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    name="order"
+                    id="asc"
+                    value="asc"
+                  />
+                  <label for="asc">صعودی</label>
+                </div>
+              </form>
+            </div>
+            <div class="search-filter-mode">
+              <h3>
+                <span
+                  ><img
+                    src="../assets/images/search/mode.svg"
+                    alt="genre" /></span
+                >بر اساس
+              </h3>
+              <form class = "form-mode">
+                <div>
+                  <input
+                    type="radio"
+                    name="mode"
+                    id="newest"
+                    value="newest"
+                    
+                  />
+                  <label for="newest">جدید ترین</label>
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    name="mode"
+                    id="name"
+                    value="name"
+                  />
+                  <label for="name">نام اهنگ</label>
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    name="mode"
+                    id="artist"
+                    value="artist"
+                  />
+                  <label for="artist">نام خواننده</label>
+                </div>
+              </form>
+            </div>
+
+            <div class="search-filter-genre">
+              <h3>
+                <span
+                  ><img
+                    src="../assets/images/search/genre.svg"
+                    alt="genre" /></span
+                >سبک
+              </h3>
+              <form class="form-genre">
+                <div>
+                  <input
+                    type="checkbox"
+                    name="all"
+                    id="all"
+                    value="all"
+                    checked="checked"
+                  />
+                  <label for="all">همه</label>
+                </div>
+                <div>
+                  <input type="checkbox" name="pop" id="pop" value="pop" />
+                  <label for="pop">پاپ</label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    name="hiphop"
+                    id="hiphop"
+                    value="hiphop"
+                  />
+                  <label for="hiphop">هیپ هاپ</label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    name="others"
+                    id="others"
+                    value="others"
+                  />
+                  <label for="others">سایر</label>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="search-results-box">
+            <template name="component-result-box">
+                <a class="result-box-link-wrapper" href="">
+                  <div class="search-results-box-item" onClick="">
+                  <div class="search-results-box-item-pic">
+                  <img src="" alt="cover" />
+                  </div>
+                  <div class="search-results-box-item-text">
+                  <h5></h5>
+                  <h4></h4>
+                  </div>
+                  <div class="search-results-box-item-play">
+                  <button></button>
+                  </div>
+                  </div>
+              </a>
+            </template>
+       
+          </div>
+        </div>
+      </section>
+     <div class="search-pagination-container">
+      <button class="search-pagination-forward">
+        &laquo;&laquo;
+      </button>
+      <div class="search-pagination">
+        
+      </div>
+      <button class="search-pagination-backward">
+        &raquo;&raquo;
+       </button>
+      
+     </div>
+    </div>
+  </main>
