@@ -30,8 +30,8 @@
   // -------- footer
   footer {
     .#{&}-content {
-      padding-right: 1.3rem;
-      padding-left: 1.3rem;
+      padding-right: 1.3rem !important;
+      padding-left: 1.3rem !important;
     }
   }
 

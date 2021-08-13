@@ -12,6 +12,7 @@ li {
 
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 a:visited {
@@ -49,6 +50,8 @@ main {
   min-height: calc(100vh - 8.5rem);
   color: #fff;
 }
+
+
 
 ::-webkit-scrollbar {
   width: 15px;

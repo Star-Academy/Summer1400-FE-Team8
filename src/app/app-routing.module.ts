@@ -12,6 +12,7 @@ import {MusicSearchComponent} from './components/music-search/music-search.compo
 
 const routes: Routes = [
   { path:'',component: HomepageComponent},
+  {path: 'home', redirectTo: '', pathMatch: 'full'},
   { path:'user',component: LoginSignupComponent , children : [
       {path:'login',component: LoginComponent},
       {path:'signup',component: SignupComponent}
@@ -29,7 +30,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{anchorScrolling: 'enabled'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
