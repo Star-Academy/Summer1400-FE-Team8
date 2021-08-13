@@ -51,8 +51,22 @@ main {
   color: #fff;
 }
 
+// --- PUBLIC CLASSES
 
+.display-none{
+  display: none !important;
+}
+.display-block{
+  display: block !important;
+}
+.display-flex{
+  display: flex !important;
+}
+.display-initial{
+  display: initial !important;
+}
 
+// --- CUSTOM SCROLLBAR
 ::-webkit-scrollbar {
   width: 15px;
 }

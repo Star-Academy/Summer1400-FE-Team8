@@ -44,4 +44,5 @@ export class AuthService {
   isLogged = ()=>{
     return this.getToken() ?  true : false
   }
+  
 }

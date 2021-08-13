@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router} from '@angular/router';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { NavigationEnd, Router} from '@angular/router';
 import { Location } from "@angular/common";
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,8 @@ import { Location } from "@angular/common";
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private router: Router , private location: Location) {
+  constructor(private router: Router , private location: Location
+    , private authService:AuthService) {
     
   }
 
@@ -16,12 +18,27 @@ export class NavbarComponent implements OnInit {
     const navs = (document.querySelectorAll('nav'));
 
     this.router.events.subscribe(val => {
-      if (this.location.path().includes('profile')) {
-        navs.forEach(nav=>nav.classList.add('nav-dark'))
-      } else {
-        navs.forEach(nav=>nav.classList.remove('nav-dark'))
+      if(val instanceof NavigationEnd){
+        console.log(this.location.path(),'aaaa')
+        if ((!this.location.path().includes('user')) && (this.location.path()!=='')) {
+          navs.forEach(nav=>nav.classList.add('nav-dark'))
+        } else {
+          navs.forEach(nav=>nav.classList.remove('nav-dark'))
+        }
+  
+        const loggedOutItems = document.querySelectorAll('.nav-menu-item-loggedout');
+        loggedOutItems.forEach((item) => {
+            if(this.authService.isLogged()){
+              item.classList.add('display-none')
+            }else{
+              item.classList.remove('display-none')
+            }
+        })
       }
     });
+    
+    
   }
+ 
 
 }

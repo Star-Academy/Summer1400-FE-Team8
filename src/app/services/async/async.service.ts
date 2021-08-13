@@ -21,5 +21,8 @@ export class AsyncService {
   postData(data:Object,endpoint:string):Observable<Object>{
     return this.http.post<Object>(`${this.API}/${endpoint}`,data,httpOptions)
   }
+  getData(endpoint:string):Observable<Object>{
+    return this.http.get<Object>(`${this.API}/${endpoint}`)
+  }
 
 }

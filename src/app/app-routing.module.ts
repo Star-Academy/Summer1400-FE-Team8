@@ -9,6 +9,7 @@ import {PlaylistsComponent} from './components/playlists/playlists.component';
 import {PlaylistComponent} from './components/playlist/playlist.component';
 import {EditProfileComponent} from './components/edit-profile/edit-profile.component';
 import {MusicSearchComponent} from './components/music-search/music-search.component';
+import { RouteGuard } from './guards/route/route.guard'; 
 
 const routes: Routes = [
   { path:'',component: HomepageComponent},
@@ -26,7 +27,7 @@ const routes: Routes = [
     { path:'playlists',component: PlaylistsComponent},
     { path:'playlist',component: PlaylistComponent},
     { path:'edit_profile',component: EditProfileComponent},
-  ]},
+  ],canActivate: [RouteGuard]},
 ];
 
 @NgModule({
