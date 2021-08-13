@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Form } from '@angular/forms';
+
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +8,7 @@ export class FormValidationService {
 
   constructor() { }
 
-  validateForm (form: any) {
+  validateForm = (form: any)=> {
     let emailRegex = /^\S+@\S+\.\S+$/;
     let usernameRegex = /^(?=[a-zA-Z_\d]*[a-zA-Z])[a-zA-Z_\d]{5,}$/;
     const errorIds = {
@@ -73,17 +73,17 @@ export class FormValidationService {
 }
 
 
-triggerPasswordStrength(passwordElm:any,passErrorId:any){
+triggerPasswordStrength = (passwordElm:any,passErrorId:any)=>{
     passwordElm.addEventListener("keyup",()=>{
         this.checkPasswordStrength(passwordElm,passErrorId)
     });
 }
 
-print_error(id:any, error_text:any){
+print_error = (id:any, error_text:any)=>{
     (<HTMLDivElement>document.getElementById(id)).innerText = error_text
 }
 
-checkPasswordStrength(code:any,pass_error:any){
+checkPasswordStrength = (code:any,pass_error:any)=>{
     const check_apart = [];
     check_apart.push("[$@$!%*#?&]");
     check_apart.push("[A-Z]");

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormValidationService} from '../../../services/form-validation/form-validation.service'
 import {AsyncService} from '../../../services/async/async.service'
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -11,7 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class SignupComponent implements OnInit {
 
   constructor(private formValidationService: FormValidationService ,
-     private asyncService: AsyncService , private router: Router , private route: ActivatedRoute,) { }
+     private asyncService: AsyncService , private router: Router ,) { }
 
 
   ngOnInit(): void {
