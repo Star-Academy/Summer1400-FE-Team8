@@ -21,6 +21,11 @@
           display: flex;
           flex-direction: column;
         }
+        #name_error , #mail_error , #pass_error , #repeat_error,#username_error
+        {
+            color: red;
+            font-size: 85%;
+        }
         .signup-submit-container {
           grid-column: 1/3;
           display: flex;
@@ -38,6 +43,7 @@
             color: green;
             display: none;
           }
+         
         }
       }
     }

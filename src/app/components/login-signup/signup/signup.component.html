@@ -1,6 +1,6 @@
 <section class="signup-box">
     <div class="signup-box-content">
-      <form name="register_form" onsubmit="register_validation(event)">
+      <form name="register_form" (submit)="handleSignup($event)">
         <div>
           <label for="first_name">نام</label>
           <input type="text" class="custom-input" name="firstName">
