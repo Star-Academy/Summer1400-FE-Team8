@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html dir="rtl" lang="fa">
 
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-        name="viewport" />
-  <meta name="keywords" content="Ahangify,music" />
-  <meta name="description" content="free music platform" />
-  <meta name="author" content="Hamed,Amir" />
-<!--  <link rel="stylesheet" href="styles/style.css">-->
-<!--  <script src="scripts/common/common.js" defer="defer"></script>-->
-<!--  <script src="scripts/player/player.js" defer="defer"></script>-->
-<!--  <script src="scripts/navbar/toggle-menu.js" defer="defer"></script>-->
-<!--  <script src="scripts/navbar/nav-side-desktop.js" defer="defer"></script>-->
-<!--  <script src="scripts/navbar/nav-side-mobile.js" defer="defer"></script>-->
-<!--  <script src="scripts/common/signup-alert.js" defer="defer"></script>-->
+        name="viewport"/>
+  <meta content="Ahangify,music" name="keywords"/>
+  <meta content="free music platform" name="description"/>
+  <meta content="Hamed,Amir" name="author"/>
+  <!--  <link rel="stylesheet" href="styles/style.css">-->
+  <!--  <script src="scripts/common/common.js" defer="defer"></script>-->
+  <!--  <script src="scripts/player/player.js" defer="defer"></script>-->
+  <!--  <script src="scripts/navbar/toggle-menu.js" defer="defer"></script>-->
+  <!--  <script src="scripts/navbar/nav-side-desktop.js" defer="defer"></script>-->
+  <!--  <script src="scripts/navbar/nav-side-mobile.js" defer="defer"></script>-->
+  <!--  <script src="scripts/common/signup-alert.js" defer="defer"></script>-->
 
   <title>Ahangify</title>
 </head>
@@ -27,8 +27,12 @@
       یا وارد حسابت بشی !
     </p>
     <div class="signup-alert-box-btns">
-      <a routerlink="user/login"><button class="btn btn--blue">ورود</button></a>
-      <a routerlink="user/signup"><button class="btn btn--blue">ثبت نام</button></a>
+      <a routerlink="user/login">
+        <button class="btn btn--blue">ورود</button>
+      </a>
+      <a routerlink="user/signup">
+        <button class="btn btn--blue">ثبت نام</button>
+      </a>
     </div>
   </div>
 </div>
@@ -37,21 +41,22 @@
 <div class="side-menu-container nav-desktop-side">
   <div class="side-menu">
     <div class="side-menu-toggle">
-      <button><img src="assets/images/side-menu/open.svg" alt="open"></button>
+      <button><img alt="open" src="assets/images/side-menu/open.svg"></button>
     </div>
     <div class="side-menu-text">
       <div class="side-menu-avatar-container">
-        <img class="avatar side-menu-avatar" src="assets/images/edit-profile/avatar.jpg" alt="">
+        <img alt="" class="avatar side-menu-avatar" src="assets/images/edit-profile/avatar.jpg">
       </div>
-      <div><a routerlink="playlists" ><img src="assets/images/side-menu/playlist.svg" alt="playlist">پلی
+      <div><a routerlink="playlists"><img alt="playlist" src="assets/images/side-menu/playlist.svg">پلی
         لیست ها</a></div>
-      <div><a href="/favorite.html"><img src="assets/images/side-menu/star_fill.svg"
-                                         alt="favorites">مورد علاقه ها</a></div>
-      <div><a routerlink="music_search"><img src="assets/images/side-menu/search_icon.svg"
-                                             alt="search">جستجوی پیشرفته</a></div>
-      <div><a routerlink="edit_profile"><img src="assets/images/side-menu/edit.svg"
-                                             alt="edit_profile">ویرایش پروفایل</a></div>
-      <div class="nav-desktop-side-logout"><a href="#"><img src="assets/images/side-menu/logout.svg" alt="logout">خروج از حساب</a></div>
+      <div><a href="/favorite.html"><img alt="favorites"
+                                         src="assets/images/side-menu/star_fill.svg">مورد علاقه ها</a></div>
+      <div><a routerlink="music_search"><img alt="search"
+                                             src="assets/images/side-menu/search_icon.svg">جستجوی پیشرفته</a></div>
+      <div><a routerlink="edit_profile"><img alt="edit_profile"
+                                             src="assets/images/side-menu/edit.svg">ویرایش پروفایل</a></div>
+      <div class="nav-desktop-side-logout"><a href="#"><img alt="logout" src="assets/images/side-menu/logout.svg">خروج
+        از حساب</a></div>
     </div>
   </div>
 </div>
@@ -60,55 +65,55 @@
   <div class="side-menu">
     <div class="side-menu-text">
       <div class="side-menu-avatar-container nav-mobile-side-user">
-        <img class="avatar side-menu-avatar" src="assets/images/edit-profile/avatar.jpg" alt="">
+        <img alt="" class="avatar side-menu-avatar" src="assets/images/edit-profile/avatar.jpg">
       </div>
       <div class="nav-mobile-side-all">
         <a routerlink="home"><img
-          src="assets/images/side-menu/home.svg"
-          alt="home" id="side-mobile-home" />صفحه اصلی</a>
+          alt="home"
+          id="side-mobile-home" src="assets/images/side-menu/home.svg"/>صفحه اصلی</a>
 
       </div>
       <div class="nav-mobile-side-loggedout side-menu-ls">
         <img
-          src="assets/images/side-menu/person.svg"
-          alt="playlist" />
+          alt="playlist"
+          src="assets/images/side-menu/person.svg"/>
         <span><a routerlink="user/login"> ">ورود</a
-      >&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+        >&nbsp;&nbsp;|&nbsp;&nbsp;</span>
         <span><a routerlink="user/signup">ثبت نام</a></span>
       </div>
       <div class="nav-mobile-side-user">
         <a routerlink="playlists"
         ><img
-          src="assets/images/side-menu/playlist.svg"
-          alt="playlist" />پلی لیست ها</a
+          alt="playlist"
+          src="assets/images/side-menu/playlist.svg"/>پلی لیست ها</a
         >
       </div>
       <div class="nav-mobile-side-user">
         <a href="/favorite.html"
         ><img
-          src="assets/images/side-menu/star_fill.svg"
-          alt="favorites" />مورد علاقه ها</a
+          alt="favorites"
+          src="assets/images/side-menu/star_fill.svg"/>مورد علاقه ها</a
         >
       </div>
       <div class="nav-mobile-side-all">
         <a routerlink="music-search"
         ><img
-          src="assets/images/side-menu/search_icon.svg"
-          alt="search" />جستجوی پیشرفته</a
+          alt="search"
+          src="assets/images/side-menu/search_icon.svg"/>جستجوی پیشرفته</a
         >
       </div>
       <div class="nav-mobile-side-user">
         <a routerlink="edit_profile"
         ><img
-          src="assets/images/side-menu/edit.svg"
-          alt="edit_profile" />ویرایش پروفایل</a
+          alt="edit_profile"
+          src="assets/images/side-menu/edit.svg"/>ویرایش پروفایل</a
         >
       </div>
       <div class="nav-mobile-side-user nav-mobile-side-logout">
         <a href="#"
         ><img
-          src="assets/images/side-menu/logout.svg"
-          alt="logout" />خروج از حساب</a
+          alt="logout"
+          src="assets/images/side-menu/logout.svg"/>خروج از حساب</a
         >
       </div>
     </div>
@@ -121,7 +126,7 @@
 <!----------- MOBILE NAVBAR ----------->
 <nav class="nav-mobile nav-dark">
   <div class="nav-mobile-main">
-    <div class="nav-mobile-main-toggle"><img src="assets/images/nav-mobile/open-menu.svg" alt="toggle"></div>
+    <div class="nav-mobile-main-toggle"><img alt="toggle" src="assets/images/nav-mobile/open-menu.svg"></div>
     <h2 class="nav-mobile-main-logo"><a href="home.html">آهنگیفای</a></h2>
     <div class="nav-mobile-main-search"><a href="music_search.html">جستجوی موزیک</a></div>
   </div>
@@ -134,56 +139,56 @@
     <div class="player-right">
       <div class="song-cover">
         <div class="song-cover-info">
-          <p class="song-cover-info-singer"><span><img src="assets/images/player/person.svg" alt="singer"></span>
+          <p class="song-cover-info-singer"><span><img alt="singer" src="assets/images/player/person.svg"></span>
           </p>
-          <p class="song-cover-info-name"><span><img src="assets/images/player/music.svg" alt="singer"></span></p>
+          <p class="song-cover-info-name"><span><img alt="singer" src="assets/images/player/music.svg"></span></p>
         </div>
         <div class="song-cover-pic">
-          <img src="" alt="cover">
+          <img alt="cover" src="">
         </div>
       </div>
       <div class="song-interact">
         <div class="song-interact-like">
-          <button><img src="assets/images/player/heart_outline.svg" alt="heart"></button>
+          <button><img alt="heart" src="assets/images/player/heart_outline.svg"></button>
           <span>1000&nbsp;</span>
           بار پسندیده شده
         </div>
         <div class="song-interact-favorite">
-          <span><img src="assets/images/player/star_outline.svg" alt="star"></span>
+          <span><img alt="star" src="assets/images/player/star_outline.svg"></span>
           <button>افزودن به لیست علاقه مندی</button>
         </div>
       </div>
       <div class="song-play">
         <div class="song-play-top">
           <span class="time-passed">0:00</span>
-          <span class="play-range"><input type="range" class="custom-range-slider" min="0" max="100" value="0"></span>
+          <span class="play-range"><input class="custom-range-slider" max="100" min="0" type="range" value="0"></span>
           <span class="time-remained">4:22</span>
         </div>
         <div class="song-play-bottom">
           <div class="song-play-bottom-right">
-            <span><img src="assets/images/player/music/volume_up.svg" alt="volume_up"></span>
-            <span class="volume-range-wrapper"><input type="range" class="custom-range-slider volume-range" min="0"
-                                                      max="100" value="50"></span>
-            <span><img src="assets/images/player/music/volume_down.svg" alt="volume_down"></span>
+            <span><img alt="volume_up" src="assets/images/player/music/volume_up.svg"></span>
+            <span class="volume-range-wrapper"><input class="custom-range-slider volume-range" max="100" min="0"
+                                                      type="range" value="50"></span>
+            <span><img alt="volume_down" src="assets/images/player/music/volume_down.svg"></span>
           </div>
           <div class="song-play-bottom-center">
-            <button id="Next" title="آهنگ بعدی"><img src="assets/images/player/music/fast_forward.svg"
-                                                     alt="fast_forward"></button>
-            <button id="PlayPause" title="توقف یا اجرا"><img src="assets/images/player/music/play_arrow.svg"
-                                                             alt="play_arrow"></button>
-            <button id="Prev" title="آهنگ قبلی"><img src="assets/images/player/music/fast_rewind.svg"
-                                                     alt="fast_rewind"></button>
+            <button id="Next" title="آهنگ بعدی"><img alt="fast_forward"
+                                                     src="assets/images/player/music/fast_forward.svg"></button>
+            <button id="PlayPause" title="توقف یا اجرا"><img alt="play_arrow"
+                                                             src="assets/images/player/music/play_arrow.svg"></button>
+            <button id="Prev" title="آهنگ قبلی"><img alt="fast_rewind"
+                                                     src="assets/images/player/music/fast_rewind.svg"></button>
           </div>
           <div class="song-play-bottom-left">
-            <button title="پخش مجدد"><img src="assets/images/player/music/replay.svg" alt="replay"></button>
-            <button title="افزودن به پلی لیست"><img src="assets/images/player/music/playlist_add.svg"
-                                                    alt="playlist_add"></button>
+            <button title="پخش مجدد"><img alt="replay" src="assets/images/player/music/replay.svg"></button>
+            <button title="افزودن به پلی لیست"><img alt="playlist_add"
+                                                    src="assets/images/player/music/playlist_add.svg"></button>
           </div>
         </div>
       </div>
       <div class="song-more-details">
         <details>
-          <summary> اطلاعات بیشتر </summary>
+          <summary> اطلاعات بیشتر</summary>
           <div class="details">
             <div class="details-buttons">
               <button class="btn details-buttons-info ls-top-btn-active">جزییات</button>
@@ -223,7 +228,6 @@
         <div class="playlist-box">
 
 
-
         </div>
       </div>
     </div>
@@ -234,4 +238,3 @@
 </body>
 
 </html>
-
