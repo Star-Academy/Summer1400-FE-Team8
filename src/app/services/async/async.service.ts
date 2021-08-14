@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient,HttpHeaders} from '@angular/common/http'
 import {Observable} from 'rxjs';
+import {Token , LoginFormData , SignupFormData , Song} from '../../interfaces/interfaces'
+
 
 const httpOptions = {
   headers : new HttpHeaders({
@@ -18,11 +20,19 @@ export class AsyncService {
 
   private API = 'https://songs.code-star.ir';
 
-  postData(data:Object,endpoint:string):Observable<Object>{
-    return this.http.post<Object>(`${this.API}/${endpoint}`,data,httpOptions)
+  postLoginData(data:LoginFormData,endpoint:string):Observable<Token>{
+    return this.http.post<Token>(`${this.API}/${endpoint}`,data,httpOptions)
   }
+  postSignupData(data:SignupFormData,endpoint:string):Observable<Token>{
+    return this.http.post<Token>(`${this.API}/${endpoint}`,data,httpOptions)
+  }
+
   getData(endpoint:string):Observable<Object>{
     return this.http.get<Object>(`${this.API}/${endpoint}`)
+  }
+
+  getSongs(endpoint:string):Observable<Song>{
+    return this.http.get<Song>(`${this.API}/${endpoint}`)
   }
 
 }
