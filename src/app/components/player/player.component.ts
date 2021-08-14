@@ -36,7 +36,9 @@ export class PlayerComponent implements OnInit
   public isPlaying: boolean | undefined;
   public recommand_index: number | undefined;
 
-  constructor(private SongService: SongsService, private router: Router) {}
+
+  constructor(private SongService: SongsService, private router: Router) {  }
+
 
   async initialization() {
     this.heart_btn = document.querySelector(".song-interact > .song-interact-like > button")
@@ -243,6 +245,4 @@ export class PlayerComponent implements OnInit
     this.Process();
   }
 
-
-} //end of PlayerComponent
-
+}
