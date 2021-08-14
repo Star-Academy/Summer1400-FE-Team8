@@ -23,6 +23,7 @@ export class AsyncService {
   postLoginData(data:LoginFormData,endpoint:string):Observable<Token>{
     return this.http.post<Token>(`${this.API}/${endpoint}`,data,httpOptions)
   }
+  
   postSignupData(data:SignupFormData,endpoint:string):Observable<Token>{
     return this.http.post<Token>(`${this.API}/${endpoint}`,data,httpOptions)
   }
@@ -31,8 +32,6 @@ export class AsyncService {
     return this.http.get<Object>(`${this.API}/${endpoint}`)
   }
 
-  getSongs(endpoint:string):Observable<Song>{
-    return this.http.get<Song>(`${this.API}/${endpoint}`)
-  }
+  
 
 }
