@@ -34,20 +34,21 @@ export class NavSideDesktopComponent implements OnInit {
     this.router.events.subscribe(val => {
       if (val instanceof NavigationEnd){
         if(!this.authService.isLogged()){
-          menu.classList.add('display-none')
-        }else{
-            menu.classList.add('display-block')
-            this.asyncService.getData(`user/one/${userId}`)
-            .subscribe(
-              (res : any)=>{
-                if(!res.user.avatar) return;
-                avatar.src = res.user.avatar
-              },
-              err=>console.log(err)
-            )
+          menu.classList.add('display-none');
+          return;
         }
+          menu.classList.add('display-block')
       }
     });
+
+    this.asyncService.getData(`user/one/${userId}`)
+    .subscribe(
+      (res : any)=>{
+        if(!res.user.avatar) return;
+        avatar.src = res.user.avatar
+      },
+      err=>console.log(err)
+    )
 
   menu.style.right = rightWhenClosed;
   
@@ -56,7 +57,7 @@ export class NavSideDesktopComponent implements OnInit {
     this.navSideService.toggleMenu(menu, openClass, closeClass, rightWhenClosed);
   });
   
-  // ------ logout button
+
   const logoutBtn = (document.querySelector('.nav-desktop-side-logout a') as HTMLAnchorElement);
   logoutBtn.addEventListener('click', ()=>{
       this.authService.removeUserLocal();

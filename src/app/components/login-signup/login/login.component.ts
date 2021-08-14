@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
               } 
               this.authService.setUserLocal(res.token,res.id);
               this.authService.setExpiry(new Date());
-              this.router.navigate(['profile/playlists'])
+              this.router.navigate(['profile/playlists']);
           },
           () => {  this.printError("pass_error", "اطلاعات وارد شده اشتباه است")}
         )

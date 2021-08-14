@@ -27,7 +27,7 @@ const routes: Routes = [
     { path:'playlists',component: PlaylistsComponent},
     { path:'playlist',component: PlaylistComponent},
     { path:'edit_profile',component: EditProfileComponent},
-  ],canActivate: [RouteGuard]},
+  ]},
 ];
 
 @NgModule({

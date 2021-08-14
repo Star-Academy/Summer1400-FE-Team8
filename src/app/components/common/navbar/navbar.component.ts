@@ -19,7 +19,6 @@ export class NavbarComponent implements OnInit {
 
     this.router.events.subscribe(val => {
       if(val instanceof NavigationEnd){
-        console.log(this.location.path(),'aaaa')
         if ((!this.location.path().includes('user')) && (this.location.path()!=='')) {
           navs.forEach(nav=>nav.classList.add('nav-dark'))
         } else {
