@@ -3,14 +3,40 @@ import {SongService} from 'src/app/services/song/song.service';
 import {Songs} from './Songs';
 import {Router} from "@angular/router";
 import {Song} from '../../interfaces/interfaces'
+import { ViewChild , AfterViewInit } from '@angular/core';
+import {CardComponent} from "../card/card.component";
+import { ViewChildren } from '@angular/core';
+import { QueryList } from '@angular/core';
+
 
 @Component({
   selector: 'app-player',
   templateUrl: './player.component.html',
   styleUrls: ['./player.component.scss']
+
 })
-export class PlayerComponent implements OnInit
+export class PlayerComponent implements OnInit , AfterViewInit
 {
+  @ViewChildren('allItems') boxItems: QueryList<Song> | undefined;
+
+  ngAfterViewInit()
+  {
+    // @ts-ignore
+    this.boxItems.changes.subscribe(() =>
+    {
+      this.items = document.querySelectorAll(".playlist-box");
+      console.log(this.items.length);
+      for (let i = 0; i < this.items.length; i++)
+      {
+        this.items[i].addEventListener("click", () =>
+        {
+          localStorage.setItem('song-id', (this.recommends[i]).id);
+          window.location.reload();
+        });
+      }
+    })
+  }
+
   public songs: Song[] = [];
   public song: any;
   public recommends: any = [];
@@ -51,7 +77,6 @@ export class PlayerComponent implements OnInit
     this.info_container = document.querySelector(".info_container");
     this.infos = this.info_container.querySelectorAll("p > span")
     this.lyrics_container = document.querySelector(".lyrics-container");
-    this.items = document.querySelectorAll(".playlist-box-item");
     this.Next = document.querySelector("#Next");
     this.Prev = document.querySelector("#Prev");
     this.current_track = document.createElement("audio");
@@ -68,12 +93,7 @@ export class PlayerComponent implements OnInit
   Process = async () => {
     this.LoadCurrentMusicInforms();
     this.LoadCurrentSong();
-    for (let i = 0; i < this.items.length; i++) {
-      this.items[i].addEventListener("click", () => {
-        localStorage.setItem('song-id', (this.recommends[i]).id);
-        window.location.reload();
-      });
-    }
+
   }
   LoadCurrentMusicInforms = () => {
     document.getElementsByClassName("song-cover-info-singer")[0].innerHTML =
@@ -205,7 +225,8 @@ export class PlayerComponent implements OnInit
     }
   }
 
-  async displayRecommends() {
+  async displayRecommends()
+  {
     document.getElementsByClassName("playlist-box")[0].innerHTML = this.recommends.map((song: { cover: any; artist: any; name: any; }) => {
       return (
         `<div class="playlist-box-item">
@@ -227,28 +248,34 @@ export class PlayerComponent implements OnInit
 
   async ngOnInit(): Promise<void> {
     console.log(localStorage.getItem('song-id'));
-    if (localStorage.getItem('song-id') === null) {
-      localStorage.setItem('song-id', '1');
-    }
+
     this.songService.getAllSongs().subscribe(
-     (res : any) => { 
-      this.songs = res.songs;
-      this.song = this.songs.find(song => song.id == localStorage.getItem('song-id'));
-      console.log(this.song);
-      this.recommends = this.songs.filter(song => song.artist == this.song.artist);
-      console.log(this.recommends);
-      const current_in_recommands = (element: { id: any; }) => element.id === this.song.id;
-      this.recommand_index = this.recommends.findIndex(current_in_recommands);
+      (res : any) =>
+      {
+        this.songs = res.songs;
+        this.song = this.songs.find(song => song.id == localStorage.getItem('song-id') );
+        console.log(this.song);
+        this.recommends = this.songs.filter(song => song.artist == this.song.artist);
+        console.log(this.recommends);
+        const current_in_recommands = (element: { id: any; }) => element.id === this.song.id;
+        this.recommand_index = this.recommends.findIndex(current_in_recommands);
 
-    this.displayRecommends();
+        // this.displayRecommends();
 
-      this.initialization();
+        this.initialization();
 
-     }
+        this.Process();
+      }
     );
-    
-    
-    this.Process();
+
+  }
+
+  ngOnChanges()
+  {
+    if(this.items)
+    {
+      console.log("hala");
+    }
   }
 
 }
