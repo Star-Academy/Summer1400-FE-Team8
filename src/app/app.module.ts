@@ -18,6 +18,7 @@ import { MusicSearchComponent } from './components/music-search/music-search.com
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { NavSideMobileComponent } from './components/common/nav-side-mobile/nav-side-mobile.component';
 import { NavSideDesktopComponent } from './components/common/nav-side-desktop/nav-side-desktop.component';
+import { SearchItemComponent } from './components/music-search/search-item/search-item.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { NavSideDesktopComponent } from './components/common/nav-side-desktop/na
     MusicSearchComponent,
     EditProfileComponent,
     NavSideMobileComponent,
-    NavSideDesktopComponent
+    NavSideDesktopComponent,
+    SearchItemComponent
   ],
   imports: [
     BrowserModule,

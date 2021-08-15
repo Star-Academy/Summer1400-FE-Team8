@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { AsyncService } from 'src/app/services/async/async.service'; 
 import { Router} from '@angular/router';
-
+import {Token} from '../../../interfaces/interfaces'
+import {LoginFormData} from '../../../interfaces/interfaces'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit {
     event.preventDefault();
     const form = (event.target as any);
 
-    let formData = {
+    let formData:LoginFormData = {
         username:'',
         password:'',
     }
@@ -45,9 +46,9 @@ export class LoginComponent implements OnInit {
             password : form.password.value,
         }
 
-        this.asyncService.postData(formData, 'user/login')
+        this.asyncService.postLoginData(formData, 'user/login')
         .subscribe(
-          (res : any) => {
+          (res : Token) => {
             if(form.remember_me.checked){
                 const expiry = new Date(new Date().getTime()+(10*(86400000)))
                 document.cookie = `username=${formData.username};expires=Thu, 01 Jan 1970 00:00:00 GMT`;
@@ -61,6 +62,7 @@ export class LoginComponent implements OnInit {
               this.authService.setUserLocal(res.token,res.id);
               this.authService.setExpiry(new Date());
               this.router.navigate(['profile/playlists']);
+              
           },
           () => {  this.printError("pass_error", "اطلاعات وارد شده اشتباه است")}
         )

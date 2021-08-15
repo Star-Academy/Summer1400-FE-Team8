@@ -14,12 +14,13 @@ import { RouteGuard } from './guards/route/route.guard';
 const routes: Routes = [
   { path:'',component: HomepageComponent},
   {path: 'home', redirectTo: '', pathMatch: 'full'},
+
   { path:'user',component: LoginSignupComponent , children : [
       {path:'login',component: LoginComponent},
       {path:'signup',component: SignupComponent}
   ]},
 
-  { path:'player',component: PlayerComponent},
+  { path:'player/:song_id',component: PlayerComponent},
 
   { path:'music_search',component: MusicSearchComponent},
 
@@ -27,7 +28,7 @@ const routes: Routes = [
     { path:'playlists',component: PlaylistsComponent},
     { path:'playlist',component: PlaylistComponent},
     { path:'edit_profile',component: EditProfileComponent},
-  ]},
+  ],canActivate: [RouteGuard]},
 ];
 
 @NgModule({

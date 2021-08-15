@@ -120,23 +120,14 @@
           </div>
 
           <div class="search-results-box">
-            <template name="component-result-box">
-                <a class="result-box-link-wrapper" href="">
-                  <div class="search-results-box-item" onClick="">
-                  <div class="search-results-box-item-pic">
-                  <img src="" alt="cover" />
-                  </div>
-                  <div class="search-results-box-item-text">
-                  <h5></h5>
-                  <h4></h4>
-                  </div>
-                  <div class="search-results-box-item-play">
-                  <button></button>
-                  </div>
-                  </div>
-              </a>
-            </template>
-       
+            <app-search-item  
+            [desc]="desc" 
+            [page]="page" 
+            [sortBy]="sortBy" 
+            [songsInPage]="songsInPage"
+            *ngFor="let song of songs"
+            [song]="song">
+            </app-search-item>
           </div>
         </div>
       </section>

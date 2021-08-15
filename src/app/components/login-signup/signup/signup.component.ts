@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormValidationService} from '../../../services/form-validation/form-validation.service'
 import {AsyncService} from '../../../services/async/async.service'
 import { Router} from '@angular/router';
-
+import {Token , SignupFormData} from '../../../interfaces/interfaces'
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -26,7 +26,7 @@ export class SignupComponent implements OnInit {
 
   async handleSignup(event:Event) {
     event.preventDefault();
-    let formData = {
+    let formData :SignupFormData = {
       username : '',
       email:'',
       password:'',
@@ -47,8 +47,8 @@ export class SignupComponent implements OnInit {
             }
         }
 
-         this.asyncService.postData(formData,'user/register').subscribe(
-          res=> {  (document.querySelector('.signup-success') as HTMLDivElement).style.display = 'block'; },
+         this.asyncService.postSignupData(formData,'user/register').subscribe(
+          ()=> {  (document.querySelector('.signup-success') as HTMLDivElement).style.display = 'block'; },
           error => {  this.print_error("mail_error", "ایمیل یا نام کاربری از قبل در سیستم ثبت شده")},
           () => {
             setTimeout(() => {
