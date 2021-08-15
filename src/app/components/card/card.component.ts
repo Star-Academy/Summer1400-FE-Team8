@@ -12,13 +12,6 @@ export class CardComponent implements OnInit
 
   @Input() public song! : Song ;
 
-  Tamam = () =>
-
-  {
-    console.log("Tamam");
-  }
-
-
   constructor() { }
 
   ngOnInit(): void {
