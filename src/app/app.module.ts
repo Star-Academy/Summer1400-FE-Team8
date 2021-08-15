@@ -16,9 +16,7 @@ import { PlaylistComponent } from './components/playlist/playlist.component';
 import { PlaylistsComponent } from './components/playlists/playlists.component';
 import { MusicSearchComponent } from './components/music-search/music-search.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
-import { NavSideMobileComponent } from './components/common/nav-side-mobile/nav-side-mobile.component';
-import { NavSideDesktopComponent } from './components/common/nav-side-desktop/nav-side-desktop.component';
-import { SearchItemComponent } from './components/music-search/search-item/search-item.component';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -35,9 +33,7 @@ import { SearchItemComponent } from './components/music-search/search-item/searc
     PlaylistsComponent,
     MusicSearchComponent,
     EditProfileComponent,
-    NavSideMobileComponent,
-    NavSideDesktopComponent,
-    SearchItemComponent
+    CardComponent
   ],
   imports: [
     BrowserModule,

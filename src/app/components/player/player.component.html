@@ -124,13 +124,13 @@
 </div>
 
 <!----------- MOBILE NAVBAR ----------->
-<nav class="nav-mobile nav-dark">
-  <div class="nav-mobile-main">
-    <div class="nav-mobile-main-toggle"><img alt="toggle" src="assets/images/nav-mobile/open-menu.svg"></div>
-    <h2 class="nav-mobile-main-logo"><a href="home.html">آهنگیفای</a></h2>
-    <div class="nav-mobile-main-search"><a href="music_search.html">جستجوی موزیک</a></div>
-  </div>
-</nav>
+<!--<nav class="nav-mobile nav-dark">-->
+<!--  <div class="nav-mobile-main">-->
+<!--    <div class="nav-mobile-main-toggle"><img alt="toggle" src="assets/images/nav-mobile/open-menu.svg"></div>-->
+<!--    <h2 class="nav-mobile-main-logo"><a href="home.html">آهنگیفای</a></h2>-->
+<!--    <div class="nav-mobile-main-search"><a href="music_search.html">جستجوی موزیک</a></div>-->
+<!--  </div>-->
+<!--</nav>-->
 
 <!----------- DESKTOP NAVBAR ----------->
 <!----------- MAIN CONTENT ----------->
@@ -225,8 +225,9 @@
     <div class="player-left">
       <h2>مرتبط با سلیقت</h2>
       <div>
-        <div class="playlist-box">
+        <div #allItems class="playlist-box" *ngFor = "let recommend of recommends">
 
+          <app-card [song]="recommend">  </app-card>
 
         </div>
       </div>
