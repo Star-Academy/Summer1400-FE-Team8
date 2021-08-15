@@ -270,12 +270,4 @@ export class PlayerComponent implements OnInit , AfterViewInit
 
   }
 
-  ngOnChanges()
-  {
-    if(this.items)
-    {
-      console.log("hala");
-    }
-  }
-
 }
