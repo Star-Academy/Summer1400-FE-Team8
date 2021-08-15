@@ -21,3 +21,10 @@ export interface Song{
     file?: string,
     cover?: string
 }
+
+export interface SongPage{
+    size: number,
+    current:string,
+    sorter: string,
+    desc: boolean
+}

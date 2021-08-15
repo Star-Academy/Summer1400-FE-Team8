@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {SongsService} from 'src/app/services/songs/songs.service';
+import {SongService} from 'src/app/services/song/song.service';
 import {Songs} from './Songs';
 import {Router} from "@angular/router";
+import {Song} from '../../interfaces/interfaces'
 
 @Component({
   selector: 'app-player',
@@ -10,7 +11,7 @@ import {Router} from "@angular/router";
 })
 export class PlayerComponent implements OnInit
 {
-  public songs: Songs[] = [];
+  public songs: Song[] = [];
   public song: any;
   public recommends: any = [];
   public heart_btn: any;
@@ -37,7 +38,7 @@ export class PlayerComponent implements OnInit
   public recommand_index: number | undefined;
 
 
-  constructor(private SongService: SongsService, private router: Router) {  }
+  constructor(private songService: SongService, private router: Router) {  }
 
 
   async initialization() {
@@ -229,19 +230,24 @@ export class PlayerComponent implements OnInit
     if (localStorage.getItem('song-id') === null) {
       localStorage.setItem('song-id', '1');
     }
-    this.songs = await this.SongService.getSongs();
-    console.log(this.songs);
-    this.song = this.songs.find(song => song.id == localStorage.getItem('song-id'));
-    console.log(this.song);
-    this.recommends = this.songs.filter(song => song.artist == this.song.artist);
-    console.log(this.recommends);
-    const current_in_recommands = (element: { id: any; }) => element.id === this.song.id;
-    this.recommand_index = this.recommends.findIndex(current_in_recommands);
+    this.songService.getAllSongs().subscribe(
+     (res : any) => { 
+      this.songs = res.songs;
+      this.song = this.songs.find(song => song.id == localStorage.getItem('song-id'));
+      console.log(this.song);
+      this.recommends = this.songs.filter(song => song.artist == this.song.artist);
+      console.log(this.recommends);
+      const current_in_recommands = (element: { id: any; }) => element.id === this.song.id;
+      this.recommand_index = this.recommends.findIndex(current_in_recommands);
 
-    await this.displayRecommends();
+    this.displayRecommends();
 
-    await this.initialization();
+      this.initialization();
 
+     }
+    );
+    
+    
     this.Process();
   }
 
