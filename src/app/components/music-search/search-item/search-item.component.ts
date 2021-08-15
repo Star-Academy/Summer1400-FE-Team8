@@ -8,10 +8,6 @@ import { Input , Output} from '@angular/core';
   styleUrls: ['./search-item.component.scss']
 })
 export class SearchItemComponent implements OnInit {
-  @Input() desc : boolean = false;
-  @Input() songsInPage : number = 0;
-  @Input() page: string = '';
-  @Input() sortBy : string = '';
   @Input() song : Song = {
     id: '',
     name: '',
@@ -20,16 +16,10 @@ export class SearchItemComponent implements OnInit {
     cover: ''
   }
 
-  constructor(private songService: SongService) { }
+  constructor() { }
 
-  @Output() songs : Song[] = [];
 
   ngOnInit(): void {
-    this.songService.postSongsPage(this.songsInPage, this.page, this.sortBy, this.desc)
-    .subscribe((res:any)=>{
-      const songs : Song[] = res.songs;
-      this.songs = songs;
-    })
   }
 
 }

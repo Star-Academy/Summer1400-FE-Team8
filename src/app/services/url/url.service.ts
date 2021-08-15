@@ -15,7 +15,7 @@ export class UrlService {
     if(name2){
       urlParams.set(name2,val2);
     }
-    // window.location.search = urlParams;
+    window.location.search = urlParams as any;
   }
    getParams(name:string){
     const state = window.location.search;

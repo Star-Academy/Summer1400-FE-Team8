@@ -47,7 +47,7 @@ export class NavSideDesktopComponent implements OnInit {
         if(!res.user.avatar) return;
         avatar.src = res.user.avatar
       },
-      err=>console.log(err)
+      err=>err
     )
 
   menu.style.right = rightWhenClosed;

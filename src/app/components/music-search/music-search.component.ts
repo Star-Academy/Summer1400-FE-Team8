@@ -3,22 +3,25 @@ import { Song } from 'src/app/interfaces/interfaces';
 import { SongService } from 'src/app/services/song/song.service';
 import { Output } from '@angular/core';
 import { UrlService } from 'src/app/services/url/url.service';
-import { Router} from '@angular/router';
+import { Router , ActivatedRoute} from '@angular/router';
+import { Subscription } from 'rxjs';
+
 @Component({
   selector: 'app-music-search',
   templateUrl: './music-search.component.html',
   styleUrls: ['./music-search.component.scss']
 })
 export class MusicSearchComponent implements OnInit {
-
-  @Output() desc : boolean = false;
-  @Output() songsInPage : number = 0;
-  @Output() page: string = '';
-  @Output() sortBy : string = '';
+  private subs1 !: Subscription;
+  private subs2 !: Subscription;
+  private subs3 !: Subscription;
+  
+  
+  songsInPage : number = 0;
 
   songs : Song[] = [];
   constructor(private songService : SongService , private urlService : UrlService
-    ,private router : Router,) { }
+    ,private router : Router , private actRoute: ActivatedRoute) { }
 
   handlePagination(num:number,className:string,page:string){
     // -------------------- PAGINATION
@@ -29,7 +32,6 @@ export class MusicSearchComponent implements OnInit {
          i.classList.add('display-none')
        })
      }else{
-       console.log('aaaaaaaaaaaaa')
        document.querySelectorAll('.link-all').forEach(i=>{
         i.classList.add('display-none')
        })
@@ -37,16 +39,14 @@ export class MusicSearchComponent implements OnInit {
 
     // ---- init pages buttons
     let pagesNum  = Math.round(num / Number(this.songsInPage));
-
+         
     for(let i = 1; i <= pagesNum; i++){
       const link = document.createElement('A');
       link.classList.add('btn');
       link.classList.add('btn--gray');
       link.classList.add(className);
       link.innerHTML=i.toString();
-      
-       pagesWrapper.appendChild(link)
-      //  console.log(link)
+      pagesWrapper.appendChild(link)
     }
   
    //  redirect to another page
@@ -99,20 +99,17 @@ export class MusicSearchComponent implements OnInit {
    // ----- backward and forward btns
    const backwardBtn = document.querySelector('.search-pagination-backward') as HTMLButtonElement;
    const forwardBtn = document.querySelector('.search-pagination-forward') as HTMLButtonElement;
-   // console.log(forwardBtn)
    backwardBtn.addEventListener('click',()=>{
     this.urlService.setParams('page','1','','')
-  
-    //  window.location.replace(`music_search.html?page=${1}&desc=${desc}&sortBy=${sortBy}`);
    })
    forwardBtn.addEventListener('click',()=>{
     this.urlService.setParams('page',pagesNum.toString(),'','')
-    //  window.location.replace(`music_search.html?page=${pagesNum}&desc=${desc}&sortBy=${sortBy}`)
    })
   
   }
   
   ngOnInit(): void {
+
     let data :any = [];
     const box = document.querySelector('.search-results-box');
     const descBtn = document.querySelector('.search-filter-mode .form-order input[id="desc"]') as HTMLInputElement;
@@ -122,7 +119,7 @@ export class MusicSearchComponent implements OnInit {
     const artistBtn = document.querySelector('.search-filter-mode .form-mode input[id="artist"]') as HTMLInputElement;
     const searchBox = document.querySelector('main.search-container .search-container input[type="search"]') as HTMLInputElement;
     const template = document.querySelector('template[name="component-result-box"]') as HTMLTemplateElement;
-    let page = window.location.search.split('&')[0].split('=')[1];
+    let page = window.location.search.split('&')[0].split('=')[1] as any;
     let descStr = window.location.search.split('&')[1].split('=')[1];
     let sortBy = window.location.search.split('&')[2].split('=')[1];
     let searchedContent = window.location.search.split('&')[3] ? window.location.search.split('&')[3].split('=')[1]:null;
@@ -138,42 +135,43 @@ export class MusicSearchComponent implements OnInit {
 
     let songsNum = 0;
     let songsInPage = 10;
-
+    this.songsInPage = songsInPage;
      // ------------- CHANGE ITEMS ORDER
  
     // descending or ascending
-    // ascBtn.addEventListener('click',(event)=>{
-    //   if(event.target.checked){
-    //     setParams('desc',false)
-    //   }
-    // })
-    // descBtn.addEventListener('click',(event)=>{
-    //   if(event.target.checked){
-    //     setParams('desc',true)
-    //   }
-    // })
+    ascBtn.addEventListener('click',(event:any)=>{
+      if(event.target.checked){
+        this.urlService.setParams('desc','false','','')
+      }
+    })
+    descBtn.addEventListener('click',(event:any)=>{
+      if(event.target.checked){
+        this.urlService.setParams('desc','true','','')
+      }
+    })
 
-    // // mode
-    // newestBtn.addEventListener('click',(event)=>{
-    //   if(event.target.checked){
-    //     setParams('sortBy','newest')
-    //   }
-    // })
-    // nameBtn.addEventListener('click',(event)=>{
-    //   if(event.target.checked){
-    //     setParams('sortBy','name')
-    //   }
-    // })
-    // artistBtn.addEventListener('click',(event)=>{
-    //   if(event.target.checked){
-    //     setParams('sortBy','artist')
-    //   }
-    // })
+    // mode
+    newestBtn.addEventListener('click',(event:any)=>{
+      if(event.target.checked){
+        this.urlService.setParams('sortBy','newest','','')
+      }
+    })
+    nameBtn.addEventListener('click',(event:any)=>{
+      if(event.target.checked){
+        this.urlService.setParams('sortBy','name','','')
+      }
+    })
+    artistBtn.addEventListener('click',(event:any)=>{
+      if(event.target.checked){
+        this.urlService.setParams('sortBy','artist','','')
+      }
+    })
 
 
     /* ------------- REPRESENT ALL THE SONGS ------------- */
     if(!searchedContent){
-        this.songService.getAllSongs()
+
+      this.subs1 = this.songService.getAllSongs()
         .subscribe(
           (res : any)=>{
             const songs : Song[] = res.songs;
@@ -181,149 +179,48 @@ export class MusicSearchComponent implements OnInit {
             this.handlePagination(songsNum,'link-all',page);
           }
         )
-      
-        // await fetch(`${api}/song/page`, {
-        //   method: 'POST',
-        //   headers: {
-        //     'Accept': 'application/json',
-        //     'Content-Type': 'application/json'
-        //   },
-        //   body: JSON.stringify({
-        //     size: songsInPage,
-        //     current:page,
-        //     sorter: sortBy,
-        //     desc: desc
-        //   }),
-        // })
-        // .then(data => {
-        //     return data.json();
-        //     })
-        //   .then(song => {
-        //   data = song;
-        //   })
-        // .catch((error) => {
-        //   console.error('Error:', error);
-        // });
 
-        // this.songsInPage = songsInPage;
-        // this.page = page;
-        // this.sortBy = sortBy;
-        // this.desc = desc;
-
-        this.desc = desc;
-        this.songsInPage = songsInPage;
-        this.page = page;
-        this.sortBy = sortBy;
-
-        this.songService.postSongsPage(songsInPage, page, sortBy, desc)
+        this.subs2 = this.songService.postSongsPage(songsInPage, page, sortBy, desc)
         .subscribe(
           (res : any)=>{
            this.songs = res.songs;
+          
           }
         )
-       
-        //   songs.map((song:Song) => {
-        //     const clone = (template.content.cloneNode(true) as HTMLElement);
-        //     (clone.querySelector("a.result-box-link-wrapper") as HTMLAnchorElement).href = `player.html?song_id=${song.id}`
-        //     (clone.querySelector(".search-results-box-item-pic img") as HTMLImageElement).src = `${song.cover}`
-        //     (clone.querySelector(".search-results-box-item-text h5") as HTMLHeadingElement).innerText = `${song.artist}`
-        //     clone.querySelector(".search-results-box-item-text h4").innerText = `${song.name}`
-        //     box.appendChild(clone)
-        //     return(clone)
-        // })
-      
-        // box.innerHTML = box.innerHTML.replace(/,/g, '')
-      
-       
-      
       }
   
       /* ------------- REPRESENT SONGS RELATED TO SEARCHED CONTENT ------------- */
-
-      // let searchData = [];
-      // const searchBtn = document.querySelector('main.search-container ');
-      // const handleSearch = async (event) => {
-      //   event.preventDefault();
-      //   const val = event.target[1].value;
-      //   console.log(val)
-      //   setParams('searched',val,'page',1);
-      // }
-
-      // if(searchedContent){
-      //   const showSearchedContent = async ()=>{
-      //       let searched = decodeURI(searchedContent)
-      //     await fetch(`${api}/song/find`, {
-      //         method: 'POST',
-      //         headers: {
-      //           'Accept': 'application/json',
-      //           'Content-Type': 'application/json'
-      //         },
-      //         body: JSON.stringify({
-      //           phrase : searched,
-      //           count: 100,
-      //           sorter: sortBy,
-      //           desc: desc
-      //         }),
-      //       })
-      //       .then(data => {
-      //           return data.json();
-      //           })
-      //           .then(res => {
-      //             searchData = res.songs;
-      //           })
-      //       .catch((error) => {
-      //         console.error('Error:', error);
-      //       });
+      if(searchedContent){
+        let searched = decodeURI(searchedContent as string)
+        this.subs3 = this.songService.postSongsFind(searched, 100, sortBy, desc)
+        .subscribe(
+          (res:any)=>{
+            const divider = (page:any)=>{
+              let start = 0;
+              let end = 9;
+              start += (parseInt(page)-1)*10;
+              end += parseInt(page)*10;
+              return{
+                start,end
+              }
+            }
+            let start = divider(this.urlService.getParams('page')).start;
+            let end = divider(this.urlService.getParams('page')).end;
             
-            
-      //       const divider = (page)=>{
-      //         let start = 0;
-      //         let end = 9;
-      //         start += (parseInt(page)-1)*10;
-      //         end += parseInt(page)*10;
-      //         return{
-      //           start,end
-      //         }
-      //       }
-      //       let start = divider(getParams('page')).start;
-      //       let end = divider(getParams('page')).end;
-            
+            divider(this.urlService.getParams(page))
 
-      //       divider(getParams(page))
-      //       searchData.slice(start,end).map(song=>{
-      //       const clone = temp.content.cloneNode(true);
-      //       clone.querySelector("a.result-box-link-wrapper").href = `player.html?song_id=${song.id}`
-      //       clone.querySelector(".search-results-box-item-pic img").src = `${song.cover}`
-      //       clone.querySelector(".search-results-box-item-text h5").innerText = `${song.artist}`
-      //       clone.querySelector(".search-results-box-item-text h4").innerText = `${song.name}`
-      //       box.appendChild(clone)
-      //       return(clone)
-      //       })
-      //       handlePagination(searchData.length,'link-search');
-          
-      //   }
-        
-      //   showSearchedContent();
-        
-      // }
+            this.songs = res.songs.slice(start,end);
+            this.handlePagination(res.songs.length,'link-search',page);
+          }
+        )
+      }
 
-      // ---------------- FILTER CHECKBOX 
-      // const all = document.querySelector('.search-container form #all');
-      // const inputs = document.querySelectorAll('.search-container form.form-genre input:not(#all)');
-      // all.addEventListener('click', ()=>{
-      //     if(all.checked){
-      //         inputs.forEach(input =>input.checked = false);
-      //     }
-      // })
+  }
 
-      // inputs.forEach(input=>{
-      //     input.addEventListener('click', ()=>{
-      //         if(input.checked){
-      //             all.checked = false;
-      //         }
-      //     })
-      // })
-
+  ngOnDestroy() {
+    this.subs1.unsubscribe();
+    this.subs2.unsubscribe();
+    this.subs3.unsubscribe();
   }
 
 }

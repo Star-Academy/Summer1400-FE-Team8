@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient,HttpHeaders} from '@angular/common/http'
 import {Observable} from 'rxjs';
-import {Song , SongPage} from '../../interfaces/interfaces'
+import {Song , SongPage , SongFind} from '../../interfaces/interfaces'
 import {Songs} from "../../components/player/Songs";
 const httpOptions = {
   headers : new HttpHeaders({
@@ -36,6 +36,20 @@ export class SongService {
     }
     return this.http.post<Song[]>(`${this.API}/song/page`,songPage,httpOptions)
   }
+
+  postSongsFind(phrase:string,count:number,sorter:string,desc:boolean):Observable<Song[]>{
+    const songFind : SongFind = {
+      phrase,
+      count,
+      sorter,
+      desc
+    }
+    return this.http.post<Song[]>(`${this.API}/song/find`,songFind,httpOptions)
+  }
+
+
+
+
     public async getSongs() : Promise<Songs[]>
   {
     return new Promise<Songs[]>((resolve , reject) => {

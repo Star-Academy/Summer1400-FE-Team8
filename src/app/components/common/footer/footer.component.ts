@@ -15,7 +15,7 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
     const footer = (document.querySelector('footer') as HTMLElement)
     this.router.events.subscribe(val => {
-      if (this.location.path().includes('profile')) {
+      if ((!this.location.path().includes('user')) && (this.location.path()!=='')) {
         footer.classList.add('footer-dark')
       } else {
         footer.classList.remove('footer-dark')

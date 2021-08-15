@@ -74,57 +74,10 @@
               </form>
             </div>
 
-            <div class="search-filter-genre">
-              <h3>
-                <span
-                  ><img
-                    src="../assets/images/search/genre.svg"
-                    alt="genre" /></span
-                >سبک
-              </h3>
-              <form class="form-genre">
-                <div>
-                  <input
-                    type="checkbox"
-                    name="all"
-                    id="all"
-                    value="all"
-                    checked="checked"
-                  />
-                  <label for="all">همه</label>
-                </div>
-                <div>
-                  <input type="checkbox" name="pop" id="pop" value="pop" />
-                  <label for="pop">پاپ</label>
-                </div>
-                <div>
-                  <input
-                    type="checkbox"
-                    name="hiphop"
-                    id="hiphop"
-                    value="hiphop"
-                  />
-                  <label for="hiphop">هیپ هاپ</label>
-                </div>
-                <div>
-                  <input
-                    type="checkbox"
-                    name="others"
-                    id="others"
-                    value="others"
-                  />
-                  <label for="others">سایر</label>
-                </div>
-              </form>
-            </div>
           </div>
 
           <div class="search-results-box">
             <app-search-item  
-            [desc]="desc" 
-            [page]="page" 
-            [sortBy]="sortBy" 
-            [songsInPage]="songsInPage"
             *ngFor="let song of songs"
             [song]="song">
             </app-search-item>

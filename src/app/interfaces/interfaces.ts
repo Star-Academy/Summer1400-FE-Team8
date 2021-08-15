@@ -28,3 +28,9 @@ export interface SongPage{
     sorter: string,
     desc: boolean
 }
+export interface SongFind{
+    phrase: string,
+    count: number,
+    sorter: string,
+    desc: boolean
+}
