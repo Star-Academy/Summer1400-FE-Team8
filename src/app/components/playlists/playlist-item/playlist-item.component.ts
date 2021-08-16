@@ -13,6 +13,8 @@ export class PlaylistItemComponent implements OnInit {
   constructor(private router: Router, private actRoute : ActivatedRoute , private playlistService: PlaylistService) { }
 
   @Input() playlist !: Playlist;
+  lastElmObj : any ;
+  lastElmObjCover !: string;
   noCoverImg :string = "../../../../assets/images/playlists/no-cover.jpg"
 
   showPlaylistSongs(e:any){
@@ -27,7 +29,10 @@ export class PlaylistItemComponent implements OnInit {
     )
   }
   ngOnInit(): void {
-   
+    if(this.playlist.songs.length){
+      this.lastElmObj = this.playlist.songs[this.playlist.songs.length-1];
+      this.lastElmObjCover = this.lastElmObj.rest.cover;
+    }
   }
 
 }

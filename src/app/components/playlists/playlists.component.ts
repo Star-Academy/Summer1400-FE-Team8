@@ -35,6 +35,7 @@ export class PlaylistsComponent implements OnInit {
     this.playlistService.getPlaylists().subscribe(
       res=>{
         this.playlists = res;
+        console.log(res)
       },
       err => err
     )
