@@ -26,7 +26,7 @@ const routes: Routes = [
 
   { path:'profile', children:[
     { path:'playlists',component: PlaylistsComponent},
-    { path:'playlist',component: PlaylistComponent},
+    { path:'playlist/:id',component: PlaylistComponent},
     { path:'edit_profile',component: EditProfileComponent},
   ],canActivate: [RouteGuard]},
 ];

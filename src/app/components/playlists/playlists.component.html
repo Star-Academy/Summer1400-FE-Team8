@@ -5,7 +5,7 @@
         <button class="create-playlist-btn btn btn--gray">+ پلی لیست جدید بساز</button>
         <div class="create-playlist-page">
            <div class="create-playlist-page-box">
-            <form onsubmit="handleSubmit(event)">
+            <form (submit)="createPlaylist($event)">
               <div class="create-playlist-input">
                 <label for="name">نام پلی لیست</label>
                 <input class="custom-input" type="text">
@@ -18,32 +18,7 @@
         </div>
       </section>
       <section class="playlists">
-        <template name="component-playlists-item">
-          <div class="playlists-item" data-id="">
-            <div class="playlists-item-pic">
-            <a href=""
-                ><img src="" alt="cover"
-            /></a>
-            </div>
-            <div class="playlists-item-actions">
-            <div class="playlists-item-text">
-                <h4>
-                <a href=""></a>
-                </h4>
-            </div>
-            <div class="icons-container">
-                <div class="playlists-item-play">
-                <a href="">
-                    <button></button>
-                </a>
-                </div>
-                <div class="playlists-item-delete">
-                <img onclick="" src="../assets/images/favorites/delete.svg" alt="delete" />
-                </div>
-            </div>
-            </div>
-        </div>
-        </template>
+       <app-playlist-item *ngFor="let playlist of playlists" [playlist]="playlist"></app-playlist-item>
       </section>
     </div>
   </main>

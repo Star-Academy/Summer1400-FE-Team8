@@ -34,3 +34,17 @@ export interface SongFind{
     sorter: string,
     desc: boolean
 }
+export interface Playlist{
+    id:string,
+    name: string,
+    songs: [
+      {
+        id: string,
+        name: string,
+        artist: string,
+        lyrics: string,
+        file: string,
+        cover: string
+      }
+    ]
+}

@@ -1,27 +1,8 @@
 <main class="favorites-container">
-    <h1></h1>
+    <h1>{{this.playlistName}}</h1>
     <div>
       <div class="favorites">
-        <template name="component-favorites-box-item">
-          <div class="favorites-box-item" data-id="${song.id}">
-            <div class="favorites-box-item-pic">
-              <img src="" alt="cover" />
-            </div>
-            <div class="favorites-box-item-text">
-              <h6></h6>
-              <h5></h5>
-            </div>
-            <div class="favorites-box-item-play">
-              <a href="">
-                <button></button>
-              </a>
-            </div>
-            <div class="favorites-box-item-delete">
-              <img onclick="" src="../assets/images/favorites/delete.svg" alt="delete" />
-            </div>
-          </div>
-        </template>
-       
+       <app-playlist-song-item [ngStyle]="{width: '100%'}" *ngFor="let song of songs" [song]="song" [playlistId]="this.id" ></app-playlist-song-item>
       </div>
     </div>
   </main>

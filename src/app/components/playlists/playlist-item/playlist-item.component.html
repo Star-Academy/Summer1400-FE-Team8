@@ -1,0 +1,24 @@
+<div class="playlists-item" data-id={{playlist.id}} (click)="showPlaylistSongs($event)">
+    <div class="playlists-item-pic">
+    <a 
+        ><img src="{{playlist.songs.length ? playlist.songs[playlist.songs.length-1].cover : this.noCoverImg}} " alt="cover"
+    /></a>
+    </div>
+    <div class="playlists-item-actions">
+    <div class="playlists-item-text">
+        <h4>
+        <a >{{ playlist.name}}</a>
+        </h4>
+    </div>
+    <div class="icons-container">
+        <div class="playlists-item-play">
+        <a href="">
+            <button></button>
+        </a>
+        </div>
+        <div class="playlists-item-delete">
+        <img (click)="removePlaylist($event)" src="../../../../assets/images/favorites/delete.svg" alt="delete" />
+        </div>
+    </div>
+    </div>
+</div>

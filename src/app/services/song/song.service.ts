@@ -10,6 +10,8 @@ const httpOptions = {
   })
 }
 
+const API = 'https://songs.code-star.ir';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,15 +19,15 @@ export class SongService {
 
   constructor(private http:HttpClient) { }
 
-  private API = 'https://songs.code-star.ir';
+
 
   
 
   getAllSongs():Observable<Song[]>{
-    return this.http.get<Song[]>(`${this.API}/song/all`)
+    return this.http.get<Song[]>(`${API}/song/all`)
   }
   getOneSong(songId:string):Observable<Song>{
-    return this.http.get<Song>(`${this.API}/song/one/${songId}`)
+    return this.http.get<Song>(`${API}/song/one/${songId}`)
   }
   postSongsPage(size:number,current:string,sorter:string,desc:boolean):Observable<Song[]>{
     const songPage : SongPage = {
@@ -34,7 +36,7 @@ export class SongService {
       sorter,
       desc
     }
-    return this.http.post<Song[]>(`${this.API}/song/page`,songPage,httpOptions)
+    return this.http.post<Song[]>(`${API}/song/page`,songPage,httpOptions)
   }
 
   postSongsFind(phrase:string,count:number,sorter:string,desc:boolean):Observable<Song[]>{
@@ -44,7 +46,7 @@ export class SongService {
       sorter,
       desc
     }
-    return this.http.post<Song[]>(`${this.API}/song/find`,songFind,httpOptions)
+    return this.http.post<Song[]>(`${API}/song/find`,songFind,httpOptions)
   }
 
 

@@ -23,28 +23,5 @@ main.favorites-container {
       width: 100%;
       direction: rtl !important;
     }
-
-    &-box-item {
-      border-bottom: none !important;
-      padding-top: 1.4rem !important;
-      padding-bottom: 1.4rem !important;
-
-      &-pic {
-        img {
-          width: 4.2rem !important;
-          height: 4.2rem !important;
-        }
-      }
-      &-text {
-        margin-right: 0.6rem;
-        gap: 0.6rem !important;
-      }
-      h5 {
-        font-size: 1.6rem !important;
-      }
-      h6 {
-        font-size: 0.9rem !important;
-      }
-    }
   }
 }
