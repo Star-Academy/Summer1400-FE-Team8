@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
@@ -22,7 +22,7 @@ import {SearchItemComponent} from './components/music-search/search-item/search-
 import { CardComponent } from './components/card/card.component';
 import { PlaylistItemComponent } from './components/playlists/playlist-item/playlist-item.component';
 import { PlaylistSongItemComponent } from './components/playlist/playlist-song-item/playlist-song-item.component';
-
+import { NoCacheHeadersInterceptor } from './services/interceptor/interceptor.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +50,13 @@ import { PlaylistSongItemComponent } from './components/playlist/playlist-song-i
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: NoCacheHeadersInterceptor,
+      multi: true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

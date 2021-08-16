@@ -7,8 +7,9 @@ import { Observable } from 'rxjs';
 const httpOptions = {
   headers : new HttpHeaders({
     'Accept': 'application/json',
-    'Content-Type' : 'application/json'
+    'Content-Type' : 'application/json',
   })
+  ,cache: "no-store"
 }
 
 const API = 'https://songs.code-star.ir/playlist';

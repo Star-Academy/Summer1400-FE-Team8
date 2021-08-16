@@ -18,7 +18,10 @@ export class PlaylistComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = (this.actRoute.snapshot.paramMap.get('id') as string)
-    // this.playlistService.addToPlaylist(this.id, '11').subscribe((res)=>console.log(res))
+    // this.playlistService.addToPlaylist(this.id, '1').subscribe((res)=>console.log(res))
+    // this.playlistService.addToPlaylist(this.id, '2').subscribe((res)=>console.log(res))
+    // this.playlistService.addToPlaylist(this.id, '3').subscribe((res)=>console.log(res))
+    // this.playlistService.addToPlaylist(this.id, '4').subscribe((res)=>console.log(res))
    
     this.playlistService.getOnePlaylist(this.id)
     .subscribe(res=>{
