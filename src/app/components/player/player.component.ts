@@ -22,20 +22,20 @@ export class PlayerComponent implements OnInit , AfterViewInit
   ngAfterViewInit()
   {
     // @ts-ignore
-    this.boxItems.changes.subscribe(() =>
-    {
-      this.items = document.querySelectorAll(".playlist-box");
-      console.log(this.items.length);
-      for (let i = 0; i < this.items.length; i++)
-      {
-        this.items[i].addEventListener("click", () =>
-        {
-          this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
-            this.router.navigate(['/player', (this.recommends[i]).id]));
-
-        });
-      }
-    })
+    // this.boxItems.changes.subscribe(() =>
+    // {
+    //   this.items = document.querySelectorAll(".playlist-box");
+    //   console.log(this.items.length);
+    //   for (let i = 0; i < this.items.length; i++)
+    //   {
+    //     this.items[i].addEventListener("click", () =>
+    //     {
+    //       this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+    //         this.router.navigate(['/player', (this.recommends[i]).id]));
+    //
+    //     });
+    //   }
+    // })
   }
 
   public songs: Song[] = [];
@@ -122,7 +122,8 @@ export class PlayerComponent implements OnInit , AfterViewInit
     this.infos[5].innerHTML = this.song.publish_date;
   }
 
-  LoadCurrentSong = () => {
+  LoadCurrentSong = () =>
+  {
     this.load_track();
     this.InfoLyricsSettings();
     this.info_btn.addEventListener("click", () => {
@@ -208,25 +209,27 @@ export class PlayerComponent implements OnInit , AfterViewInit
   }
 
   SeekUpdate = () => {
-    if (!isNaN(this.current_track.duration)) {
-      this.PlayRange.value = this.current_track.currentTime * (100 / this.current_track.duration);
-      // Calculate the time left and the total duration
-      let currentMinutes = Math.floor(this.current_track.currentTime / 60);
-      let currentSeconds = Math.floor(this.current_track.currentTime - currentMinutes * 60);
-      let durationMinutes = Math.floor(this.current_track.duration / 60);
-      let durationSeconds = Math.floor(this.current_track.duration - durationMinutes * 60);
-      if (currentSeconds < 10) {
-        // @ts-ignore
-        currentSeconds = "0" + currentSeconds;
-      }
-      if (durationSeconds < 10) {
-        // @ts-ignore
-        durationSeconds = "0" + durationSeconds;
-      }
+    if(this.current_track) {
+      if (!isNaN(this.current_track.duration)) {
+        this.PlayRange.value = this.current_track.currentTime * (100 / this.current_track.duration);
+        // Calculate the time left and the total duration
+        let currentMinutes = Math.floor(this.current_track.currentTime / 60);
+        let currentSeconds = Math.floor(this.current_track.currentTime - currentMinutes * 60);
+        let durationMinutes = Math.floor(this.current_track.duration / 60);
+        let durationSeconds = Math.floor(this.current_track.duration - durationMinutes * 60);
+        if (currentSeconds < 10) {
+          // @ts-ignore
+          currentSeconds = "0" + currentSeconds;
+        }
+        if (durationSeconds < 10) {
+          // @ts-ignore
+          durationSeconds = "0" + durationSeconds;
+        }
 
-      // Display the updated duration
-      this.TimePassed.innerHTML = currentMinutes + ":" + currentSeconds;
-      this.TimeRemained.innerHTML = durationMinutes + ":" + durationSeconds;
+        // Display the updated duration
+        this.TimePassed.innerHTML = currentMinutes + ":" + currentSeconds;
+        this.TimeRemained.innerHTML = durationMinutes + ":" + durationSeconds;
+      }
     }
   }
 
@@ -279,5 +282,15 @@ export class PlayerComponent implements OnInit , AfterViewInit
     );
 
   }
+
+  ngOnDestroy()
+  {
+    if(this.current_track)
+    {
+      this.current_track.pause();
+      this.current_track = null ;
+    }
+  }
+
 
 }
