@@ -23,6 +23,7 @@ import { CardComponent } from './components/card/card.component';
 import { PlaylistItemComponent } from './components/playlists/playlist-item/playlist-item.component';
 import { PlaylistSongItemComponent } from './components/playlist/playlist-song-item/playlist-song-item.component';
 import { NoCacheHeadersInterceptor } from './services/interceptor/interceptor.service';
+import { PersianDataPipe } from './pipes/persian-data.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,8 @@ import { NoCacheHeadersInterceptor } from './services/interceptor/interceptor.se
     SearchItemComponent,
     CardComponent,
     PlaylistItemComponent,
-    PlaylistSongItemComponent
+    PlaylistSongItemComponent,
+    PersianDataPipe
   ],
   imports: [
     BrowserModule,

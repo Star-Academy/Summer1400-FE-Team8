@@ -21,16 +21,16 @@
 
 <body>
 <!-- NOT LOGGED IN ALERT -->
-<div class="signup-alert-container">
+<div #registerAlert class="signup-alert-container">
   <div class="signup-alert-box">
     <p class="signup-alert-box-text">برای اینکه از آرشیو بینظیر آهنگیفای استفاده کنی باید در سایت ثبت نام کنی
       یا وارد حسابت بشی !
     </p>
     <div class="signup-alert-box-btns">
-      <a routerlink="user/login">
+      <a (click)="navLogin(true)">
         <button class="btn btn--blue">ورود</button>
       </a>
-      <a routerlink="user/signup">
+      <a (click)="navLogin(false)">
         <button class="btn btn--blue">ثبت نام</button>
       </a>
     </div>
@@ -139,19 +139,21 @@
     <div class="player-right">
       <div class="song-cover">
         <div class="song-cover-info">
-          <p class="song-cover-info-singer"><span><img alt="singer" src="assets/images/player/person.svg"></span>
+          <p *ngIf="song" class="song-cover-info-singer"><span><img alt="singer" src="assets/images/player/person.svg"></span>{{song.artist}}
           </p>
-          <p class="song-cover-info-name"><span><img alt="singer" src="assets/images/player/music.svg"></span></p>
+          <p *ngIf="song" class="song-cover-info-name"><span><img alt="singer"
+                                                                  src="assets/images/player/music.svg"></span>{{song.name}}
+          </p>
         </div>
-        <div class="song-cover-pic">
-          <img alt="cover" src="">
+        <div *ngIf="song" class="song-cover-pic">
+          <img [src]="song.cover" alt="cover">
         </div>
       </div>
       <div class="song-interact">
         <div class="song-interact-like">
           <button><img alt="heart" src="assets/images/player/heart_outline.svg"></button>
-          <span>1000&nbsp;</span>
-          بار پسندیده شده
+          <span>1000 </span>
+          لایک
         </div>
         <div class="song-interact-favorite">
           <span><img alt="star" src="assets/images/player/star_outline.svg"></span>
@@ -160,27 +162,38 @@
       </div>
       <div class="song-play">
         <div class="song-play-top">
-          <span class="time-passed">0:00</span>
-          <span class="play-range"><input class="custom-range-slider" max="100" min="0" type="range" value="0"></span>
-          <span class="time-remained">4:22</span>
+          <span #timePassed class="time-passed">0:00</span>
+          <span class="play-range">
+            <input #playRange (change)="updatePlaying()" *ngIf="current_track" class="custom-range-slider" max="100" min="0" type="range"
+                   value="0">
+          </span>
+          <span #timeRemained class="time-remained">4:22</span>
         </div>
         <div class="song-play-bottom">
           <div class="song-play-bottom-right">
             <span><img alt="volume_up" src="assets/images/player/music/volume_up.svg"></span>
-            <span class="volume-range-wrapper"><input class="custom-range-slider volume-range" max="100" min="0"
-                                                      type="range" value="50"></span>
+            <span class="volume-range-wrapper">
+              <input #volumeRange (change)="updateVolume()" class="custom-range-slider volume-range" max="100" min="0" type="range"
+                     value="50">
+            </span>
             <span><img alt="volume_down" src="assets/images/player/music/volume_down.svg"></span>
           </div>
           <div class="song-play-bottom-center">
-            <button id="Next" title="آهنگ بعدی"><img alt="fast_forward"
-                                                     src="assets/images/player/music/fast_forward.svg"></button>
-            <button id="PlayPause" title="توقف یا اجرا"><img alt="play_arrow"
-                                                             src="assets/images/player/music/play_arrow.svg"></button>
-            <button id="Prev" title="آهنگ قبلی"><img alt="fast_rewind"
-                                                     src="assets/images/player/music/fast_rewind.svg"></button>
+            <button (click)="NextTrack()" *ngIf="recommends" id="Next" title="آهنگ بعدی"><img alt="fast_forward"
+                                                                                              src="assets/images/player/music/fast_forward.svg">
+            </button>
+
+            <button *ngIf="current_track" id="PlayPause" title="توقف یا اجرا"><img #playpauseImage (click)="play_pause()"
+                                                                                   alt="play_arrow"
+                                                                                   src="assets/images/player/music/play_arrow.svg"></button>
+
+            <button (click)="PrevTrack()" *ngIf="recommends" id="Prev" title="آهنگ قبلی"><img alt="fast_rewind"
+                                                                                              src="assets/images/player/music/fast_rewind.svg">
+            </button>
           </div>
           <div class="song-play-bottom-left">
-            <button title="پخش مجدد"><img alt="replay" src="assets/images/player/music/replay.svg"></button>
+            <button *ngIf="current_track" title="پخش مجدد"><img (click)="replaySong()" alt="replay"
+                                                                src="assets/images/player/music/replay.svg"></button>
             <button title="افزودن به پلی لیست"><img alt="playlist_add"
                                                     src="assets/images/player/music/playlist_add.svg"></button>
           </div>
@@ -191,31 +204,23 @@
           <summary> اطلاعات بیشتر</summary>
           <div class="details">
             <div class="details-buttons">
-              <button class="btn details-buttons-info ls-top-btn-active">جزییات</button>
-              <button class="btn details-buttons-lyrics ls-top-btn-idle">متن</button>
+              <button #detailsInfo class="btn details-buttons-info ls-top-btn-active">جزییات</button>
+              <button #detailsLyrics class="btn details-buttons-lyrics ls-top-btn-idle">متن</button>
             </div>
             <div class="details-box" style="position: relative">
               <div>
-                <div class="info_container">
-                  <p><span>خواننده : </span><span></span></p>
-                  <p><span>نام اثر : </span><span></span></p>
-                  <p><span>تاریخ انتشار : </span><br><span></span></p>
+                <div #infoContainer class="info_container">
+                  <p><span *ngIf="song">   نام خواننده : {{song.artist }} </span><span></span></p>
+                  <p><span *ngIf="song">   نام اثر : {{song.name }} </span><span></span></p>
+                  <p><span *ngIf="song">  نشر : {{ song.publish_date | persianData }}   </span><br><span></span></p>
                 </div>
 
-                <p class="lyrics-container" style="position:absolute ; top: 10px; margin: 10px;visibility: hidden">
-
-                  باید تو رو پیدا کنم شاید هنوزم دیر نیست تو ساده دل کندی ولی تقدیر بی تقصیر نیست
-                  با اینکه بیتابه منی بازم منو خط میزنی باید تو رو پیدا کنم تو با خودت هم دشمنی
-
-                  کی با یه جمله مثله من میتونه آرومت کنه اون لحظه های آخر از رفتن پشیمونت کنه
-                  دلگیرم از این شهر سرد این کوچه های بی عبور وقتی به من فکر میکنی حس میکنم از راه دور
-                  باید تو رو پیدا کنم شاید هنوزم دیر نیست تو ساده دل کندی ولی تقدیر بی تقصیر نیست
-                  با اینکه بیتابه منی بازم منو خط میزنی باید تو رو پیدا کنم تو با خودت هم دشمنی
-
-                  کی با یه جمله مثله من میتونه آرومت کنه اون لحظه های آخر از رفتن پشیمونت کنه
-                  دلگیرم از این شهر سرد این کوچه های بی عبور وقتی به من فکر میکنی حس میکنم از راه دور
-
-                </p>
+                <div #lyricsContainer style="visibility: hidden">
+                  <p *ngIf="song" class="lyrics-container"
+                     style="position:absolute ; top: 10px; margin: 10px;visibility: inherit">
+                    {{song.lyrics}}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -225,9 +230,10 @@
     <div class="player-left">
       <h2>مرتبط با سلیقت</h2>
       <div>
-        <div #allItems class="playlist-box" *ngFor = "let recommend of recommends">
+        <div #allItems (click)="navigateRecommends($event , recommend)" *ngFor="let recommend of recommends"
+             class="playlist-box">
 
-          <app-card [song]="recommend">  </app-card>
+          <app-card [song]="recommend"></app-card>
 
         </div>
       </div>
