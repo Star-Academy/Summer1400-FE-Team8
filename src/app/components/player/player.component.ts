@@ -39,14 +39,14 @@ export class PlayerComponent implements OnInit, AfterViewInit {
   public alert_container: any;
   public isPlaying!: boolean;
   public recommand_index!: number;
-  public songId: string | null | undefined;
+  public songId!: string | null ;
 
   constructor(private renderer2: Renderer2, private songService: SongService, private router: Router, private route: ActivatedRoute, private auth: AuthService) {
   }
 
   ngAfterViewInit() {
     this.lyricsContainer.nativeElement.style.visibility = "hidden";
-    console.log(this.infoContainer.nativeElement);
+    // console.log(this.infoContainer.nativeElement);
     this.detailsInfoButton.nativeElement.onclick = (() => {
       this.lyricsContainer.nativeElement.style.visibility = "hidden";
       this.infoContainer.nativeElement.style.visibility = "visible";
@@ -169,16 +169,16 @@ export class PlayerComponent implements OnInit, AfterViewInit {
 
     this.songId = this.route.snapshot.paramMap.get('song_id');
 
-    console.log(this.songId);
-    console.log(localStorage.getItem('song-id'));
+    // console.log(this.songId);
+    // console.log(localStorage.getItem('song-id'));
 
     this.songService.getAllSongs().subscribe(
       (res: any) => {
         this.songs = res.songs;
         this.song = this.songs.find(song => song.id == this.songId);
-        console.log(this.song);
+        // console.log(this.song);
         this.recommends = this.songs.filter(song => song.artist == this.song.artist);
-        console.log(this.recommends[0].artist);
+        // console.log(this.recommends[0].artist);
         const current_in_recommands = (element: { id: any; }) => element.id === this.song.id;
         this.recommand_index = this.recommends.findIndex(current_in_recommands);
 
@@ -214,6 +214,4 @@ export class PlayerComponent implements OnInit, AfterViewInit {
       this.current_track = null;
     }
   }
-
-
 }
