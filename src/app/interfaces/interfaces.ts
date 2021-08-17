@@ -19,7 +19,8 @@ export interface Song{
     artist: string,
     lyrics?: string,
     file?: string,
-    cover?: string
+    cover?: string,
+    publish_date ?: string
 }
 
 export interface SongPage{

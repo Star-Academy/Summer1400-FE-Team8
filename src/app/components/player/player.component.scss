@@ -17,13 +17,13 @@
       .song-cover {
         display: flex;
         flex-direction: column;
-        
+
         &-info {
           display: flex;
           justify-content: space-around;
           width: 100%;
           margin-top: .4rem;
-          
+
           p {
             display: flex;
             gap: 0.3rem;
@@ -177,15 +177,16 @@
               padding-bottom: 0.7rem;
             }
           }
-          &-box {
+          &-box
+          {
             margin-top: 1rem;
-            width: 100%;
+            width: 90%;
             text-align: center;
             padding: 2rem 1.8rem;
             border-radius: 0.3rem;
             background-color: $primary-color;
-            height: 10rem;
-            overflow: hidden;
+            height: 25rem;
+            overflow: auto;
             direction: ltr !important;
 
             & > div {
@@ -197,7 +198,7 @@
             p.lyrics-container {
               line-height: 2.3rem;
             }
-           
+
           }
         }
       }
@@ -273,7 +274,7 @@
               background: linear-gradient($primary-color, $primary-color),
                 linear-gradient($primary-color, $primary-color), #fff;
               background-position: center;
-              background-size: 60% 0.13rem, 0.13rem 60%; 
+              background-size: 60% 0.13rem, 0.13rem 60%;
               background-repeat: no-repeat;
               border-radius: 0.2rem;
             }
@@ -298,7 +299,7 @@
     padding: 3rem 2rem 1.5rem 2rem;
     background-color: $primary-color;
     border-radius: 1rem;
-    opacity: 0;
+    opacity: 50;
     transition: opacity .4s ease-in-out;
     p{
       color: #fff;
@@ -313,8 +314,8 @@
       font-size: 1.1rem;
     }
   }
-  
-  
+
+
 }
 .add-to-playlist-page{
   position : fixed;
@@ -334,7 +335,7 @@
     transform: scale(.1);
     transition: transform .4s ease-in-out;
     border-radius: 1rem;
-    
+
     &>ul{
       display:flex;
       flex-direction: column;
@@ -350,5 +351,5 @@
       }
     }
   }
-  
+
 }
