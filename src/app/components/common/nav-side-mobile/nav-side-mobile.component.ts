@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavSideService } from 'src/app/services/nav-side/nav-side.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
-import { AsyncService } from 'src/app/services/async/async.service';
+import { UserService } from 'src/app/services/async/user.service';
 import { Router , NavigationEnd} from '@angular/router';
 @Component({
   selector: 'app-nav-side-mobile',
@@ -11,7 +11,7 @@ import { Router , NavigationEnd} from '@angular/router';
 export class NavSideMobileComponent implements OnInit {
 
   constructor(private navSideService : NavSideService,
-    private authService:AuthService , private router:Router , private asyncService : AsyncService) { }
+    private authService:AuthService , private router:Router , private userService : UserService) { }
 
     toggleBlackPage = (menu : HTMLDivElement,black_page : HTMLDivElement , openClass:string) => {
       if (menu.classList.contains(openClass)) {
@@ -60,7 +60,7 @@ export class NavSideMobileComponent implements OnInit {
         });
 
         if(this.authService.isLogged()){
-          this.asyncService.getData(`user/one/${userId}`)
+          this.userService.getUserData(`user/one/${userId}`)
           .subscribe(
             (res : any)=>{
               if(!res.user.avatar) return;

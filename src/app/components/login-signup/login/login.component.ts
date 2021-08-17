@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
-import { AsyncService } from 'src/app/services/async/async.service'; 
+import { UserService } from 'src/app/services/async/user.service'; 
 import { Router} from '@angular/router';
 import {Token} from '../../../interfaces/interfaces'
 import {LoginFormData} from '../../../interfaces/interfaces'
@@ -11,7 +11,7 @@ import {LoginFormData} from '../../../interfaces/interfaces'
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthService , private asyncService : AsyncService
+  constructor(private authService: AuthService , private userService : UserService
     ,private router: Router) { }
 
   ngOnInit(): void {
@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
             password : form.password.value,
         }
 
-        this.asyncService.postLoginData(formData, 'user/login')
+        this.userService.postLoginData(formData, 'user/login')
         .subscribe(
           (res : Token) => {
             if(form.remember_me.checked){
