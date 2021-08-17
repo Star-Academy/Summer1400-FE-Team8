@@ -39,7 +39,7 @@ export class PlayerComponent implements OnInit, AfterViewInit {
   public alert_container: any;
   public isPlaying!: boolean;
   public recommand_index!: number;
-  public songId!: string | null ;
+  public songId!: string | null;
 
   constructor(private renderer2: Renderer2, private songService: SongService, private router: Router, private route: ActivatedRoute, private auth: AuthService) {
   }
@@ -81,7 +81,8 @@ export class PlayerComponent implements OnInit, AfterViewInit {
     }
   }
 
-  LoadCurrentSong = () => {
+  LoadCurrentSong = () =>
+  {
     this.load_track();
 
 
