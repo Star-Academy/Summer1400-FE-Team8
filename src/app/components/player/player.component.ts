@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SongService} from 'src/app/services/song/song.service';
 import {Songs} from './Songs';
-import {Router} from "@angular/router";
+import {Router , ActivatedRoute, Params } from "@angular/router";
 import {Song} from '../../interfaces/interfaces'
 import { ViewChild , AfterViewInit } from '@angular/core';
 import {CardComponent} from "../card/card.component";
@@ -30,8 +30,9 @@ export class PlayerComponent implements OnInit , AfterViewInit
       {
         this.items[i].addEventListener("click", () =>
         {
-          localStorage.setItem('song-id', (this.recommends[i]).id);
-          window.location.reload();
+          this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+            this.router.navigate(['/player', (this.recommends[i]).id]));
+
         });
       }
     })
@@ -40,49 +41,52 @@ export class PlayerComponent implements OnInit , AfterViewInit
   public songs: Song[] = [];
   public song: any;
   public recommends: any = [];
-  public heart_btn: any;
+  public heart_btn!: HTMLButtonElement;
   public song_like: any;
   public favorite_bar: any;
-  public btn_favorite: any;
-  public info_btn: any;
-  public lyrics_btn: any;
-  public info_container: any;
+  public btn_favorite!: HTMLButtonElement;
+  public info_btn!: HTMLButtonElement;
+  public lyrics_btn!: HTMLButtonElement;
+  public info_container!: HTMLDivElement;
   public infos: any;
   public lyrics_container: any;
   public items: any
-  public Next: any;
-  public Prev: any;
+  public Next!: HTMLButtonElement;
+  public Prev!: HTMLButtonElement;
   public current_track: any;
-  public TimePassed: any;
-  public TimeRemained: any;
+  public TimePassed!: HTMLSpanElement;
+  public TimeRemained!: HTMLSpanElement;
   public left_btns: any;
   public PlayPause: any;
   public PlayRange: any;
   public volume_range: any;
   public alert_container: any;
-  public isPlaying: boolean | undefined;
-  public recommand_index: number | undefined;
+  public isPlaying!: boolean ;
+  public recommand_index!: number ;
 
+  public songId: string | null | undefined;
 
-  constructor(private songService: SongService, private router: Router) {  }
+  constructor(private songService: SongService, private router: Router , private route: ActivatedRoute)
+  {
+  }
 
 
   async initialization() {
-    this.heart_btn = document.querySelector(".song-interact > .song-interact-like > button")
-    this.song_like = document.querySelector(".song-interact-like > span");
-    this.favorite_bar = document.querySelector(".song-interact-favorite");
-    this.btn_favorite = this.favorite_bar.querySelector("button");
-    this.info_btn = document.querySelector(".details-buttons-info");
-    this.lyrics_btn = document.querySelector(".details-buttons-lyrics");
-    this.info_container = document.querySelector(".info_container");
+    this.heart_btn = document.querySelector(".song-interact > .song-interact-like > button") as HTMLButtonElement
+    this.song_like = document.querySelector(".song-interact-like > span") as HTMLSpanElement;
+    this.favorite_bar = document.querySelector(".song-interact-favorite") as HTMLDivElement;
+    this.btn_favorite = this.favorite_bar.querySelector("button") as HTMLButtonElement;
+    this.info_btn = document.querySelector(".details-buttons-info") as HTMLButtonElement;
+    this.lyrics_btn = document.querySelector(".details-buttons-lyrics") as HTMLButtonElement;
+    this.info_container = document.querySelector(".info_container") as HTMLDivElement;
     this.infos = this.info_container.querySelectorAll("p > span")
     this.lyrics_container = document.querySelector(".lyrics-container");
-    this.Next = document.querySelector("#Next");
-    this.Prev = document.querySelector("#Prev");
+    this.Next = document.querySelector("#Next") as HTMLButtonElement;
+    this.Prev = document.querySelector("#Prev") as HTMLButtonElement;
     this.current_track = document.createElement("audio");
-    this.TimePassed = document.querySelector(".time-passed");
-    this.TimeRemained = document.querySelector(".time-remained");
-    this.left_btns = document.querySelectorAll(".song-play-bottom-left > button");
+    this.TimePassed = document.querySelector(".time-passed") as HTMLSpanElement;
+    this.TimeRemained = document.querySelector(".time-remained") as HTMLSpanElement;
+    this.left_btns = document.querySelectorAll(".song-play-bottom-left > button") ;
     this.PlayPause = document.querySelector("#PlayPause");
     this.PlayRange = document.querySelector(".play-range > .custom-range-slider");
     this.volume_range = document.querySelector(".volume-range-wrapper > .custom-range-slider");
@@ -191,15 +195,16 @@ export class PlayerComponent implements OnInit , AfterViewInit
   NextTrack = () => {
     // @ts-ignore
     this.recommand_index = (this.recommand_index === this.recommends.length - 1) ? 0 : this.recommand_index + 1;
-    localStorage.setItem('song-id', ((this.recommends[this.recommand_index]).id));
-    window.location.reload();
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+      this.router.navigate(['/player',  this.recommends[this.recommand_index!].id]));
+
   }
 
   PrevTrack = () => {
     // @ts-ignore
     this.recommand_index = (this.recommand_index === 0) ? this.recommends.length - 1 : this.recommand_index - 1;
-    localStorage.setItem('song-id', ((this.recommends[this.recommand_index]).id));
-    window.location.reload();
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+      this.router.navigate(['/player',  this.recommends[this.recommand_index!].id]));
   }
 
   SeekUpdate = () => {
@@ -246,14 +251,19 @@ export class PlayerComponent implements OnInit , AfterViewInit
     });
   }
 
-  async ngOnInit(): Promise<void> {
+  async ngOnInit(): Promise<void>
+  {
+
+    this.songId = this.route.snapshot.paramMap.get('song_id');
+
+    console.log(this.songId);
     console.log(localStorage.getItem('song-id'));
 
     this.songService.getAllSongs().subscribe(
       (res : any) =>
       {
         this.songs = res.songs;
-        this.song = this.songs.find(song => song.id == localStorage.getItem('song-id') );
+        this.song = this.songs.find(song => song.id == this.songId );
         console.log(this.song);
         this.recommends = this.songs.filter(song => song.artist == this.song.artist);
         console.log(this.recommends);
