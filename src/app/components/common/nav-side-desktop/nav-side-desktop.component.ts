@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavSideService } from 'src/app/services/nav-side/nav-side.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
-import { UserService } from 'src/app/services/async/user.service';
+import { UserService } from 'src/app/services/user/user.service';
 import { NavigationEnd, Router} from '@angular/router';
 @Component({
   selector: 'app-nav-side-desktop',

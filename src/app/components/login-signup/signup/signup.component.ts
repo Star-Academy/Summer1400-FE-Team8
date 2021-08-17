@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormValidationService} from '../../../services/form-validation/form-validation.service'
-import {UserService} from '../../../services/async/user.service'
+import {UserService} from '../../../services/user/user.service'
 import { Router} from '@angular/router';
 import {Token , SignupFormData} from '../../../interfaces/interfaces'
 @Component({
