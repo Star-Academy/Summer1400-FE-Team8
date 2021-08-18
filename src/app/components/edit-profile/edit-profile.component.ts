@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { UserService } from 'src/app/services/user/user.service';
+import { DatepickerOptions } from 'ng2-datepicker';
 
 @Component({
   selector: 'app-edit-profile',
@@ -13,7 +14,7 @@ export class EditProfileComponent implements OnInit {
 
   @ViewChild('formRef') formRef !: ElementRef;
   @ViewChild('avatarRef') avatarRef !: ElementRef;
-  
+  date = new Date();
   editedUserInfo ={
     username : '',
     email : '',
@@ -31,12 +32,7 @@ export class EditProfileComponent implements OnInit {
     const token = this.authService.getToken() as string;
     const form = this.formRef.nativeElement;
 
-    const b = form.birth_date.value.replace(/\//g,'-').split('-').reverse();
-    let temp
-    temp= b[1];
-    b[1] = b[2];
-    b[2] = temp;
-    const birthDate = b.join('-');
+
     this.editedUserInfo = {
         ...this.editedUserInfo,
         firstName : form.first_name.value,
@@ -45,7 +41,6 @@ export class EditProfileComponent implements OnInit {
         email : form.email.value,
         password : form.password.value,
         gender : parseInt(form.gender.value),
-        birthDate: birthDate ==='--'?null:birthDate,
         token
     }
 
@@ -90,12 +85,14 @@ export class EditProfileComponent implements OnInit {
             
           }
       }
+
+      // const datepicker = new Datepicker(elem); 
         
     })
   }
 
   ngOnInit(): void {
-   
+    
   }
 
 }

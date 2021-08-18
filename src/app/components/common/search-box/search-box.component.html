@@ -1,4 +1,4 @@
-<div class="search-box">
+<div class="search-box" #searchBoxRef>
     <form (submit)="handleSearch($event)"> 
       <div class="search-container">
         <div class="search-icon">
@@ -10,6 +10,7 @@
           type="search"
           name="search"
           placeholder="نام آهنگ ، خواننده و ..."
+          #searchInputRef
         />
       </div>
     </form>

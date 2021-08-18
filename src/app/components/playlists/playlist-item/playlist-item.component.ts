@@ -31,7 +31,7 @@ export class PlaylistItemComponent implements OnInit {
   ngOnInit(): void {
     if(this.playlist.songs.length){
       this.lastElmObj = this.playlist.songs[this.playlist.songs.length-1];
-      this.lastElmObjCover = this.lastElmObj.rest.cover;
+      this.lastElmObjCover = this.lastElmObj.cover;
     }
   }
 

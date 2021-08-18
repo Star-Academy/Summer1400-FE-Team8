@@ -13,13 +13,14 @@
                     alt="genre" /></span
                 >ترتیب
               </h3>
-              <form class="form-order">
+              <form class="form-order" #orderFormRef>
                 <div>
                   <input
                     type="radio"
                     name="order"
                     id="desc"
                     value="desc"
+                    (click)="handleChangeFilter($event,'desc','true')"
                   />
                   <label for="desc">نزولی</label>
                 </div>
@@ -29,6 +30,8 @@
                     name="order"
                     id="asc"
                     value="asc"
+                    (click)="handleChangeFilter($event,'desc','false')"
+
                   />
                   <label for="asc">صعودی</label>
                 </div>
@@ -42,13 +45,14 @@
                     alt="genre" /></span
                 >بر اساس
               </h3>
-              <form class = "form-mode">
+              <form class = "form-mode" #modeFormRef>
                 <div>
                   <input
                     type="radio"
                     name="mode"
                     id="newest"
                     value="newest"
+                    (click)="handleChangeFilter($event,'sortBy','newest')"
 
                   />
                   <label for="newest">جدید ترین</label>
@@ -59,6 +63,7 @@
                     name="mode"
                     id="name"
                     value="name"
+                    (click)="handleChangeFilter($event,'sortBy','name')"
                   />
                   <label for="name">نام اهنگ</label>
                 </div>
@@ -68,6 +73,7 @@
                     name="mode"
                     id="artist"
                     value="artist"
+                    (click)="handleChangeFilter($event,'sortBy','artist')"
                   />
                   <label for="artist">نام خواننده</label>
                 </div>
@@ -76,7 +82,7 @@
 
           </div>
 
-          <div class="search-results-box">
+          <div class="search-results-box" #boxRef>
             <app-search-item
             *ngFor="let song of songs"
             [song]="song">
@@ -85,13 +91,13 @@
         </div>
       </section>
      <div class="search-pagination-container">
-      <button class="search-pagination-forward">
+      <button (click)="handleBackForwardBtns(pagesNum)" class="search-pagination-forward" #pagForwardBtnRef>
         &laquo;&laquo;
       </button>
-      <div class="search-pagination">
+      <div class="search-pagination" #paginationRef>
 
       </div>
-      <button class="search-pagination-backward">
+      <button (click)="handleBackForwardBtns('1')" class="search-pagination-backward" #pagBackwardBtnRef>
         &raquo;&raquo;
        </button>
 
