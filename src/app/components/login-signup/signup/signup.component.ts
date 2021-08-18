@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormValidationService} from '../../../services/form-validation/form-validation.service'
-import {AsyncService} from '../../../services/async/async.service'
+import {UserService} from '../../../services/user/user.service'
 import { Router} from '@angular/router';
 import {Token , SignupFormData} from '../../../interfaces/interfaces'
 @Component({
@@ -11,7 +11,7 @@ import {Token , SignupFormData} from '../../../interfaces/interfaces'
 export class SignupComponent implements OnInit {
 
   constructor(private formValidationService: FormValidationService ,
-     private asyncService: AsyncService , private router: Router ,) { }
+     private userService: UserService , private router: Router ,) { }
 
 
   ngOnInit(): void {
@@ -47,7 +47,7 @@ export class SignupComponent implements OnInit {
             }
         }
 
-         this.asyncService.postSignupData(formData,'user/register').subscribe(
+         this.userService.postSignupData(formData,'user/register').subscribe(
           ()=> {  (document.querySelector('.signup-success') as HTMLDivElement).style.display = 'block'; },
           error => {  this.print_error("mail_error", "ایمیل یا نام کاربری از قبل در سیستم ثبت شده")},
           () => {

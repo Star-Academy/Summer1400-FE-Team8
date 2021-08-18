@@ -14,7 +14,7 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class AsyncService {
+export class UserService {
 
   constructor(private http:HttpClient) { }
 
@@ -28,10 +28,13 @@ export class AsyncService {
     return this.http.post<Token>(`${this.API}/${endpoint}`,data,httpOptions)
   }
 
-  getData(endpoint:string):Observable<Object>{
+  getUserData(endpoint:string):Observable<Object>{
     return this.http.get<Object>(`${this.API}/${endpoint}`)
   }
-
+  
+  editUserData(data:SignupFormData,endpoint:string):Observable<Token>{
+    return this.http.post<Token>(`${this.API}/${endpoint}`,data,httpOptions)
+  }
   
 
 }

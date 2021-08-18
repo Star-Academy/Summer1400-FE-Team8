@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavSideService } from 'src/app/services/nav-side/nav-side.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
-import { AsyncService } from 'src/app/services/async/async.service';
+import { UserService } from 'src/app/services/user/user.service';
 import { NavigationEnd, Router} from '@angular/router';
 @Component({
   selector: 'app-nav-side-desktop',
@@ -11,7 +11,7 @@ import { NavigationEnd, Router} from '@angular/router';
 export class NavSideDesktopComponent implements OnInit {
 
   constructor(private navSideService : NavSideService,
-    private authService:AuthService , private router:Router , private asyncService : AsyncService) { }
+    private authService:AuthService , private router:Router , private userService : UserService) { }
 
   toggleImgMove = (menu:HTMLDivElement,openClass:string,toggleImg:HTMLImageElement) => {
     if (menu.classList.contains(openClass)) {
@@ -41,7 +41,7 @@ export class NavSideDesktopComponent implements OnInit {
       }
     });
 
-    this.asyncService.getData(`user/one/${userId}`)
+    this.userService.getUserData(`user/one/${userId}`)
     .subscribe(
       (res : any)=>{
         if(!res.user.avatar) return;
