@@ -1,67 +1,69 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NavSideService } from 'src/app/services/nav-side/nav-side.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { UserService } from 'src/app/services/user/user.service';
-import { NavigationEnd, Router} from '@angular/router';
 @Component({
   selector: 'app-nav-side-desktop',
   templateUrl: './nav-side-desktop.component.html',
-  styleUrls: ['./nav-side-desktop.component.scss']
+  styleUrls: ['./nav-side-desktop.component.scss'],
 })
 export class NavSideDesktopComponent implements OnInit {
+  constructor(
+    private navSideService: NavSideService,
+    private authService: AuthService,
+    private userService: UserService
+  ) {}
 
-  constructor(private navSideService : NavSideService,
-    private authService:AuthService , private router:Router , private userService : UserService) { }
+  @ViewChild('toggleBtnRef') toggleBtnRef!: ElementRef;
+  @ViewChild('menuRef') menuRef!: ElementRef;
+  @ViewChild('avatarRef') avatarRef!: ElementRef;
 
-  toggleImgMove = (menu:HTMLDivElement,openClass:string,toggleImg:HTMLImageElement) => {
+  handleShowMenu() {
+    return this.authService.isLogged();
+  }
+  toggleImgMove(
+    menu: HTMLDivElement,
+    openClass: string,
+    toggleImg: HTMLImageElement
+  ) {
     if (menu.classList.contains(openClass)) {
-      toggleImg.style.transform = "rotateY(0deg)";
+      toggleImg.style.transform = 'rotateY(0deg)';
     } else {
-      toggleImg.style.transform = "rotateY(180deg)";
+      toggleImg.style.transform = 'rotateY(180deg)';
     }
-  };
-    
-  ngOnInit(): void {
-    const userId = this.authService.getUser();    
-    const toggle = (document.querySelector(".side-menu-toggle button") as HTMLButtonElement);
-    const toggleImg = (document.querySelector(".side-menu-toggle button img") as HTMLImageElement);
-    const menu =( document.querySelector(".nav-desktop-side") as HTMLDivElement);
-    const openClass = "nav-desktop-side-open";
-    const closeClass = "nav-desktop-side-closed";
-    const rightWhenClosed = "-13.43rem";
-    const avatar = (document.querySelector('.nav-desktop-side .side-menu-avatar-container img') as HTMLImageElement);
-
-    this.router.events.subscribe(val => {
-      if (val instanceof NavigationEnd){
-        if(!this.authService.isLogged()){
-          menu.classList.add('display-none');
-          return;
-        }
-          menu.classList.add('display-block')
-      }
-    });
-
-    this.userService.getUserData(`user/one/${userId}`)
-    .subscribe(
-      (res : any)=>{
-        if(!res.user.avatar) return;
-        avatar.src = res.user.avatar
-      },
-      err=>err
-    )
-
-  menu.style.right = rightWhenClosed;
-  
-  toggle.addEventListener("click", () => {
-    this.toggleImgMove(menu,openClass,toggleImg);
-    this.navSideService.toggleMenu(menu, openClass, closeClass, rightWhenClosed);
-  });
-  
-
-  const logoutBtn = (document.querySelector('.nav-desktop-side-logout a') as HTMLAnchorElement);
-  logoutBtn.addEventListener('click', ()=>{
-      this.authService.removeUserLocal();
-  })
   }
 
+  handleToggleBtn() {
+    const menu = this.menuRef.nativeElement;
+    const toggleImg = this.toggleBtnRef.nativeElement.querySelector('img');
+    const openClass = 'nav-desktop-side-open';
+    const closeClass = 'nav-desktop-side-closed';
+    const rightWhenClosed = '-13.43rem';
+    this.toggleImgMove(menu, openClass, toggleImg);
+    this.navSideService.toggleMenu(
+      menu,
+      openClass,
+      closeClass,
+      rightWhenClosed
+    );
+  }
+  handleLogout() {
+    this.authService.removeUserLocal();
+  }
+  ngOnInit(): void {}
+  ngAfterViewInit(): void {
+    const userId = this.authService.getUser();
+    const menu = this.menuRef.nativeElement;
+    const rightWhenClosed = '-13.43rem';
+    const avatar = this.avatarRef.nativeElement;
+
+    this.userService.getUserData(`user/one/${userId}`).subscribe(
+      (res: any) => {
+        if (!res.user.avatar) return;
+        avatar.src = res.user.avatar;
+      },
+      (err) => err
+    );
+    menu.style.right = rightWhenClosed;
+  }
 }

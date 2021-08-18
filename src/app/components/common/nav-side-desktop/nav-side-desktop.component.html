@@ -1,11 +1,11 @@
-<div class="side-menu-container nav-desktop-side">
+<div class="side-menu-container nav-desktop-side" #menuRef *ngIf="handleShowMenu()">
     <div class="side-menu">
       <div class="side-menu-toggle">
-        <button><img src="../../../../assets/images/side-menu/open.svg" alt="open"></button>
+        <button #toggleBtnRef (click)="handleToggleBtn()"><img src="../../../../assets/images/side-menu/open.svg" alt="open"></button>
       </div>
       <div class="side-menu-text">
         <div class="side-menu-avatar-container">
-          <img class="avatar side-menu-avatar" src="../../../../assets/images/side-menu/no_avatar.jpg" alt="no_avatar">
+          <img #avatarRef class="avatar side-menu-avatar" src="../../../../assets/images/side-menu/no_avatar.jpg" alt="no_avatar">
         </div>
         <div><a routerLink="profile/playlists"><img src="../../../../assets/images/side-menu/playlist.svg" alt="playlist">پلی
             لیست ها</a></div>
@@ -15,7 +15,7 @@
                 alt="search">جستجوی پیشرفته</a></div>
         <div><a routerLink="profile/edit_profile"><img src="../../../../assets/images/side-menu/edit.svg"
                 alt="edit_profile">ویرایش پروفایل</a></div>
-        <div class="nav-desktop-side-logout"><a href="/"><img src="../../../../assets/images/side-menu/logout.svg" alt="logout">خروج از حساب</a></div>
+        <div class="nav-desktop-side-logout"><a (click)="handleLogout()" href="/"><img src="../../../../assets/images/side-menu/logout.svg" alt="logout">خروج از حساب</a></div>
       </div>
     </div>
   </div>
