@@ -2,21 +2,21 @@
     <h1>ویرایش پروفایل</h1>
 
     <div class="edit-profile-content">
-      <form onsubmit="handleSubmitInfo(event)">
+      <form (submit)="handleSubmitInfo($event)" #formRef>
         <div class="change-avatar-container">
           <div>
             <img
               class="avatar"
               src="../../../assets/images/side-menu/no_avatar.jpg"
               alt="avatar"
-              
+              #avatarRef
             />
           </div>
           <p class="avatar-warning">بیشترین حجم قابل قبول : 60 کیلوبایت</p>
           <label class="change-avatar-btn btn btn--gray" for="avatar"
             >تغییر عکس پروفایل</label
           >
-          <input onchange="loadAvatar(event)" type="file" accept="image/png,image/jpeg" name="avatar" id="avatar" />
+          <input (change)="loadAvatar($event)" type="file" accept="image/png,image/jpeg" name="avatar" id="avatar" />
         </div>
         <div>
           <label for="first_name">نام</label>
@@ -61,7 +61,7 @@
         </div>
         <div>
           <label for="birth_date">تاریخ تولد</label>
-          <input autocomplete="off" type="text" name="birth_date" class="custom-input"/>
+          <input autocomplete="off" type="text" name="birth_date" class="custom-input"/>`
         </div>
         <div class="edit-profile-submit-container">
           <input
