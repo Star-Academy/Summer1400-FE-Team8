@@ -13,6 +13,12 @@
     background-color: $lighter-blue;
   }
 }
+.btn--red {
+  background-color: #c21717;
+  &:hover {
+    background-color: #e52727;
+  }
+}
 .btn--gray {
   background-color: $primary-color;
   &:hover {

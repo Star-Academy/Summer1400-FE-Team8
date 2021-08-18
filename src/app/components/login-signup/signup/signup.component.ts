@@ -11,7 +11,7 @@ import {Token , SignupFormData} from '../../../interfaces/interfaces'
 export class SignupComponent implements OnInit {
 
   constructor(private formValidationService: FormValidationService ,
-     private userService: UserService , private router: Router ,) { }
+              private userService: UserService , private router: Router ,) { }
 
 
   ngOnInit(): void {
@@ -32,31 +32,31 @@ export class SignupComponent implements OnInit {
       password:'',
       firstName:'',
       lastName:'',
-  }
+    }
 
     const form = (document.querySelector('form') as any);
 
     if(!(this.formValidationService.validateForm(form))){
 
-        for(let i = 0; i < form.length; i++){
-            if(!(form[i].name==='submit' || form[i].name==='password_repeat')) {
-                formData = {
-                    ...formData,
-                    [form[i].name] : form[i].value
-                }
-            }
-        }
-
-         this.userService.postSignupData(formData,'user/register').subscribe(
-          ()=> {  (document.querySelector('.signup-success') as HTMLDivElement).style.display = 'block'; },
-          error => {  this.print_error("mail_error", "ایمیل یا نام کاربری از قبل در سیستم ثبت شده")},
-          () => {
-            setTimeout(() => {
-              this.router.navigate(['user/login'])
-            }, 1000)
+      for(let i = 0; i < form.length; i++){
+        if(!(form[i].name==='submit' || form[i].name==='password_repeat')) {
+          formData = {
+            ...formData,
+            [form[i].name] : form[i].value
           }
-         )
+        }
+      }
+
+      this.userService.postSignupData(formData,'user/register').subscribe(
+        ()=> {  (document.querySelector('.signup-success') as HTMLDivElement).style.display = 'block'; },
+        error => {  this.print_error("mail_error", "ایمیل یا نام کاربری از قبل در سیستم ثبت شده")},
+        () => {
+          setTimeout(() => {
+            this.router.navigate(['user/login'])
+          }, 1000)
+        }
+      )
     }
-}
+  }
 
 }

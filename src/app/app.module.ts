@@ -45,7 +45,7 @@ import { PersianDataPipe } from './pipes/persian-data.pipe';
     CardComponent,
     PlaylistItemComponent,
     PlaylistSongItemComponent,
-    PersianDataPipe
+    PersianDataPipe,
   ],
   imports: [
     BrowserModule,

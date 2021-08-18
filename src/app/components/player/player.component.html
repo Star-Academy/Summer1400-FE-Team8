@@ -145,7 +145,7 @@
                                                                   src="assets/images/player/music.svg"></span>{{song.name}}
           </p>
         </div>
-        <div *ngIf="song" class="song-cover-pic">
+        <div  *ngIf="song" class="song-cover-pic">
           <img [src]="song.cover" alt="cover">
         </div>
       </div>
@@ -194,8 +194,21 @@
           <div class="song-play-bottom-left">
             <button *ngIf="current_track" title="پخش مجدد"><img (click)="replaySong()" alt="replay"
                                                                 src="assets/images/player/music/replay.svg"></button>
-            <button title="افزودن به پلی لیست"><img alt="playlist_add"
+            <button (click)="showAddPage()" class="add-to-playlist-btn"><img alt="playlist_add"
                                                     src="assets/images/player/music/playlist_add.svg"></button>
+
+            <div #addPage class="add-to-playlist-page">
+              <div #addBox class="add-to-playlist-page-box">
+                <h3>پلی لیست مورد نظرتو انتخاب کن</h3>
+                <ul *ngIf="playLists">
+                    <li *ngFor="let playList of playLists" >
+                      <button #playItem (click)="updateplayList($event , playList)" class="btn" data-playlist-id="">{{playList.name}}</button>
+                    </li>
+                </ul>
+              </div>
+            </div>
+
+
           </div>
         </div>
       </div>
@@ -232,9 +245,7 @@
       <div>
         <div #allItems (click)="navigateRecommends($event , recommend)" *ngFor="let recommend of recommends"
              class="playlist-box">
-
           <app-card [song]="recommend"></app-card>
-
         </div>
       </div>
     </div>
