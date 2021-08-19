@@ -41,7 +41,6 @@ export class PlayerComponent implements OnInit, AfterViewInit {
   public recommends: Song[] = [];
   public playLists : Playlist[] = [];
   public current_track: any;
-  public alert_container: any;
   public isPlaying!: boolean;
   public recommand_index!: number;
   public songId!: string | null;
@@ -79,11 +78,10 @@ export class PlayerComponent implements OnInit, AfterViewInit {
 
   }
 
-  addDeleteplayList()
+  editPlayLists()
   {
     this.playItems.toArray().forEach((e , i) =>
     {
-      console.log(this.playLists[i].songs.some(s => s.id == this.song.id));
       if(this.playLists[i].songs.some(s => s.id == this.song.id))
       {
         e.nativeElement.classList.add('btn--red');
@@ -100,20 +98,19 @@ export class PlayerComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit()
   {
-    this.addDeleteplayList();
+    this.editPlayLists();
     this.hideAddPage();
 
-    this.lyricsContainer.nativeElement.style.visibility = "hidden";
-    // console.log(this.infoContainer.nativeElement);
-    this.detailsInfoButton.nativeElement.onclick = (() => {
-      this.lyricsContainer.nativeElement.style.visibility = "hidden";
-      this.infoContainer.nativeElement.style.visibility = "visible";
+    this.detailsInfoButton.nativeElement.onclick = (() =>
+    {
+      this.infoContainer.nativeElement.style.display = "initial";
+      this.lyricsContainer.nativeElement.style.display = "none";
       this.detailsInfoButton.nativeElement.style.backgroundColor = "#33538b";
       this.detailsLyricsButton.nativeElement.style.backgroundColor = "#486fb4";
     });
     this.detailsLyricsButton.nativeElement.onclick = (() => {
-      this.infoContainer.nativeElement.style.visibility = "hidden";
-      this.lyricsContainer.nativeElement.style.visibility = "visible";
+      this.lyricsContainer.nativeElement.style.display = "initial";
+      this.infoContainer.nativeElement.style.display = "none";
       this.detailsLyricsButton.nativeElement.style.backgroundColor = "#33538b";
       this.detailsInfoButton.nativeElement.style.backgroundColor = "#486fb4";
     });
@@ -148,34 +145,32 @@ export class PlayerComponent implements OnInit, AfterViewInit {
 
   async initialization() {
     this.current_track = document.createElement("audio");
-
-    this.alert_container = document.querySelector(".signup-alert-container");
     this.isPlaying = false;
   }
 
   Process = async () => {
     await this.ngAfterViewInit();
     if (this.auth.isLogged())
-      this.LoadCurrentSong();
+      this.loadSong();
     else {
       this.renderer2.setStyle(this.registerAlert.nativeElement, 'display', 'flex');
     }
   }
 
-  LoadCurrentSong = () => {
+  loadSong = () => {
 
-    this.load_track();
+    this.loadTrack();
 
   }
 
-  load_track = async () => {
+  loadTrack = async () => {
     this.current_track.src = `${this.song.file}`
     this.current_track.load();
     this.current_track.volume = this.volumeRange.nativeElement.value / 100;
-    setInterval(this.SeekUpdate, 1000);
-    this.current_track.addEventListener("ended", this.NextTrack);
+    setInterval(this.seekUpdate, 1000);
+    this.current_track.addEventListener("ended", this.nextTrack);
   }
-  play_pause = () => {
+  playStop = () => {
     if (!this.isPlaying) {
       this.isPlaying = true;
       this.playpauseImage.nativeElement.src = "assets/images/player/music/pause_black.svg"
@@ -187,20 +182,20 @@ export class PlayerComponent implements OnInit, AfterViewInit {
     }
 
   }
-  NextTrack = () => {
+  nextTrack = () => {
     this.recommand_index = (this.recommand_index === this.recommends.length - 1) ? 0 : this.recommand_index + 1;
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
       this.router.navigate(['/player', this.recommends[this.recommand_index!].id]));
 
   }
 
-  PrevTrack = () => {
+  prevTrack = () => {
 
     this.recommand_index = (this.recommand_index === 0) ? this.recommends.length - 1 : this.recommand_index - 1;
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
       this.router.navigate(['/player', this.recommends[this.recommand_index!].id]));
   }
-  SeekUpdate = async () => {
+  seekUpdate = async () => {
     if (this.current_track) {
       if (!isNaN(this.current_track.duration)) {
         await (this.playRange.nativeElement.value = this.current_track.currentTime * (100 / this.current_track.duration));
@@ -272,22 +267,21 @@ export class PlayerComponent implements OnInit, AfterViewInit {
       this.playlistService.addToPlaylist(item.id.toString() , this.song.id).subscribe(() => this.playlistService
         .getPlaylists().subscribe(res => {
           this.playLists = res ;
-          console.log(this.playLists);
-          this.addDeleteplayList();
+          // console.log(this.playLists);
+          this.editPlayLists();
         }));
-      alert("Added");
+      alert("آهنگ " + this.song.name + " به پلی لیست  " + item.name + " اضافه شد" );
     }
     else
     {
       this.playlistService.removeFromPlaylist(item.id.toString() , this.song.id).subscribe(() => this.playlistService
         .getPlaylists().subscribe(res => {
           this.playLists = res ;
-          console.log(this.playLists);
-          this.addDeleteplayList();
+          // console.log(this.playLists);
+          this.editPlayLists();
         }));
-      alert("Removed");
+      alert("آهنگ " + this.song.name + " از پلی لیست  " + item.name + " حذف شد" );
     }
-
   }
 
   ngOnDestroy() {

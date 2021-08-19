@@ -8,14 +8,6 @@
   <meta content="Ahangify,music" name="keywords"/>
   <meta content="free music platform" name="description"/>
   <meta content="Hamed,Amir" name="author"/>
-  <!--  <link rel="stylesheet" href="styles/style.css">-->
-  <!--  <script src="scripts/common/common.js" defer="defer"></script>-->
-  <!--  <script src="scripts/player/player.js" defer="defer"></script>-->
-  <!--  <script src="scripts/navbar/toggle-menu.js" defer="defer"></script>-->
-  <!--  <script src="scripts/navbar/nav-side-desktop.js" defer="defer"></script>-->
-  <!--  <script src="scripts/navbar/nav-side-mobile.js" defer="defer"></script>-->
-  <!--  <script src="scripts/common/signup-alert.js" defer="defer"></script>-->
-
   <title>Ahangify</title>
 </head>
 
@@ -120,19 +112,8 @@
   </div>
 </div>
 <div class="side-menu-black-page">
-
 </div>
 
-<!----------- MOBILE NAVBAR ----------->
-<!--<nav class="nav-mobile nav-dark">-->
-<!--  <div class="nav-mobile-main">-->
-<!--    <div class="nav-mobile-main-toggle"><img alt="toggle" src="assets/images/nav-mobile/open-menu.svg"></div>-->
-<!--    <h2 class="nav-mobile-main-logo"><a href="home.html">آهنگیفای</a></h2>-->
-<!--    <div class="nav-mobile-main-search"><a href="music_search.html">جستجوی موزیک</a></div>-->
-<!--  </div>-->
-<!--</nav>-->
-
-<!----------- DESKTOP NAVBAR ----------->
 <!----------- MAIN CONTENT ----------->
 <main class="player-container">
   <div class="player-content">
@@ -145,14 +126,14 @@
                                                                   src="assets/images/player/music.svg"></span>{{song.name}}
           </p>
         </div>
-        <div  *ngIf="song" class="song-cover-pic">
+        <div *ngIf="song" class="song-cover-pic">
           <img [src]="song.cover" alt="cover">
         </div>
       </div>
       <div class="song-interact">
         <div class="song-interact-like">
           <button><img alt="heart" src="assets/images/player/heart_outline.svg"></button>
-          <span>1000 </span>
+          <span> 1000 </span>
           لایک
         </div>
         <div class="song-interact-favorite">
@@ -164,7 +145,8 @@
         <div class="song-play-top">
           <span #timePassed class="time-passed">0:00</span>
           <span class="play-range">
-            <input id="playRange" #playRange (change)="updatePlaying(playRange.value)" *ngIf="current_track" class="custom-range-slider" max="100" min="0" type="range"
+            <input #playRange (change)="updatePlaying(playRange.value)" *ngIf="current_track" class="custom-range-slider"
+                   id="playRange" max="100" min="0" type="range"
                    value="0">
           </span>
           <span #timeRemained class="time-remained">4:22</span>
@@ -173,37 +155,41 @@
           <div class="song-play-bottom-right">
             <span><img alt="volume_up" src="assets/images/player/music/volume_up.svg"></span>
             <span class="volume-range-wrapper">
-              <input #volumeRange (change)="updateVolume(volumeRange.value)" class="custom-range-slider volume-range" max="100" min="0" type="range"
-                     value="50" style="background: linear-gradient(to right, #33538AFF 50%, #fff 0%)">
+              <input #volumeRange (change)="updateVolume(volumeRange.value)" class="custom-range-slider volume-range"
+                     max="100" min="0" style="background: linear-gradient(to right, #33538AFF 50%, #fff 0%)"
+                     type="range" value="50">
             </span>
             <span><img alt="volume_down" src="assets/images/player/music/volume_down.svg"></span>
           </div>
           <div class="song-play-bottom-center">
-            <button (click)="NextTrack()" *ngIf="recommends" id="Next" title="آهنگ بعدی"><img alt="fast_forward"
+            <button (click)="nextTrack()" *ngIf="recommends" id="Next" title="آهنگ بعدی"><img alt="fast_forward"
                                                                                               src="assets/images/player/music/fast_forward.svg">
             </button>
 
-            <button *ngIf="current_track" id="PlayPause" title="توقف یا اجرا"><img #playpauseImage (click)="play_pause()"
+            <button *ngIf="current_track" id="PlayPause" title="توقف یا اجرا"><img #playpauseImage (click)="playStop()"
                                                                                    alt="play_arrow"
-                                                                                   src="assets/images/player/music/play_arrow.svg"></button>
+                                                                                   src="assets/images/player/music/play_arrow.svg">
+            </button>
 
-            <button (click)="PrevTrack()" *ngIf="recommends" id="Prev" title="آهنگ قبلی"><img alt="fast_rewind"
+            <button (click)="prevTrack()" *ngIf="recommends" id="Prev" title="آهنگ قبلی"><img alt="fast_rewind"
                                                                                               src="assets/images/player/music/fast_rewind.svg">
             </button>
           </div>
           <div class="song-play-bottom-left">
             <button *ngIf="current_track" title="پخش مجدد"><img (click)="replaySong()" alt="replay"
                                                                 src="assets/images/player/music/replay.svg"></button>
-            <button title="حذف یا اضافه" (click)="showAddPage()" class="add-to-playlist-btn"><img alt="playlist_add"
-                                                    src="assets/images/player/music/playlist_add.svg"></button>
+            <button (click)="showAddPage()" class="add-to-playlist-btn" title="حذف یا اضافه"><img alt="playlist_add"
+                                                                                                  src="assets/images/player/music/playlist_add.svg">
+            </button>
 
             <div #addPage class="add-to-playlist-page">
               <div #addBox class="add-to-playlist-page-box">
                 <h3>پلی لیست مورد نظرتو انتخاب کن</h3>
                 <ul *ngIf="playLists">
-                    <li *ngFor="let playList of playLists" >
-                      <button #playItem (click)="updateplayList($event , playList)" class="btn" data-playlist-id="">{{playList.name}}</button>
-                    </li>
+                  <li *ngFor="let playList of playLists">
+                    <button #playItem (click)="updateplayList($event , playList)" class="btn"
+                            data-playlist-id="">{{playList.name}}</button>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -220,22 +206,24 @@
               <button #detailsInfo class="btn details-buttons-info ls-top-btn-active">جزییات</button>
               <button #detailsLyrics class="btn details-buttons-lyrics ls-top-btn-idle">متن</button>
             </div>
-            <div class="details-box" style="position: relative">
-              <div>
-                <div #infoContainer class="info_container">
-                  <p><span *ngIf="song">   نام خواننده : {{song.artist }} </span><span></span></p>
-                  <p><span *ngIf="song">   نام اثر : {{song.name }} </span><span></span></p>
-                  <p><span *ngIf="song">  نشر : {{ song.publish_date | persianData }}   </span><br><span></span></p>
-                </div>
 
-                <div #lyricsContainer style="visibility: hidden">
-                  <p *ngIf="song" class="lyrics-container"
-                     style="position:absolute ; top: 10px; margin: 10px;visibility: inherit">
-                    {{song.lyrics}}
-                  </p>
-                </div>
+            <div #lyricsContainer class="details-box" style="display: none">
+              <div style="height: 350px;">
+                <p *ngIf="song" class="lyrics-container">
+                  {{song.lyrics}}
+                </p>
               </div>
             </div>
+
+            <div #infoContainer class="details-box" style="display: initial">
+              <div class="info_container">
+                <p><span *ngIf="song">   نام خواننده : {{song.artist }} </span><span></span></p>
+                <p><span *ngIf="song">   نام اثر : {{song.name }} </span><span></span></p>
+                <p><span *ngIf="song">  نشر : {{ song.publish_date | persianData }}   </span><br><span></span></p>
+              </div>
+            </div>
+
+
           </div>
         </details>
       </div>

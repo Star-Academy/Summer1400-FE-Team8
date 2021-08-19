@@ -185,7 +185,6 @@
             padding: 2rem 1.8rem;
             border-radius: 0.3rem;
             background-color: $primary-color;
-            height: 25rem;
             overflow: auto;
             direction: ltr !important;
 
@@ -284,7 +283,11 @@
     }
   }
 }
-
+.info_container
+{
+  overflow: auto;
+  scroll-behavior: unset;
+}
 .signup-alert-container{
   position:fixed;
   width:100vw;
