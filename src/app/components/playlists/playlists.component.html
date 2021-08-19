@@ -1,5 +1,6 @@
 <main class="playlists-container">
-    <h1>پلی لیست ها</h1>
+    <div>
+      <h1>پلی لیست ها</h1>
     <div>
       <section class="create-playlist">
         <button class="create-playlist-btn btn btn--gray">+ پلی لیست جدید بساز</button>
@@ -20,5 +21,6 @@
       <section class="playlists">
        <app-playlist-item *ngFor="let playlist of playlists" [playlist]="playlist"></app-playlist-item>
       </section>
+    </div>
     </div>
   </main>

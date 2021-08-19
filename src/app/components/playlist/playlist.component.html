@@ -1,8 +1,10 @@
 <main class="favorites-container">
+   <div>
     <h1>{{this.playlistName}}</h1>
-    <div>
+    <div class="favorites-wrapper">
       <div class="favorites">
        <app-playlist-song-item [ngStyle]="{width: '100%'}" *ngFor="let song of songs" [song]="song" [playlistId]="this.id" ></app-playlist-song-item>
       </div>
     </div>
+   </div>
   </main>

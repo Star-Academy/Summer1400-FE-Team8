@@ -1,106 +1,108 @@
 <main class="search-container">
-  <h1>آرشـیـو مـوزیـک</h1>
-  <div class="search">
-    <app-search-box></app-search-box>
-    <section class="search-actions-container">
-      <div class="search-actions">
-        <div class="search-filter">
-          <div class="search-filter-mode">
-            <h3>
-                <span
-                ><img
-                  src="../assets/images/search/order.svg"
-                  alt="genre" /></span
-                >ترتیب
-            </h3>
-            <form class="form-order" #orderFormRef>
-              <div>
-                <input
-                  type="radio"
-                  name="order"
-                  id="desc"
-                  value="desc"
-                  (click)="handleChangeFilter($event,'desc','true')"
-                />
-                <label for="desc">نزولی</label>
-              </div>
-              <div>
-                <input
-                  type="radio"
-                  name="order"
-                  id="asc"
-                  value="asc"
-                  (click)="handleChangeFilter($event,'desc','false')"
-
-                />
-                <label for="asc">صعودی</label>
-              </div>
-            </form>
+  <div>
+    <h1>آرشـیـو مـوزیـک</h1>
+    <div class="search">
+      <app-search-box></app-search-box>
+      <section class="search-actions-container">
+        <div class="search-actions">
+          <div class="search-filter">
+            <div class="search-filter-mode">
+              <h3>
+                  <span
+                  ><img
+                    src="../assets/images/search/order.svg"
+                    alt="genre" /></span
+                  >ترتیب
+              </h3>
+              <form class="form-order" #orderFormRef>
+                <div>
+                  <input
+                    type="radio"
+                    name="order"
+                    id="desc"
+                    value="desc"
+                    (click)="handleChangeFilter($event,'desc','true')"
+                  />
+                  <label for="desc">نزولی</label>
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    name="order"
+                    id="asc"
+                    value="asc"
+                    (click)="handleChangeFilter($event,'desc','false')"
+  
+                  />
+                  <label for="asc">صعودی</label>
+                </div>
+              </form>
+            </div>
+            <div class="search-filter-mode">
+              <h3>
+                  <span
+                  ><img
+                    src="../assets/images/search/mode.svg"
+                    alt="genre" /></span
+                  >بر اساس
+              </h3>
+              <form class = "form-mode" #modeFormRef>
+                <div>
+                  <input
+                    type="radio"
+                    name="mode"
+                    id="newest"
+                    value="newest"
+                    (click)="handleChangeFilter($event,'sortBy','newest')"
+  
+                  />
+                  <label for="newest">جدید ترین</label>
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    name="mode"
+                    id="name"
+                    value="name"
+                    (click)="handleChangeFilter($event,'sortBy','name')"
+                  />
+                  <label for="name">نام اهنگ</label>
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    name="mode"
+                    id="artist"
+                    value="artist"
+                    (click)="handleChangeFilter($event,'sortBy','artist')"
+                  />
+                  <label for="artist">نام خواننده</label>
+                </div>
+              </form>
+            </div>
+  
           </div>
-          <div class="search-filter-mode">
-            <h3>
-                <span
-                ><img
-                  src="../assets/images/search/mode.svg"
-                  alt="genre" /></span
-                >بر اساس
-            </h3>
-            <form class = "form-mode" #modeFormRef>
-              <div>
-                <input
-                  type="radio"
-                  name="mode"
-                  id="newest"
-                  value="newest"
-                  (click)="handleChangeFilter($event,'sortBy','newest')"
-
-                />
-                <label for="newest">جدید ترین</label>
-              </div>
-              <div>
-                <input
-                  type="radio"
-                  name="mode"
-                  id="name"
-                  value="name"
-                  (click)="handleChangeFilter($event,'sortBy','name')"
-                />
-                <label for="name">نام اهنگ</label>
-              </div>
-              <div>
-                <input
-                  type="radio"
-                  name="mode"
-                  id="artist"
-                  value="artist"
-                  (click)="handleChangeFilter($event,'sortBy','artist')"
-                />
-                <label for="artist">نام خواننده</label>
-              </div>
-            </form>
+  
+          <div class="search-results-box" #boxRef>
+            <app-search-item
+              *ngFor="let song of songs"
+              [song]="song">
+            </app-search-item>
           </div>
-
         </div>
-
-        <div class="search-results-box" #boxRef>
-          <app-search-item
-            *ngFor="let song of songs"
-            [song]="song">
-          </app-search-item>
+      </section>
+      <div class="search-pagination-container">
+        <button (click)="handleBackForwardBtns(pagesNum)" class="search-pagination-forward" #pagForwardBtnRef>
+          &laquo;&laquo;
+        </button>
+        <div class="search-pagination" #paginationRef>
+  
         </div>
+        <button (click)="handleBackForwardBtns('1')" class="search-pagination-backward" #pagBackwardBtnRef>
+          &raquo;&raquo;
+        </button>
+  
       </div>
-    </section>
-    <div class="search-pagination-container">
-      <button (click)="handleBackForwardBtns(pagesNum)" class="search-pagination-forward" #pagForwardBtnRef>
-        &laquo;&laquo;
-      </button>
-      <div class="search-pagination" #paginationRef>
-
-      </div>
-      <button (click)="handleBackForwardBtns('1')" class="search-pagination-backward" #pagBackwardBtnRef>
-        &raquo;&raquo;
-      </button>
-
     </div>
   </div>
 </main>

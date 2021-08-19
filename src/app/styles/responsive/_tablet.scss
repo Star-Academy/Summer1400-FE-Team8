@@ -25,7 +25,8 @@
   // -------- playlists
   main.playlists-container {
     .playlists {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr !important;
+      justify-items: center !important;
     }
   }
 }
@@ -103,7 +104,7 @@
   // -------- favorites
   main.favorites-container {
     div.favorites {
-      flex-basis: 80% !important;
+      flex-basis: 90% !important;
     }
   }
 

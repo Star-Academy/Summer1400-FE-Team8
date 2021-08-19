@@ -4,8 +4,8 @@
     cursor: pointer;
     display: grid;
     grid-template-columns: 1fr;
-    $cover-height: 19.8rem;
-    $cover-width: 19.8rem;
+    $cover-height: 18.8rem;
+    $cover-width: 18.8rem;
     grid-template-rows: $cover-height/3 $cover-height/3 $cover-height/3;
 
     &:hover .playlists-item-pic {
@@ -29,7 +29,7 @@
       mix-blend-mode: hard-light;
       grid-row: 3/4;
       grid-column: 1/2;
-
+      width: $cover-width;
       display: flex;
       justify-content: space-between;
       align-items: center;

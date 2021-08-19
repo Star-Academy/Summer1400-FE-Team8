@@ -1,11 +1,8 @@
 @use '../../styles/abstracts' as *;
 
 main.playlists-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  $cover-height: 19.8rem;
-  $cover-width: 19.8rem;
+  $cover-height: 18.8rem;
+  $cover-width: 18.8rem;
 
   h1 {
     text-align: center;

@@ -6,8 +6,9 @@ main.favorites-container {
     margin-bottom: 1.5rem;
   }
 
-  & > div {
-    display: flex;
+ 
+  .favorites-wrapper{
+    display:flex;
     justify-content: center;
   }
   .favorites {
@@ -15,7 +16,7 @@ main.favorites-container {
     flex-direction: column;
     align-items: center;
     gap: 0.8rem;
-    flex-basis: 50%;
+    flex-basis: 80%;
     height: 31rem;
     overflow: auto;
     direction: ltr !important;

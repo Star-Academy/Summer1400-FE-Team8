@@ -28,15 +28,15 @@
           max-width: 40%;
           p {
             display: flex;
-            word-break:break-all;
+            word-break:break-word;
             gap: 0.3rem;
           }
         }
         &-pic {
           img {
             border: 0.05rem solid rgba(255, 255, 255, 0.4);
-            width: 15rem;
-            height: 15rem;
+            width: 17rem;
+            height: 17rem;
             filter: initial;
           }
         }
@@ -175,6 +175,8 @@
           margin-top: 1rem;
 
           &-buttons {
+            display: flex;
+            gap: .4rem;
             button {
               padding-top: 0.7rem;
               padding-bottom: 0.7rem;
