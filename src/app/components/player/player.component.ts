@@ -10,9 +10,9 @@ import {
 } from '@angular/core';
 import {SongService} from 'src/app/services/song/song.service';
 import {ActivatedRoute, Router} from "@angular/router";
-import {Song , Playlist} from '../../interfaces/interfaces'
+import {Playlist, Song} from '../../interfaces/interfaces'
 import {AuthService} from 'src/app/services/auth/auth.service';
-import { PlaylistService } from 'src/app/services/playlist/playlist.service';
+import {PlaylistService} from 'src/app/services/playlist/playlist.service';
 
 @Component({
   selector: 'app-player',
@@ -34,26 +34,27 @@ export class PlayerComponent implements OnInit, AfterViewInit {
   @ViewChild('addPage') addPage!: ElementRef;
   @ViewChild('addBox') addBox!: ElementRef;
   @ViewChildren('playItem') playItems!: QueryList<ElementRef>
-
   @ViewChildren('allItems') boxItems!: QueryList<ElementRef>;
+
   public songs: Song[] = [];
   public song: Song | any;
   public recommends: Song[] = [];
-  public playLists : Playlist[] = [];
+  public playLists: Playlist[] = [];
   public current_track: any;
   public isPlaying!: boolean;
   public recommand_index!: number;
   public songId!: string | null;
 
   constructor(private renderer2: Renderer2, private songService: SongService, private router: Router, private route: ActivatedRoute,
-              private auth: AuthService , private playlistService : PlaylistService) {}
+              private auth: AuthService, private playlistService: PlaylistService) {
+  }
 
   async ngOnInit(): Promise<void> {
 
     this.songId = this.route.snapshot.paramMap.get('song_id');
 
     this.playlistService.getPlaylists().subscribe(
-      (res : any) => {
+      (res: any) => {
         // console.log(res);
         this.playLists = res;
       }
@@ -78,17 +79,12 @@ export class PlayerComponent implements OnInit, AfterViewInit {
 
   }
 
-  editPlayLists()
-  {
-    this.playItems.toArray().forEach((e , i) =>
-    {
-      if(this.playLists[i].songs.some(s => s.id == this.song.id))
-      {
+  editPlayLists() {
+    this.playItems.toArray().forEach((e, i) => {
+      if (this.playLists[i].songs.some(s => s.id == this.song.id)) {
         e.nativeElement.classList.add('btn--red');
         e.nativeElement.title = 'حذف از پلی لیست';
-      }
-      else
-      {
+      } else {
         // console.log(e.nativeElement);
         e.nativeElement.title = 'افزودن به پلی لیست';
         e.nativeElement.classList.add('btn--blue');
@@ -96,13 +92,11 @@ export class PlayerComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngAfterViewInit()
-  {
+  ngAfterViewInit() {
     this.editPlayLists();
     this.hideAddPage();
 
-    this.detailsInfoButton.nativeElement.onclick = (() =>
-    {
+    this.detailsInfoButton.nativeElement.onclick = (() => {
       this.infoContainer.nativeElement.style.display = "initial";
       this.lyricsContainer.nativeElement.style.display = "none";
       this.detailsInfoButton.nativeElement.style.backgroundColor = "#33538b";
@@ -116,32 +110,30 @@ export class PlayerComponent implements OnInit, AfterViewInit {
     });
   }
 
-  hideAddPage ()
-  {
-    this.addPage.nativeElement.onclick = (e: { target: { closest: (arg0: string) => any; }; })=>
-    {
-      if(e.target.closest('.add-to-playlist-page .add-to-playlist-page-box ul li button'))
-      {
-        this.addBox.nativeElement.style.transform='scale(.1)'
+  hideAddPage() {
+    this.addPage.nativeElement.onclick = (e: { target: { closest: (arg0: string) => any; }; }) => {
+      if (e.target.closest('.add-to-playlist-page .add-to-playlist-page-box ul li button')) {
+        this.addBox.nativeElement.style.transform = 'scale(.1)'
         setTimeout(() => {
-          this.addPage.nativeElement.style.display='none';
+          this.addPage.nativeElement.style.display = 'none';
         }, 350)
         return;
       }
-      if(e.target.closest('main.player-container .add-to-playlist-page .add-to-playlist-page-box')) return;
-      this.addBox.nativeElement.style.transform='scale(.1)'
+      if (e.target.closest('main.player-container .add-to-playlist-page .add-to-playlist-page-box')) return;
+      this.addBox.nativeElement.style.transform = 'scale(.1)'
       setTimeout(() => {
-        this.addPage.nativeElement.style.display='none';
+        this.addPage.nativeElement.style.display = 'none';
       }, 350)
     }
   }
-   async showAddPage() {
-     await this.ngAfterViewInit();
-     this.addPage.nativeElement.style.display = 'flex';
-     setTimeout(() => {
-       this.addBox.nativeElement.style.transform = 'scale(1)'
-     }, 1)
-   }
+
+  async showAddPage() {
+    await this.ngAfterViewInit();
+    this.addPage.nativeElement.style.display = 'flex';
+    setTimeout(() => {
+      this.addBox.nativeElement.style.transform = 'scale(1)'
+    }, 1)
+  }
 
   async initialization() {
     this.current_track = document.createElement("audio");
@@ -225,19 +217,17 @@ export class PlayerComponent implements OnInit, AfterViewInit {
     this.current_track.currentTime = 0;
   }
 
-  updatePlaying(value : string)
-  {
+  updatePlaying(value: string) {
     this.current_track.currentTime = (this.playRange.nativeElement.value / 100) * this.current_track.duration;
-    this.playRange.nativeElement.style.background = "linear-gradient(to right, #33538AFF " +  value + "%, #fff 0%)";
-  }
-  updateRange(value : string)
-  {
-    this.playRange.nativeElement.style.background = "linear-gradient(to right, #33538AFF " +  value + "%, #fff 0%)";
+    this.playRange.nativeElement.style.background = "linear-gradient(to right, #33538AFF " + value + "%, #fff 0%)";
   }
 
-  updateVolume(volume: string)
-  {
-    this.volumeRange.nativeElement.style.background = "linear-gradient(to right, #33538AFF " +  volume + "%, #fff 0%)";
+  updateRange(value: string) {
+    this.playRange.nativeElement.style.background = "linear-gradient(to right, #33538AFF " + value + "%, #fff 0%)";
+  }
+
+  updateVolume(volume: string) {
+    this.volumeRange.nativeElement.style.background = "linear-gradient(to right, #33538AFF " + volume + "%, #fff 0%)";
 
     this.current_track.volume = parseInt(volume) / 100;
   }
@@ -260,27 +250,23 @@ export class PlayerComponent implements OnInit, AfterViewInit {
 
   }
 
-   updateplayList(event : MouseEvent , item : Playlist)
-  {
-    if (!item.songs.some(e=> e.id == this.song.id))
-    {
-      this.playlistService.addToPlaylist(item.id.toString() , this.song.id).subscribe(() => this.playlistService
+  updateplayList(event: MouseEvent, item: Playlist) {
+    if (!item.songs.some(e => e.id == this.song.id)) {
+      this.playlistService.addToPlaylist(item.id.toString(), this.song.id).subscribe(() => this.playlistService
         .getPlaylists().subscribe(res => {
-          this.playLists = res ;
+          this.playLists = res;
           // console.log(this.playLists);
           this.editPlayLists();
         }));
-      alert("آهنگ " + this.song.name + " به پلی لیست  " + item.name + " اضافه شد" );
-    }
-    else
-    {
-      this.playlistService.removeFromPlaylist(item.id.toString() , this.song.id).subscribe(() => this.playlistService
+      alert("آهنگ " + this.song.name + " به پلی لیست  " + item.name + " اضافه شد");
+    } else {
+      this.playlistService.removeFromPlaylist(item.id.toString(), this.song.id).subscribe(() => this.playlistService
         .getPlaylists().subscribe(res => {
-          this.playLists = res ;
+          this.playLists = res;
           // console.log(this.playLists);
           this.editPlayLists();
         }));
-      alert("آهنگ " + this.song.name + " از پلی لیست  " + item.name + " حذف شد" );
+      alert("آهنگ " + this.song.name + " از پلی لیست  " + item.name + " حذف شد");
     }
   }
 
