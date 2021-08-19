@@ -79,11 +79,11 @@ export class PlayerComponent implements OnInit, AfterViewInit {
 
   }
 
-  ngAfterViewInit()
+  addDeleteplayList()
   {
-
     this.playItems.toArray().forEach((e , i) =>
     {
+      console.log(this.playLists[i].songs.some(s => s.id == this.song.id));
       if(this.playLists[i].songs.some(s => s.id == this.song.id))
       {
         e.nativeElement.classList.add('btn--red');
@@ -95,9 +95,12 @@ export class PlayerComponent implements OnInit, AfterViewInit {
         e.nativeElement.title = 'افزودن به پلی لیست';
         e.nativeElement.classList.add('btn--blue');
       }
-
     });
+  }
 
+  ngAfterViewInit()
+  {
+    this.addDeleteplayList();
     this.hideAddPage();
 
     this.lyricsContainer.nativeElement.style.visibility = "hidden";
@@ -135,8 +138,8 @@ export class PlayerComponent implements OnInit, AfterViewInit {
       }, 350)
     }
   }
-   showAddPage ()
-   {
+   async showAddPage() {
+     await this.ngAfterViewInit();
      this.addPage.nativeElement.style.display = 'flex';
      setTimeout(() => {
        this.addBox.nativeElement.style.transform = 'scale(1)'
@@ -262,16 +265,26 @@ export class PlayerComponent implements OnInit, AfterViewInit {
 
   }
 
-  updateplayList(event : MouseEvent , item : Playlist)
+   updateplayList(event : MouseEvent , item : Playlist)
   {
     if (!item.songs.some(e=> e.id == this.song.id))
     {
-      this.playlistService.addToPlaylist((item.id).toString(),(this.song.id).toString());
+      this.playlistService.addToPlaylist(item.id.toString() , this.song.id).subscribe(() => this.playlistService
+        .getPlaylists().subscribe(res => {
+          this.playLists = res ;
+          console.log(this.playLists);
+          this.addDeleteplayList();
+        }));
       alert("Added");
     }
     else
     {
-      this.playlistService.removeFromPlaylist((item.id).toString(),(this.song.id).toString());
+      this.playlistService.removeFromPlaylist(item.id.toString() , this.song.id).subscribe(() => this.playlistService
+        .getPlaylists().subscribe(res => {
+          this.playLists = res ;
+          console.log(this.playLists);
+          this.addDeleteplayList();
+        }));
       alert("Removed");
     }
 

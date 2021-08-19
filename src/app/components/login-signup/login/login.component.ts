@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit , AfterViewInit {
   }
   ngAfterViewInit(): void
   {
+
     this.formElem.forEach((e , i ) =>
     {
       e.nativeElement.onkeyup = () =>
