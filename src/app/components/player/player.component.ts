@@ -81,6 +81,7 @@ export class PlayerComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit()
   {
+
     this.playItems.toArray().forEach((e , i) =>
     {
       if(this.playLists[i].songs.some(s => s.id == this.song.id))
@@ -196,11 +197,11 @@ export class PlayerComponent implements OnInit, AfterViewInit {
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
       this.router.navigate(['/player', this.recommends[this.recommand_index!].id]));
   }
-
-  SeekUpdate = () => {
+  SeekUpdate = async () => {
     if (this.current_track) {
       if (!isNaN(this.current_track.duration)) {
-        this.playRange.nativeElement.value = this.current_track.currentTime * (100 / this.current_track.duration);
+        await (this.playRange.nativeElement.value = this.current_track.currentTime * (100 / this.current_track.duration));
+        this.updateRange(this.playRange.nativeElement.value);
         // Calculate the time left and the total duration
         let currentMinutes = Math.floor(this.current_track.currentTime / 60);
         let currentSeconds = Math.floor(this.current_track.currentTime - currentMinutes * 60);
@@ -226,12 +227,21 @@ export class PlayerComponent implements OnInit, AfterViewInit {
     this.current_track.currentTime = 0;
   }
 
-  updatePlaying() {
+  updatePlaying(value : string)
+  {
     this.current_track.currentTime = (this.playRange.nativeElement.value / 100) * this.current_track.duration;
+    this.playRange.nativeElement.style.background = "linear-gradient(to right, #33538AFF " +  value + "%, #fff 0%)";
+  }
+  updateRange(value : string)
+  {
+    this.playRange.nativeElement.style.background = "linear-gradient(to right, #33538AFF " +  value + "%, #fff 0%)";
   }
 
-  updateVolume() {
-    this.current_track.volume = this.volumeRange.nativeElement.value / 100;
+  updateVolume(volume: string)
+  {
+    this.volumeRange.nativeElement.style.background = "linear-gradient(to right, #33538AFF " +  volume + "%, #fff 0%)";
+
+    this.current_track.volume = parseInt(volume) / 100;
   }
 
 

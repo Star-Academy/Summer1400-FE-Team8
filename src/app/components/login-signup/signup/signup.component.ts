@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {FormValidationService} from '../../../services/form-validation/form-validation.service'
 import {UserService} from '../../../services/user/user.service'
 import { Router} from '@angular/router';
@@ -8,7 +8,9 @@ import {Token , SignupFormData} from '../../../interfaces/interfaces'
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent implements OnInit , AfterViewInit {
+  @ViewChildren('formElem')  formElem!: QueryList<ElementRef>;
+  @ViewChildren('errorElem') errorElem!: QueryList<ElementRef>;
 
   constructor(private formValidationService: FormValidationService ,
               private userService: UserService , private router: Router ,) { }
@@ -17,6 +19,15 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
     const passwordElm = document.querySelector('form input[name="password"]');
     this.formValidationService.triggerPasswordStrength(passwordElm,'pass_error');
+  }
+  ngAfterViewInit()
+  {
+    this.formElem.forEach((e , i ) =>
+    {
+      e.nativeElement.onkeyup = () => {
+        this.errorElem.toArray()[i].nativeElement.innerText = "";
+    }
+    });
   }
 
   print_error(id:any, error_text:any){

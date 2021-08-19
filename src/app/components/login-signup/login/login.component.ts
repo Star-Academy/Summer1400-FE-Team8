@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
-import { UserService } from 'src/app/services/user/user.service'; 
+import { UserService } from 'src/app/services/user/user.service';
 import { Router} from '@angular/router';
 import {Token} from '../../../interfaces/interfaces'
 import {LoginFormData} from '../../../interfaces/interfaces'
@@ -9,12 +9,24 @@ import {LoginFormData} from '../../../interfaces/interfaces'
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit , AfterViewInit {
+  @ViewChildren('formElem') formElem!: QueryList<ElementRef>;
+  @ViewChild('passError') passError!: ElementRef;
 
   constructor(private authService: AuthService , private userService : UserService
     ,private router: Router) { }
 
   ngOnInit(): void {
+  }
+  ngAfterViewInit(): void
+  {
+    this.formElem.forEach((e , i ) =>
+    {
+      e.nativeElement.onkeyup = () =>
+      {
+        this.passError.nativeElement.innerText = "";
+      }
+    });
   }
 
    printError = (id:string, error_text:string)=>
@@ -58,13 +70,14 @@ export class LoginComponent implements OnInit {
               }else{
                 document.cookie = `username=${formData.username};expires=Thu, 01 Jan 1970 00:00:00 GMT`;
                 document.cookie = `password=${formData.password};expires=Thu, 01 Jan 1970 00:00:00 GMT`;
-              } 
+              }
               this.authService.setUserLocal(res.token,res.id);
               this.authService.setExpiry(new Date());
               this.router.navigate(['profile/playlists']);
-              
+
           },
           () => {  this.printError("pass_error", "اطلاعات وارد شده اشتباه است")}
         )
   }
+
 }

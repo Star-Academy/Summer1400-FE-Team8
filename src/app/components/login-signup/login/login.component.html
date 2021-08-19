@@ -5,18 +5,18 @@
         <div class="login-box-alert"></div>
         <form class="login-box-form" name="login_form" (submit)="handleLogin($event)">
           <div>
-            <input class="custom-input" type="text" name="username" placeholder="نام کاربری" />
+            <input #formElem class="custom-input" type="text" name="username" placeholder="نام کاربری" />
             <div id="username_error"></div>
           </div>
           <div>
-            <input
+            <input #formElem
               class="custom-input"
               type="password"
               name="password"
               placeholder="رمز عبور"
               autocomplete="true"
             />
-            <div id="pass_error"></div>
+            <div #passError id="pass_error"></div>
           </div>
           <div class="remember-container">
             <input type="checkbox" name="remember_me" />

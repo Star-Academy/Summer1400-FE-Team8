@@ -3,8 +3,8 @@
       <form name="register_form" (submit)="handleSignup($event)">
         <div>
           <label for="first_name">نام</label>
-          <input type="text" class="custom-input" name="firstName">
-          <div id="name_error" class="form-warning"></div>
+          <input #formElem type="text" class="custom-input" name="firstName">
+          <div #errorElem id="name_error" class="form-warning"></div>
       </div>
       <div>
           <label for="last_name">نام خانوادگی</label>
@@ -13,13 +13,13 @@
       </div>
       <div>
           <label for="email">ایمیل</label>
-          <input type="text" class="custom-input" name="email">
-          <div id="mail_error" class="form-warning"></div>
+          <input #formElem type="text" class="custom-input" name="email">
+          <div #errorElem id="mail_error" class="form-warning"></div>
       </div>
       <div>
           <label for="username">نام کاربری</label>
-          <input type="text" class="custom-input" name="username">
-          <div id="username_error" class="form-warning"></div>
+          <input #formElem type="text" class="custom-input" name="username">
+          <div #errorElem id="username_error" class="form-warning"></div>
       </div>
       <div>
           <label for="password" >رمز عبور</label>
@@ -29,8 +29,8 @@
       </div>
       <div>
           <label for="password-repeat">تکرار رمز عبور</label>
-          <input type="password" autocomplete="on"  class="custom-input" name="repeat_password" required>
-          <div id="repeat_error" class="form-warning"></div>
+          <input #formElem type="password" autocomplete="on"  class="custom-input" name="repeat_password" required>
+          <div #errorElem id="repeat_error" class="form-warning"></div>
       </div>
       <div class="signup-submit-container">
           <button type="submit" name="submit" class="btn btn--blue">ثبت نام</button>
