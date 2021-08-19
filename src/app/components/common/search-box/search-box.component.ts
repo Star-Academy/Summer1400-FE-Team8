@@ -22,7 +22,7 @@ export class SearchBoxComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+
   }
 
 }

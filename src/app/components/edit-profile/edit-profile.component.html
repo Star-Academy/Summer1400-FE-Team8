@@ -1,78 +1,77 @@
-
 <main class="edit-profile-container">
-    <h1>ویرایش پروفایل</h1>
-   
-    <div class="edit-profile-content">
-      <form (submit)="handleSubmitInfo($event)" #formRef>
-        <div class="change-avatar-container">
-          <div>
-            <img
-              class="avatar"
-              src="../../../assets/images/side-menu/no_avatar.jpg"
-              alt="avatar"
-              #avatarRef
-            />
-          </div>
-          <p class="avatar-warning">بیشترین حجم قابل قبول : 60 کیلوبایت</p>
-          <label class="change-avatar-btn btn btn--gray" for="avatar"
-            >تغییر عکس پروفایل</label
-          >
-          <input (change)="loadAvatar($event)" type="file" accept="image/png,image/jpeg" name="avatar" id="avatar" />
-        </div>
+  <h1>ویرایش پروفایل</h1>
+
+  <div class="edit-profile-content">
+    <form (submit)="handleSubmitInfo($event)" #formRef>
+      <div class="change-avatar-container">
         <div>
-          <label for="first_name">نام</label>
-          <input class="custom-input" type="text" name="first_name" />
-        </div>
-        <div>
-          <label for="last_name">نام خانوادگی</label>
-          <input class="custom-input" type="text" name="last_name" />
-        </div>
-        <div>
-          <label for="username">نام کاربری</label>
-          <input class="custom-input" type="text" name="username" />
-          <p id="username_error" class="edit-profile-warning"></p>
-        </div>
-        <div>
-          <label for="email">ایمیل</label>
-          <input class="custom-input" type="email" name="email" />
-          <p id="mail_error" class="edit-profile-warning"></p>
-        </div>
-        <div>
-          <label for="password">رمز عبور جدید</label>
-          <input class="custom-input" type="password" name="password" autocomplete="on"/>
-          <p id="pass_error" class="edit-profile-warning"></p>
-        </div>
-        <div>
-          <label for="repeat-password">تکرار رمز عبور جدید</label>
-          <input
-            class="custom-input"
-            type="password"
-            name="repeat_password"
-            autocomplete="on"
-          />
-          <p id="repeat_error" class="edit-profile-warning"></p>
-        </div>
-        <div class="edit-profile-gender-container">
-          <label for="gender">جنیسیت</label>
-          <select name="gender" id="gender">
-            <option value="0">نامشخص</option>
-            <option value="1">مرد</option>
-            <option value="2">زن</option>
-          </select>
-        </div>
-        <!-- <div>
-          <label for="birth_date">تاریخ تولد</label>
-          <input autocomplete="off" type="text" name="birth_date" class="custom-input"/>
-          
-        </div> -->
-        <div class="edit-profile-submit-container">
-          <input
-            class="btn btn--blue"
-            type="submit"
-            name="submit"
-            value="ذخیره تغییرات"
+          <img
+            class="avatar"
+            src="../../../assets/images/side-menu/no_avatar.jpg"
+            alt="avatar"
+            #avatarRef
           />
         </div>
-      </form>
-    </div>
-  </main>
+        <p class="avatar-warning">بیشترین حجم قابل قبول : 60 کیلوبایت</p>
+        <label class="change-avatar-btn btn btn--gray" for="avatar"
+        >تغییر عکس پروفایل</label
+        >
+        <input (change)="loadAvatar($event)" type="file" accept="image/png,image/jpeg" name="avatar" id="avatar" />
+      </div>
+      <div>
+        <label for="first_name">نام</label>
+        <input class="custom-input" type="text" name="first_name" />
+      </div>
+      <div>
+        <label for="last_name">نام خانوادگی</label>
+        <input class="custom-input" type="text" name="last_name" />
+      </div>
+      <div>
+        <label for="username">نام کاربری</label>
+        <input class="custom-input" type="text" name="username" />
+        <p id="username_error" class="edit-profile-warning"></p>
+      </div>
+      <div>
+        <label for="email">ایمیل</label>
+        <input class="custom-input" type="email" name="email" />
+        <p id="mail_error" class="edit-profile-warning"></p>
+      </div>
+      <div>
+        <label for="password">رمز عبور جدید</label>
+        <input class="custom-input" type="password" name="password" autocomplete="on"/>
+        <p id="pass_error" class="edit-profile-warning"></p>
+      </div>
+      <div>
+        <label for="repeat-password">تکرار رمز عبور جدید</label>
+        <input
+          class="custom-input"
+          type="password"
+          name="repeat_password"
+          autocomplete="on"
+        />
+        <p id="repeat_error" class="edit-profile-warning"></p>
+      </div>
+      <div class="edit-profile-gender-container">
+        <label for="gender">جنیسیت</label>
+        <select name="gender" id="gender">
+          <option value="0">نامشخص</option>
+          <option value="1">مرد</option>
+          <option value="2">زن</option>
+        </select>
+      </div>
+      <!-- <div>
+        <label for="birth_date">تاریخ تولد</label>
+        <input autocomplete="off" type="text" name="birth_date" class="custom-input"/>
+
+      </div> -->
+      <div class="edit-profile-submit-container">
+        <input
+          class="btn btn--blue"
+          type="submit"
+          name="submit"
+          value="ذخیره تغییرات"
+        />
+      </div>
+    </form>
+  </div>
+</main>

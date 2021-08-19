@@ -1,7 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { UserService } from 'src/app/services/user/user.service';
-import { DatepickerOptions } from 'ng2-datepicker';
 
 @Component({
   selector: 'app-edit-profile',
@@ -34,14 +33,14 @@ export class EditProfileComponent implements OnInit {
 
 
     this.editedUserInfo = {
-        ...this.editedUserInfo,
-        firstName : form.first_name.value,
-        lastName : form.last_name.value,
-        username : form.username.value,
-        email : form.email.value,
-        password : form.password.value,
-        gender : parseInt(form.gender.value),
-        token
+      ...this.editedUserInfo,
+      firstName : form.first_name.value,
+      lastName : form.last_name.value,
+      username : form.username.value,
+      email : form.email.value,
+      password : form.password.value,
+      gender : parseInt(form.gender.value),
+      token
     }
 
     this.userService.editUserData(this.editedUserInfo, token).subscribe(res=>console.log(res))
@@ -55,8 +54,8 @@ export class EditProfileComponent implements OnInit {
     }
     let reader = new FileReader();
     reader.onload = (e:any) => {
-    let image = e.target.result;
-     this.editedUserInfo = {...this.editedUserInfo, avatar: image}
+      let image = e.target.result;
+      this.editedUserInfo = {...this.editedUserInfo, avatar: image}
     };
     reader.readAsDataURL(file);
   }
@@ -66,7 +65,7 @@ export class EditProfileComponent implements OnInit {
     const form = this.formRef.nativeElement;
 
     this.userService.getUserData(`user/one/${userId}`)
-    .subscribe((res:any) =>{
+      .subscribe((res:any) =>{
         const userInfo = res.user;
         // form['username'].value = 'aaaa'
         for(const property in userInfo){
@@ -75,24 +74,24 @@ export class EditProfileComponent implements OnInit {
           }else if(property==='gender'){
             if(userInfo[property]) form.gender.value = userInfo.gender.toString();
           }else if(property==='birth_date'){
-           if(userInfo[property]){
-            // form.birth_date.placeholder = userInfo.birth_date.substr(0,10).split('-').reverse().join('/');
-           }
+            if(userInfo[property]){
+              // form.birth_date.placeholder = userInfo.birth_date.substr(0,10).split('-').reverse().join('/');
+            }
           }else{
             if(form[property]){
               form[property].value = userInfo[property]
             }
-            
-          }
-      }
 
-      // const datepicker = new Datepicker(elem); 
-        
-    })
+          }
+        }
+
+        // const datepicker = new Datepicker(elem);
+
+      })
   }
 
   ngOnInit(): void {
-    
+
   }
 
 }
