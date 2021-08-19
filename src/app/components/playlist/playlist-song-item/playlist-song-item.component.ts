@@ -1,5 +1,6 @@
 import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Song } from 'src/app/interfaces/interfaces';
 import { PlaylistService } from 'src/app/services/playlist/playlist.service';
 
@@ -13,8 +14,11 @@ export class PlaylistSongItemComponent implements OnInit {
   @Input() song !: Song;
   @Input() playlistId !: string;
 
-  constructor(private playlistService: PlaylistService) { }
-
+  constructor(private playlistService: PlaylistService , private router: Router) { }
+  handlePlay(e:any,id:string){
+    if(e.target.closest('.favorites-box-item-delete')) return;
+    this.router.navigateByUrl(`player/${id}`);
+  }
   removeSongFromPlaylist(e:any,songId:string){
     const container = e.target.parentElement.parentElement;
       this.playlistService.removeFromPlaylist(this.playlistId, songId).subscribe(

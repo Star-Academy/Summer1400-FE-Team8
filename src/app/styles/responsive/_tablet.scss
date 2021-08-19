@@ -1,3 +1,26 @@
+@media only screen and (max-width:87.5rem) {
+  .player-content{
+    gap: 5rem !important;
+  }
+}
+@media only screen and (max-width:82rem) {
+  .song-cover{
+   flex-direction: column !important;
+   gap: 1rem;
+  &-pic{
+    display: flex !important;
+    justify-content: center !important;
+  }
+   &-info{
+     width: 100%;
+     max-width: unset !important;
+     flex-direction: row !important;
+     justify-content:space-between !important;
+     flex-wrap:wrap !important;
+   }
+  }
+}
+
 @media only screen and (max-width: 65rem) {
   // -------- playlists
   main.playlists-container {
@@ -58,6 +81,9 @@
 
     .player-right {
       flex-basis: 50% !important;
+    }
+    .player-left{
+      max-width: unset !important;
     }
   }
 

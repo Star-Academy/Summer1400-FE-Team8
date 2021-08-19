@@ -3,8 +3,7 @@
 .player-container {
   .player-content {
     display: flex;
-    justify-content: center;
-    gap: 15rem;
+    justify-content:space-between;
     img {
       filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg)
         brightness(102%) contrast(102%);
@@ -13,19 +12,23 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      flex-basis: 27%;
+      flex-basis: 45%;
       .song-cover {
         display: flex;
-        flex-direction: column;
-
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
         &-info {
           display: flex;
-          justify-content: space-around;
-          width: 100%;
           margin-top: .4rem;
-
+          flex-direction: column;
+          justify-content: center;
+          gap: 1rem;
+          max-width: 40%;
           p {
             display: flex;
+            word-break:break-all;
             gap: 0.3rem;
           }
         }
@@ -204,6 +207,7 @@
     }
 
     .player-left {
+      flex-basis: 35%;
       & > div {
         height: 445px;
         overflow: auto;
@@ -264,7 +268,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-
+            margin-right: auto;
             button {
               display: inline-block;
               width: 2.6rem;
@@ -357,3 +361,4 @@
   }
 
 }
+

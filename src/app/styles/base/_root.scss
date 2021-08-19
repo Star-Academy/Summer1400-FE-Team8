@@ -49,6 +49,11 @@ main {
   padding-bottom: 2rem;
   min-height: calc(100vh - 8.5rem);
   color: #fff;
+  display:flex;
+  justify-content: center;
+  &>div{
+    width: 62rem;
+  }
 }
 
 // --- PUBLIC CLASSES

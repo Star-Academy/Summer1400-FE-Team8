@@ -41,12 +41,10 @@
       }
     }
     &-add {
-      margin-right: 3rem;
+      margin-right: auto;
       display: flex;
-      // place-items: center;
       justify-content: center;
       align-items: center;
-      // background-color:white;
 
       button {
         display: inline-block;
@@ -90,5 +88,12 @@
         }
       }
     }
+  }
+}
+
+.playlist-box{
+  .playlist-box-item-text{
+    word-break: break-word;
+    max-width: 50%;
   }
 }
