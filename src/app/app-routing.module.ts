@@ -21,12 +21,14 @@ const routes: Routes = [
   ]},
 
   { path:'player/:song_id',component: PlayerComponent},
+  { path:'player',redirectTo: '', pathMatch: 'full'},
 
   { path:'music_search',component: MusicSearchComponent},
 
   { path:'profile', children:[
     { path:'playlists',component: PlaylistsComponent},
     { path:'playlist/:id',component: PlaylistComponent},
+    { path:'playlist',redirectTo: '', pathMatch: 'full'},
     { path:'edit_profile',component: EditProfileComponent},
   ],canActivate: [RouteGuard]},
 ];

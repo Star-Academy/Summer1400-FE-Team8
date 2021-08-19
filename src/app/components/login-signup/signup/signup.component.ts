@@ -2,7 +2,7 @@ import {AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, View
 import {FormValidationService} from '../../../services/form-validation/form-validation.service'
 import {UserService} from '../../../services/user/user.service'
 import { Router} from '@angular/router';
-import {Token , SignupFormData} from '../../../interfaces/interfaces'
+import {Token , UserFormData} from '../../../interfaces/interfaces'
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -37,7 +37,7 @@ export class SignupComponent implements OnInit , AfterViewInit {
 
   async handleSignup(event:Event) {
     event.preventDefault();
-    let formData :SignupFormData = {
+    let formData :UserFormData = {
       username : '',
       email:'',
       password:'',

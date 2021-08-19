@@ -6,12 +6,14 @@ export interface LoginFormData{
     username:string,
     password:string,
 }
-export interface SignupFormData{
+export interface UserFormData{
     username : string,
     email:string,
-    password:string,
+    password?:string,
     firstName?:string,
     lastName?:string,
+    avatar?:string,
+    birth_date?:string,
 }
 export interface Song{
     id: string,
