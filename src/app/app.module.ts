@@ -50,7 +50,7 @@ import { PersianDataPipe } from './pipes/persian-data.pipe';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     {
