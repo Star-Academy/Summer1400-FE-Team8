@@ -52,18 +52,20 @@ export class NavSideDesktopComponent implements OnInit {
   }
   ngOnInit(): void {}
   ngAfterViewInit(): void {
-    const userId = this.authService.getUser();
-    const menu = this.menuRef.nativeElement;
-    const rightWhenClosed = '-13.43rem';
-    const avatar = this.avatarRef.nativeElement;
+    if(this.authService.isLogged()){
+      const userId = this.authService.getUser();
+      const menu = this.menuRef.nativeElement;
+      const rightWhenClosed = '-13.43rem';
+      const avatar = this.avatarRef.nativeElement;
 
-    this.userService.getUserData(`user/one/${userId}`).subscribe(
-      (res: any) => {
-        if (!res.user.avatar) return;
-        avatar.src = res.user.avatar;
-      },
-      (err) => err
-    );
-    menu.style.right = rightWhenClosed;
+      this.userService.getUserData(`user/one/${userId}`).subscribe(
+        (res: any) => {
+          if (!res.user.avatar) return;
+          avatar.src = res.user.avatar;
+        },
+        (err) => err
+      );
+      menu.style.right = rightWhenClosed;
+    }
   }
 }

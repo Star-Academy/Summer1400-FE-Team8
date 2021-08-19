@@ -1,15 +1,16 @@
 <main class="ls-container">
-<section class="ls-top-container">
+<div>
+  <section class="ls-top-container">
     <div class="ls-top-headphone">
       <img src="../../../assets/images/login/headset.svg" alt="" />
       <div class="ls-top-btns">
         <a routerLink="login"
-          ><button class="btn ls-top-btn-active ls-top-btn-login">
-            ورود
+        ><button #loginBtnRef class="btn ls-top-btn-active ls-top-btn-login">
+        ورود
           </button></a
         >
         <a routerLink="signup"
-          ><button  class="btn ls-top-btn-idle ls-top-btn-register">
+          ><button #signupBtnRef  class="btn ls-top-btn-idle ls-top-btn-register">
             ثبت نام
           </button></a
         >
@@ -17,4 +18,5 @@
     </div>
 </section>
 <router-outlet></router-outlet>
+</div>
 </main>
