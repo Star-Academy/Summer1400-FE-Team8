@@ -1,4 +1,5 @@
-<div class="playlist-box-item" >
+<div  *ngIf="songs" class="playlist-box">
+<div  #allItems *ngFor="let song of songs" class="playlist-box-item" >
   <div class="playlist-box-item-pic">
     <img [src] ="song.cover"   alt="cover">
   </div>
@@ -7,7 +8,8 @@
     <h5>{{song.name}}</h5>
   </div>
   <div class="playlist-box-item-add">
-    <button>
+    <button  #buttonElement >
     </button>
   </div>
+</div>
 </div>

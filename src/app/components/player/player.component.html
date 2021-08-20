@@ -1,11 +1,124 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
 
+<head>
+  <meta charset="UTF-8"/>
+  <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+        name="viewport"/>
+  <meta content="Ahangify,music" name="keywords"/>
+  <meta content="free music platform" name="description"/>
+  <meta content="Hamed,Amir" name="author"/>
+  <title>Ahangify</title>
+</head>
+
+<body>
+<!-- NOT LOGGED IN ALERT -->
+<div #registerAlert class="signup-alert-container">
+  <div class="signup-alert-box">
+    <p class="signup-alert-box-text">برای اینکه از آرشیو بینظیر آهنگیفای استفاده کنی باید در سایت ثبت نام کنی
+      یا وارد حسابت بشی !
+    </p>
+    <div class="signup-alert-box-btns">
+      <a (click)="navLogin(true)">
+        <button class="btn btn--blue">ورود</button>
+      </a>
+      <a (click)="navLogin(false)">
+        <button class="btn btn--blue">ثبت نام</button>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!----------- DESKTOP SIDE MENU ----------->
+<div class="side-menu-container nav-desktop-side">
+  <div class="side-menu">
+    <div class="side-menu-toggle">
+      <button><img alt="open" src="assets/images/side-menu/open.svg"></button>
+    </div>
+    <div class="side-menu-text">
+      <div class="side-menu-avatar-container">
+        <img alt="" class="avatar side-menu-avatar" src="assets/images/edit-profile/avatar.jpg">
+      </div>
+      <div><a routerlink="playlists"><img alt="playlist" src="assets/images/side-menu/playlist.svg">پلی
+        لیست ها</a></div>
+      <div><a href="/favorite.html"><img alt="favorites"
+                                         src="assets/images/side-menu/star_fill.svg">مورد علاقه ها</a></div>
+      <div><a routerlink="music_search"><img alt="search"
+                                             src="assets/images/side-menu/search_icon.svg">جستجوی پیشرفته</a></div>
+      <div><a routerlink="edit_profile"><img alt="edit_profile"
+                                             src="assets/images/side-menu/edit.svg">ویرایش پروفایل</a></div>
+      <div class="nav-desktop-side-logout"><a href="#"><img alt="logout" src="assets/images/side-menu/logout.svg">خروج
+        از حساب</a></div>
+    </div>
+  </div>
+</div>
+<!----------- MOBILE SIDE MENU ----------->
+<div class="side-menu-container nav-mobile-side nav-mobile-side-closed">
+  <div class="side-menu">
+    <div class="side-menu-text">
+      <div class="side-menu-avatar-container nav-mobile-side-user">
+        <img alt="" class="avatar side-menu-avatar" src="assets/images/edit-profile/avatar.jpg">
+      </div>
+      <div class="nav-mobile-side-all">
+        <a routerlink="home"><img
+          alt="home"
+          id="side-mobile-home" src="assets/images/side-menu/home.svg"/>صفحه اصلی</a>
+
+      </div>
+      <div class="nav-mobile-side-loggedout side-menu-ls">
+        <img
+          alt="playlist"
+          src="assets/images/side-menu/person.svg"/>
+        <span><a routerlink="user/login"> ">ورود</a
+        >&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+        <span><a routerlink="user/signup">ثبت نام</a></span>
+      </div>
+      <div class="nav-mobile-side-user">
+        <a routerlink="playlists"
+        ><img
+          alt="playlist"
+          src="assets/images/side-menu/playlist.svg"/>پلی لیست ها</a
+        >
+      </div>
+      <div class="nav-mobile-side-user">
+        <a href="/favorite.html"
+        ><img
+          alt="favorites"
+          src="assets/images/side-menu/star_fill.svg"/>مورد علاقه ها</a
+        >
+      </div>
+      <div class="nav-mobile-side-all">
+        <a routerlink="music-search"
+        ><img
+          alt="search"
+          src="assets/images/side-menu/search_icon.svg"/>جستجوی پیشرفته</a
+        >
+      </div>
+      <div class="nav-mobile-side-user">
+        <a routerlink="edit_profile"
+        ><img
+          alt="edit_profile"
+          src="assets/images/side-menu/edit.svg"/>ویرایش پروفایل</a
+        >
+      </div>
+      <div class="nav-mobile-side-user nav-mobile-side-logout">
+        <a href="#"
+        ><img
+          alt="logout"
+          src="assets/images/side-menu/logout.svg"/>خروج از حساب</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+<div class="side-menu-black-page">
+</div>
+
+<!----------- MAIN CONTENT ----------->
 <main class="player-container">
   <div class="player-content">
     <div class="player-right">
       <div class="song-cover">
-        <div *ngIf="song" class="song-cover-pic">
-          <img [src]="song.cover" alt="cover">
-        </div>
         <div class="song-cover-info">
           <p *ngIf="song" class="song-cover-info-singer"><span><img alt="singer" src="assets/images/player/person.svg"></span>{{song.artist}}
           </p>
@@ -13,8 +126,11 @@
                                                                   src="assets/images/player/music.svg"></span>{{song.name}}
           </p>
         </div>
+        <div *ngIf="song" class="song-cover-pic">
+          <img [src]="song.cover" alt="cover">
+        </div>
       </div>
-      <!-- <div class="song-interact">
+      <div class="song-interact">
         <div class="song-interact-like">
           <button><img alt="heart" src="assets/images/player/heart_outline.svg"></button>
           <span> 1000 </span>
@@ -24,7 +140,7 @@
           <span><img alt="star" src="assets/images/player/star_outline.svg"></span>
           <button>افزودن به لیست علاقه مندی</button>
         </div>
-      </div> -->
+      </div>
       <div class="song-play">
         <div class="song-play-top">
           <span #timePassed class="time-passed">0:00</span>
@@ -62,16 +178,16 @@
           <div class="song-play-bottom-left">
             <button *ngIf="current_track" title="پخش مجدد"><img (click)="replaySong()" alt="replay"
                                                                 src="assets/images/player/music/replay.svg"></button>
-            <button (click)="showAddPage()" class="add-to-playlist-btn" title="حذف یا اضافه"><img alt="playlist_add"
+            <button (click)="separatePlayList()" class="add-to-playlist-btn" title="حذف یا اضافه"><img alt="playlist_add"
                                                                                                   src="assets/images/player/music/playlist_add.svg">
             </button>
 
             <div #addPage class="add-to-playlist-page">
               <div #addBox class="add-to-playlist-page-box">
                 <h3>پلی لیست مورد نظرتو انتخاب کن</h3>
-                <ul *ngIf="playLists">
+                <ul *ngIf="playLists && ss">
                   <li *ngFor="let playList of playLists">
-                    <button #playItem (click)="updateplayList($event , playList)" class="btn"
+                    <button #playItem (click)="updateplayList(playList)" class="btn"
                             data-playlist-id="">{{playList.name}}</button>
                   </li>
                 </ul>
@@ -113,15 +229,19 @@
       </div>
     </div>
     <div class="player-left">
-      <h2>از این خواننده</h2>
-      <div>
-        <div #allItems (click)="navigateRecommends($event , recommend)" *ngFor="let recommend of recommends"
-             class="playlist-box">
-          <app-card [song]="recommend"></app-card>
-        </div>
-      </div>
+      <h2>مرتبط با سلیقت</h2>
+<!--      <div>-->
+        <app-card #child [songs]="recommends"></app-card>
+<!--        <div #allItems (click)="navigateRecommends($event , recommend)" *ngFor="let recommend of recommends"-->
+<!--             class="playlist-box">-->
+<!--          <app-card  [song]="recommend"></app-card>-->
+<!--        </div>-->
+<!--      </div>-->
     </div>
 
   </div>
 
 </main>
+</body>
+
+</html>
