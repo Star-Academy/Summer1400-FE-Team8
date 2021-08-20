@@ -7,6 +7,12 @@ export class NavSideService {
 
   constructor() { }
   toggleElm !: HTMLElement ;
+  menu :any;
+  black_page :any;
+  openClass :any;
+  closeClass :any;
+  rightWhenClosed :any;
+
   toggleMenu = (menu:HTMLDivElement,openClass:string,closeClass:string,rightWhenClosed:string) => {
     if (menu.classList.contains(openClass)) {
       menu.style.right = rightWhenClosed;
@@ -18,13 +24,35 @@ export class NavSideService {
       menu.style.right = `0px`;
     }
   };
-  setToggleElm(elm:HTMLElement){
-    this.toggleElm = elm;
+  handleToggleMove(){
+
   }
-  getToggleElm(){
-    console.log(this.toggleElm)
-    return this.toggleElm;
-    
+  setNavMobileElms(menu:any , black_page:any , openClass:any , closeClass:any , rightWhenClosed:any){
+    this.menu = menu;
+    this.black_page = black_page;
+    this.openClass = openClass;
+    this.closeClass = closeClass;
+    this.rightWhenClosed = rightWhenClosed;
   }
+  getNavMobileElms(){
+    return {
+      menu :this.menu,
+      black_page: this.black_page,
+      openClass: this.openClass,
+      closeClass: this.closeClass,
+      rightWhenClosed: this.rightWhenClosed,
+    }
+  }
+  toggleBlackPage(
+    menu: HTMLDivElement,
+    black_page: HTMLDivElement,
+    openClass: string
+  ){
+    if (menu.classList.contains(openClass)) {
+      black_page.style.display = 'none';
+    } else {
+      black_page.style.display = 'block';
+    }
+  };
   
 }
