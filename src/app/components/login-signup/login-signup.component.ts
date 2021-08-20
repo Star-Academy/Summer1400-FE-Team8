@@ -7,7 +7,7 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
   styleUrls: ['./login-signup.component.scss']
 })
 export class LoginSignupComponent implements OnInit {
-  constructor(private router: Router, private actRoute: ActivatedRoute) { }
+  constructor(private router: Router) { }
   @ViewChild('loginBtnRef') loginBtnRef !: ElementRef;
   @ViewChild('signupBtnRef') signupBtnRef !: ElementRef;
   handleChangeBtnsStyle(){

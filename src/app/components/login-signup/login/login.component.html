@@ -4,13 +4,13 @@
       <div class="login-box-text">
         <h2>ورود به حساب کاربری</h2>
         <div class="login-box-alert"></div>
-        <form class="login-box-form" name="login_form" (submit)="handleLogin($event)">
+        <form class="login-box-form" name="login_form" #formElem (submit)="handleLogin($event)">
           <div>
-            <input #formElem class="custom-input" type="text" name="username" placeholder="نام کاربری" />
+            <input #formChildElem class="custom-input" type="text" name="username" placeholder="نام کاربری" />
             <div id="username_error"></div>
           </div>
           <div>
-            <input #formElem
+            <input #formChildElem
               class="custom-input"
               type="password"
               name="password"
@@ -20,7 +20,7 @@
             <div #passError id="pass_error"></div>
           </div>
           <div class="remember-container">
-            <input type="checkbox" name="remember_me" />
+            <input type="checkbox" name="remember_me"/>
             <label for="remember_me">مرا به خاطر بسپار</label>
           </div>
           <div class="login-submit-container">
