@@ -22,11 +22,14 @@ export class MusicSearchComponent implements OnInit {
   ) {}
 
   @ViewChild('boxRef') boxRef!: ElementRef;
-  @ViewChild('orderFormRef') orderFormRef!: ElementRef;
-  @ViewChild('modeFormRef') modeFormRef!: ElementRef;
   @ViewChild('paginationRef') paginationRef!: ElementRef;
   @ViewChild('pagBackwardBtnRef') pagBackwardBtnRef!: ElementRef;
   @ViewChild('pagForwardBtnRef') pagForwardBtnRef!: ElementRef;
+  @ViewChild('descRef') descRef!: ElementRef;
+  @ViewChild('ascRef') ascRef!: ElementRef;
+  @ViewChild('newestRef') newestRef!: ElementRef;
+  @ViewChild('nameRef') nameRef!: ElementRef;
+  @ViewChild('artistRef') artistRef!: ElementRef;
   @ViewChild(SearchBoxComponent) searchBoxRef!: SearchBoxComponent;
   private subs1!: Subscription;
   private subs2!: Subscription;
@@ -125,15 +128,11 @@ export class MusicSearchComponent implements OnInit {
     }
   }
   ngAfterViewInit(): void {
-    let data: any = [];
-    const box = this.boxRef.nativeElement;
-    const orderForm = this.orderFormRef.nativeElement;
-    const modeForm = this.modeFormRef.nativeElement;
-    const descBtn = orderForm.querySelector('#desc');
-    const ascBtn = orderForm.querySelector('#asc');
-    const newestBtn = modeForm.querySelector('#newest');
-    const nameBtn = modeForm.querySelector('#name');
-    const artistBtn = modeForm.querySelector('#artist');
+    const descBtn = this.descRef.nativeElement;
+    const ascBtn =this.ascRef.nativeElement;
+    const newestBtn = this.newestRef.nativeElement;
+    const nameBtn = this.nameRef.nativeElement;
+    const artistBtn = this.artistRef.nativeElement;
     const searchBox = this.searchBoxRef.getSearchInputElm();
     let page = window.location.search.split('&')[0].split('=')[1] as any;
     let descStr = window.location.search.split('&')[1].split('=')[1];

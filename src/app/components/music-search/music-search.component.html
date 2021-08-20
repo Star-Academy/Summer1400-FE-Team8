@@ -14,13 +14,14 @@
                     alt="genre" /></span
                   >ترتیب
               </h3>
-              <form class="form-order" #orderFormRef>
+              <form class="form-order">
                 <div>
                   <input
                     type="radio"
                     name="order"
                     id="desc"
                     value="desc"
+                    #descRef
                     (click)="handleChangeFilter($event,'desc','true')"
                   />
                   <label for="desc">نزولی</label>
@@ -31,6 +32,7 @@
                     name="order"
                     id="asc"
                     value="asc"
+                    #ascRef
                     (click)="handleChangeFilter($event,'desc','false')"
   
                   />
@@ -46,13 +48,14 @@
                     alt="genre" /></span
                   >بر اساس
               </h3>
-              <form class = "form-mode" #modeFormRef>
+              <form class = "form-mode" >
                 <div>
                   <input
                     type="radio"
                     name="mode"
                     id="newest"
                     value="newest"
+                    #newestRef
                     (click)="handleChangeFilter($event,'sortBy','newest')"
   
                   />
@@ -64,6 +67,7 @@
                     name="mode"
                     id="name"
                     value="name"
+                    #nameRef
                     (click)="handleChangeFilter($event,'sortBy','name')"
                   />
                   <label for="name">نام اهنگ</label>
@@ -74,6 +78,7 @@
                     name="mode"
                     id="artist"
                     value="artist"
+                    #artistRef
                     (click)="handleChangeFilter($event,'sortBy','artist')"
                   />
                   <label for="artist">نام خواننده</label>

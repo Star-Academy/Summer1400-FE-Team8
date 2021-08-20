@@ -1,4 +1,11 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  QueryList,
+  ViewChild,
+  ViewChildren,
+} from '@angular/core';
 import { NavSideService } from 'src/app/services/nav-side/nav-side.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { UserService } from 'src/app/services/user/user.service';
@@ -21,6 +28,8 @@ export class NavSideMobileComponent implements OnInit {
   @ViewChild('blackPageRef') blackPageRef!: ElementRef;
   @ViewChild('avatarRef') avatarRef!: ElementRef;
   @ViewChild(NavbarComponent) navbarRef!: NavbarComponent;
+  @ViewChildren('userRef') userRef!: QueryList<ElementRef>;
+  @ViewChildren('loggedOutRef') loggedOutRef!: QueryList<ElementRef>;
   toggleBlackPage = (
     menu: HTMLDivElement,
     black_page: HTMLDivElement,
@@ -55,13 +64,10 @@ export class NavSideMobileComponent implements OnInit {
   ngAfterViewInit(): void {
     const userId = this.authService.getUser();
     const menu = this.menuRef.nativeElement;
-    const toggle = document.querySelector(
-      '.nav-mobile-main-toggle'
-    ) as HTMLElement;
     const black_page = this.blackPageRef.nativeElement;
     const avatar = this.avatarRef.nativeElement;
-    const user = menu.querySelectorAll('.nav-mobile-side-user');
-    const loggedOut = menu.querySelectorAll('.nav-mobile-side-loggedout');
+    const user = this.userRef.toArray();
+    const loggedOut = this.loggedOutRef.toArray();
     const openClass = 'nav-mobile-side-open';
     const closeClass = 'nav-mobile-side-closed';
     const rightWhenClosed = '-25rem';
@@ -76,21 +82,21 @@ export class NavSideMobileComponent implements OnInit {
       if (val instanceof NavigationEnd) {
         if (!this.authService.isLogged()) {
           user.forEach((item: any) => {
-            item.classList.add('display-none');
-            item.classList.remove('display-block');
+            item.nativeElement.classList.add('display-none');
+            item.nativeElement.classList.remove('display-block');
           });
           loggedOut.forEach((item: any) => {
-            item.classList.add('display-block');
-            item.classList.add('display-none');
+            item.nativeElement.classList.add('display-block');
+            item.nativeElement.classList.add('display-none');
           });
         } else {
           loggedOut.forEach((item: any) => {
-            item.classList.add('display-none');
-            item.classList.remove('display-block');
+            item.nativeElement.classList.add('display-none');
+            item.nativeElement.classList.remove('display-block');
           });
           user.forEach((item: any) => {
-            item.classList.add('display-block');
-            item.classList.remove('display-none');
+            item.nativeElement.classList.add('display-block');
+            item.nativeElement.classList.remove('display-none');
           });
         }
       }

@@ -15,6 +15,7 @@ export class NavSideDesktopComponent implements OnInit {
   ) {}
 
   @ViewChild('toggleBtnRef') toggleBtnRef!: ElementRef;
+  @ViewChild('toggleBtnImgRef') toggleBtnImgRef!: ElementRef;
   @ViewChild('menuRef') menuRef!: ElementRef;
   @ViewChild('avatarRef') avatarRef!: ElementRef;
 
@@ -35,7 +36,7 @@ export class NavSideDesktopComponent implements OnInit {
 
   handleToggleBtn() {
     const menu = this.menuRef.nativeElement;
-    const toggleImg = this.toggleBtnRef.nativeElement.querySelector('img');
+    const toggleImg = this.toggleBtnImgRef.nativeElement;
     const openClass = 'nav-desktop-side-open';
     const closeClass = 'nav-desktop-side-closed';
     const rightWhenClosed = '-13.43rem';
