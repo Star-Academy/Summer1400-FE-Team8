@@ -1,9 +1,9 @@
 
     <!----------- MOBILE NAVBAR ----------->
-    <nav class="nav-mobile">
+    <nav class="nav-mobile"  #navRef>
       <div class="nav-mobile-main">
         <div class="nav-mobile-main-toggle" >
-          <img src="../assets/images/nav-mobile/open-menu.svg" alt="toggle" #toggleRef />
+          <img src="../assets/images/nav-mobile/open-menu.svg" (click)="handleToggle()" alt="toggle" #toggleRef />
         </div>
         <h2 class="nav-mobile-main-logo">
           <a routerLink="/">آهنگیفای</a>
@@ -15,7 +15,7 @@
     </nav>
 
     <!----------- DESKTOP NAVBAR ----------->
-    <nav>
+    <nav #navRef> 
       <div class="nav-content">
         <div class="nav-logo">
           <h2><a routerLink="/">آهنگیفای</a></h2>
@@ -24,13 +24,13 @@
           <div class="nav-menu-item">
             <a routerLink="/">خانه</a>
           </div>
-          <div class="nav-menu-item nav-menu-item">
+          <div class="nav-menu-item">
             <a routerLink="music_search">جستجوی موزیک</a>
           </div>
-          <div class="nav-menu-item nav-menu-item-loggedout">
+          <div class="nav-menu-item nav-menu-item-loggedout" #loggedOutItemRef>
             <a routerLink="user/signup">ثبت نام</a>
           </div>
-          <div class="nav-menu-item nav-menu-item-loggedout">
+          <div class="nav-menu-item nav-menu-item-loggedout" #loggedOutItemRef>
             <a routerLink="user/login">ورود</a>
           </div>
           <div class="nav-menu-item">

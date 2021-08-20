@@ -14,7 +14,7 @@ export class NavSideMobileComponent implements OnInit {
     private navSideService: NavSideService,
     private authService: AuthService,
     private router: Router,
-    private userService: UserService,
+    private userService: UserService
   ) {}
 
   @ViewChild('menuRef') menuRef!: ElementRef;
@@ -33,7 +33,7 @@ export class NavSideMobileComponent implements OnInit {
     }
   };
 
-  handleBlackPageClick(){
+  handleBlackPageClick() {
     const menu = this.menuRef.nativeElement;
     const black_page = this.blackPageRef.nativeElement;
     const openClass = 'nav-mobile-side-open';
@@ -47,7 +47,7 @@ export class NavSideMobileComponent implements OnInit {
       rightWhenClosed
     );
   }
-  handleLogout(){
+  handleLogout() {
     this.authService.removeUserLocal();
   }
 
@@ -55,7 +55,9 @@ export class NavSideMobileComponent implements OnInit {
   ngAfterViewInit(): void {
     const userId = this.authService.getUser();
     const menu = this.menuRef.nativeElement;
-    const toggle = document.querySelector(".nav-mobile-main-toggle") as HTMLElement;
+    const toggle = document.querySelector(
+      '.nav-mobile-main-toggle'
+    ) as HTMLElement;
     const black_page = this.blackPageRef.nativeElement;
     const avatar = this.avatarRef.nativeElement;
     const user = menu.querySelectorAll('.nav-mobile-side-user');
@@ -63,7 +65,13 @@ export class NavSideMobileComponent implements OnInit {
     const openClass = 'nav-mobile-side-open';
     const closeClass = 'nav-mobile-side-closed';
     const rightWhenClosed = '-25rem';
-
+    this.navSideService.setNavMobileElms(
+      menu,
+      black_page,
+      openClass,
+      closeClass,
+      rightWhenClosed
+    );
     this.router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
         if (!this.authService.isLogged()) {
@@ -99,15 +107,5 @@ export class NavSideMobileComponent implements OnInit {
     }
 
     menu.style.right = rightWhenClosed;
-
-    toggle.addEventListener('click', () => {
-      this.toggleBlackPage(menu, black_page, openClass);
-      this.navSideService.toggleMenu(
-        menu,
-        openClass,
-        closeClass,
-        rightWhenClosed
-      );
-    });  
   }
 }
