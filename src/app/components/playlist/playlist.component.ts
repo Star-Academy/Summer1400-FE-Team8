@@ -10,7 +10,7 @@ import { PlaylistService } from 'src/app/services/playlist/playlist.service';
 })
 export class PlaylistComponent implements OnInit {
 
-  constructor(private router: Router, private actRoute : ActivatedRoute, private playlistService: PlaylistService) { }
+  constructor(private actRoute : ActivatedRoute, private playlistService: PlaylistService) { }
 
   id:string ='';
   playlistName:string ='';
@@ -18,15 +18,10 @@ export class PlaylistComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = (this.actRoute.snapshot.paramMap.get('id') as string)
-    // this.playlistService.addToPlaylist(this.id, '111').subscribe((res)=>console.log(res))
-    // this.playlistService.addToPlaylist(this.id, '122').subscribe((res)=>console.log(res))
-    // this.playlistService.addToPlaylist(this.id, '523').subscribe((res)=>console.log(res))
-    // this.playlistService.addToPlaylist(this.id, '714').subscribe((res)=>console.log(res))
    
     this.playlistService.getOnePlaylist(this.id)
     .subscribe(res=>{
       this.songs = res.songs;
-      console.log(res)
       this.playlistName = res.name;
     })
   }

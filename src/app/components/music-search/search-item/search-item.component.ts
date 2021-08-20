@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Song } from 'src/app/interfaces/interfaces';
-import {SongService} from 'src/app/services/song/song.service';
-import { Input , Output} from '@angular/core';
+import { Input} from '@angular/core';
 @Component({
   selector: 'app-search-item',
   templateUrl: './search-item.component.html',

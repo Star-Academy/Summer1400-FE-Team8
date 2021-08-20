@@ -63,7 +63,6 @@ export class EditProfileComponent implements OnInit {
   ngAfterViewInit() {
     const userId  = this.authService.getUser();
     const form = this.formRef.nativeElement;
-
     this.userService.getUserData(`user/one/${userId}`)
       .subscribe((res:any) =>{
         const userInfo = res.user;
@@ -84,8 +83,6 @@ export class EditProfileComponent implements OnInit {
 
           }
         }
-
-        // const datepicker = new Datepicker(elem);
 
       })
   }

@@ -3,13 +3,13 @@
       <h1>پلی لیست ها</h1>
     <div>
       <section class="create-playlist">
-        <button class="create-playlist-btn btn btn--gray">+ پلی لیست جدید بساز</button>
-        <div class="create-playlist-page">
-           <div class="create-playlist-page-box">
+        <button class="create-playlist-btn btn btn--gray" (click)="handleCreateBtn()" #createPlaylistBtnRef>+ پلی لیست جدید بساز</button>
+        <div class="create-playlist-page" (click)="handleCreatePage($event)" #createPlaylistPageRef>
+           <div class="create-playlist-page-box" #createPlaylistBoxRef>
             <form (submit)="createPlaylist($event)">
               <div class="create-playlist-input">
                 <label for="name">نام پلی لیست</label>
-                <input class="custom-input" type="text">
+                <input class="custom-input" type="text" #createPlaylistInputRef>
               </div>
               <div class="create-playlist-submit">
                 <button type="submit" class="btn btn--blue">ساخت پلی لیست</button>

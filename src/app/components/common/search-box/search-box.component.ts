@@ -37,6 +37,5 @@ export class SearchBoxComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.actRoute);
   }
 }
