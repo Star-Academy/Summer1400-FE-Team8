@@ -34,7 +34,7 @@ export class PlayerComponent implements OnInit, AfterViewInit {
   @ViewChild('registerAlert', {static: false}) registerAlert!: ElementRef;
   @ViewChild('addPage') addPage!: ElementRef;
   @ViewChild('addBox') addBox!: ElementRef;
-  @ViewChildren('playItem') playItems!: QueryList<ElementRef>
+  @ViewChildren('playItem') playItems!: QueryList<ElementRef>;
   @ViewChildren('allItems') boxItems!: QueryList<ElementRef>;
   @ViewChild('child') child!: CardComponent;
 
@@ -79,15 +79,16 @@ export class PlayerComponent implements OnInit, AfterViewInit {
     );
   }
 
-  async editPlayLists() {
-    await this.playItems.toArray().forEach((e, i) => {
+  editPlayLists() {
+    this.playItems.toArray().forEach((e, i) => {
       if (this.playLists[i].songs.some(s => s.id == this.ss.id)) {
+        e.nativeElement.classList.remove('btn--blue');
         e.nativeElement.classList.add('btn--red');
         e.nativeElement.title = 'حذف از پلی لیست';
       } else {
-        // console.log(e.nativeElement);
-        e.nativeElement.title = 'افزودن به پلی لیست';
+        e.nativeElement.classList.remove('btn--red');
         e.nativeElement.classList.add('btn--blue');
+        e.nativeElement.title = 'افزودن به پلی لیست';
       }
     });
   }
@@ -113,8 +114,8 @@ export class PlayerComponent implements OnInit, AfterViewInit {
       this.detailsLyricsButton.nativeElement.style.backgroundColor = "#486fb4";
     });
     this.detailsLyricsButton.nativeElement.onclick = (() => {
-      this.lyricsContainer.nativeElement.style.display = "initial";
       this.infoContainer.nativeElement.style.display = "none";
+      this.lyricsContainer.nativeElement.style.display = "initial";
       this.detailsLyricsButton.nativeElement.style.backgroundColor = "#33538b";
       this.detailsInfoButton.nativeElement.style.backgroundColor = "#486fb4";
     });
@@ -158,6 +159,11 @@ export class PlayerComponent implements OnInit, AfterViewInit {
     this.isPlaying = false;
   }
 
+  mousemoveRange(playRange: HTMLInputElement)
+  {
+    this.playRange.nativeElement.style.background = "linear-gradient(to right, #33538AFF " + playRange.value + "%, #fff 0%)";
+  }
+
   Process = async () => {
     await this.ngAfterViewInit();
     if (this.auth.isLogged())
@@ -168,9 +174,7 @@ export class PlayerComponent implements OnInit, AfterViewInit {
   }
 
   loadSong = () => {
-
     this.loadTrack();
-
   }
 
   loadTrack = () => {
