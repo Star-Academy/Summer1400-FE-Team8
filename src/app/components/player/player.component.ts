@@ -159,8 +159,7 @@ export class PlayerComponent implements OnInit, AfterViewInit {
     this.isPlaying = false;
   }
 
-  mousemoveRange(playRange: HTMLInputElement)
-  {
+  mousemoveRange(playRange: HTMLInputElement) {
     this.playRange.nativeElement.style.background = "linear-gradient(to right, #33538AFF " + playRange.value + "%, #fff 0%)";
   }
 
