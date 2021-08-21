@@ -7,7 +7,7 @@ describe('InterceptorService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      // imp: [NoCacheHeadersInterceptor]
+      providers:[NoCacheHeadersInterceptor]
     });
     service = TestBed.inject(NoCacheHeadersInterceptor);
   });
