@@ -1,18 +1,26 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { MusicSearchComponent } from './music-search.component';
+
 
 describe('MusicSearchComponent', () => {
   let component: MusicSearchComponent;
   let fixture: ComponentFixture<MusicSearchComponent>;
 
+  
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MusicSearchComponent ]
+      declarations: [ MusicSearchComponent ],
+      imports:[
+        RouterTestingModule,
+        // HttpClientTestingModule
+      ]
     })
     .compileComponents();
   });
-
+  
   beforeEach(() => {
     fixture = TestBed.createComponent(MusicSearchComponent);
     component = fixture.componentInstance;

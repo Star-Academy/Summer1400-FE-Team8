@@ -1,5 +1,5 @@
 
-    <div class="favorites-box-item" (click)="handlePlay($event,song.id)">
+    <div class="favorites-box-item" *ngIf="song" (click)="handlePlay($event,song.id)">
       <div class="favorites-box-item-pic">
         <img src={{song.cover}} alt="cover" />
       </div>

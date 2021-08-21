@@ -1,4 +1,6 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { PlaylistsComponent } from './playlists.component';
 
@@ -8,7 +10,11 @@ describe('PlaylistsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PlaylistsComponent ]
+      declarations: [ PlaylistsComponent ],
+      imports:[
+        RouterTestingModule,
+        HttpClientTestingModule
+      ]
     })
     .compileComponents();
   });

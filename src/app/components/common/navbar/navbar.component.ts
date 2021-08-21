@@ -10,7 +10,6 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { NavSideService } from 'src/app/services/nav-side/nav-side.service';
-import { NavSideMobileComponent } from '../nav-side-mobile/nav-side-mobile.component';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -25,7 +24,6 @@ export class NavbarComponent implements OnInit {
   ) {}
 
   @ViewChild('toggleRef') toggleRef!: ElementRef;
-  @ViewChild(NavSideMobileComponent) navSideMobile!: NavSideMobileComponent;
   @ViewChildren('navRef') navRef!: QueryList<ElementRef>;
   @ViewChildren('loggedOutItemRef') loggedOutItemRef!: QueryList<ElementRef>;
 

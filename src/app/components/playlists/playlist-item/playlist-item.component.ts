@@ -32,7 +32,7 @@ export class PlaylistItemComponent implements OnInit {
       .subscribe(() => container.classList.add('display-none'));
   }
   ngOnInit(): void {
-    if (this.playlist.songs.length) {
+    if (this.playlist && this.playlist.songs.length) {
       this.lastElmObj = this.playlist.songs[this.playlist.songs.length - 1];
       this.lastElmObjCover = this.lastElmObj.cover;
     }

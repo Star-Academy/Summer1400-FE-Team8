@@ -1,4 +1,4 @@
-<div class="playlists-item" data-id={{playlist.id}} (click)="showPlaylistSongs($event)">
+<div class="playlists-item" *ngIf="playlist" (click)="showPlaylistSongs($event)">
     <div class="playlists-item-pic">
     <a 
         ><img src="{{playlist.songs.length ? lastElmObjCover : this.noCoverImg}} " alt="cover"
