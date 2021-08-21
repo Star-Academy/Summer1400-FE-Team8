@@ -1,7 +1,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-
+import { PlaylistService } from 'src/app/services/playlist/playlist.service';
 import { PlaylistSongItemComponent } from './playlist-song-item.component';
 
 describe('PlaylistSongItemComponent', () => {
@@ -14,6 +14,9 @@ describe('PlaylistSongItemComponent', () => {
       imports : [
         HttpClientTestingModule,
         RouterTestingModule
+      ],
+      providers:[
+        {provide:PlaylistService,useClass:PlaylistServiceStub}
       ]
     })
     .compileComponents();
@@ -29,3 +32,7 @@ describe('PlaylistSongItemComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+class PlaylistServiceStub{
+
+}
