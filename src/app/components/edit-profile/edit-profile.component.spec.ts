@@ -1,6 +1,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MockLocationStrategy } from '@angular/common/testing';
+import { LocationStrategy } from '@angular/common';
 import { EditProfileComponent } from './edit-profile.component';
 
 describe('EditProfileComponent', () => {
@@ -12,6 +13,9 @@ describe('EditProfileComponent', () => {
       declarations: [ EditProfileComponent ],
       imports: [
         HttpClientTestingModule
+      ],
+      providers:[
+        { provide: LocationStrategy, useClass: MockLocationStrategy },
       ]
     })
     .compileComponents();

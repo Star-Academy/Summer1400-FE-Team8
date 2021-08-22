@@ -11,7 +11,7 @@ import {EditProfileComponent} from './components/edit-profile/edit-profile.compo
 import {MusicSearchComponent} from './components/music-search/music-search.component';
 import { RouteGuard } from './guards/route/route.guard'; 
 
-const routes: Routes = [
+export const routes: Routes = [
   { path:'',component: HomepageComponent},
   {path: 'home', redirectTo: '', pathMatch: 'full'},
 

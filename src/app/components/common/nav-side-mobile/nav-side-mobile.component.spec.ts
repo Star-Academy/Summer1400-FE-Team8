@@ -1,8 +1,8 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-
-
+import { MockLocationStrategy } from '@angular/common/testing';
+import { LocationStrategy } from '@angular/common';
 import { NavSideMobileComponent } from './nav-side-mobile.component';
 
 describe('NavSideMobileComponent', () => {
@@ -15,6 +15,9 @@ describe('NavSideMobileComponent', () => {
       imports: [
         RouterTestingModule,
         HttpClientTestingModule
+      ],
+      providers:[
+        { provide: LocationStrategy, useClass: MockLocationStrategy },
       ]
        
     })

@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-
+import { MockLocationStrategy } from '@angular/common/testing';
+import { LocationStrategy } from '@angular/common';
 import { LoginSignupComponent } from './login-signup.component';
 
 describe('LoginSignupComponent', () => {
@@ -12,6 +13,9 @@ describe('LoginSignupComponent', () => {
       declarations: [LoginSignupComponent],
       imports:[
       RouterTestingModule 
+      ],
+      providers:[
+        { provide: LocationStrategy, useClass: MockLocationStrategy },
       ]
     })
     .compileComponents();

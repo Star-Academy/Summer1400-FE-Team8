@@ -16,7 +16,7 @@ export class PlaylistsComponent implements OnInit {
   createPage!: any;
   createBox!: any;
   createInput!: any;
-  createPlaylist(e: any) {
+  createPlaylist(e: any):boolean {
     e.preventDefault();
     const name = e.target[0].value;
     if (name) {
@@ -28,8 +28,10 @@ export class PlaylistsComponent implements OnInit {
         this.createPage.style.display = 'none';
       }, 350);
       e.target[0].value = '';
+      return true;
     } else {
       alert('لطفا یه نام برای پلی لیست جدید انتخاب کن');
+      return false
     }
   }
   getAllPlaylists() {

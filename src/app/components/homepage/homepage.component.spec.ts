@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MockLocationStrategy } from '@angular/common/testing';
+import { LocationStrategy } from '@angular/common';
 import { HomepageComponent } from './homepage.component';
 
 describe('HomepageComponent', () => {
@@ -8,7 +9,10 @@ describe('HomepageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomepageComponent ]
+      declarations: [ HomepageComponent ],
+      providers:[
+        { provide: LocationStrategy, useClass: MockLocationStrategy },
+      ]
     })
     .compileComponents();
   });

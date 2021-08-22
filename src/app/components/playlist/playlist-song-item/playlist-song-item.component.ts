@@ -16,17 +16,21 @@ export class PlaylistSongItemComponent implements OnInit {
 
   constructor(private playlistService: PlaylistService , private router: Router) { }
   handlePlay(e:any,id:string){
-    if(e.target.closest('.favorites-box-item-delete')) return;
-    this.router.navigateByUrl(`player/${id}`);
+    if(e.target.closest('.favorites-box-item-delete')) return false;
+    this.router.navigateByUrl(`player/${id}`) ;
+    return true;
   }
   removeSongFromPlaylist(e:any,songId:string){
     const container = e.target.parentElement.parentElement;
       this.playlistService.removeFromPlaylist(this.playlistId, songId).subscribe(
-        ()=>container.classList.add('display-none')
+        ()=>{
+          container.classList.add('display-none');
+        }
       )
+      return true;
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {  
   }
 
 }
