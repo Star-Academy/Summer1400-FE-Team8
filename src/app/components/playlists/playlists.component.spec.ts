@@ -1,16 +1,31 @@
+import { LocationStrategy } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MockLocationStrategy } from '@angular/common/testing';
+import { Component } from '@angular/core';
+import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { Playlist } from 'src/app/interfaces/interfaces';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { PlaylistService } from 'src/app/services/playlist/playlist.service';
 
 import { PlaylistsComponent } from './playlists.component';
 
+@Component({ template: '' })
+class mockedPlaylistService{
+  getPlaylists(): Observable<Playlist[]> {
+    return of([]);
+  }  
+  createPlaylist(): Observable<Playlist> {
+    return of();
+  }  
+}
+
 describe('PlaylistsComponent', () => {
   let component: PlaylistsComponent;
+  let playlistService:mockedPlaylistService;
   let fixture: ComponentFixture<PlaylistsComponent>;
 
   beforeEach(async () => {
@@ -19,13 +34,18 @@ describe('PlaylistsComponent', () => {
       imports:[
         RouterTestingModule,
         HttpClientTestingModule
-      ]
+      ],
+      providers: [
+        { provide: PlaylistService, useClass: mockedPlaylistService },
+        { provide: LocationStrategy, useClass: MockLocationStrategy },
+      ],
     })
     .compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(PlaylistsComponent);
+    playlistService = new mockedPlaylistService();
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -50,16 +70,49 @@ describe('PlaylistsComponent', () => {
     expect(component.createPlaylist(event)).toBeFalsy();
   });
   it('should get all playlists', () => {
-    const http :any = ''
-    const http2 :any = ''
-    const service = new PlaylistService(http,http2)
-    const service2 = new AuthService();
-    spyOn(service2, 'getToken')
-    .and.returnValue('abcd')
-    spyOn(service, 'getPlaylists')
-    .and.returnValue(of([]))
+    spyOn(component, 'getAllPlaylists');
+    component.ngAfterViewInit();
+    expect(component.getAllPlaylists).toHaveBeenCalled();
+  });
+  it('should get all playlists', () => {
+    expect(playlistService.getPlaylists()).toBeTruthy();
+  });
+  it('should change box style when create btn is clicked', fakeAsync(() => {
+    const query = fixture.debugElement.query(By.css('.create-playlist-btn'));
+    const createBox = fixture.debugElement.query(By.css('.create-playlist-page-box'));
+    const btn : HTMLButtonElement = query.nativeElement;
+    const event = new Event('click');
+    btn.dispatchEvent(event);
+    btn.click();
+    tick(1);
     fixture.detectChanges();
-    expect(service.getPlaylists).toHaveBeenCalled();
+    fixture.whenStable().then(() => {
+      expect(createBox.nativeElement.style.transform).toBe('scale(1)');
+    });
+  }));
+  it('should close createPlaylistPage when click outside the box', () => {
+    const createBox = fixture.debugElement.query(By.css('.create-playlist-page-box'));
+    const query = fixture.debugElement.query(By.css('.create-playlist-page'));
+    const createPage : HTMLButtonElement = query.nativeElement;
+    const event = new Event('click');
+    createPage.dispatchEvent(event);
+    createPage.click();
+    fixture.detectChanges();
+    fixture.whenStable().then(() => {
+      expect(createBox.nativeElement.style.transform).toBe('scale(.1)');
+    });
+  });
+  it('should NOT close createPlaylistPage when clicking inside the box', () => {
+    const createBox = fixture.debugElement.query(By.css('.create-playlist-page-box'));
+    const query = fixture.debugElement.query(By.css('.create-playlist-page-box'));
+    const createPage : HTMLButtonElement = query.nativeElement;
+    const event = new Event('click');
+    createPage.dispatchEvent(event);
+    createPage.click();
+    fixture.detectChanges();
+    fixture.whenStable().then(() => {
+      expect(createBox.nativeElement.style.transform).toBe('');
+    });
   });
  
 });
