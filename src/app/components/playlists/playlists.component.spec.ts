@@ -90,19 +90,21 @@ describe('PlaylistsComponent', () => {
       expect(createBox.nativeElement.style.transform).toBe('scale(1)');
     });
   }));
-  it('should close createPlaylistPage when click outside the box', () => {
+  it('should close createPlaylistPage when click outside the box', fakeAsync(() => {
     const createBox = fixture.debugElement.query(By.css('.create-playlist-page-box'));
     const query = fixture.debugElement.query(By.css('.create-playlist-page'));
     const createPage : HTMLButtonElement = query.nativeElement;
     const event = new Event('click');
     createPage.dispatchEvent(event);
     createPage.click();
+    tick(350);
     fixture.detectChanges();
     fixture.whenStable().then(() => {
-      expect(createBox.nativeElement.style.transform).toBe('scale(.1)');
+      expect(createBox.nativeElement.style.transform).toBe('scale(0.1)');
     });
-  });
-  it('should NOT close createPlaylistPage when clicking inside the box', () => {
+  }
+  ));
+  it('should NOT close createPlaylistPage when clicking inside the box', fakeAsync(() => {
     const createBox = fixture.debugElement.query(By.css('.create-playlist-page-box'));
     const query = fixture.debugElement.query(By.css('.create-playlist-page-box'));
     const createPage : HTMLButtonElement = query.nativeElement;
@@ -113,6 +115,6 @@ describe('PlaylistsComponent', () => {
     fixture.whenStable().then(() => {
       expect(createBox.nativeElement.style.transform).toBe('');
     });
-  });
+  }));
  
 });
