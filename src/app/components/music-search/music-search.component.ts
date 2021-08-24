@@ -122,10 +122,13 @@ export class MusicSearchComponent implements OnInit {
       this.urlService.setParams(paramName, paramVal, '', '');
     }
   }
-  ngOnInit(): void {
+  handleReload(){
     if (!window.location.search) {
       window.location.replace('/music_search?page=1&desc=false&sortBy=artist');
     }
+  }
+  ngOnInit(): void {
+    this.handleReload();
   }
   ngAfterViewInit(): void {
     const descBtn = this.descRef.nativeElement;
