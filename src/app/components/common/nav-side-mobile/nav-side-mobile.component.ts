@@ -107,8 +107,7 @@ export class NavSideMobileComponent implements OnInit {
         (res: any) => {
           if (!res.user.avatar) return;
           avatar.src = res.user.avatar;
-        },
-        (err) => console.log(err)
+        }
       );
     }
 

@@ -63,8 +63,7 @@ export class NavSideDesktopComponent implements OnInit {
         (res: any) => {
           if (!res.user.avatar) return;
           avatar.src = res.user.avatar;
-        },
-        (err) => err
+        }
       );
       menu.style.right = rightWhenClosed;
     }
