@@ -19,10 +19,10 @@
       یا وارد حسابت بشی !
     </p>
     <div class="signup-alert-box-btns">
-      <a (click)="navLogin(true)">
+      <a id="loginAlert" (click)="navLogin(true)">
         <button class="btn btn--blue">ورود</button>
       </a>
-      <a (click)="navLogin(false)">
+      <a id="signupAlert" (click)="navLogin(false)">
         <button class="btn btn--blue">ثبت نام</button>
       </a>
     </div>
@@ -209,7 +209,7 @@
               <button #detailsLyrics class="btn details-buttons-lyrics ls-top-btn-idle">متن</button>
             </div>
 
-            <div #lyricsContainer class="details-box" style="display: none">
+            <div id="lyricsContainer" #lyricsContainer class="details-box" style="display: none">
               <div style="height: 350px;">
                 <p *ngIf="song" class="lyrics-container">
                   {{song.lyrics}}
@@ -217,11 +217,11 @@
               </div>
             </div>
 
-            <div #infoContainer class="details-box" style="display: initial">
+            <div id="infoContainer" #infoContainer class="details-box" style="display: initial">
               <div class="info_container">
                 <p><span *ngIf="song">   نام خواننده : {{song.artist }} </span><span></span></p>
                 <p><span *ngIf="song">   نام اثر : {{song.name }} </span><span></span></p>
-                <p><span *ngIf="song">  نشر : {{ song.publish_date | persianData }}   </span><br><span></span></p>
+                <p><span *ngIf="song">  نشر : {{ song.publish_date  }}   </span><br><span></span></p>
               </div>
             </div>
 
@@ -233,7 +233,7 @@
     <div class="player-left">
       <h2>مرتبط با سلیقت</h2>
       <!--      <div>-->
-      <app-card #child [songs]="recommends"></app-card>
+<!--      <app-card #child [songs]="recommends"></app-card>-->
       <!--        <div #allItems (click)="navigateRecommends($event , recommend)" *ngFor="let recommend of recommends"-->
       <!--             class="playlist-box">-->
       <!--          <app-card  [song]="recommend"></app-card>-->

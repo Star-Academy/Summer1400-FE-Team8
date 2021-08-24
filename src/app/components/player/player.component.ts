@@ -1,7 +1,7 @@
 import {
   AfterViewInit,
   Component,
-  ElementRef,
+  ElementRef, NgModule,
   OnInit,
   QueryList,
   Renderer2,
@@ -36,7 +36,7 @@ export class PlayerComponent implements OnInit, AfterViewInit {
   @ViewChild('addBox') addBox!: ElementRef;
   @ViewChildren('playItem') playItems!: QueryList<ElementRef>;
   @ViewChildren('allItems') boxItems!: QueryList<ElementRef>;
-  @ViewChild('child') child!: CardComponent;
+  // @ViewChild('child') child!: CardComponent;
 
   public songs: Song[] = [];
   public song: Song | any;
@@ -44,22 +44,24 @@ export class PlayerComponent implements OnInit, AfterViewInit {
   public recommends: Song[] = [];
   public playLists: Playlist[] = [];
   public current_track: any;
-  public isPlaying!: boolean;
+  public isPlaying: boolean = false;
   public recommand_index!: number;
   public songId!: string | null;
 
   constructor(private renderer2: Renderer2, private songService: SongService, private router: Router, private route: ActivatedRoute,
               private auth: AuthService, private playlistService: PlaylistService) {
   }
-
+  getAllPlaylists() {
+    this.playlistService.getPlaylists().subscribe(
+      (res) => {
+        this.playLists = res;
+      },
+      (err) => err
+    );
+  }
   async ngOnInit(): Promise<void> {
     this.songId = this.route.snapshot.paramMap.get('song_id');
-    this.playlistService.getPlaylists().subscribe(
-      (res: any) => {
-        // console.log(res);
-        this.playLists = res;
-      }
-    );
+    this.getAllPlaylists();
     this.songService.getAllSongs().subscribe(
       (res: any) => {
         // console.log(res);
@@ -71,6 +73,10 @@ export class PlayerComponent implements OnInit, AfterViewInit {
         // console.log(this.recommends[0].artist);
         const current_in_recommands = (element: { id: any; }) => element.id === this.song.id;
         this.recommand_index = this.recommends.findIndex(current_in_recommands);
+        console.log(this.songs);
+        console.log(this.song);
+        console.log(this.ss);
+        console.log(this.recommends);
 
         this.initialization();
 
@@ -94,16 +100,16 @@ export class PlayerComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.child.buttonElement.changes.subscribe(() => {
-      this.child.buttonElement.forEach((el, i) => {
-        el.nativeElement.onclick = (e: { target: { closest: (arg0: string) => any; }; }) => {
-          if (e.target.closest('.playlist-box-item-add'))
-            this.updateSS(this.recommends[i].id).then(() => this.editPlayLists()).then(() => this.showAddPage());
-          else
-            this.navigateRecommends(this.recommends[i].id);
-        }
-      });
-    });
+    // this.child.buttonElement.changes.subscribe(() => {
+    //   this.child.buttonElement.forEach((el, i) => {
+    //     el.nativeElement.onclick = (e: { target: { closest: (arg0: string) => any; }; }) => {
+    //       if (e.target.closest('.playlist-box-item-add'))
+    //         this.updateSS(this.recommends[i].id).then(() => this.editPlayLists()).then(() => this.showAddPage());
+    //       else
+    //         this.navigateRecommends(this.recommends[i].id);
+    //     }
+    //   });
+    // });
     this.editPlayLists();
     this.hideAddPage();
 
@@ -154,7 +160,7 @@ export class PlayerComponent implements OnInit, AfterViewInit {
     }, 1)
   }
 
-  initialization() {
+  async initialization() {
     this.current_track = document.createElement("audio");
     this.isPlaying = false;
   }
