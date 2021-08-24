@@ -17,10 +17,10 @@ import { PlaylistsComponent } from './playlists.component';
 class mockedPlaylistService{
   getPlaylists(): Observable<Playlist[]> {
     return of([]);
-  }  
+  }
   createPlaylist(): Observable<Playlist> {
     return of();
-  }  
+  }
 }
 
 describe('PlaylistsComponent', () => {
@@ -40,7 +40,7 @@ describe('PlaylistsComponent', () => {
         { provide: LocationStrategy, useClass: MockLocationStrategy },
       ],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -114,5 +114,5 @@ describe('PlaylistsComponent', () => {
       expect(createBox.nativeElement.style.transform).toBe('');
     });
   });
- 
+
 });
