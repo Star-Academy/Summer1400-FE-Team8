@@ -86,12 +86,12 @@ describe('NavbarComponent', () => {
     })
   }));
 
-  it('navigate to "search" takes you to /search', fakeAsync(() => {
+  it('navigate to homepage', fakeAsync(() => {
     router.navigate(['home']);
     tick();
     expect(location.path()).toBe('/');
   }))
-  it('navigate to "search" takes you to /search', fakeAsync(() => {
+  it('navigate to login page', fakeAsync(() => {
     router.navigate(['user/login']);
     tick();
     expect(location.path()).toBe('/user/login');
