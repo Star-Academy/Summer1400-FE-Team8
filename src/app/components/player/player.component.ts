@@ -209,7 +209,6 @@ export class PlayerComponent implements OnInit, AfterViewInit {
   }
 
   prevTrack = () => {
-
     this.recommand_index = (this.recommand_index === 0) ? this.recommends.length - 1 : this.recommand_index - 1;
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
       this.router.navigate(['/player', this.recommends[this.recommand_index!].id]));
