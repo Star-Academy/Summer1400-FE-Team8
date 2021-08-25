@@ -77,7 +77,6 @@ export class PlayerComponent implements OnInit, AfterViewInit {
       this.Process();
     });
   }
-
   editPlayLists() {
     this.playItems.toArray().forEach((e, i) => {
       if (this.playLists[i].songs.some((s) => s.id == this.ss.id)) {
@@ -91,7 +90,6 @@ export class PlayerComponent implements OnInit, AfterViewInit {
       }
     });
   }
-
   ngAfterViewInit() {
     this.editPlayLists();
     this.hideAddPage();
@@ -250,11 +248,9 @@ export class PlayerComponent implements OnInit, AfterViewInit {
         .then(() => this.router.navigate(['/user', 'signup']));
     }
   }
-
   navigateRecommends(item: string) {
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => this.router.navigate(['/player', item]));
   }
-
   updateplayList(item: Playlist) {
     if (!item.songs.some((e) => e.id == this.ss.id)) {
       this.playlistService.addToPlaylist(item.id.toString(), this.ss.id).subscribe(() =>

@@ -20,7 +20,7 @@ export class NavSideService {
     } else {
       menu.classList.add(openClass);
       menu.classList.remove(closeClass);
-      menu.style.right = `0px`;
+      menu.style.right = `0`;
     }
   };
   handleToggleMove() {}
@@ -42,9 +42,12 @@ export class NavSideService {
   }
   toggleBlackPage(menu: HTMLDivElement, black_page: HTMLDivElement, openClass: string) {
     if (menu.classList.contains(openClass)) {
-      black_page.style.display = 'none';
+      console.log(black_page)
+      black_page.classList.add('display-none')
+      black_page.classList.remove('display-block')
     } else {
-      black_page.style.display = 'block';
+      black_page.classList.add('display-block')
+      black_page.classList.remove('display-none')
     }
   }
 }

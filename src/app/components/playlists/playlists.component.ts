@@ -55,7 +55,6 @@ export class PlaylistsComponent implements OnInit {
     }, 350);
   }
   ngOnInit(): void {}
-
   ngAfterViewInit(): void {
     this.getAllPlaylists();
     this.createPage = this.createPlaylistPageRef.nativeElement;

@@ -14,15 +14,12 @@ export class SignupComponent implements OnInit, AfterViewInit {
   @ViewChild('passwordRef') passwordRef!: ElementRef;
   @ViewChild('formRef') formRef!: ElementRef;
   @ViewChild('signUpSuccessRef') signUpSuccessRef!: ElementRef;
-
   constructor(
     private formValidationService: FormValidationService,
     private userService: UserService,
     private router: Router
   ) {}
-
   ngOnInit(): void {}
-
   ngAfterViewInit() {
     const passwordElm = this.passwordRef.nativeElement;
     this.formValidationService.triggerPasswordStrength(passwordElm, 'pass_error');
@@ -46,9 +43,7 @@ export class SignupComponent implements OnInit, AfterViewInit {
       firstName: '',
       lastName: '',
     };
-
     const form = this.formRef.nativeElement;
-
     if (!this.formValidationService.validateForm(form)) {
       for (let i = 0; i < form.length; i++) {
         if (!(form[i].name === 'submit' || form[i].name === 'password_repeat')) {
@@ -58,7 +53,6 @@ export class SignupComponent implements OnInit, AfterViewInit {
           };
         }
       }
-
       this.userService.postSignupData(formData, 'user/register').subscribe(
         () => {
           this.signUpSuccessRef.nativeElement.style.display = 'block';

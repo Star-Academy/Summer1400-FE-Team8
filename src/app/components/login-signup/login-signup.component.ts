@@ -1,6 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-
 @Component({
   selector: 'app-login-signup',
   templateUrl: './login-signup.component.html',

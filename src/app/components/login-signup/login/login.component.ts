@@ -13,9 +13,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
   @ViewChildren('formChildElem') formChildElem!: QueryList<ElementRef>;
   @ViewChild('passError') passError!: ElementRef;
   @ViewChild('formElem') formElem!: ElementRef;
-
   constructor(private authService: AuthService, private userService: UserService, private router: Router) {}
-
   ngOnInit(): void {}
   ngAfterViewInit(): void {
     const cookieData = document.cookie.split(';');
@@ -50,12 +48,10 @@ export class LoginComponent implements OnInit, AfterViewInit {
   handleLogin = (event: Event) => {
     event.preventDefault();
     const form = event.target as any;
-
     let formData: LoginFormData = {
       username: '',
       password: '',
     };
-
     const email = form.username.value;
     const password = form.password.value;
 
@@ -64,12 +60,10 @@ export class LoginComponent implements OnInit, AfterViewInit {
       return;
     }
     this.printError('pass_error', '');
-
     formData = {
       username: form.username.value,
       password: form.password.value,
     };
-
     this.userService.postLoginData(formData, 'user/login').subscribe(
       (res: Token) => {
         if (form.remember_me.checked) {

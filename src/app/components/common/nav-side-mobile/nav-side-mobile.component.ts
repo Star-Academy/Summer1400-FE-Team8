@@ -25,25 +25,25 @@ export class NavSideMobileComponent implements OnInit {
   @ViewChildren('loggedOutRef') loggedOutRef!: QueryList<ElementRef>;
   toggleBlackPage = (menu: HTMLDivElement, black_page: HTMLDivElement, openClass: string) => {
     if (menu.classList.contains(openClass)) {
-      black_page.style.display = 'none';
+      black_page.classList.add('display-none')
+      black_page.classList.remove('display-block')
     } else {
-      black_page.style.display = 'block';
+      black_page.classList.add('display-block')
+      black_page.classList.remove('display-none')
     }
   };
-
   handleBlackPageClick() {
     const menu = this.menuRef.nativeElement;
     const black_page = this.blackPageRef.nativeElement;
     const openClass = 'nav-mobile-side-open';
     const closeClass = 'nav-mobile-side-closed';
-    const rightWhenClosed = '-25rem';
+    const rightWhenClosed = `${menu.offsetWidth/16}rem`;
     this.toggleBlackPage(menu, black_page, openClass);
     this.navSideService.toggleMenu(menu, openClass, closeClass, rightWhenClosed);
   }
   handleLogout() {
     this.authService.removeUserLocal();
   }
-
   ngOnInit(): void {}
   ngAfterViewInit(): void {
     const userId = this.authService.getUser();
@@ -79,14 +79,12 @@ export class NavSideMobileComponent implements OnInit {
         }
       }
     });
-
     if (this.authService.isLogged()) {
       this.userService.getUserData(`user/one/${userId}`).subscribe((res: any) => {
         if (!res.user.avatar) return;
         avatar.src = res.user.avatar;
       });
     }
-
     menu.style.right = rightWhenClosed;
   }
 }

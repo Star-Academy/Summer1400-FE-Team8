@@ -2,10 +2,8 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Song } from 'src/app/interfaces/interfaces';
 import { SongService } from 'src/app/services/song/song.service';
 import { UrlService } from 'src/app/services/url/url.service';
-import { Subscription } from 'rxjs';
 import { SearchBoxComponent } from '../common/search-box/search-box.component';
 import { ActivatedRoute } from '@angular/router';
-
 @Component({
   selector: 'app-music-search',
   templateUrl: './music-search.component.html',
@@ -13,7 +11,6 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MusicSearchComponent implements OnInit {
   constructor(private songService: SongService, private urlService: UrlService, private actRoute: ActivatedRoute) {}
-
   @ViewChild('boxRef') boxRef!: ElementRef;
   @ViewChild('paginationRef') paginationRef!: ElementRef;
   @ViewChild('pagBackwardBtnRef') pagBackwardBtnRef!: ElementRef;
@@ -24,17 +21,12 @@ export class MusicSearchComponent implements OnInit {
   @ViewChild('nameRef') nameRef!: ElementRef;
   @ViewChild('artistRef') artistRef!: ElementRef;
   @ViewChild(SearchBoxComponent) searchBoxRef!: SearchBoxComponent;
-  private subs1!: Subscription;
-  private subs2!: Subscription;
-  private subs3!: Subscription;
   songsInPage: number = 0;
   songs: Song[] = [];
   pagesNum: string = '';
-
   handleBackForwardBtns(pageNum: string) {
     this.urlService.setParams('page', pageNum, '', '');
   }
-
   handlePagination(num: number, className: string, page: string) {
     const pagesWrapper = this.paginationRef.nativeElement;
     if (className === 'link-all') {
@@ -46,9 +38,7 @@ export class MusicSearchComponent implements OnInit {
         i.classList.add('display-none');
       });
     }
-
     let pagesNum = Math.round(num / Number(this.songsInPage));
-
     for (let i = 1; i <= pagesNum; i++) {
       const link = document.createElement('A');
       link.classList.add('btn');
@@ -57,7 +47,6 @@ export class MusicSearchComponent implements OnInit {
       link.innerHTML = i.toString();
       pagesWrapper.appendChild(link);
     }
-
     const links = pagesWrapper.querySelectorAll('.search-pagination a');
     links.forEach((link: any) => {
       link.addEventListener('click', () => {
@@ -159,12 +148,10 @@ export class MusicSearchComponent implements OnInit {
         songsNum = songs.length;
         this.handlePagination(songsNum, 'link-all', page);
       });
-
       this.songService.postSongsPage(songsInPage, page, sortBy, desc).subscribe((res: any) => {
         this.songs = res.songs;
       });
     }
-
     if (searchedContent) {
       let searched = decodeURI(searchedContent as string);
       this.songService.postSongsFind(searched, 100, sortBy, desc).subscribe((res: any) => {
@@ -180,9 +167,7 @@ export class MusicSearchComponent implements OnInit {
         };
         let start = divider(this.urlService.getParams('page')).start;
         let end = divider(this.urlService.getParams('page')).end;
-
         divider(this.urlService.getParams(page));
-
         this.songs = res.songs.slice(start, end);
         this.handlePagination(res.songs.length, 'link-search', page);
       });

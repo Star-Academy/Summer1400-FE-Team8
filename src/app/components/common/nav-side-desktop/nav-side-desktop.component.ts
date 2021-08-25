@@ -14,7 +14,6 @@ export class NavSideDesktopComponent implements OnInit {
     private userService: UserService
   ) {}
 
-  @ViewChild('toggleBtnRef') toggleBtnRef!: ElementRef;
   @ViewChild('toggleBtnImgRef') toggleBtnImgRef!: ElementRef;
   @ViewChild('menuRef') menuRef!: ElementRef;
   @ViewChild('avatarRef') avatarRef!: ElementRef;
@@ -24,18 +23,19 @@ export class NavSideDesktopComponent implements OnInit {
   }
   toggleImgMove(menu: HTMLDivElement, openClass: string, toggleImg: HTMLImageElement) {
     if (menu.classList.contains(openClass)) {
-      toggleImg.style.transform = 'rotateY(0deg)';
+      toggleImg.classList.add('rotate-0');
+      toggleImg.classList.remove('rotate-180');
     } else {
-      toggleImg.style.transform = 'rotateY(180deg)';
+      toggleImg.classList.remove('rotate-0');
+      toggleImg.classList.add('rotate-180');
     }
   }
-
   handleToggleBtn() {
     const menu = this.menuRef.nativeElement;
     const toggleImg = this.toggleBtnImgRef.nativeElement;
     const openClass = 'nav-desktop-side-open';
     const closeClass = 'nav-desktop-side-closed';
-    const rightWhenClosed = '-13.43rem';
+    const rightWhenClosed = `${-(menu.offsetWidth/16) + 3.2}rem`;
     this.toggleImgMove(menu, openClass, toggleImg);
     this.navSideService.toggleMenu(menu, openClass, closeClass, rightWhenClosed);
   }
@@ -49,7 +49,6 @@ export class NavSideDesktopComponent implements OnInit {
       const menu = this.menuRef.nativeElement;
       const rightWhenClosed = '-13.43rem';
       const avatar = this.avatarRef.nativeElement;
-
       this.userService.getUserData(`user/one/${userId}`).subscribe((res: any) => {
         if (!res.user.avatar) return;
         avatar.src = res.user.avatar;

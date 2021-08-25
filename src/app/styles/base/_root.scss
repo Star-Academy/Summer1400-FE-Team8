@@ -70,7 +70,12 @@ main {
 .display-initial {
   display: initial !important;
 }
-
+.rotate-0{
+  transform: rotate(0);
+}
+.rotate-180{
+  transform: rotate(180deg);
+}
 // --- CUSTOM SCROLLBAR
 ::-webkit-scrollbar {
   width: 15px;

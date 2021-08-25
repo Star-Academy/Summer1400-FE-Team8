@@ -1,7 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { UserService } from 'src/app/services/user/user.service';
-
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
@@ -9,7 +8,6 @@ import { UserService } from 'src/app/services/user/user.service';
 })
 export class EditProfileComponent implements OnInit {
   constructor(private userService: UserService, private authService: AuthService) {}
-
   @ViewChild('formRef') formRef!: ElementRef;
   @ViewChild('avatarRef') avatarRef!: ElementRef;
   date = new Date();
@@ -24,7 +22,6 @@ export class EditProfileComponent implements OnInit {
     avatar: '',
     token: '',
   };
-
   handleSubmitInfo(e: any) {
     e.preventDefault();
     const token = this.authService.getToken() as string;
@@ -42,7 +39,6 @@ export class EditProfileComponent implements OnInit {
     this.userService.editUserData(this.editedUserInfo, token).subscribe();
     return true;
   }
-
   loadAvatar(e: any) {
     const file = e.target.files[0];
     const avatar = this.avatarRef.nativeElement;
@@ -56,7 +52,6 @@ export class EditProfileComponent implements OnInit {
     };
     reader.readAsDataURL(file);
   }
-
   ngAfterViewInit() {
     const userId = this.authService.getUser();
     const form = this.formRef.nativeElement;
@@ -75,6 +70,5 @@ export class EditProfileComponent implements OnInit {
       }
     });
   }
-
   ngOnInit(): void {}
 }

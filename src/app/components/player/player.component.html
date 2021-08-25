@@ -15,75 +15,6 @@
   </div>
 </div>
 
-<!----------- DESKTOP SIDE MENU ----------->
-<div class="side-menu-container nav-desktop-side">
-  <div class="side-menu">
-    <div class="side-menu-toggle">
-      <button><img alt="open" src="assets/images/side-menu/open.svg" /></button>
-    </div>
-    <div class="side-menu-text">
-      <div class="side-menu-avatar-container">
-        <img alt="" class="avatar side-menu-avatar" src="assets/images/edit-profile/avatar.jpg" />
-      </div>
-      <div>
-        <a routerlink="playlists"><img alt="playlist" src="assets/images/side-menu/playlist.svg" />پلی لیست ها</a>
-      </div>
-      <div>
-        <a href="/favorite.html"><img alt="favorites" src="assets/images/side-menu/star_fill.svg" />مورد علاقه ها</a>
-      </div>
-      <div>
-        <a routerlink="music_search"
-          ><img alt="search" src="assets/images/side-menu/search_icon.svg" />جستجوی پیشرفته</a
-        >
-      </div>
-      <div>
-        <a routerlink="edit_profile"><img alt="edit_profile" src="assets/images/side-menu/edit.svg" />ویرایش پروفایل</a>
-      </div>
-      <div class="nav-desktop-side-logout">
-        <a href="#"><img alt="logout" src="assets/images/side-menu/logout.svg" />خروج از حساب</a>
-      </div>
-    </div>
-  </div>
-</div>
-<!----------- MOBILE SIDE MENU ----------->
-<div class="side-menu-container nav-mobile-side nav-mobile-side-closed">
-  <div class="side-menu">
-    <div class="side-menu-text">
-      <div class="side-menu-avatar-container nav-mobile-side-user">
-        <img alt="" class="avatar side-menu-avatar" src="assets/images/edit-profile/avatar.jpg" />
-      </div>
-      <div class="nav-mobile-side-all">
-        <a routerlink="home"
-          ><img alt="home" id="side-mobile-home" src="assets/images/side-menu/home.svg" />صفحه اصلی</a
-        >
-      </div>
-      <div class="nav-mobile-side-loggedout side-menu-ls">
-        <img alt="playlist" src="assets/images/side-menu/person.svg" />
-        <span><a routerlink="user/login"> ">ورود</a>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-        <span><a routerlink="user/signup">ثبت نام</a></span>
-      </div>
-      <div class="nav-mobile-side-user">
-        <a routerlink="playlists"><img alt="playlist" src="assets/images/side-menu/playlist.svg" />پلی لیست ها</a>
-      </div>
-      <div class="nav-mobile-side-user">
-        <a href="/favorite.html"><img alt="favorites" src="assets/images/side-menu/star_fill.svg" />مورد علاقه ها</a>
-      </div>
-      <div class="nav-mobile-side-all">
-        <a routerlink="music-search"
-          ><img alt="search" src="assets/images/side-menu/search_icon.svg" />جستجوی پیشرفته</a
-        >
-      </div>
-      <div class="nav-mobile-side-user">
-        <a routerlink="edit_profile"><img alt="edit_profile" src="assets/images/side-menu/edit.svg" />ویرایش پروفایل</a>
-      </div>
-      <div class="nav-mobile-side-user nav-mobile-side-logout">
-        <a href="#"><img alt="logout" src="assets/images/side-menu/logout.svg" />خروج از حساب</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="side-menu-black-page"></div>
-
 <!----------- MAIN CONTENT ----------->
 <main class="player-container">
   <div class="player-content">
@@ -227,13 +158,6 @@
     </div>
     <div class="player-left">
       <h2>مرتبط با سلیقت</h2>
-      <!--      <div>-->
-      <!--      <app-card #child [songs]="recommends"></app-card>-->
-      <!--              <div #allItems (click)="navigateRecommends($event , recommend)" *ngFor="let recommend of recommends"-->
-      <!--                   class="playlist-box">-->
-      <!--                <app-card  [song]="recommend"></app-card>-->
-      <!--              </div>-->
-      <!--      </div>-->
     </div>
   </div>
 </main>
