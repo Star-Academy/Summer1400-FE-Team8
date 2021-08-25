@@ -9,6 +9,7 @@ import { SongService } from 'src/app/services/song/song.service';
 import { UrlService } from 'src/app/services/url/url.service';
 import { Subscription } from 'rxjs';
 import { SearchBoxComponent } from '../common/search-box/search-box.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-music-search',
@@ -18,7 +19,8 @@ import { SearchBoxComponent } from '../common/search-box/search-box.component';
 export class MusicSearchComponent implements OnInit {
   constructor(
     private songService: SongService,
-    private urlService: UrlService
+    private urlService: UrlService,
+    private actRoute : ActivatedRoute,
   ) {}
 
   @ViewChild('boxRef') boxRef!: ElementRef;
@@ -130,20 +132,20 @@ export class MusicSearchComponent implements OnInit {
   ngOnInit(): void {
     this.handleReload();
   }
+ 
   ngAfterViewInit(): void {
+    
     const descBtn = this.descRef.nativeElement;
     const ascBtn =this.ascRef.nativeElement;
     const newestBtn = this.newestRef.nativeElement;
     const nameBtn = this.nameRef.nativeElement;
     const artistBtn = this.artistRef.nativeElement;
     const searchBox = this.searchBoxRef.getSearchInputElm();
-    let page = window.location.search.split('&')[0].split('=')[1] as any;
-    let descStr = window.location.search.split('&')[1].split('=')[1];
-    let sortBy = window.location.search.split('&')[2].split('=')[1];
-    let searchedContent = window.location.search.split('&')[3]
-      ? window.location.search.split('&')[3].split('=')[1]
-      : null;
-
+    const params = this.actRoute.snapshot.queryParams;
+    let page = params.page as any;
+    let descStr = params.desc;
+    let sortBy = params.sortBy;
+    let searchedContent = params.searched ?? null;
     if (searchedContent) {
       searchBox.value = decodeURI(searchedContent).replace(/\+/g, ' ');
     }
@@ -162,13 +164,14 @@ export class MusicSearchComponent implements OnInit {
     this.songsInPage = songsInPage;
 
     if (!searchedContent) {
-      this.subs1 = this.songService.getAllSongs().subscribe((res: any) => {
+      
+      this.songService.getAllSongs().subscribe((res: any) => {
         const songs: Song[] = res.songs;
         songsNum = songs.length;
         this.handlePagination(songsNum, 'link-all', page);
       });
 
-      this.subs2 = this.songService
+      this.songService
         .postSongsPage(songsInPage, page, sortBy, desc)
         .subscribe((res: any) => {
           this.songs = res.songs;
@@ -176,8 +179,9 @@ export class MusicSearchComponent implements OnInit {
     }
 
     if (searchedContent) {
+      
       let searched = decodeURI(searchedContent as string);
-      this.subs3 = this.songService
+      this.songService
         .postSongsFind(searched, 100, sortBy, desc)
         .subscribe((res: any) => {
           const divider = (page: any) => {
@@ -194,18 +198,19 @@ export class MusicSearchComponent implements OnInit {
           let end = divider(this.urlService.getParams('page')).end;
 
           divider(this.urlService.getParams(page));
-
+          
           this.songs = res.songs.slice(start, end);
           this.handlePagination(res.songs.length, 'link-search', page);
         });
     }
+    
   }
-  ngOnDestroy() {
-    if (!window.location.search) {
-      return;
-    }
-    this.subs1.unsubscribe();
-    this.subs2.unsubscribe();
-    this.subs3.unsubscribe();
-  }
+  // ngOnDestroy() {
+  //   if (!window.location.search) {
+  //     return;
+  //   }
+  //   this.subs1.unsubscribe();
+  //   this.subs2.unsubscribe();
+  //   this.subs3.unsubscribe();
+  // }
 }

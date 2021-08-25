@@ -1,5 +1,5 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { ComponentFixture, fakeAsync, inject, TestBed, tick, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, inject, TestBed, } from '@angular/core/testing';
 import { MockLocationStrategy } from '@angular/common/testing';
 import { LocationStrategy } from '@angular/common';
 import { EditProfileComponent } from './edit-profile.component';
