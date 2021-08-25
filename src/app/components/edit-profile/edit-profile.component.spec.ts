@@ -40,8 +40,6 @@ describe('EditProfileComponent', () => {
       const componentSpy = spyOn(component, 'handleSubmitInfo').and.callThrough();
       const query = fixture.debugElement.query(By.css('.edit-profile-submit-container input'));
       const btn: HTMLButtonElement = query.nativeElement;
-      expect(userServiceSpy).not.toHaveBeenCalled();
-      expect(componentSpy).not.toHaveBeenCalled();
       btn.click();
       fixture.whenStable().then(() => {
         fixture.detectChanges();
@@ -64,14 +62,16 @@ describe('EditProfileComponent', () => {
 
   it('should get user data', inject([UserService], (userService: UserService) => {
     spyOn(userService, 'getUserData').and.callFake(() => {
-      return of({
+      const data = {
         username: 'bolnik',
         avatar: 'file1',
+        gender: '1',
+      }
+      return of({user:data});
+    });
+      userService.getUserData('aaaa').subscribe((res: any) => {
+        expect(res.user.username).toEqual('bolnik');
       });
-    });
-    userService.getUserData('aaaa').subscribe((res: any) => {
-      expect(res.username).toEqual('bolnik');
-    });
     component.ngAfterViewInit();
     fixture.detectChanges();
     expect(userService.getUserData).toHaveBeenCalled();
