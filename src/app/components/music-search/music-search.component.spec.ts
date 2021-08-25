@@ -45,7 +45,7 @@ describe('MusicSearchComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('should create', inject([SongService], (songService: SongService) => {
+  it('should call get all songs method', inject([SongService], (songService: SongService) => {
     const songs: Song[] = [
       {
         id: '1',
@@ -65,7 +65,7 @@ describe('MusicSearchComponent', () => {
     expect(songService.getAllSongs).toHaveBeenCalled();
     expect(songService.postSongsPage).toHaveBeenCalled();
   }));
-  it('should create', inject([SongService], (songService: SongService) => {
+  it('should call postSongsFind method', inject([SongService], (songService: SongService) => {
     const songs: Song[] = [
       {
         id: '1',
@@ -82,7 +82,7 @@ describe('MusicSearchComponent', () => {
     fixture.detectChanges();
     expect(songService.postSongsFind).toHaveBeenCalled();
   }));
-  it('should create', fakeAsync(() => {
+  it('should handle back and forward btns', fakeAsync(() => {
     const button = fixture.debugElement.query(By.css('.search-pagination-container button')).nativeElement;
     spyOn(component, 'handleBackForwardBtns').and.callThrough();
     button.click();
@@ -91,7 +91,7 @@ describe('MusicSearchComponent', () => {
       expect(component.handleBackForwardBtns).toHaveBeenCalled();
     });
   }));
-  it('should create', fakeAsync(() => {
+  it('should handle change filter', fakeAsync(() => {
     const input = fixture.debugElement.query(By.css('.form-order input[id="desc"]')).nativeElement;
     spyOn(component, 'handleChangeFilter').and.callThrough();
     input.click();
@@ -100,7 +100,7 @@ describe('MusicSearchComponent', () => {
       expect(component.handleChangeFilter).toHaveBeenCalled();
     });
   }));
-  it('should create', () => {
+  it('should generate page btn elements', () => {
     component.handlePagination(100, 'link-all', '1');
     fixture.detectChanges();
     const link = fixture.debugElement.query(By.css('.link-all')).nativeElement;
