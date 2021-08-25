@@ -39,7 +39,6 @@ export class LoginComponent implements OnInit, AfterViewInit {
       for (let i in cookieData) {
         if (cookieData[i].split('=')[0].trim() === 'username') {
           cookieUsername = cookieData[i].split('=')[1];
-          console.log(cookieData[i].split('=')[1]);
         } else if (cookieData[i].split('=')[0].trim() === 'password') {
           cookiePassword = cookieData[i].split('=')[1];
         }
@@ -95,7 +94,6 @@ export class LoginComponent implements OnInit, AfterViewInit {
           document.cookie = `username=${formData.username};expires=${expiry}`;
           document.cookie = `password=${formData.password};expires=${expiry}`;
         } else {
-          console.log('aaa');
           document.cookie = `username=${formData.username};expires=Thu, 01 Jan 1970 00:00:00 GMT`;
           document.cookie = `password=${formData.password};expires=Thu, 01 Jan 1970 00:00:00 GMT`;
         }
@@ -103,7 +101,6 @@ export class LoginComponent implements OnInit, AfterViewInit {
         this.authService.setExpiry(new Date());
         this.router
           .navigate(['profile/playlists'])
-          .then(() => window.location.reload());
       },
       () => {
         this.printError('pass_error', 'اطلاعات وارد شده اشتباه است');
