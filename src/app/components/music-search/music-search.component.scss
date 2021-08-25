@@ -5,7 +5,7 @@ main.search-container {
     text-align: center;
     margin-bottom: 2rem;
   }
- 
+
   .search {
     .search-container {
       width: 50%;
@@ -34,12 +34,12 @@ main.search-container {
       &-mode {
         margin-bottom: 2rem;
 
-        input[type="radio"] {
+        input[type='radio'] {
           vertical-align: -3px;
         }
       }
       &-genre {
-        input[type="checkbox"] {
+        input[type='checkbox'] {
           transform: scale(1.5);
           filter: hue-rotate(-12deg);
           vertical-align: -3px;
@@ -72,7 +72,7 @@ main.search-container {
       max-height: 42rem;
       overflow: auto;
       direction: ltr !important;
-      a{
+      a {
         color: #fff;
       }
       &-item {
@@ -96,30 +96,30 @@ main.search-container {
         }
       }
     }
-   .search-pagination-container{
-     display: flex;
-     justify-content: center;
-     margin-top: 4rem;
-     gap: 1rem;
-     button{
-      color: #fff;
-      font-size: 1.7rem;
-
-      &:hover{
-        opacity: .8;
-      }
-     }
-    .search-pagination{
+    .search-pagination-container {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
-      flex-direction: row-reverse;
+      margin-top: 4rem;
       gap: 1rem;
-
-      a{
+      button {
         color: #fff;
+        font-size: 1.7rem;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+      .search-pagination {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+        gap: 1rem;
+
+        a {
+          color: #fff;
+        }
       }
     }
-   }
   }
 }

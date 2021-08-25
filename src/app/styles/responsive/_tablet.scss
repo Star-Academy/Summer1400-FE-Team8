@@ -1,23 +1,23 @@
-@media only screen and (max-width:87.5rem) {
-  .player-content{
+@media only screen and (max-width: 87.5rem) {
+  .player-content {
     gap: 5rem !important;
   }
 }
-@media only screen and (max-width:82rem) {
-  .song-cover{
-   flex-direction: column !important;
-   gap: 1rem;
-  &-pic{
-    display: flex !important;
-    justify-content: center !important;
-  }
-   &-info{
-     width: 100%;
-     max-width: unset !important;
-     flex-direction: row !important;
-     justify-content:space-between !important;
-     flex-wrap:wrap !important;
-   }
+@media only screen and (max-width: 82rem) {
+  .song-cover {
+    flex-direction: column !important;
+    gap: 1rem;
+    &-pic {
+      display: flex !important;
+      justify-content: center !important;
+    }
+    &-info {
+      width: 100%;
+      max-width: unset !important;
+      flex-direction: row !important;
+      justify-content: space-between !important;
+      flex-wrap: wrap !important;
+    }
   }
 }
 
@@ -31,23 +31,22 @@
   }
 }
 @media only screen and (max-width: 62rem) {
-
   // -------- side menu
-  .side-menu-container::-webkit-scrollbar{
+  .side-menu-container::-webkit-scrollbar {
     display: none !important;
   }
-  .side-menu-container{
+  .side-menu-container {
     -ms-overflow-style: none !important;
     scrollbar-width: none !important;
   }
-  .nav-desktop-side{
+  .nav-desktop-side {
     display: none !important;
   }
   // -------- nav
   nav:not(.nav-mobile) {
     display: none !important;
   }
-  .nav-desktop-side{
+  .nav-desktop-side {
     display: none !important;
   }
 
@@ -83,7 +82,7 @@
     .player-right {
       flex-basis: 50% !important;
     }
-    .player-left{
+    .player-left {
       max-width: unset !important;
     }
   }
@@ -242,18 +241,18 @@
   }
 
   .landing {
-    background-image: url("../../../assets/images/Home/landing-bg-tablet.jpg") !important;
+    background-image: url('../../../assets/images/Home/landing-bg-tablet.jpg') !important;
   }
 
   // -------- edit profile
   main.edit-profile-container {
-    form{
+    form {
       grid-template-columns: 1fr !important;
-      column-gap:0rem !important;
-      &>div{
+      column-gap: 0rem !important;
+      & > div {
         grid-column: 1/2;
       }
-      input[type="submit"]{
+      input[type='submit'] {
         width: 100% !important;
       }
     }

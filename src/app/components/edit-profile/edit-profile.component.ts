@@ -67,12 +67,11 @@ export class EditProfileComponent implements OnInit {
           if (userInfo[property]) this.avatarRef.nativeElement.src = userInfo[property];
         } else if (property === 'gender') {
           if (userInfo[property]) form.gender.value = userInfo.gender.toString();
-        }else {
+        } else {
           if (form[property]) {
             form[property].value = userInfo[property];
           }
         }
-       
       }
     });
   }

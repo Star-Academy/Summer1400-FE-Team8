@@ -11,13 +11,10 @@ describe('HomepageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomepageComponent , SearchBoxComponent ],
-      providers:[
-        { provide: LocationStrategy, useClass: MockLocationStrategy },
-      ],
-      imports: [ RouterTestingModule]
-    })
-    .compileComponents();
+      declarations: [HomepageComponent, SearchBoxComponent],
+      providers: [{ provide: LocationStrategy, useClass: MockLocationStrategy }],
+      imports: [RouterTestingModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {

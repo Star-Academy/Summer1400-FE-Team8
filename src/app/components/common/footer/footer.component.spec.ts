@@ -1,4 +1,4 @@
-import { LocationStrategy , Location} from '@angular/common';
+import { LocationStrategy, Location } from '@angular/common';
 import { MockLocationStrategy } from '@angular/common/testing';
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { Router } from '@angular/router';
@@ -15,22 +15,17 @@ describe('FooterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FooterComponent ],
-      imports:[
-        RouterTestingModule.withRoutes(routes)
-      ],
-      providers:[
-        { provide: LocationStrategy, useClass: MockLocationStrategy },
-      ]
-    })
-    .compileComponents();
+      declarations: [FooterComponent],
+      imports: [RouterTestingModule.withRoutes(routes)],
+      providers: [{ provide: LocationStrategy, useClass: MockLocationStrategy }],
+    }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(FooterComponent);
     component = fixture.componentInstance;
-    router = TestBed.get(Router)
-    location = TestBed.get(Location)   
+    router = TestBed.get(Router);
+    location = TestBed.get(Location);
     fixture.detectChanges();
   });
 
@@ -41,5 +36,5 @@ describe('FooterComponent', () => {
     router.navigate(['home']);
     tick();
     expect(location.path()).toBe('/');
-  }))
+  }));
 });

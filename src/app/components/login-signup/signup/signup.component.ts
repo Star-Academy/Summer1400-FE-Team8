@@ -1,12 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  OnInit,
-  QueryList,
-  ViewChild,
-  ViewChildren,
-} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { FormValidationService } from '../../../services/form-validation/form-validation.service';
 import { UserService } from '../../../services/user/user.service';
 import { Router } from '@angular/router';
@@ -33,10 +25,7 @@ export class SignupComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     const passwordElm = this.passwordRef.nativeElement;
-    this.formValidationService.triggerPasswordStrength(
-      passwordElm,
-      'pass_error'
-    );
+    this.formValidationService.triggerPasswordStrength(passwordElm, 'pass_error');
     this.formElem.forEach((e, i) => {
       e.nativeElement.onkeyup = () => {
         this.errorElem.toArray()[i].nativeElement.innerText = '';
@@ -62,9 +51,7 @@ export class SignupComponent implements OnInit, AfterViewInit {
 
     if (!this.formValidationService.validateForm(form)) {
       for (let i = 0; i < form.length; i++) {
-        if (
-          !(form[i].name === 'submit' || form[i].name === 'password_repeat')
-        ) {
+        if (!(form[i].name === 'submit' || form[i].name === 'password_repeat')) {
           formData = {
             ...formData,
             [form[i].name]: form[i].value,
@@ -77,10 +64,7 @@ export class SignupComponent implements OnInit, AfterViewInit {
           this.signUpSuccessRef.nativeElement.style.display = 'block';
         },
         () => {
-          this.print_error(
-            'mail_error',
-            'ایمیل یا نام کاربری از قبل در سیستم ثبت شده'
-          );
+          this.print_error('mail_error', 'ایمیل یا نام کاربری از قبل در سیستم ثبت شده');
         },
         () => {
           setTimeout(() => {

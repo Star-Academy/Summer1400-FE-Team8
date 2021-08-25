@@ -1,11 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  OnInit,
-  QueryList,
-  ViewChild,
-  ViewChildren,
-} from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { Location } from '@angular/common';
@@ -29,17 +22,8 @@ export class NavbarComponent implements OnInit {
 
   handleToggle() {
     const params = this.navSideService.getNavMobileElms();
-    this.navSideService.toggleBlackPage(
-      params.menu,
-      params.black_page,
-      params.openClass
-    );
-    this.navSideService.toggleMenu(
-      params.menu,
-      params.openClass,
-      params.closeClass,
-      params.rightWhenClosed
-    );
+    this.navSideService.toggleBlackPage(params.menu, params.black_page, params.openClass);
+    this.navSideService.toggleMenu(params.menu, params.openClass, params.closeClass, params.rightWhenClosed);
   }
 
   ngOnInit(): void {}
@@ -48,10 +32,7 @@ export class NavbarComponent implements OnInit {
 
     this.router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
-        if (
-          !this.location.path().includes('user') &&
-          this.location.path() !== ''
-        ) {
+        if (!this.location.path().includes('user') && this.location.path() !== '') {
           navs.forEach((nav) => nav.nativeElement.classList.add('nav-dark'));
         } else {
           navs.forEach((nav) => nav.nativeElement.classList.remove('nav-dark'));

@@ -16,13 +16,11 @@ export class PlaylistsComponent implements OnInit {
   createPage!: any;
   createBox!: any;
   createInput!: any;
-  createPlaylist(e: any):boolean {
+  createPlaylist(e: any): boolean {
     e.preventDefault();
     const name = e.target[0].value;
     if (name) {
-      this.playlistService
-        .createPlaylist(name)
-        .subscribe(() => this.getAllPlaylists());
+      this.playlistService.createPlaylist(name).subscribe(() => this.getAllPlaylists());
       this.createBox.style.transform = 'scale(.1)';
       setTimeout(() => {
         this.createPage.style.display = 'none';
@@ -31,7 +29,7 @@ export class PlaylistsComponent implements OnInit {
       return true;
     } else {
       alert('لطفا یه نام برای پلی لیست جدید انتخاب کن');
-      return false
+      return false;
     }
   }
   getAllPlaylists() {
@@ -50,8 +48,7 @@ export class PlaylistsComponent implements OnInit {
     }, 1);
   }
   handleCreatePage(e: any) {
-    if (e.target.closest('main.playlists-container .create-playlist-page-box'))
-      return;
+    if (e.target.closest('main.playlists-container .create-playlist-page-box')) return;
     this.createBox.style.transform = 'scale(.1)';
     setTimeout(() => {
       this.createPage.style.display = 'none';

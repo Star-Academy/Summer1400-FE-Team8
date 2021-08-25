@@ -12,10 +12,9 @@
       img {
         opacity: 0.4;
         width: 25rem;
-        filter: invert(30%) sepia(45%) saturate(0%) hue-rotate(207deg)
-          brightness(94%) contrast(99%);
+        filter: invert(30%) sepia(45%) saturate(0%) hue-rotate(207deg) brightness(94%) contrast(99%);
       }
-  
+
       .ls-top-btns {
         position: absolute;
         bottom: 1.4rem;
@@ -40,6 +39,4 @@
       }
     }
   }
-  
 }
-

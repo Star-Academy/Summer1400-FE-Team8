@@ -11,16 +11,10 @@ describe('PlaylistComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PlaylistComponent ],
-      imports: [ 
-        RouterTestingModule,
-        HttpClientTestingModule
-      ],
-      providers:[
-        { provide: LocationStrategy, useClass: MockLocationStrategy },
-      ]
-    })
-    .compileComponents();
+      declarations: [PlaylistComponent],
+      imports: [RouterTestingModule, HttpClientTestingModule],
+      providers: [{ provide: LocationStrategy, useClass: MockLocationStrategy }],
+    }).compileComponents();
   });
 
   beforeEach(() => {

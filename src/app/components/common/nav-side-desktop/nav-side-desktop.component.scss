@@ -1,8 +1,8 @@
 @use '../../../styles/abstracts/' as *;
 
-.nav-desktop-side{
-    border-left: 0.1px solid rgba($main-white, 0.2);
-  }
-  .side-menu-toggle button img{
-    transition: transform .4s ease-in-out;
-  }
+.nav-desktop-side {
+  border-left: 0.1px solid rgba($main-white, 0.2);
+}
+.side-menu-toggle button img {
+  transition: transform 0.4s ease-in-out;
+}
