@@ -19,10 +19,10 @@
       یا وارد حسابت بشی !
     </p>
     <div class="signup-alert-box-btns">
-      <a id="loginAlert" (click)="navLogin(true)">
+      <a (click)="navLogin(true)" id="loginAlert">
         <button class="btn btn--blue">ورود</button>
       </a>
-      <a id="signupAlert" (click)="navLogin(false)">
+      <a (click)="navLogin(false)" id="signupAlert">
         <button class="btn btn--blue">ثبت نام</button>
       </a>
     </div>
@@ -159,7 +159,7 @@
             <span class="volume-range-wrapper">
               <input #volumeRange (change)="updateVolume(volumeRange.value)"
                      (mousemove)="updateVolume(volumeRange.value)" class="custom-range-slider volume-range"
-                     max="100" min="0" style="background: linear-gradient(to right, #33538AFF 50%, #fff 0%)"
+                     max="100" min="0" style="background: linear-gradient(to right, #33538AFF 80%, #fff 0%)"
                      type="range" value="50">
             </span>
             <span><img alt="volume_down" src="assets/images/player/music/volume_down.svg"></span>
@@ -169,8 +169,9 @@
                                                                                               src="assets/images/player/music/fast_forward.svg">
             </button>
 
-            <button *ngIf="current_track" id="PlayPause" title="توقف یا اجرا"><img class ="playpauseImage" #playpauseImage (click)="playStop()"
-                                                                                   alt="play_arrow"
+            <button *ngIf="current_track" id="PlayPause" title="توقف یا اجرا"><img #playpauseImage
+                                                                                   (click)="playStop()" alt="play_arrow"
+                                                                                   class="playpauseImage"
                                                                                    src="assets/images/player/music/play_arrow.svg">
             </button>
 
@@ -209,7 +210,7 @@
               <button #detailsLyrics class="btn details-buttons-lyrics ls-top-btn-idle">متن</button>
             </div>
 
-            <div id="lyricsContainer" #lyricsContainer class="details-box" style="display: none">
+            <div #lyricsContainer class="details-box" id="lyricsContainer" style="display: none">
               <div style="height: 350px;">
                 <p *ngIf="song" class="lyrics-container">
                   {{song.lyrics}}
@@ -217,7 +218,7 @@
               </div>
             </div>
 
-            <div id="infoContainer" #infoContainer class="details-box" style="display: initial">
+            <div #infoContainer class="details-box" id="infoContainer" style="display: initial">
               <div class="info_container">
                 <p><span *ngIf="song">   نام خواننده : {{song.artist }} </span><span></span></p>
                 <p><span *ngIf="song">   نام اثر : {{song.name }} </span><span></span></p>
@@ -233,11 +234,11 @@
     <div class="player-left">
       <h2>مرتبط با سلیقت</h2>
       <!--      <div>-->
-<!--      <app-card #child [songs]="recommends"></app-card>-->
-      <!--        <div #allItems (click)="navigateRecommends($event , recommend)" *ngFor="let recommend of recommends"-->
-      <!--             class="playlist-box">-->
-      <!--          <app-card  [song]="recommend"></app-card>-->
-      <!--        </div>-->
+      <!--      <app-card #child [songs]="recommends"></app-card>-->
+      <!--              <div #allItems (click)="navigateRecommends($event , recommend)" *ngFor="let recommend of recommends"-->
+      <!--                   class="playlist-box">-->
+      <!--                <app-card  [song]="recommend"></app-card>-->
+      <!--              </div>-->
       <!--      </div>-->
     </div>
 

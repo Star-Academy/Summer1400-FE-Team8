@@ -1,7 +1,7 @@
 import {
   AfterViewInit,
   Component,
-  ElementRef, NgModule,
+  ElementRef,
   OnInit,
   QueryList,
   Renderer2,
@@ -13,7 +13,6 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Playlist, Song} from '../../interfaces/interfaces'
 import {AuthService} from 'src/app/services/auth/auth.service';
 import {PlaylistService} from 'src/app/services/playlist/playlist.service';
-import {CardComponent} from "../card/card.component";
 
 @Component({
   selector: 'app-player',
@@ -51,6 +50,7 @@ export class PlayerComponent implements OnInit, AfterViewInit {
   constructor(private renderer2: Renderer2, private songService: SongService, private router: Router, private route: ActivatedRoute,
               private auth: AuthService, private playlistService: PlaylistService) {
   }
+
   getAllPlaylists() {
     this.playlistService.getPlaylists().subscribe(
       (res) => {
@@ -59,6 +59,7 @@ export class PlayerComponent implements OnInit, AfterViewInit {
       (err) => err
     );
   }
+
   async ngOnInit(): Promise<void> {
     this.songId = this.route.snapshot.paramMap.get('song_id');
     this.getAllPlaylists();
@@ -72,13 +73,7 @@ export class PlayerComponent implements OnInit, AfterViewInit {
         this.recommends = this.songs.filter(song => song.artist == this.song.artist);
         const current_in_recommands = (element: { id: any; }) => element.id === this.song.id;
         this.recommand_index = this.recommends.findIndex(current_in_recommands);
-        console.log(this.songs);
-        console.log(this.song);
-        console.log(this.ss);
-        console.log(this.recommends);
-
         this.initialization();
-
         this.Process();
       }
     );
@@ -99,16 +94,6 @@ export class PlayerComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    // this.child.buttonElement.changes.subscribe(() => {
-    //   this.child.buttonElement.forEach((el, i) => {
-    //     el.nativeElement.onclick = (e: { target: { closest: (arg0: string) => any; }; }) => {
-    //       if (e.target.closest('.playlist-box-item-add'))
-    //         this.updateSS(this.recommends[i].id).then(() => this.editPlayLists()).then(() => this.showAddPage());
-    //       else
-    //         this.navigateRecommends(this.recommends[i].id);
-    //     }
-    //   });
-    // });
     this.editPlayLists();
     this.hideAddPage();
 
@@ -176,11 +161,9 @@ export class PlayerComponent implements OnInit, AfterViewInit {
       this.renderer2.setStyle(this.registerAlert.nativeElement, 'display', 'flex');
     }
   }
-
   loadSong = () => {
     this.loadTrack();
   }
-
   loadTrack = () => {
     this.current_track.src = `${this.song.file}`
     this.current_track.load();
@@ -204,7 +187,6 @@ export class PlayerComponent implements OnInit, AfterViewInit {
     this.recommand_index = (this.recommand_index === this.recommends.length - 1) ? 0 : this.recommand_index + 1;
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
       this.router.navigate(['/player', this.recommends[this.recommand_index!].id]));
-
   }
 
   prevTrack = () => {
@@ -230,7 +212,6 @@ export class PlayerComponent implements OnInit, AfterViewInit {
           // @ts-ignore
           durationSeconds = "0" + durationSeconds;
         }
-
         // Display the updated duration
         this.timePassed.nativeElement.innerHTML = currentMinutes + ":" + currentSeconds;
         this.timeRemained.nativeElement.innerHTML = durationMinutes + ":" + durationSeconds;
@@ -271,7 +252,6 @@ export class PlayerComponent implements OnInit, AfterViewInit {
   navigateRecommends(item: string) {
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
       this.router.navigate(['/player', item]));
-
   }
 
   updateplayList(item: Playlist) {
