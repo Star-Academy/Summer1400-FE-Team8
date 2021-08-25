@@ -13,7 +13,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { routes } from 'src/app/app-routing.module';
 
 @Component({})
-class mocked {
+class mockedNavSideService {
   getNavMobileElms() {
     return {
       menu: '',
@@ -31,28 +31,16 @@ describe('NavbarComponent', () => {
   let component: NavbarComponent;
   let fixture: ComponentFixture<NavbarComponent>;
   let navSideService: NavSideService;
-  let mock: mocked;
+  let mock: mockedNavSideService;
   let location: Location;
   let router: Router;
-  const eventSubject = new ReplaySubject<RouterEvent>(1);
-  const routerMock = {
-    events: eventSubject.asObservable(),
-    url: 'test/url',
-  };
-  const mockEnd = of(new NavigationEnd(0, '/testUrl', '/testUrlRedirect'));
-  const mockedNavSideService = jasmine.createSpyObj('navSideService', [
-    'getNavMobileElms',
-    'toggleBlackPage',
-    'toggleMenu',
-  ]);
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [NavbarComponent],
       imports: [RouterTestingModule.withRoutes(routes), HttpClientTestingModule],
       providers: [
         { provide: LocationStrategy, useClass: MockLocationStrategy },
-        { provide: NavSideService, useClass: mocked },
-        // { provide: Router, useValue: routerMock },
+        { provide: NavSideService, useClass: mockedNavSideService },
       ],
     }).compileComponents();
   });
@@ -61,7 +49,7 @@ describe('NavbarComponent', () => {
     fixture = TestBed.createComponent(NavbarComponent);
     component = fixture.componentInstance;
     navSideService = new NavSideService();
-    mock = new mocked();
+    mock = new mockedNavSideService();
     router = TestBed.get(Router);
     location = TestBed.get(Location);
     fixture.detectChanges();

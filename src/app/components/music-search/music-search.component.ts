@@ -188,12 +188,4 @@ export class MusicSearchComponent implements OnInit {
       });
     }
   }
-  // ngOnDestroy() {
-  //   if (!window.location.search) {
-  //     return;
-  //   }
-  //   this.subs1.unsubscribe();
-  //   this.subs2.unsubscribe();
-  //   this.subs3.unsubscribe();
-  // }
 }

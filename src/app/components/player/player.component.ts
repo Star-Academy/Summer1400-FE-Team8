@@ -34,7 +34,6 @@ export class PlayerComponent implements OnInit, AfterViewInit {
   @ViewChild('addBox') addBox!: ElementRef;
   @ViewChildren('playItem') playItems!: QueryList<ElementRef>;
   @ViewChildren('allItems') boxItems!: QueryList<ElementRef>;
-  // @ViewChild('child') child!: CardComponent;
 
   public songs: Song[] = [];
   public song: Song | any;
@@ -68,11 +67,9 @@ export class PlayerComponent implements OnInit, AfterViewInit {
     this.songId = this.route.snapshot.paramMap.get('song_id');
     this.getAllPlaylists();
     this.songService.getAllSongs().subscribe((res: any) => {
-      // console.log(res);
       this.songs = res.songs;
       this.song = this.songs.find((song) => song.id == this.songId);
       this.ss = this.songs.find((song) => song.id == this.songId);
-      // console.log(this.song);
       this.recommends = this.songs.filter((song) => song.artist == this.song.artist);
       const current_in_recommands = (element: { id: any }) => element.id === this.song.id;
       this.recommand_index = this.recommends.findIndex(current_in_recommands);

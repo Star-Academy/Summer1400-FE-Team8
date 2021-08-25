@@ -28,9 +28,6 @@ class mockedSongService {
 }
 
 describe('PlayerComponent', () => {
-  // let mockAuthService: jasmine.SpyObj<AuthService>;
-  // mockAuthService = jasmine.createSpyObj('AuthService', ['isLogged']);
-  // mockAuthService.isLogged.and.returnValue(false);
   let auth: AuthService;
   let component: PlayerComponent;
   let playlistService: mockedPlaylistService;
@@ -47,7 +44,6 @@ describe('PlayerComponent', () => {
         { provide: PlaylistService, useClass: mockedPlaylistService },
         { provide: songService, useClass: mockedSongService },
         { provide: LocationStrategy, useClass: MockLocationStrategy },
-        // { provide: AuthService, useValue: mockAuthService }
       ],
     }).compileComponents();
   });

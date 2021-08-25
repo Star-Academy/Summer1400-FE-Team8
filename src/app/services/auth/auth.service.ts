@@ -34,11 +34,7 @@ export class AuthService {
     localStorage.setItem('token', token);
     localStorage.setItem('user', JSON.stringify(user));
   };
-
-  //  if(!checkExpiry()){
-  //   removeUserLocal();
-  // }
-
+  
   isLogged = () => {
     return this.getToken() ? true : false;
   };
