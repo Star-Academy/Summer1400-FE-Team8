@@ -70,7 +70,6 @@ export class PlayerComponent implements OnInit, AfterViewInit {
         this.ss = this.songs.find(song => song.id == this.songId);
         // console.log(this.song);
         this.recommends = this.songs.filter(song => song.artist == this.song.artist);
-        // console.log(this.recommends[0].artist);
         const current_in_recommands = (element: { id: any; }) => element.id === this.song.id;
         this.recommand_index = this.recommends.findIndex(current_in_recommands);
         console.log(this.songs);
