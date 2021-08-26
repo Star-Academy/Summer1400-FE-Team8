@@ -1,50 +1,60 @@
 <div #menuRef class="side-menu-container nav-mobile-side nav-mobile-side-closed">
-  <div class="side-menu">
-    <div class="side-menu-text">
-      <div class="side-menu-avatar-container nav-mobile-side-user" #userRef>
-        <img
-          #avatarRef
-          class="avatar side-menu-avatar"
-          src="../assets/images/side-menu/no_avatar.jpg"
-          alt="no_avatar"
-        />
-      </div>
-      <div class="nav-mobile-side-all">
-        <a routerLink="home"
-          ><img src="../assets/images/side-menu/home.svg" alt="home" id="side-mobile-home" />صفحه اصلی</a
-        >
-      </div>
-      <div class="nav-mobile-side-loggedout side-menu-ls" #loggedOutRef>
-        <img src="../assets/images/side-menu/person.svg" alt="playlist" /><span
-          ><a routerLink="user/login">ورود</a>&nbsp;&nbsp;|&nbsp;&nbsp;</span
-        ><a routerLink="user/signup">ثبت نام</a>
-      </div>
-      <div class="nav-mobile-side-user" #userRef>
-        <a routerLink="profile/playlists"
-          ><img src="../assets/images/side-menu/playlist.svg" alt="playlist" />پلی لیست ها</a
-        >
-      </div>
-      <div class="nav-mobile-side-user" #userRef>
-        <a routerLink="favorites"
-          ><img src="../assets/images/side-menu/star_fill.svg" alt="favorites" />مورد علاقه ها</a
-        >
-      </div>
-      <div class="nav-mobile-side-all">
-        <a routerLink="music_search"
-          ><img src="../assets/images/side-menu/search_icon.svg" alt="search" />جستجوی پیشرفته</a
-        >
-      </div>
-      <div class="nav-mobile-side-user" #userRef>
-        <a routerLink="edit_profile"
-          ><img src="../assets/images/side-menu/edit.svg" alt="edit_profile" />ویرایش پروفایل</a
-        >
-      </div>
-      <div class="nav-mobile-side-user nav-mobile-side-logout" #userRef>
-        <a routerLink="/" (click)="handleLogout()"
-          ><img src="../assets/images/side-menu/logout.svg" alt="logout" />خروج از حساب</a
-        >
+    <div class="side-menu">
+      <div class="side-menu-text">
+        <div class="side-menu-avatar-container nav-mobile-side-user" #userRef>
+          <img #avatarRef class="avatar side-menu-avatar" src="assets/images/side-menu/no_avatar.jpg" alt="no_avatar">
+        </div>
+        <div class="nav-mobile-side-all">
+          <a routerLink="home"><img
+              src="assets/images/side-menu/home.svg"
+              alt="home" id="side-mobile-home" />صفحه اصلی</a>
+
+        </div>
+        <div class="nav-mobile-side-loggedout side-menu-ls" #loggedOutRef>
+          <img
+              src="assets/images/side-menu/person.svg"
+              alt="playlist" /><span
+          ><a routerLink="user/login">ورود</a
+          >&nbsp;&nbsp;|&nbsp;&nbsp;</span><a routerLink="user/signup">ثبت نام</a>
+        </div>
+        <div class="nav-mobile-side-user" #userRef>
+          <a routerLink="profile/playlists"
+            ><img
+                src="assets/images/side-menu/playlist.svg"
+                alt="playlist" />پلی لیست ها</a
+          >
+        </div>
+        <div class="nav-mobile-side-user" #userRef>
+          <a routerLink="favorites"
+            ><img
+                src="assets/images/side-menu/star_fill.svg"
+                alt="favorites" />مورد علاقه ها</a
+          >
+        </div>
+        <div class="nav-mobile-side-all">
+          <a routerLink="music_search"
+            ><img
+                src="assets/images/side-menu/search_icon.svg"
+                alt="search" />جستجوی پیشرفته</a
+          >
+        </div>
+        <div class="nav-mobile-side-user" #userRef>
+          <a routerLink="edit_profile"
+            ><img
+                src="assets/images/side-menu/edit.svg"
+                alt="edit_profile" />ویرایش پروفایل</a
+          >
+        </div>
+        <div class="nav-mobile-side-user nav-mobile-side-logout" #userRef>
+          <a routerLink="/" (click)="handleLogout()"
+            ><img
+                src="assets/images/side-menu/logout.svg"
+                alt="logout" />خروج از حساب</a
+          >
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div #blackPageRef (click)="handleBlackPageClick()" class="side-menu-black-page"></div>
+  <div #blackPageRef (click)="handleBlackPageClick()" class="side-menu-black-page">
+
+  </div>
