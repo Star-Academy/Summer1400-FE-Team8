@@ -22,21 +22,12 @@ export class NavSideDesktopComponent implements OnInit {
   handleShowMenu() {
     return this.authService.isLogged();
   }
-  toggleImgMove(menu: HTMLDivElement, openClass: string, toggleImg: HTMLImageElement) {
-    if (menu.classList.contains(openClass)) {
-      toggleImg.style.transform = 'rotateY(0deg)';
-    } else {
-      toggleImg.style.transform = 'rotateY(180deg)';
-    }
-  }
 
   handleToggleBtn() {
     const menu = this.menuRef.nativeElement;
-    const toggleImg = this.toggleBtnImgRef.nativeElement;
     const openClass = 'nav-desktop-side-open';
     const closeClass = 'nav-desktop-side-closed';
     const rightWhenClosed = '-13.43rem';
-    this.toggleImgMove(menu, openClass, toggleImg);
     this.navSideService.toggleMenu(menu, openClass, closeClass, rightWhenClosed);
   }
   handleLogout() {
