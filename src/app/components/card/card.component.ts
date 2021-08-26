@@ -13,22 +13,11 @@ import { Injectable } from '@angular/core';
 })
 export class CardComponent implements OnInit , AfterViewInit
 {
-  @ViewChildren('allItems') buttonElement!: QueryList<ElementRef>;
   @Input() public songs! : Song[] ;
-
   constructor() { }
 
   ngOnInit(): void {
   }
   async ngAfterViewInit(): Promise<void>
-  {
-    this.buttonElement.changes.subscribe(()=>{
-      this.buttonElement.forEach((e , i )=>{
-        e.nativeElement.onmouseover = ()=>{
-          alert(i);
-        }
-      });
-    });
-  }
-
+  {}
 }
