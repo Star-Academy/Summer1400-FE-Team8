@@ -1,0 +1,393 @@
+@use '../abstracts' as *;
+
+@media only screen and (max-width: 36rem) {
+  // -------- footer
+  footer {
+    .#{&}-content {
+      justify-content: center !important;
+      padding-top: 0.3rem !important;
+      padding-bottom: 0.3rem !important;
+    }
+    .#{&}-text {
+      display: none !important;
+    }
+    .#{&}-social {
+      img {
+        width: 1.6rem !important;
+      }
+    }
+  }
+
+  // -------- search box
+
+  .landing-content-search,
+  .search-box {
+    .search-container {
+      width: 90% !important;
+    }
+
+    input {
+      font-size: 1.3rem;
+    }
+  }
+
+  // -------- homepage
+  .landing {
+    &-content h1 {
+      font-size: 3rem !important;
+      padding: 0 1rem !important;
+    }
+  }
+
+  .about {
+    &-content {
+      justify-content: center !important;
+      margin-right: 0 !important;
+    }
+    &-text {
+      flex-basis: 85% !important;
+      h2 {
+        font-size: 2.2rem;
+      }
+      p {
+        margin-top: 3rem !important;
+        font-size: 1.4rem !important;
+      }
+    }
+    &-pic {
+      display: none !important;
+    }
+    &-register {
+      margin-top: 3rem !important;
+    }
+  }
+
+  // -------- player
+
+  .player-content {
+    .song-interact {
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+      gap: 0.5rem !important;
+      margin-bottom: 1rem !important;
+    }
+    .song-play {
+      &-top {
+        gap: 0.4rem !important;
+        font-size: 0.7rem !important;
+      }
+      &-bottom {
+        &-right {
+          display: none !important;
+        }
+        &-center {
+          display: flex !important;
+          flex-basis: 40.3% !important;
+          justify-content: center !important;
+          margin-right: auto !important;
+        }
+      }
+    }
+  }
+
+  // -------- music search
+
+  .search {
+    &-filter {
+      width: 70% !important;
+    }
+
+    &-results-box {
+      flex-basis: initial !important;
+      width: 92% !important;
+    }
+  }
+
+  // -------- favorites
+  main.favorites-container {
+    div.favorites {
+      &-box-item {
+        h5 {
+          font-size: 1.4rem !important;
+        }
+        h6 {
+          font-size: 0.8rem !important;
+        }
+
+        &-play {
+          button {
+            border-top: 0.7rem solid transparent !important;
+            border-left: 1.4rem solid $main-white !important;
+            border-bottom: 0.7rem solid transparent !important;
+          }
+        }
+      }
+    }
+  }
+
+  // -------- playlists
+  main.playlists-container {
+    .create-playlist {
+      &-btn {
+        font-size: 1rem !important;
+      }
+      .create-playlist-page {
+        &-box {
+          padding: 1rem 0.6rem !important;
+          label {
+            font-size: 1.1rem !important;
+          }
+          input[type='text'] {
+            padding: 0.7rem 0.5rem;
+            text-align: center;
+            font-size: 1rem;
+          }
+
+          .create-playlist-input,
+          .create-playlist-submit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 23.25rem) {
+  // -------- search box
+
+  .landing-content-search,
+  .search-box {
+    .search-container {
+      width: 98% !important;
+    }
+
+    input {
+      font-size: 1.3rem;
+
+      &::placeholder {
+        opacity: 0 !important;
+      }
+    }
+
+    .search-icon {
+      img {
+        width: 3rem !important;
+        height: 3.6rem !important;
+      }
+    }
+  }
+
+  //  ---------- homepage
+
+  .about {
+    &-text {
+      p {
+        font-size: 1.1rem !important;
+      }
+    }
+  }
+
+  // -------- player
+
+  .player-content {
+    .song-play {
+      &-bottom {
+        &-center {
+          img {
+            max-width: 1.5rem !important;
+          }
+        }
+        &-left {
+          img {
+            max-width: 1.2rem !important;
+          }
+        }
+      }
+    }
+
+    .playlist-box-item-add {
+      button {
+        width: 1.9rem !important;
+        height: 1.9rem !important;
+      }
+    }
+  }
+
+  // -------- music search
+
+  .search {
+    &-filter {
+      width: 80% !important;
+    }
+
+    &-results-box {
+      flex-basis: initial !important;
+      width: 92% !important;
+
+      &-item {
+        &-text {
+          h4 {
+            font-size: 1.4rem !important;
+          }
+          h5 {
+            font-size: 0.8rem !important;
+          }
+        }
+        &-pic {
+          img {
+            width: 4.3rem !important;
+            height: 4.3rem !important;
+          }
+        }
+        &-play {
+          button {
+            border-top: 0.7rem solid transparent !important;
+            border-left: 1.4rem solid $main-white !important;
+            border-bottom: 0.7rem solid transparent !important;
+          }
+        }
+      }
+    }
+  }
+
+  // -------- favorites
+
+  main.favorites-container {
+    div.favorites {
+      flex-basis: 99% !important;
+      &-box-item {
+        &-delete {
+          img {
+            max-width: 1.4rem !important;
+          }
+        }
+      }
+    }
+  }
+
+  // -------- playlists
+
+  main.playlists-container {
+    $cover-height: 11.8rem;
+    $cover-width: 11.8rem;
+    .playlists {
+      &-item {
+        grid-template-rows: $cover-height/3 $cover-height/3 $cover-height/3 !important;
+        &-pic {
+          width: $cover-width !important;
+          height: $cover-height !important;
+        }
+        &-actions {
+          padding: 0 1.2rem 0 0;
+
+          .playlists-item-play {
+            padding-left: 0.8rem;
+            button {
+              border-top: 0.5rem solid transparent !important;
+              border-left: 1rem solid $main-white !important;
+              border-bottom: 0.5rem solid transparent !important;
+            }
+          }
+        }
+        &-text {
+          h4 {
+            font-size: 1.1rem !important;
+          }
+        }
+      }
+    }
+  }
+
+  // -------- sign up
+  main.ls-container {
+    .ls-top-headphone {
+      img {
+        opacity: 0 !important;
+      }
+    }
+    .signup-box-content {
+      width: 92% !important;
+      justify-content: center !important;
+      form {
+        label {
+          font-size: 1rem !important;
+        }
+        input {
+          font-size: 1rem !important;
+          padding: 0.6rem !important;
+        }
+      }
+    }
+  }
+
+  // -------- login
+  main.ls-container {
+    .login-box {
+      &-content {
+        padding: 2rem 1rem !important;
+      }
+      &-text {
+        input:not(input[type='submit']) {
+          padding: 1rem 0.8rem !important;
+          font-size: 1rem !important;
+        }
+      }
+      &-pic {
+        display: none !important;
+      }
+
+      .remember-container {
+        label {
+          font-size: 1rem !important;
+        }
+      }
+    }
+  }
+
+  // -------- edit profile
+
+  main.edit-profile-container {
+    .edit-profile-content {
+      form {
+        input:not(input[type='submit']) {
+          padding: 1rem 0.6rem !important;
+          font-size: 1.1rem !important;
+        }
+        label {
+          font-size: 1.1rem !important;
+        }
+
+        .change-avatar-container {
+          img {
+            width: 11rem;
+            height: 11rem;
+          }
+          .avatar-warning {
+            font-size: 0.7rem !important;
+          }
+        }
+      }
+    }
+  }
+
+  .landing {
+    background-image: url('../../../assets/images/Home/landing-bg-mobile.jpg') !important;
+  }
+}
+
+@media only screen and (max-width: 17.49rem) {
+  // -------- favorites
+
+  main.favorites-container {
+    div.favorites {
+      &-box-item {
+        &-pic {
+          display: none !important;
+        }
+      }
+    }
+  }
+}

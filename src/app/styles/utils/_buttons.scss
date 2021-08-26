@@ -1,0 +1,39 @@
+@use '../abstracts/' as *;
+
+.btn {
+  border-radius: 1rem;
+  padding: 1rem 1.2rem;
+  color: #fff;
+  transition: background-color 0.3s ease-in-out;
+  cursor: pointer;
+}
+.btn--blue {
+  background-color: $secondary-color;
+  &:hover {
+    background-color: $lighter-blue;
+  }
+}
+.btn--red {
+  background-color: #c21717;
+  &:hover {
+    background-color: #e52727;
+  }
+}
+.btn--gray {
+  background-color: $primary-color;
+  &:hover {
+    background-color: $light-grey;
+  }
+}
+
+.ls-top-btn-idle {
+  background-color: $lighter-blue;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: $secondary-color;
+  }
+}
+.ls-top-btn-active {
+  background-color: $secondary-color;
+}

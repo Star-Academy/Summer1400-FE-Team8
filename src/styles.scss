@@ -1,0 +1,7 @@
+/* You can add global styles to this file, and also import other style files */
+@use './app/styles/abstracts' as *;
+@use './app/styles/base' as *;
+@use './app/styles/responsive/' as *;
+@use './app/styles/utils/' as *;
+@use './app/styles/components/' as *;
+@use './app/components/music-search/music-search.component.scss' as *;

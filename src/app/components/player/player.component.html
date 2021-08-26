@@ -1,0 +1,163 @@
+<!-- NOT LOGGED IN ALERT -->
+<div #registerAlert class="signup-alert-container">
+  <div class="signup-alert-box">
+    <p class="signup-alert-box-text">
+      برای اینکه از آرشیو بینظیر آهنگیفای استفاده کنی باید در سایت ثبت نام کنی یا وارد حسابت بشی !
+    </p>
+    <div class="signup-alert-box-btns">
+      <a (click)="navLogin(true)" id="loginAlert">
+        <button class="btn btn--blue">ورود</button>
+      </a>
+      <a (click)="navLogin(false)" id="signupAlert">
+        <button class="btn btn--blue">ثبت نام</button>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!----------- MAIN CONTENT ----------->
+<main class="player-container">
+  <div class="player-content">
+    <div class="player-right">
+      <div class="song-cover">
+        <div class="song-cover-info">
+          <p *ngIf="song" class="song-cover-info-singer">
+            <span><img alt="singer" src="assets/images/player/person.svg" /></span>{{ song.artist }}
+          </p>
+          <p *ngIf="song" class="song-cover-info-name">
+            <span><img alt="singer" src="assets/images/player/music.svg" /></span>{{ song.name }}
+          </p>
+        </div>
+        <div *ngIf="song" class="song-cover-pic">
+          <img [src]="song.cover" alt="cover" />
+        </div>
+      </div>
+      <div class="song-interact">
+        <div class="song-interact-like">
+          <button><img alt="heart" src="assets/images/player/heart_outline.svg" /></button>
+          <span> 1000 </span>
+          لایک
+        </div>
+        <div class="song-interact-favorite">
+          <span><img alt="star" src="assets/images/player/star_outline.svg" /></span>
+          <button>افزودن به لیست علاقه مندی</button>
+        </div>
+      </div>
+      <div class="song-play">
+        <div class="song-play-top">
+          <span #timePassed class="time-passed">0:00</span>
+          <span class="play-range">
+            <input
+              #playRange
+              (change)="updatePlaying(playRange.value)"
+              (mousemove)="mousemoveRange(playRange)"
+              *ngIf="current_track"
+              class="custom-range-slider"
+              id="playRange"
+              max="100"
+              min="0"
+              type="range"
+              value="0"
+            />
+          </span>
+          <span #timeRemained class="time-remained">4:22</span>
+        </div>
+        <div class="song-play-bottom">
+          <div class="song-play-bottom-right">
+            <span><img alt="volume_up" src="assets/images/player/music/volume_up.svg" /></span>
+            <span class="volume-range-wrapper">
+              <input
+                #volumeRange
+                (change)="updateVolume(volumeRange.value)"
+                (mousemove)="updateVolume(volumeRange.value)"
+                class="custom-range-slider volume-range"
+                max="100"
+                min="0"
+                style="background: linear-gradient(to right, #33538aff 80%, #fff 0%)"
+                type="range"
+                value="50"
+              />
+            </span>
+            <span><img alt="volume_down" src="assets/images/player/music/volume_down.svg" /></span>
+          </div>
+          <div class="song-play-bottom-center">
+            <button (click)="nextTrack()" *ngIf="recommends" id="Next" title="آهنگ بعدی">
+              <img alt="fast_forward" src="assets/images/player/music/fast_forward.svg" />
+            </button>
+
+            <button *ngIf="current_track" id="PlayPause" title="توقف یا اجرا">
+              <img
+                #playpauseImage
+                (click)="playStop()"
+                alt="play_arrow"
+                class="playpauseImage"
+                src="assets/images/player/music/play_arrow.svg"
+              />
+            </button>
+
+            <button (click)="prevTrack()" *ngIf="recommends" id="Prev" title="آهنگ قبلی">
+              <img alt="fast_rewind" src="assets/images/player/music/fast_rewind.svg" />
+            </button>
+          </div>
+          <div class="song-play-bottom-left">
+            <button *ngIf="current_track" title="پخش مجدد">
+              <img (click)="replaySong()" alt="replay" src="assets/images/player/music/replay.svg" />
+            </button>
+            <button (click)="separatePlayList()" class="add-to-playlist-btn" title="حذف یا اضافه">
+              <img alt="playlist_add" src="assets/images/player/music/playlist_add.svg" />
+            </button>
+
+            <div #addPage class="add-to-playlist-page">
+              <div #addBox class="add-to-playlist-page-box">
+                <h3>پلی لیست مورد نظرتو انتخاب کن</h3>
+                <ul *ngIf="playLists && ss">
+                  <li *ngFor="let playList of playLists">
+                    <button #playItem (click)="updateplayList(playList)" class="btn" data-playlist-id="">
+                      {{ playList.name }}
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="song-more-details">
+        <details>
+          <summary>اطلاعات بیشتر</summary>
+          <div class="details">
+            <div class="details-buttons">
+              <button #detailsInfo class="btn details-buttons-info ls-top-btn-active">جزییات</button>
+              <button #detailsLyrics class="btn details-buttons-lyrics ls-top-btn-idle">متن</button>
+            </div>
+
+            <div #lyricsContainer class="details-box" id="lyricsContainer" style="display: none">
+              <div style="height: 350px">
+                <p *ngIf="song" class="lyrics-container">
+                  {{ song.lyrics }}
+                </p>
+              </div>
+            </div>
+
+            <div #infoContainer class="details-box" id="infoContainer" style="display: initial">
+              <div class="info_container">
+                <p>
+                  <span *ngIf="song"> نام خواننده : {{ song.artist }} </span><span></span>
+                </p>
+                <p>
+                  <span *ngIf="song"> نام اثر : {{ song.name }} </span><span></span>
+                </p>
+                <p>
+                  <span *ngIf="song"> نشر : {{ song.publish_date }} </span><br /><span></span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+    <div class="player-left">
+      <h2>مرتبط با سلیقت</h2>
+    </div>
+  </div>
+</main>

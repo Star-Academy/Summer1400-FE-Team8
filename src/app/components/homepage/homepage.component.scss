@@ -1,0 +1,77 @@
+@use '../../styles/abstracts' as *;
+
+/* ------ landing section ------ */
+
+.landing {
+  background-image: url('../../../assets/images/home/landing-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 93vh;
+  display: flex;
+  justify-content: center;
+  &-content {
+    width: 62rem;
+    margin-top: 12vh;
+    display: flex;
+    flex-direction: column;
+    gap: 8rem;
+  }
+  &-content h1 {
+    color: #fff;
+    text-align: center;
+    font-size: 5.2rem;
+    text-shadow: -2px 1px 5px black;
+  }
+}
+
+/* ------ about section ------ */
+
+.about {
+  background-color: $primary-color;
+  height: 93vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &-content {
+    width: 62rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    color: #fff;
+    margin-right: 5rem;
+  }
+  &-text {
+    flex-basis: 70%;
+    h2 {
+      font-size: 3.5rem;
+
+      span {
+        padding-bottom: 0.6rem;
+        border-bottom: 0.3rem solid white;
+      }
+    }
+    p {
+      margin-top: 2.3rem;
+      font-size: 1.4rem;
+      line-height: 2;
+      font-weight: 100;
+      text-align: justify;
+    }
+  }
+  &-pic {
+    display: flex;
+    align-items: center;
+    img {
+      filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+      width: 42rem;
+    }
+  }
+  &-register {
+    margin-top: 2.9rem;
+
+    button {
+      font-size: 1.7rem;
+      padding: 1rem 7rem;
+    }
+  }
+}

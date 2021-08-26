@@ -1,0 +1,40 @@
+<section class="signup-box">
+  <div class="signup-box-content">
+    <form name="register_form" (submit)="handleSignup($event)" #formRef>
+      <div>
+        <label for="first_name">نام</label>
+        <input #formElem type="text" class="custom-input" name="firstName" />
+        <div #errorElem id="name_error" class="form-warning"></div>
+      </div>
+      <div>
+        <label for="last_name">نام خانوادگی</label>
+        <input type="text" class="custom-input" name="lastName" />
+        <!-- <div id="name_error"></div> -->
+      </div>
+      <div>
+        <label for="email">ایمیل</label>
+        <input #formElem type="text" class="custom-input" name="email" />
+        <div #errorElem id="mail_error" class="form-warning"></div>
+      </div>
+      <div>
+        <label for="username">نام کاربری</label>
+        <input #formElem type="text" class="custom-input" name="username" />
+        <div #errorElem id="username_error" class="form-warning"></div>
+      </div>
+      <div>
+        <label for="password">رمز عبور</label>
+        <input type="password" autocomplete="on" class="custom-input" name="password" required #passwordRef />
+        <div id="pass_error" class="form-warning"></div>
+      </div>
+      <div>
+        <label for="password-repeat">تکرار رمز عبور</label>
+        <input #formElem type="password" autocomplete="on" class="custom-input" name="repeat_password" required />
+        <div #errorElem id="repeat_error" class="form-warning"></div>
+      </div>
+      <div class="signup-submit-container">
+        <button type="submit" name="submit" class="btn btn--blue">ثبت نام</button>
+        <p class="signup-success" #signUpSuccessRef>ثبت نام با موفقیت انجام شد . در حال هدایت شدن به صفحه ورود ...</p>
+      </div>
+    </form>
+  </div>
+</section>

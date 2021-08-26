@@ -1,0 +1,12 @@
+<div class="search-box" #searchBoxRef>
+  <form (submit)="handleSearch($event)">
+    <div class="search-container">
+      <div class="search-icon">
+        <button type="submit">
+          <img src="assets/images/saerch-box/search_icon.svg" alt="search" />
+        </button>
+      </div>
+      <input type="search" name="search" placeholder="نام آهنگ ، خواننده و ..." #searchInputRef />
+    </div>
+  </form>
+</div>
