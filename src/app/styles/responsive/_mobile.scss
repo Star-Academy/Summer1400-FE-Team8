@@ -127,32 +127,31 @@
 
   // -------- playlists
   main.playlists-container {
-    .create-playlist{
-
-      &-btn{
+    .create-playlist {
+      &-btn {
         font-size: 1rem !important;
       }
-      .create-playlist-page{
-        &-box{
-          padding: 1rem .6rem !important;
-          label{
+      .create-playlist-page {
+        &-box {
+          padding: 1rem 0.6rem !important;
+          label {
             font-size: 1.1rem !important;
           }
-          input[type="text"]{
-              padding: .7rem .5rem;
-              text-align: center;
-              font-size: 1rem;
+          input[type='text'] {
+            padding: 0.7rem 0.5rem;
+            text-align: center;
+            font-size: 1rem;
           }
 
-
-          .create-playlist-input,.create-playlist-submit{
+          .create-playlist-input,
+          .create-playlist-submit {
             display: flex;
             flex-direction: column;
             align-items: center;
           }
         }
       }
-  }
+    }
   }
 }
 
@@ -211,8 +210,8 @@
 
     .playlist-box-item-add {
       button {
-        width: 1.9rem ;
-        height: 1.9rem ;
+        width: 1.9rem !important;
+        height: 1.9rem !important;
       }
     }
   }
@@ -281,11 +280,11 @@
           width: $cover-width !important;
           height: $cover-height !important;
         }
-        &-actions{
+        &-actions {
           padding: 0 1.2rem 0 0;
 
-          .playlists-item-play{
-            padding-left: .8rem;
+          .playlists-item-play {
+            padding-left: 0.8rem;
             button {
               border-top: 0.5rem solid transparent !important;
               border-left: 1rem solid $main-white !important;
@@ -300,8 +299,6 @@
         }
       }
     }
-
-
   }
 
   // -------- sign up
@@ -333,7 +330,7 @@
         padding: 2rem 1rem !important;
       }
       &-text {
-        input:not(input[type="submit"]) {
+        input:not(input[type='submit']) {
           padding: 1rem 0.8rem !important;
           font-size: 1rem !important;
         }
@@ -355,7 +352,7 @@
   main.edit-profile-container {
     .edit-profile-content {
       form {
-        input:not(input[type="submit"]) {
+        input:not(input[type='submit']) {
           padding: 1rem 0.6rem !important;
           font-size: 1.1rem !important;
         }
@@ -368,8 +365,8 @@
             width: 11rem;
             height: 11rem;
           }
-          .avatar-warning{
-            font-size: .7rem !important;
+          .avatar-warning {
+            font-size: 0.7rem !important;
           }
         }
       }
@@ -377,9 +374,8 @@
   }
 
   .landing {
-    background-image: url("../../../assets/images/Home/landing-bg-mobile.jpg") !important;
+    background-image: url('../../../assets/images/Home/landing-bg-mobile.jpg') !important;
   }
-
 }
 
 @media only screen and (max-width: 17.49rem) {

@@ -51,8 +51,8 @@
         width: 2.6rem;
         height: 2.6rem;
         aspect-ratio: 1/1;
-        background: linear-gradient($primary-color, $primary-color),
-          linear-gradient($primary-color, $primary-color), #fff;
+        background: linear-gradient($primary-color, $primary-color), linear-gradient($primary-color, $primary-color),
+          #fff;
         background-position: center;
         background-size: 60% 0.13rem, 0.13rem 60%; /*thickness = 2px, length = 50% (25px)*/
         background-repeat: no-repeat;
@@ -91,8 +91,8 @@
   }
 }
 
-.playlist-box{
-  .playlist-box-item-text{
+.playlist-box {
+  .playlist-box-item-text {
     word-break: break-word;
     max-width: 50%;
   }

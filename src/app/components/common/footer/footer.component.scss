@@ -21,7 +21,7 @@ footer {
     a {
       @include nav-footer-link;
     }
-    p{
+    p {
       color: $primary-color;
       font-size: 1.15rem;
     }

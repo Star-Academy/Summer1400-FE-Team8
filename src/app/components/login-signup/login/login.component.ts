@@ -1,12 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  OnInit,
-  QueryList,
-  ViewChild,
-  ViewChildren,
-} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { UserService } from 'src/app/services/user/user.service';
 import { Router } from '@angular/router';
@@ -22,11 +14,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
   @ViewChild('passError') passError!: ElementRef;
   @ViewChild('formElem') formElem!: ElementRef;
 
-  constructor(
-    private authService: AuthService,
-    private userService: UserService,
-    private router: Router
-  ) {}
+  constructor(private authService: AuthService, private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {}
   ngAfterViewInit(): void {
@@ -72,10 +60,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
     const password = form.password.value;
 
     if (email === '' || password === '') {
-      this.printError(
-        'pass_error',
-        'نام کاربری یا رمز عبور نمیتواند خالی باشد'
-      );
+      this.printError('pass_error', 'نام کاربری یا رمز عبور نمیتواند خالی باشد');
       return;
     }
     this.printError('pass_error', '');
@@ -99,8 +84,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
         }
         this.authService.setUserLocal(res.token, res.id);
         this.authService.setExpiry(new Date());
-        this.router
-          .navigate(['profile/playlists'])
+        this.router.navigate(['profile/playlists']);
       },
       () => {
         this.printError('pass_error', 'اطلاعات وارد شده اشتباه است');

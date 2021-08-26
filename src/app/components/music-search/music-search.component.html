@@ -8,11 +8,7 @@
           <div class="search-filter">
             <div class="search-filter-mode">
               <h3>
-                  <span
-                  ><img
-                    src="../assets/images/search/order.svg"
-                    alt="genre" /></span
-                  >ترتیب
+                <span><img src="../assets/images/search/order.svg" alt="genre" /></span>ترتیب
               </h3>
               <form class="form-order">
                 <div>
@@ -22,7 +18,7 @@
                     id="desc"
                     value="desc"
                     #descRef
-                    (click)="handleChangeFilter($event,'desc','true')"
+                    (click)="handleChangeFilter($event, 'desc', 'true')"
                   />
                   <label for="desc">نزولی</label>
                 </div>
@@ -33,8 +29,7 @@
                     id="asc"
                     value="asc"
                     #ascRef
-                    (click)="handleChangeFilter($event,'desc','false')"
-  
+                    (click)="handleChangeFilter($event, 'desc', 'false')"
                   />
                   <label for="asc">صعودی</label>
                 </div>
@@ -42,13 +37,9 @@
             </div>
             <div class="search-filter-mode">
               <h3>
-                  <span
-                  ><img
-                    src="../assets/images/search/mode.svg"
-                    alt="genre" /></span
-                  >بر اساس
+                <span><img src="../assets/images/search/mode.svg" alt="genre" /></span>بر اساس
               </h3>
-              <form class = "form-mode" >
+              <form class="form-mode">
                 <div>
                   <input
                     type="radio"
@@ -56,8 +47,7 @@
                     id="newest"
                     value="newest"
                     #newestRef
-                    (click)="handleChangeFilter($event,'sortBy','newest')"
-  
+                    (click)="handleChangeFilter($event, 'sortBy', 'newest')"
                   />
                   <label for="newest">جدید ترین</label>
                 </div>
@@ -68,7 +58,7 @@
                     id="name"
                     value="name"
                     #nameRef
-                    (click)="handleChangeFilter($event,'sortBy','name')"
+                    (click)="handleChangeFilter($event, 'sortBy', 'name')"
                   />
                   <label for="name">نام اهنگ</label>
                 </div>
@@ -79,20 +69,16 @@
                     id="artist"
                     value="artist"
                     #artistRef
-                    (click)="handleChangeFilter($event,'sortBy','artist')"
+                    (click)="handleChangeFilter($event, 'sortBy', 'artist')"
                   />
                   <label for="artist">نام خواننده</label>
                 </div>
               </form>
             </div>
-  
           </div>
-  
+
           <div class="search-results-box" #boxRef>
-            <app-search-item
-              *ngFor="let song of songs"
-              [song]="song">
-            </app-search-item>
+            <app-search-item *ngFor="let song of songs" [song]="song"> </app-search-item>
           </div>
         </div>
       </section>
@@ -100,13 +86,10 @@
         <button (click)="handleBackForwardBtns(pagesNum)" class="search-pagination-forward" #pagForwardBtnRef>
           &laquo;&laquo;
         </button>
-        <div class="search-pagination" #paginationRef>
-  
-        </div>
+        <div class="search-pagination" #paginationRef></div>
         <button (click)="handleBackForwardBtns('1')" class="search-pagination-backward" #pagBackwardBtnRef>
           &raquo;&raquo;
         </button>
-  
       </div>
     </div>
   </div>

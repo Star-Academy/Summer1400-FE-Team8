@@ -1,5 +1,5 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { ComponentFixture, fakeAsync, inject, TestBed, } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, inject, TestBed } from '@angular/core/testing';
 import { MockLocationStrategy } from '@angular/common/testing';
 import { LocationStrategy } from '@angular/common';
 import { EditProfileComponent } from './edit-profile.component';
@@ -66,12 +66,12 @@ describe('EditProfileComponent', () => {
         username: 'bolnik',
         avatar: 'file1',
         gender: '1',
-      }
-      return of({user:data});
+      };
+      return of({ user: data });
     });
-      userService.getUserData('aaaa').subscribe((res: any) => {
-        expect(res.user.username).toEqual('bolnik');
-      });
+    userService.getUserData('aaaa').subscribe((res: any) => {
+      expect(res.user.username).toEqual('bolnik');
+    });
     component.ngAfterViewInit();
     fixture.detectChanges();
     expect(userService.getUserData).toHaveBeenCalled();

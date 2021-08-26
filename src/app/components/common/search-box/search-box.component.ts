@@ -7,11 +7,7 @@ import { UrlService } from 'src/app/services/url/url.service';
   styleUrls: ['./search-box.component.scss'],
 })
 export class SearchBoxComponent implements OnInit {
-  constructor(
-    private urlService: UrlService,
-    private actRoute: ActivatedRoute,
-    private router: Router
-  ) {}
+  constructor(private urlService: UrlService, private actRoute: ActivatedRoute, private router: Router) {}
   @ViewChild('searchInputRef') searchInputRef!: ElementRef;
 
   handleSearch(event: any) {
@@ -36,6 +32,5 @@ export class SearchBoxComponent implements OnInit {
     return this.searchInputRef.nativeElement;
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }

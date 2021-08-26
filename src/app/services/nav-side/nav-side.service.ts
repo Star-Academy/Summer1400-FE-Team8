@@ -1,19 +1,18 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NavSideService {
+  constructor() {}
+  toggleElm!: HTMLElement;
+  menu: any;
+  black_page: any;
+  openClass: any;
+  closeClass: any;
+  rightWhenClosed: any;
 
-  constructor() { }
-  toggleElm !: HTMLElement ;
-  menu :any;
-  black_page :any;
-  openClass :any;
-  closeClass :any;
-  rightWhenClosed :any;
-
-  toggleMenu = (menu:HTMLDivElement,openClass:string,closeClass:string,rightWhenClosed:string) => {
+  toggleMenu = (menu: HTMLDivElement, openClass: string, closeClass: string, rightWhenClosed: string) => {
     if (menu.classList.contains(openClass)) {
       menu.style.right = rightWhenClosed;
       menu.classList.remove(openClass);
@@ -24,35 +23,28 @@ export class NavSideService {
       menu.style.right = `0px`;
     }
   };
-  handleToggleMove(){
-
-  }
-  setNavMobileElms(menu:any , black_page:any , openClass:any , closeClass:any , rightWhenClosed:any){
+  handleToggleMove() {}
+  setNavMobileElms(menu: any, black_page: any, openClass: any, closeClass: any, rightWhenClosed: any) {
     this.menu = menu;
     this.black_page = black_page;
     this.openClass = openClass;
     this.closeClass = closeClass;
     this.rightWhenClosed = rightWhenClosed;
   }
-  getNavMobileElms(){
+  getNavMobileElms() {
     return {
-      menu :this.menu,
+      menu: this.menu,
       black_page: this.black_page,
       openClass: this.openClass,
       closeClass: this.closeClass,
       rightWhenClosed: this.rightWhenClosed,
-    }
+    };
   }
-  toggleBlackPage(
-    menu: HTMLDivElement,
-    black_page: HTMLDivElement,
-    openClass: string
-  ){
+  toggleBlackPage(menu: HTMLDivElement, black_page: HTMLDivElement, openClass: string) {
     if (menu.classList.contains(openClass)) {
       black_page.style.display = 'none';
     } else {
       black_page.style.display = 'block';
     }
-  };
-  
+  }
 }

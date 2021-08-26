@@ -9,10 +9,7 @@ import { PlaylistService } from 'src/app/services/playlist/playlist.service';
   styleUrls: ['./playlist-item.component.scss'],
 })
 export class PlaylistItemComponent implements OnInit {
-  constructor(
-    private router: Router,
-    private playlistService: PlaylistService
-  ) {}
+  constructor(private router: Router, private playlistService: PlaylistService) {}
 
   @Input() playlist!: Playlist;
   lastElmObj: any;
@@ -25,11 +22,8 @@ export class PlaylistItemComponent implements OnInit {
   }
 
   removePlaylist(e: any) {
-    const container =
-      e.target.parentElement.parentElement.parentElement.parentElement;
-    this.playlistService
-      .deletePlaylist(this.playlist.id)
-      .subscribe(() => container.classList.add('display-none'));
+    const container = e.target.parentElement.parentElement.parentElement.parentElement;
+    this.playlistService.deletePlaylist(this.playlist.id).subscribe(() => container.classList.add('display-none'));
   }
   ngOnInit(): void {
     if (this.playlist && this.playlist.songs.length) {

@@ -10,17 +10,8 @@ import { NavbarComponent } from './components/common/navbar/navbar.component';
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule,
-        HttpClientTestingModule,
-      ],
-      declarations: [
-        AppComponent,
-        NavSideMobileComponent,
-        NavSideDesktopComponent,
-        FooterComponent,
-        NavbarComponent
-      ],
+      imports: [RouterTestingModule, HttpClientTestingModule],
+      declarations: [AppComponent, NavSideMobileComponent, NavSideDesktopComponent, FooterComponent, NavbarComponent],
     }).compileComponents();
   });
 
@@ -35,5 +26,4 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
     expect(app.title).toEqual('ahangify');
   });
-
 });

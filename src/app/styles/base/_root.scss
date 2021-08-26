@@ -1,7 +1,7 @@
 @use '../abstracts'as *;
 
 body {
-  font-family: "IRANSansWeb", Arial, Helvetica, sans-serif;
+  font-family: 'IRANSansWeb', Arial, Helvetica, sans-serif;
   direction: rtl;
   position: relative;
 }
@@ -49,25 +49,25 @@ main {
   padding-bottom: 2rem;
   min-height: calc(100vh - 8.5rem);
   color: #fff;
-  display:flex;
+  display: flex;
   justify-content: center;
-  &>div{
+  & > div {
     width: 62rem;
   }
 }
 
 // --- PUBLIC CLASSES
 
-.display-none{
+.display-none {
   display: none !important;
 }
-.display-block{
+.display-block {
   display: block !important;
 }
-.display-flex{
+.display-flex {
   display: flex !important;
 }
-.display-initial{
+.display-initial {
   display: initial !important;
 }
 

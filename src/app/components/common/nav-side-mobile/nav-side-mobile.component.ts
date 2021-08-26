@@ -1,11 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  OnInit,
-  QueryList,
-  ViewChild,
-  ViewChildren,
-} from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { NavSideService } from 'src/app/services/nav-side/nav-side.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { UserService } from 'src/app/services/user/user.service';
@@ -30,11 +23,7 @@ export class NavSideMobileComponent implements OnInit {
   @ViewChild(NavbarComponent) navbarRef!: NavbarComponent;
   @ViewChildren('userRef') userRef!: QueryList<ElementRef>;
   @ViewChildren('loggedOutRef') loggedOutRef!: QueryList<ElementRef>;
-  toggleBlackPage = (
-    menu: HTMLDivElement,
-    black_page: HTMLDivElement,
-    openClass: string
-  ) => {
+  toggleBlackPage = (menu: HTMLDivElement, black_page: HTMLDivElement, openClass: string) => {
     if (menu.classList.contains(openClass)) {
       black_page.style.display = 'none';
     } else {
@@ -49,12 +38,7 @@ export class NavSideMobileComponent implements OnInit {
     const closeClass = 'nav-mobile-side-closed';
     const rightWhenClosed = '-25rem';
     this.toggleBlackPage(menu, black_page, openClass);
-    this.navSideService.toggleMenu(
-      menu,
-      openClass,
-      closeClass,
-      rightWhenClosed
-    );
+    this.navSideService.toggleMenu(menu, openClass, closeClass, rightWhenClosed);
   }
   handleLogout() {
     this.authService.removeUserLocal();
@@ -71,13 +55,7 @@ export class NavSideMobileComponent implements OnInit {
     const openClass = 'nav-mobile-side-open';
     const closeClass = 'nav-mobile-side-closed';
     const rightWhenClosed = '-25rem';
-    this.navSideService.setNavMobileElms(
-      menu,
-      black_page,
-      openClass,
-      closeClass,
-      rightWhenClosed
-    );
+    this.navSideService.setNavMobileElms(menu, black_page, openClass, closeClass, rightWhenClosed);
     this.router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
         if (!this.authService.isLogged()) {
@@ -103,12 +81,10 @@ export class NavSideMobileComponent implements OnInit {
     });
 
     if (this.authService.isLogged()) {
-      this.userService.getUserData(`user/one/${userId}`).subscribe(
-        (res: any) => {
-          if (!res.user.avatar) return;
-          avatar.src = res.user.avatar;
-        }
-      );
+      this.userService.getUserData(`user/one/${userId}`).subscribe((res: any) => {
+        if (!res.user.avatar) return;
+        avatar.src = res.user.avatar;
+      });
     }
 
     menu.style.right = rightWhenClosed;

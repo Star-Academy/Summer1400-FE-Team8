@@ -1,19 +1,21 @@
-
-    <div class="favorites-box-item" *ngIf="song" (click)="handlePlay($event,song.id)">
-      <div class="favorites-box-item-pic">
-        <img src={{song.cover}} alt="cover" />
-      </div>
-      <div class="favorites-box-item-text">
-        <h6>{{song.artist}}</h6>
-        <h5>{{song.name}}</h5>
-      </div>
-      <div class="favorites-box-item-play">
-        <a href="">
-          <button></button>
-        </a>
-      </div>
-      <div class="favorites-box-item-delete">
-        <img (click)="removeSongFromPlaylist($event,song.id)" src="../../../../assets/images/favorites/delete.svg" alt="delete" />
-      </div>
-    </div>
-
+<div class="favorites-box-item" *ngIf="song" (click)="handlePlay($event, song.id)">
+  <div class="favorites-box-item-pic">
+    <img src="{{ song.cover }}" alt="cover" />
+  </div>
+  <div class="favorites-box-item-text">
+    <h6>{{ song.artist }}</h6>
+    <h5>{{ song.name }}</h5>
+  </div>
+  <div class="favorites-box-item-play">
+    <a href="">
+      <button></button>
+    </a>
+  </div>
+  <div class="favorites-box-item-delete">
+    <img
+      (click)="removeSongFromPlaylist($event, song.id)"
+      src="../../../../assets/images/favorites/delete.svg"
+      alt="delete"
+    />
+  </div>
+</div>
