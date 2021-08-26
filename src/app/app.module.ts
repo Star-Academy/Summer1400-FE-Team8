@@ -28,6 +28,7 @@ import { PersianDataPipe } from './pipes/persian-data.pipe';
   declarations: [
     AppComponent,
     HomepageComponent,
+    CardComponent,
     NavbarComponent,
     FooterComponent,
     SearchBoxComponent,
@@ -47,6 +48,7 @@ import { PersianDataPipe } from './pipes/persian-data.pipe';
     PlaylistSongItemComponent,
     PersianDataPipe,
   ],
+  exports: [CardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

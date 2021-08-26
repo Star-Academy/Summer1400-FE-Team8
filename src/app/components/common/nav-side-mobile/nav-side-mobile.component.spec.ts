@@ -27,7 +27,7 @@ describe('NavSideMobileComponent', () => {
       providers:[
         { provide: LocationStrategy, useClass: MockLocationStrategy },
       ]
-       
+
     })
     .compileComponents();
   });
@@ -73,8 +73,7 @@ describe('NavSideMobileComponent', () => {
   })))
 
   it('should logout', fakeAsync(() => {
-    const btn = fixture.debugElement.query(By.css('.nav-mobile-side-logout a'))
-    .nativeElement;
+    const btn = fixture.debugElement.query(By.css('.nav-mobile-side-logout a')).nativeElement;
     spyOn(authService, 'removeUserLocal').and.callThrough();
     btn.click();
     fixture.whenStable().then(() =>{
@@ -92,4 +91,4 @@ describe('NavSideMobileComponent', () => {
         expect(component.handleBlackPageClick).toHaveBeenCalled();
     })
   }));
-}); 
+});

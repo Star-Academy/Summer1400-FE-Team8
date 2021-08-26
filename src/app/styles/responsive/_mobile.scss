@@ -143,7 +143,7 @@
               text-align: center;
               font-size: 1rem;
           }
-          
+
 
           .create-playlist-input,.create-playlist-submit{
             display: flex;
@@ -211,8 +211,8 @@
 
     .playlist-box-item-add {
       button {
-        width: 1.9rem !important;
-        height: 1.9rem !important;
+        width: 1.9rem ;
+        height: 1.9rem ;
       }
     }
   }
@@ -288,7 +288,7 @@
             padding-left: .8rem;
             button {
               border-top: 0.5rem solid transparent !important;
-              border-left: 1rem solid $main-white !important; 
+              border-left: 1rem solid $main-white !important;
               border-bottom: 0.5rem solid transparent !important;
             }
           }
@@ -301,7 +301,7 @@
       }
     }
 
-    
+
   }
 
   // -------- sign up
