@@ -1,7 +1,7 @@
 <div  *ngIf="songs" class="playlist-box">
 <div  #allItems *ngFor="let song of songs" class="playlist-box-item" >
   <div class="playlist-box-item-pic">
-    <img [src] ="song.cover"   alt="cover">
+    <img [src] ="song.cover"   alt="cover of song">
   </div>
   <div class="playlist-box-item-text">
     <h6>{{song.artist}}</h6>

@@ -22,13 +22,13 @@ export class CardComponent implements OnInit , AfterViewInit
   }
   async ngAfterViewInit(): Promise<void>
   {
-    // this.buttonElement.changes.subscribe(()=>{
-    //   this.buttonElement.forEach((e , i )=>{
-    //     e.nativeElement.onmouseover = ()=>{
-    //       alert(i);
-    //     }
-    //   });
-    // });
+    this.buttonElement.changes.subscribe(()=>{
+      this.buttonElement.forEach((e , i )=>{
+        e.nativeElement.onmouseover = ()=>{
+          alert(i);
+        }
+      });
+    });
   }
 
 }
